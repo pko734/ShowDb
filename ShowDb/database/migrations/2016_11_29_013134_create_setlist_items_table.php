@@ -17,7 +17,7 @@ class CreateSetlistItemsTable extends Migration
             $table->increments('id');
             $table->integer('show_id')->unsigned();
             $table->integer('song_id')->unsigned();
-            $table->integer('created_by')->unsigned();
+            $table->integer('creator_id')->unsigned();
             $table->integer('order')->unsigned();
 
             $table->foreign('show_id')
@@ -32,7 +32,7 @@ class CreateSetlistItemsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('created_by')
+            $table->foreign('creator_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')

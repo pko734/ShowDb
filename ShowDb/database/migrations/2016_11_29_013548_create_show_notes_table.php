@@ -20,7 +20,7 @@ class CreateShowNotesTable extends Migration
             $table->text('note');
             $table->boolean('published');
             $table->enum('type', ['public', 'private']);
-            $table->integer('created_by')->unsigned();
+            $table->integer('creator_id')->unsigned();
             $table->timestamps();
             $table->integer('order')->unsigned();
 
@@ -36,7 +36,7 @@ class CreateShowNotesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('created_by')
+            $table->foreign('creator_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
