@@ -162,6 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Weidner\Goutte\GoutteServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -178,8 +179,8 @@ return [
         ShowDb\Providers\EventServiceProvider::class,
         ShowDb\Providers\RouteServiceProvider::class,
 
-	// other
-	Laravel\Socialite\SocialiteServiceProvider::class,
+    // other
+    Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -228,7 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-	'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+        'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
 
     ],
 

@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class ShowNote extends Model
 {
     public function show() {
-        return $this->belongsTo('App\Show');
+        return $this->belongsTo('ShowDb\Show');
     }
 
     public function user() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('ShowDb\User');
     }
 
     public function creator() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('ShowDb\User');
     }
 }

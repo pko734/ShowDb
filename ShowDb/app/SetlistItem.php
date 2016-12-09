@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class SetlistItem extends Model
 {
     public function show() {
-        return $this->belongsTo('App\Show');
+        return $this->belongsTo('ShowDb\Show');
     }
 
     public function song() {
-        return $this->belongsTo('App\Song');
+        return $this->belongsTo('ShowDb\Song');
     }
 
     public function creator() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('ShowDb\User');
     }
 }

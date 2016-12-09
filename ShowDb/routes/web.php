@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -51,8 +47,15 @@ Route::get('/debug', function() {
 });
 Auth::routes();
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 
+Route::resource('songs', 'SongController');
+
+Route::resource('shows', 'ShowController');
