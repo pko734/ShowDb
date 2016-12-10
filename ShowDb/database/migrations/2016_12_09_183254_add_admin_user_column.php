@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAvatarColumn extends Migration
+class AddAdminUserColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class AddAvatarColumn extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('avatar');
+            $table->boolean('admin');
         });
-     }
+    }
 
     /**
      * Reverse the migrations.
@@ -25,8 +25,8 @@ class AddAvatarColumn extends Migration
      */
     public function down()
     {
-        Schema::table('users', function ($table) {
-            $table->dropColumn('avatar');
+        Schema::table('users', function($table) {
+            $table->dropColumn('admin');
         });
     }
 }

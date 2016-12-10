@@ -5,6 +5,9 @@ namespace ShowDb\Http\Controllers\Auth;
 use ShowDb\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use ShowDb\User;
+use Auth;
+use Socialize;
+use Redirect;
 
 class AuthController extends Controller
 {
@@ -15,7 +18,7 @@ class AuthController extends Controller
      */
     public function redirectToProvider()
     {
-        return \Socialize::with('facebook')->redirect();
+        return Socialize::with('facebook')->redirect();
     }
 
     /**
@@ -25,13 +28,13 @@ class AuthController extends Controller
      */
     public function handleProviderCallback()
     {
-	$user = \Socialize::with('facebook')->user();
+        $user = Socialize::with('facebook')->user();
 
-	$authUser = $this->findOrCreateUser($user);
+        $authUser = $this->findOrCreateUser($user);
 
-	\Auth::login($authUser, true);
+        Auth::login($authUser, true);
 
-	echo \Auth::user()->name;
+        return Redirect::back();
     }
 
     /**

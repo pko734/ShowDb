@@ -48,14 +48,16 @@ Route::get('/debug', function() {
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider')->name('fb.auth');
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback')->name('fb.callback');
 
 Route::resource('songs', 'SongController');
 
 Route::resource('shows', 'ShowController');
+
+Route::get('data/songs', 'DataController@songs')->name('data.songs');

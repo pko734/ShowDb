@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Avett Setlist Database',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Weidner\Goutte\GoutteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -179,8 +180,8 @@ return [
         ShowDb\Providers\EventServiceProvider::class,
         ShowDb\Providers\RouteServiceProvider::class,
 
-    // other
-    Laravel\Socialite\SocialiteServiceProvider::class,
+        // other
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -231,7 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
