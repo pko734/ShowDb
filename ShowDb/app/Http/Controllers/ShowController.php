@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use ShowDb\Show;
 use ShowDb\SetlistItem;
 use ShowDb\Song;
+use ShowDb\ShowNote;
 use Session;
+use Redirect;
 
 class ShowController extends Controller
 {
@@ -49,7 +51,6 @@ class ShowController extends Controller
             ->withQuery($q)
             ->withUser($request->user());
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -59,6 +60,28 @@ class ShowController extends Controller
     {
         // handled by index!
         $this->redirect('/');
+    }
+
+    public function storeNote($id, Request $request) {
+        $this->validate($request, [
+            'notes.*' => 'required|string|between:5,255'
+        ]);
+
+        foreach( $request->notes as $note ) {
+            $shownote = new ShowNote();
+            $shownote->note = $note;
+            $shownote->show_id = $id;
+            $shownote->creator_id = $request->user()->id;
+            $shownote->user_id = $request->user()->id;
+            $shownote->type = 'public';
+            $shownote->published = '1';
+            $shownote->order = 0;
+            $shownote->save();
+        }
+
+        Session::flash('flash_message', 'Note(s) added');
+        return Redirect::back();
+
     }
 
     /**
@@ -204,6 +227,19 @@ class ShowController extends Controller
         Show::find($id)->delete();
         Session::flash('flash_message', 'Show Deleted');
         return redirect('/shows');
+
+    }
+
+    public function destroyNote($show_id, $note_id) {
+        $note = ShowNote::findOrFail($note_id);
+        if( $note->show->id != $show_id ) {
+            Session::flash('flash_message', "boo");
+            return Redirect::back();
+        }
+
+        $note->delete();
+        Session::flash('flash_message', 'Note Deleted');
+        return Redirect::back();
 
     }
 }
