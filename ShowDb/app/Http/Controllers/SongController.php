@@ -4,7 +4,6 @@ namespace ShowDb\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ShowDb\Song;
-Use DB;
 Use Session;
 
 class SongController extends Controller
@@ -147,6 +146,7 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        Song::find($id)->delete();
+        Session::flash('flash_message', 'Song Deleted');
+        return redirect('/songs');    }
 }
