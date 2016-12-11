@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-      @yield('title','Avett Setlist Database')
+      Avett Setlist Database @yield('title')
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

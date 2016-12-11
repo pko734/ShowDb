@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-Shows where songs were played
+Plays
 @endsection
 
 @section('content')

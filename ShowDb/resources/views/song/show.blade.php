@@ -42,10 +42,8 @@ Song Viewer
 	      Times played: {{ count($song->setlistItems) }}
 	    </a>
 	  </label>
-
-	  @if($user && $user->admin)
 	</div>
-
+	@if($user && $user->admin)
 	<span class="input-grp-btn">
 	  <button type="submit" class="pull-left btn btn-primary">Edit Song</button>
 	</span>
