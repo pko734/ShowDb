@@ -4,8 +4,12 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 
+use OwenIt\Auditing\Auditable;
+
 class SetlistItem extends Model
 {
+
+    use Auditable;
 
     public $timestamps = false;
 

@@ -4,8 +4,13 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 
+use OwenIt\Auditing\Auditable;
+
 class ShowNote extends Model
 {
+
+    use Auditable;
+
     public function show() {
         return $this->belongsTo('ShowDb\Show');
     }

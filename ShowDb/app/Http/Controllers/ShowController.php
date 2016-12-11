@@ -9,12 +9,23 @@ use ShowDb\Song;
 use ShowDb\ShowNote;
 use Session;
 use Redirect;
+use Auth;
 
 class ShowController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->except(['show','index']);
+        $this->middleware('admin')->only([
+            'create',
+            'store',
+            'edit',
+            'update',
+            'destroy',
+        ]);
+        $this->middleware('auth')->only([
+            'destroyNote',
+            'storeNote',
+        ]);
     }
 
     /**
@@ -235,6 +246,13 @@ class ShowController extends Controller
         if( $note->show->id != $show_id ) {
             Session::flash('flash_message', "boo");
             return Redirect::back();
+        }
+
+        if( !Auth::user()->admin ) {
+            if( $note->user_id != Auth::user()->id ) {
+                Session::flash('flash_message', 'Sorry, you can only delete notes you have created');
+                return Redirect::back();
+            }
         }
 
         $note->delete();

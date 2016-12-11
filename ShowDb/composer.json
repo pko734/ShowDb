@@ -10,7 +10,8 @@
         "laravel/socialite": "~2.0",
         "weidner/goutte": "@dev",
         "barryvdh/laravel-debugbar": "^2.3",
-        "graham-campbell/markdown": "^7.0"
+        "graham-campbell/markdown": "^7.0",
+        "owen-it/laravel-auditing": "^3.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

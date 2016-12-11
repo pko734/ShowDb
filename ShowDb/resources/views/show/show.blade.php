@@ -86,19 +86,24 @@ Show Viewer
 	      <tr>
 		<td>
 		  {!! Markdown::convertToHtml($note->note) !!}
+		  @if(($user && $user->admin) || ($user && $user->id == $note->user_id))
 		  <span class="input-grp-btn">
-		    <button type="button" class="notedeletebutton pull-right btn btn-default"
+		    <button type="button" class="notedeletebutton pull-right pull-up btn btn-default"
 			    data-note-id="{{ $note->id }}">
 		      <span class="glyphicon glyphicon-trash"></span>
 		    </button>
 		  </span>
+		  @endif
+		  <small class="form-text text-muted">
+		    <em>by {{ $note->creator->username or $note->creator->name }}</em>
+		  </small>
 		</td>
 	      </tr>
 	      @endforeach
 
 	      <tr>
 		<td>
-		  @if($user && $user->admin)
+		  @if($user)
 		  <span class="input-grp-btn">
 		    <button id="noteaddbutton" type="button" class="pull-left btn btn-default">
 		      <span class="glyphicon glyphicon-plus"></span>
