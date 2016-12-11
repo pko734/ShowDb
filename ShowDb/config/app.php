@@ -182,7 +182,6 @@ return [
 
         // other
         Laravel\Socialite\SocialiteServiceProvider::class,
-        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
     ],
 
@@ -234,7 +233,6 @@ return [
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
     ],
 
 ];

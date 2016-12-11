@@ -19,15 +19,15 @@
 
     <!-- <link href='/css/app.css'    type='text/css' rel='stylesheet'> -->
     <link href='/css/showdb.css' type='text/css' rel='stylesheet'>
+    <link rel="stylesheet" href="/trumbowyg/dist/ui/trumbowyg.min.css">
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.10.0/js/bootstrap-markdown.js"></script>
+    <script src="/trumbowyg/dist/trumbowyg.min.js"></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.10.0/css/bootstrap-markdown.min.css" rel="stylesheet" />
 
   </head>
   <body>
@@ -40,15 +40,15 @@
 
       <!-- Collapsed Hamburger -->
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+    <span class="sr-only">Toggle Navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
       </button>
 
       <!-- Branding Image -->
       <a class="navbar-brand" href="{{ url('/') }}">
-        {{ config('app.name', 'Laravel') }}:
+    {{ config('app.name', 'Laravel') }}:
       </a>
       <div class="navbar-brand">@yield('title')</div>
     </div>
@@ -56,39 +56,39 @@
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
-        <li><a href="/shows">Shows</a></li>
-        <li><a href="/songs">Songs</a></li>
-        <li><a href="/about">About</a></li>
+    <li><a href="/shows">Shows</a></li>
+    <li><a href="/songs">Songs</a></li>
+    <li><a href="/about">About</a></li>
       </ul>
 
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right">
-        <!-- Authentication Links -->
-        @if (Auth::guest())
-        <li><a href="{{ url('/auth/facebook') }}">Login with Facebook</a></li>
-        <li><a href="{{ url('/login') }}">Login</a></li>
-        <li><a href="{{ url('/register') }}">Register</a></li>
-        @else
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        {{ Auth::user()->username }} <span class="caret"></span>
-          </a>
+    <!-- Authentication Links -->
+    @if (Auth::guest())
+    <li><a href="{{ url('/auth/facebook') }}">Login with Facebook</a></li>
+    <li><a href="{{ url('/login') }}">Login</a></li>
+    <li><a href="{{ url('/register') }}">Register</a></li>
+    @else
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    {{ Auth::user()->username }} <span class="caret"></span>
+      </a>
 
-          <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="{{ url('/logout') }}"
-             onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">
-            Logout
-          </a>
+      <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="{{ url('/logout') }}"
+         onclick="event.preventDefault();
+         document.getElementById('logout-form').submit();">
+        Logout
+      </a>
 
-          <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-          </form>
-        </li>
-          </ul>
-        </li>
-        @endif
+      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+      </form>
+    </li>
+      </ul>
+    </li>
+    @endif
       </ul>
     </div>
       </div>
