@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-Songs
+Song Finder
 @endsection
 
 @section('content')
@@ -15,7 +15,8 @@ Songs
   <form action="/songs" method="GET" role="search">
     <div class="input-group">
       <input type="text" class="form-control" name="q"
-	     placeholder="Search Songs" value="{{ $query or '' }}"> <span class="input-group-btn">
+	     placeholder="Search Songs" value="{{ $query or '' }}">
+      <span class="input-group-btn">
 	<button type="submit" class="btn btn-default">
 	  <span class="glyphicon glyphicon-search"></span>
 	</button>
@@ -32,12 +33,12 @@ Songs
       <tr>
 	<th>ID</th>
 	<th>
-	  <a href="{{ Request::fullUrlWithQuery(['o' => 'setlist_items_count']) }}">
+	  <a href="{{ Request::fullUrlWithQuery(['o' => $setlist_item_order]) }}">
 	    Play Count
 	  </a>
 	</th>
 	<th>
-	  <a href="{{ Request::fullUrlWithQuery(['o' => 'title']) }}">
+	  <a href="{{ Request::fullUrlWithQuery(['o' => $title_order]) }}">
 	    Title
 	  </a>
 	</th>

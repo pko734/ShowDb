@@ -36,19 +36,17 @@ class ShowController extends Controller
     public function index(Request $request)
     {
         $this->validate($request, [
-            'o' => 'in:date,setlist_items_count',
-            'd' => 'in:asc,desc',
+            'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
             'q' => 'string',
         ]);
 
         $q = $request->get('q');
-        $o = $request->get('o') ?: 'date';
-        $d = $request->get('d') ?: 'desc';
-
+        $o = $request->get('o') ?: 'date-desc';
+        $sort_order = explode('-', $o);
         $shows = Show::withCount('setlistItems')
-               ->where( 'date', 'LIKE', "%{$q}%" )
+               ->where( 'date', '  LIKE', "%{$q}%" )
                ->orWhere('venue', 'LIKE', "%{$q}%")
-               ->orderBy($o, $d)
+               ->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('date', 'desc')
                ->paginate(15)
                ->setPath( '' );
@@ -57,9 +55,21 @@ class ShowController extends Controller
             'o' => $request->get('o'),
         ]);
 
+        $setlist_order = 'setlist_items_count-asc';
+        if( $o === $setlist_order ) {
+            $setlist_order = 'setlist_items_count-desc';
+        }
+
+        $date_order = 'date-asc';
+        if( $o === $date_order ) {
+            $date_order = 'date-desc';
+        }
+
         return view('show.index')
             ->withShows($shows)
             ->withQuery($q)
+            ->withSetlistItemOrder($setlist_order)
+            ->withDateOrder($date_order)
             ->withUser($request->user());
     }
     /**
@@ -90,7 +100,7 @@ class ShowController extends Controller
             $shownote->save();
         }
 
-        Session::flash('flash_message', 'Note(s) added');
+        Session::flash('flash_message', 'Show Note(s) added');
         return Redirect::back();
 
     }

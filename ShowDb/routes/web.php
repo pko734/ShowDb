@@ -30,3 +30,9 @@ Route::get('data/songs', 'DataController@songs')->name('data.songs');
 
 Route::post('shows/{show}/notes', 'ShowController@storeNote')->name('show.notes.store');
 Route::delete('shows/{show}/notes/{note}', 'ShowController@destroyNote')->name('show.notes.destroy');
+
+Route::post('songs/{song}/notes', 'SongController@storeNote')->name('song.notes.store');
+Route::delete('songs/{song}/notes/{note}', 'SongController@destroyNote')->name('song.notes.destroy');
+
+Route::get('plays', 'SongController@findPlays')->name('song.plays.find');
+Route::get('songs/{song}/plays', 'SongController@showPlays')->name('song.plays.show');

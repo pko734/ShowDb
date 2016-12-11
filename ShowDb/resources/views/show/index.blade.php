@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-Shows
+Show Finder
 @endsection
 
 @section('content')
@@ -32,12 +32,12 @@ Shows
       <tr>
 	<th>ID</th>
 	<th>
-	  <a href="{{ Request::fullUrlWithQuery(['o' => 'date', 'd' => 'desc']) }}">
+	  <a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
 	    Date
 	  </a>
 	</th>
 	<th>
-	  <a href="{{ Request::FullUrlWithQuery(['o' => 'setlist_items_count']) }}">
+	  <a href="{{ Request::FullUrlWithQuery(['o' => $setlist_item_order]) }}">
 	    Songs
 	  </a>
 	</th>

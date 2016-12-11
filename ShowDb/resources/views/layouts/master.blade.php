@@ -48,8 +48,9 @@
 
       <!-- Branding Image -->
       <a class="navbar-brand" href="{{ url('/') }}">
-        {{ config('app.name', 'Laravel') }}: @yield('title')
+        {{ config('app.name', 'Laravel') }}:
       </a>
+      <div class="navbar-brand">@yield('title')</div>
     </div>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -58,7 +59,6 @@
         <li><a href="/shows">Shows</a></li>
         <li><a href="/songs">Songs</a></li>
         <li><a href="/about">About</a></li>
-        &nbsp;
       </ul>
 
       <!-- Right Side Of Navbar -->
