@@ -102,12 +102,13 @@ Song Viewer
 
 	    </tbody>
 	  </table>
-	</div>
-      </form>
-      <form id="deletenoteform" method="POST" action="/songs/{{ $song->id }}/notes/">
-	{{ method_field('DELETE') }}
-	{{ csrf_field() }}
-      </form>
+	</form>
+
+	<form id="deletenoteform" method="POST" action="/songs/{{ $song->id }}/notes/">
+	  {{ method_field('DELETE') }}
+	  {{ csrf_field() }}
+	</form>
+      </div>
     </div>
   </div>
 </div>
