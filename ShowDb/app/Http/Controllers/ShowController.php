@@ -39,7 +39,7 @@ class ShowController extends Controller
     {
         $this->validate($request, [
             'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
-            'q' => 'string',
+            'q' => 'string|min:3',
         ]);
 
         $q = $request->get('q');
@@ -48,6 +48,9 @@ class ShowController extends Controller
         $shows = Show::withCount('setlistItems')
                ->where( 'date',   'LIKE', "%{$q}%" )
                ->orWhere('venue', 'LIKE', "%{$q}%")
+               ->orWhereHas('notes', function($query) use ($q) {
+                   $query->where('note', 'LIKE', "%{$q}%");
+               })
                ->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('date', 'desc')
                ->paginate(15)

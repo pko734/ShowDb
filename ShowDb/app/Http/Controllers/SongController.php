@@ -37,7 +37,7 @@ class SongController extends Controller
     {
         $this->validate($request, [
             'o' => 'in:title-asc,title-desc,setlist_items_count-asc,setlist_items_count-desc',
-            'q' => 'string',
+            'q' => 'string|min:3',
         ]);
         $q = $request->get('q');
         $o = $request->get('o') ?: 'title-asc';

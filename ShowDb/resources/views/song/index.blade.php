@@ -16,7 +16,8 @@ Song Finder
     <div class="input-group">
       <input type="text" class="form-control" name="q"
 	     placeholder="Search Songs" value="{{ $query or '' }}">
-      <span class="input-group-btn">
+      <small class="form-text text-muted">examples: <em>november blue, cover, bob dylan, etc</em></small>
+      <span class="input-group-btn" style="vertical-align:top;">
 	<button type="submit" class="btn btn-default">
 	  <span class="glyphicon glyphicon-search"></span>
 	</button>
