@@ -1,0 +1,8 @@
+small.edit-video-btn, small.delete-video-btn {
+    cursor: pointer;
+}
+
+a .fa-youtube-play {
+    font-size: 18px;
+    color: red;
+}

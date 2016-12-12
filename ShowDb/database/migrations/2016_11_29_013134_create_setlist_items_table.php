@@ -34,9 +34,7 @@ class CreateSetlistItemsTable extends Migration
 
             $table->foreign('creator_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->on('users');
 
         });
     }

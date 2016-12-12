@@ -7,6 +7,7 @@ use ShowDb\Show;
 use ShowDb\SetlistItem;
 use ShowDb\Song;
 use ShowDb\ShowNote;
+use ShowDb\SetlistItemNote;
 use Session;
 use Redirect;
 use Auth;
@@ -21,6 +22,7 @@ class ShowController extends Controller
             'edit',
             'update',
             'destroy',
+            'storeVideo',
         ]);
         $this->middleware('auth')->only([
             'destroyNote',
@@ -85,7 +87,7 @@ class ShowController extends Controller
 
     public function storeNote($id, Request $request) {
         $this->validate($request, [
-            'notes.*' => 'required|string|between:5,255'
+            'notes.*' => 'string|between:5,255'
         ]);
 
         foreach( $request->notes as $note ) {
@@ -103,6 +105,23 @@ class ShowController extends Controller
         Session::flash('flash_message', 'Show Note(s) added');
         return Redirect::back();
 
+    }
+
+    public function storeVideo($id, Request $request) {
+        $this->validate($request, [
+            'video_url' => 'active_url',
+        ]);
+
+        $note = new SetlistItemNote();
+        $note->note = $request->video_url;
+        $note->setlist_item_id = $id;
+        $note->user_id = $request->user()->id;
+        $note->published = 1;
+        $note->creator_id = $request->user()->id;
+        $note->order = 1;
+        $note->save();
+        Session::flash('flash_message', 'Video saved');
+        return Redirect::back();
     }
 
     /**
@@ -268,6 +287,24 @@ class ShowController extends Controller
         $note->delete();
         Session::flash('flash_message', 'Note Deleted');
         return Redirect::back();
+    }
 
+    public function destroyVideo($item_id, $note_id) {
+        $note = SetlistItemNote::findOrFail($note_id);
+        if( $note->setlistItem->id != $item_id ) {
+            Session::flash('flash_message', "Wrong item_id/note_id");
+            return Redirect::back();
+        }
+
+        if( !Auth::user()->admin ) {
+            if( $note->user_id != Auth::user()->id ) {
+                Session::flash('flash_message', 'Sorry, you can only delete notes you have created');
+                return Redirect::back();
+            }
+        }
+
+        $note->delete();
+        Session::flash('flash_message', 'Video Deleted');
+        return Redirect::back();
     }
 }

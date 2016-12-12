@@ -24,4 +24,8 @@ class SetlistItem extends Model
     public function creator() {
         return $this->belongsTo('ShowDb\User');
     }
+
+    public function notes() {
+        return $this->hasMany('ShowDb\SetlistItemNote');
+    }
 }

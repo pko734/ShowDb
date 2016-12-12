@@ -12,15 +12,18 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link href='/css/showdb.css' type='text/css' rel='stylesheet'>
     <link rel="stylesheet" href="/trumbowyg/ui/trumbowyg.min.css">
+    <link href='/css/showdb.css' type='text/css' rel='stylesheet'>
+
+    @yield('head')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="/js/bootbox.min.js"></script>
     <script src="/trumbowyg/trumbowyg.min.js"></script>
-
+    <script src="https://use.fontawesome.com/0c6c3c7579.js"></script>
 
   </head>
   <body>
@@ -64,19 +67,24 @@
     @else
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    {{ Auth::user()->username }} <span class="caret"></span>
+      @if(Auth::user()->username)
+      {{ Auth::user()->username }}
+      @else
+      {{ Auth::user()->name }}
+      @endif
+      <span class="caret"></span>
       </a>
 
       <ul class="dropdown-menu" role="menu">
     <li>
       <a href="{{ url('/logout') }}"
-         onclick="event.preventDefault();
-         document.getElementById('logout-form').submit();">
-        Logout
+     onclick="event.preventDefault();
+     document.getElementById('logout-form').submit();">
+    Logout
       </a>
 
       <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-        {{ csrf_field() }}
+    {{ csrf_field() }}
       </form>
     </li>
       </ul>

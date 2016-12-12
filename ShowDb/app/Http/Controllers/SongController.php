@@ -253,19 +253,21 @@ class SongController extends Controller
 
     public function storeNote($id, Request $request) {
         $this->validate($request, [
-            'notes.*' => 'required|string|between:5,255'
+            'notes.*' => 'string|between:5,255'
         ]);
 
         foreach( $request->notes as $note ) {
-            $songnote = new SongNote();
-            $songnote->note = $note;
-            $songnote->song_id = $id;
-            $songnote->creator_id = $request->user()->id;
-            $songnote->user_id = $request->user()->id;
-            $songnote->type = 'public';
-            $songnote->published = '1';
-            $songnote->order = 0;
-            $songnote->save();
+            if(trim($note) !== '') {
+                $songnote = new SongNote();
+                $songnote->note = $note;
+                $songnote->song_id = $id;
+                $songnote->creator_id = $request->user()->id;
+                $songnote->user_id = $request->user()->id;
+                $songnote->type = 'public';
+                $songnote->published = '1';
+                $songnote->order = 0;
+                $songnote->save();
+            }
         }
 
         Session::flash('flash_message', 'Song Note(s) added');

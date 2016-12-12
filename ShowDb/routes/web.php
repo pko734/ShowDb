@@ -36,3 +36,6 @@ Route::delete('songs/{song}/notes/{note}', 'SongController@destroyNote')->name('
 
 Route::get('plays', 'SongController@findPlays')->name('song.plays.find');
 Route::get('songs/{song}/plays', 'SongController@showPlays')->name('song.plays.show');
+
+Route::post('setlistitems/{item}/video', 'ShowController@storeVideo')->name('show.video.store');
+Route::delete('setlistitems/{item}/video/{video}', 'ShowController@destroyVideo')->name('show.video.destroy');

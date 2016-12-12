@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
     {
         # Define the users you want to add
         $users = [
-            ['poehler@interworx.com','Paul Oehler','booboo123','iworx-paul',1],
-            ['jill@harvard.edu','jill','helloworld','jill',0],    # <-- Required for P4
-            ['jamal@harvard.edu','jamal','helloworld','jamal',0], # <-- Required for P4
+            ['poehler@interworx.com','Paul Oehler','booboo123',1],
+            ['jill@harvard.edu','jill','helloworld',0],    # <-- Required for P4
+            ['jamal@harvard.edu','jamal','helloworld',0], # <-- Required for P4
         ];
 
         # Get existing users to prevent duplicates
@@ -28,9 +28,7 @@ class UsersTableSeeder extends Seeder
                     'email' => $user[0],
                     'name' => $user[1],
                     'password' => Hash::make($user[2]),
-                    'username' => $user[3],
-                    'avatar' => '',
-                    'admin' => $user[4],
+                    'admin' => $user[3],
                 ]);
             }
         }

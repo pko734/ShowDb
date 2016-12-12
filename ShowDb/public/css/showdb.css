@@ -51,6 +51,36 @@ body {
     padding-bottom: 50px;
 }
 
+.trumbowyg-box,
+.trumbowyg-editor {
+    min-height: 100px;
+}
+
+.trumbowyg-editor,
+.trumbowyg-textarea {
+    min-height: 100px;
+}
+
+.row.row-grid [class*="col-"] + [class*="col-"] {
+    margin-top: 15px;
+}
+
+@media (min-width: 1200px) {
+    .row.row-grid [class*="col-lg-"] + [class*="col-lg-"] {
+	margin-top: 0;
+    }
+}
+@media (min-width: 992px) {
+    .row.row-grid [class*="col-md-"] + [class*="col-md-"] {
+	margin-top: 0;
+    }
+}
+@media (min-width: 768px) {
+    .row.row-grid [class*="col-sm-"] + [class*="col-sm-"] {
+	margin-top: 0;
+    }
+}
+
 /*
  * typehead.js-bootstrap3.less
  * @version 0.2.3
