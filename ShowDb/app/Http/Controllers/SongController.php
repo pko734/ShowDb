@@ -44,6 +44,9 @@ class SongController extends Controller
         $sort_order = explode('-', $o);
         $songs = Song::withCount('setlistItems')
                ->where( 'title', 'LIKE', '%' . $q . '%' )
+               ->orWhereHas('notes', function($query) use ($q) {
+                   $query->where('note', 'LIKE', "%{$q}%");
+               })
                ->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('title')
                ->paginate(15)
