@@ -11,7 +11,8 @@
         "weidner/goutte": "@dev",
         "barryvdh/laravel-debugbar": "^2.3",
         "graham-campbell/markdown": "^7.0",
-        "owen-it/laravel-auditing": "^3.1"
+        "owen-it/laravel-auditing": "^3.1",
+        "orangehill/iseed": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
