@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-<link href='/css/book.css' rel='stylesheet'>
+<link href='/css/plays.css' rel='stylesheet'>
 @endsection
 
 @section('title')
