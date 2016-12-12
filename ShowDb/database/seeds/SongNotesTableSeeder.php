@@ -32,19 +32,6 @@ class SongNotesTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'id' => 4,
-                'song_id' => 154,
-                'user_id' => 1,
-            'note' => '<p>(Habershon/Gabriel cover)</p>',
-                'published' => 1,
-                'type' => 'public',
-                'creator_id' => 1,
-                'created_at' => '2016-12-12 18:43:37',
-                'updated_at' => '2016-12-12 18:43:37',
-                'order' => 0,
-            ),
-            2 => 
-            array (
                 'id' => 5,
                 'song_id' => 155,
                 'user_id' => 1,
@@ -56,7 +43,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:44:27',
                 'order' => 0,
             ),
-            3 => 
+            2 => 
             array (
                 'id' => 7,
                 'song_id' => 159,
@@ -69,7 +56,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:45:02',
                 'order' => 0,
             ),
-            4 => 
+            3 => 
             array (
                 'id' => 8,
                 'song_id' => 34,
@@ -82,7 +69,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:45:22',
                 'order' => 0,
             ),
-            5 => 
+            4 => 
             array (
                 'id' => 10,
                 'song_id' => 160,
@@ -95,7 +82,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:46:00',
                 'order' => 0,
             ),
-            6 => 
+            5 => 
             array (
                 'id' => 11,
                 'song_id' => 227,
@@ -108,7 +95,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:46:26',
                 'order' => 0,
             ),
-            7 => 
+            6 => 
             array (
                 'id' => 12,
                 'song_id' => 283,
@@ -121,7 +108,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:47:16',
                 'order' => 0,
             ),
-            8 => 
+            7 => 
             array (
                 'id' => 13,
                 'song_id' => 310,
@@ -134,7 +121,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:49:10',
                 'order' => 0,
             ),
-            9 => 
+            8 => 
             array (
                 'id' => 14,
                 'song_id' => 311,
@@ -147,7 +134,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:49:25',
                 'order' => 0,
             ),
-            10 => 
+            9 => 
             array (
                 'id' => 15,
                 'song_id' => 161,
@@ -160,7 +147,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:50:04',
                 'order' => 0,
             ),
-            11 => 
+            10 => 
             array (
                 'id' => 16,
                 'song_id' => 241,
@@ -173,7 +160,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:50:21',
                 'order' => 0,
             ),
-            12 => 
+            11 => 
             array (
                 'id' => 17,
                 'song_id' => 230,
@@ -186,7 +173,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:50:54',
                 'order' => 0,
             ),
-            13 => 
+            12 => 
             array (
                 'id' => 18,
                 'song_id' => 219,
@@ -199,7 +186,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:51:10',
                 'order' => 0,
             ),
-            14 => 
+            13 => 
             array (
                 'id' => 19,
                 'song_id' => 263,
@@ -212,7 +199,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:51:30',
                 'order' => 0,
             ),
-            15 => 
+            14 => 
             array (
                 'id' => 20,
                 'song_id' => 251,
@@ -225,7 +212,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:51:40',
                 'order' => 0,
             ),
-            16 => 
+            15 => 
             array (
                 'id' => 21,
                 'song_id' => 199,
@@ -238,7 +225,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:52:01',
                 'order' => 0,
             ),
-            17 => 
+            16 => 
             array (
                 'id' => 22,
                 'song_id' => 262,
@@ -251,7 +238,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:52:16',
                 'order' => 0,
             ),
-            18 => 
+            17 => 
             array (
                 'id' => 23,
                 'song_id' => 274,
@@ -264,7 +251,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:52:32',
                 'order' => 0,
             ),
-            19 => 
+            18 => 
             array (
                 'id' => 24,
                 'song_id' => 195,
@@ -277,7 +264,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:52:55',
                 'order' => 0,
             ),
-            20 => 
+            19 => 
             array (
                 'id' => 25,
                 'song_id' => 188,
@@ -290,7 +277,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:58:39',
                 'order' => 0,
             ),
-            21 => 
+            20 => 
             array (
                 'id' => 26,
                 'song_id' => 239,
@@ -303,7 +290,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:59:01',
                 'order' => 0,
             ),
-            22 => 
+            21 => 
             array (
                 'id' => 27,
                 'song_id' => 284,
@@ -316,7 +303,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:59:21',
                 'order' => 0,
             ),
-            23 => 
+            22 => 
             array (
                 'id' => 28,
                 'song_id' => 216,
@@ -329,7 +316,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:59:33',
                 'order' => 0,
             ),
-            24 => 
+            23 => 
             array (
                 'id' => 29,
                 'song_id' => 276,
@@ -342,7 +329,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 18:59:55',
                 'order' => 0,
             ),
-            25 => 
+            24 => 
             array (
                 'id' => 30,
                 'song_id' => 203,
@@ -355,7 +342,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:00:19',
                 'order' => 0,
             ),
-            26 => 
+            25 => 
             array (
                 'id' => 31,
                 'song_id' => 265,
@@ -368,7 +355,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:00:37',
                 'order' => 0,
             ),
-            27 => 
+            26 => 
             array (
                 'id' => 32,
                 'song_id' => 266,
@@ -381,7 +368,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:00:51',
                 'order' => 0,
             ),
-            28 => 
+            27 => 
             array (
                 'id' => 33,
                 'song_id' => 268,
@@ -394,7 +381,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:01:06',
                 'order' => 0,
             ),
-            29 => 
+            28 => 
             array (
                 'id' => 34,
                 'song_id' => 317,
@@ -407,7 +394,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:38:18',
                 'order' => 0,
             ),
-            30 => 
+            29 => 
             array (
                 'id' => 35,
                 'song_id' => 235,
@@ -420,7 +407,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:38:40',
                 'order' => 0,
             ),
-            31 => 
+            30 => 
             array (
                 'id' => 37,
                 'song_id' => 192,
@@ -433,7 +420,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:40:41',
                 'order' => 0,
             ),
-            32 => 
+            31 => 
             array (
                 'id' => 38,
                 'song_id' => 256,
@@ -446,7 +433,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:41:03',
                 'order' => 0,
             ),
-            33 => 
+            32 => 
             array (
                 'id' => 39,
                 'song_id' => 333,
@@ -459,7 +446,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:41:30',
                 'order' => 0,
             ),
-            34 => 
+            33 => 
             array (
                 'id' => 40,
                 'song_id' => 242,
@@ -472,7 +459,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:41:55',
                 'order' => 0,
             ),
-            35 => 
+            34 => 
             array (
                 'id' => 41,
                 'song_id' => 282,
@@ -485,7 +472,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:42:56',
                 'order' => 0,
             ),
-            36 => 
+            35 => 
             array (
                 'id' => 42,
                 'song_id' => 202,
@@ -498,7 +485,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:43:40',
                 'order' => 0,
             ),
-            37 => 
+            36 => 
             array (
                 'id' => 43,
                 'song_id' => 295,
@@ -511,7 +498,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:45:30',
                 'order' => 0,
             ),
-            38 => 
+            37 => 
             array (
                 'id' => 44,
                 'song_id' => 228,
@@ -524,7 +511,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:47:25',
                 'order' => 0,
             ),
-            39 => 
+            38 => 
             array (
                 'id' => 45,
                 'song_id' => 214,
@@ -537,7 +524,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:49:18',
                 'order' => 0,
             ),
-            40 => 
+            39 => 
             array (
                 'id' => 46,
                 'song_id' => 309,
@@ -550,7 +537,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:49:58',
                 'order' => 0,
             ),
-            41 => 
+            40 => 
             array (
                 'id' => 47,
                 'song_id' => 277,
@@ -563,7 +550,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:50:26',
                 'order' => 0,
             ),
-            42 => 
+            41 => 
             array (
                 'id' => 48,
                 'song_id' => 177,
@@ -576,7 +563,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:50:52',
                 'order' => 0,
             ),
-            43 => 
+            42 => 
             array (
                 'id' => 49,
                 'song_id' => 207,
@@ -589,7 +576,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:51:13',
                 'order' => 0,
             ),
-            44 => 
+            43 => 
             array (
                 'id' => 50,
                 'song_id' => 349,
@@ -602,7 +589,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:51:50',
                 'order' => 0,
             ),
-            45 => 
+            44 => 
             array (
                 'id' => 51,
                 'song_id' => 293,
@@ -615,7 +602,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:52:33',
                 'order' => 0,
             ),
-            46 => 
+            45 => 
             array (
                 'id' => 52,
                 'song_id' => 307,
@@ -628,7 +615,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:52:56',
                 'order' => 0,
             ),
-            47 => 
+            46 => 
             array (
                 'id' => 53,
                 'song_id' => 226,
@@ -641,7 +628,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:53:22',
                 'order' => 0,
             ),
-            48 => 
+            47 => 
             array (
                 'id' => 54,
                 'song_id' => 55,
@@ -654,7 +641,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:53:46',
                 'order' => 0,
             ),
-            49 => 
+            48 => 
             array (
                 'id' => 55,
                 'song_id' => 322,
@@ -667,7 +654,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:54:28',
                 'order' => 0,
             ),
-            50 => 
+            49 => 
             array (
                 'id' => 56,
                 'song_id' => 197,
@@ -680,7 +667,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:54:49',
                 'order' => 0,
             ),
-            51 => 
+            50 => 
             array (
                 'id' => 57,
                 'song_id' => 320,
@@ -693,7 +680,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:55:41',
                 'order' => 0,
             ),
-            52 => 
+            51 => 
             array (
                 'id' => 58,
                 'song_id' => 206,
@@ -706,7 +693,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:56:30',
                 'order' => 0,
             ),
-            53 => 
+            52 => 
             array (
                 'id' => 59,
                 'song_id' => 258,
@@ -719,7 +706,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:57:08',
                 'order' => 0,
             ),
-            54 => 
+            53 => 
             array (
                 'id' => 60,
                 'song_id' => 319,
@@ -732,7 +719,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:57:58',
                 'order' => 0,
             ),
-            55 => 
+            54 => 
             array (
                 'id' => 61,
                 'song_id' => 158,
@@ -745,7 +732,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:58:44',
                 'order' => 0,
             ),
-            56 => 
+            55 => 
             array (
                 'id' => 62,
                 'song_id' => 179,
@@ -758,7 +745,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:59:07',
                 'order' => 0,
             ),
-            57 => 
+            56 => 
             array (
                 'id' => 63,
                 'song_id' => 270,
@@ -771,7 +758,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:59:21',
                 'order' => 0,
             ),
-            58 => 
+            57 => 
             array (
                 'id' => 64,
                 'song_id' => 313,
@@ -784,7 +771,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 19:59:48',
                 'order' => 0,
             ),
-            59 => 
+            58 => 
             array (
                 'id' => 65,
                 'song_id' => 156,
@@ -797,7 +784,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:00:18',
                 'order' => 0,
             ),
-            60 => 
+            59 => 
             array (
                 'id' => 66,
                 'song_id' => 301,
@@ -810,7 +797,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:01:13',
                 'order' => 0,
             ),
-            61 => 
+            60 => 
             array (
                 'id' => 67,
                 'song_id' => 267,
@@ -823,7 +810,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:01:31',
                 'order' => 0,
             ),
-            62 => 
+            61 => 
             array (
                 'id' => 68,
                 'song_id' => 243,
@@ -836,7 +823,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:02:02',
                 'order' => 0,
             ),
-            63 => 
+            62 => 
             array (
                 'id' => 69,
                 'song_id' => 172,
@@ -849,7 +836,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:03:12',
                 'order' => 0,
             ),
-            64 => 
+            63 => 
             array (
                 'id' => 70,
                 'song_id' => 209,
@@ -862,7 +849,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:03:57',
                 'order' => 0,
             ),
-            65 => 
+            64 => 
             array (
                 'id' => 71,
                 'song_id' => 189,
@@ -875,7 +862,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:04:21',
                 'order' => 0,
             ),
-            66 => 
+            65 => 
             array (
                 'id' => 72,
                 'song_id' => 238,
@@ -888,7 +875,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:04:59',
                 'order' => 0,
             ),
-            67 => 
+            66 => 
             array (
                 'id' => 73,
                 'song_id' => 244,
@@ -901,7 +888,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:23:57',
                 'order' => 0,
             ),
-            68 => 
+            67 => 
             array (
                 'id' => 74,
                 'song_id' => 250,
@@ -914,7 +901,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:24:45',
                 'order' => 0,
             ),
-            69 => 
+            68 => 
             array (
                 'id' => 75,
                 'song_id' => 280,
@@ -927,7 +914,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:25:34',
                 'order' => 0,
             ),
-            70 => 
+            69 => 
             array (
                 'id' => 76,
                 'song_id' => 316,
@@ -940,7 +927,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:25:55',
                 'order' => 0,
             ),
-            71 => 
+            70 => 
             array (
                 'id' => 77,
                 'song_id' => 237,
@@ -953,7 +940,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:26:12',
                 'order' => 0,
             ),
-            72 => 
+            71 => 
             array (
                 'id' => 78,
                 'song_id' => 285,
@@ -966,7 +953,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:26:36',
                 'order' => 0,
             ),
-            73 => 
+            72 => 
             array (
                 'id' => 79,
                 'song_id' => 254,
@@ -979,7 +966,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:26:52',
                 'order' => 0,
             ),
-            74 => 
+            73 => 
             array (
                 'id' => 80,
                 'song_id' => 257,
@@ -992,7 +979,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:27:16',
                 'order' => 0,
             ),
-            75 => 
+            74 => 
             array (
                 'id' => 81,
                 'song_id' => 303,
@@ -1005,7 +992,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:27:32',
                 'order' => 0,
             ),
-            76 => 
+            75 => 
             array (
                 'id' => 82,
                 'song_id' => 231,
@@ -1018,7 +1005,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:27:54',
                 'order' => 0,
             ),
-            77 => 
+            76 => 
             array (
                 'id' => 83,
                 'song_id' => 211,
@@ -1031,7 +1018,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:28:16',
                 'order' => 0,
             ),
-            78 => 
+            77 => 
             array (
                 'id' => 84,
                 'song_id' => 286,
@@ -1044,7 +1031,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:28:35',
                 'order' => 0,
             ),
-            79 => 
+            78 => 
             array (
                 'id' => 85,
                 'song_id' => 294,
@@ -1057,7 +1044,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:29:09',
                 'order' => 0,
             ),
-            80 => 
+            79 => 
             array (
                 'id' => 86,
                 'song_id' => 174,
@@ -1070,7 +1057,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:29:37',
                 'order' => 0,
             ),
-            81 => 
+            80 => 
             array (
                 'id' => 87,
                 'song_id' => 232,
@@ -1083,7 +1070,7 @@ class SongNotesTableSeeder extends Seeder
                 'updated_at' => '2016-12-12 20:29:51',
                 'order' => 0,
             ),
-            82 => 
+            81 => 
             array (
                 'id' => 88,
                 'song_id' => 298,
@@ -1094,6 +1081,721 @@ class SongNotesTableSeeder extends Seeder
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 20:30:18',
                 'updated_at' => '2016-12-12 20:30:18',
+                'order' => 0,
+            ),
+            82 => 
+            array (
+                'id' => 89,
+                'song_id' => 208,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:32:24',
+                'updated_at' => '2016-12-12 20:32:24',
+                'order' => 0,
+            ),
+            83 => 
+            array (
+                'id' => 90,
+                'song_id' => 248,
+                'user_id' => 1,
+            'note' => '<p>(Ola Belle Reed cover)</p>',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:34:34',
+                'updated_at' => '2016-12-12 20:34:34',
+                'order' => 0,
+            ),
+            84 => 
+            array (
+                'id' => 91,
+                'song_id' => 281,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:34:56',
+                'updated_at' => '2016-12-12 20:34:56',
+                'order' => 0,
+            ),
+            85 => 
+            array (
+                'id' => 92,
+                'song_id' => 246,
+                'user_id' => 1,
+            'note' => '(cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:35:30',
+                'updated_at' => '2016-12-12 20:35:30',
+                'order' => 0,
+            ),
+            86 => 
+            array (
+                'id' => 93,
+                'song_id' => 220,
+                'user_id' => 1,
+            'note' => '(Langhorne Slim cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:36:04',
+                'updated_at' => '2016-12-12 20:36:04',
+                'order' => 0,
+            ),
+            87 => 
+            array (
+                'id' => 94,
+                'song_id' => 185,
+                'user_id' => 1,
+            'note' => '(Curtis Stewart cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:36:23',
+                'updated_at' => '2016-12-12 20:36:23',
+                'order' => 0,
+            ),
+            88 => 
+            array (
+                'id' => 95,
+                'song_id' => 224,
+                'user_id' => 1,
+            'note' => '(The Everybodyfields cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:36:58',
+                'updated_at' => '2016-12-12 20:36:58',
+                'order' => 0,
+            ),
+            89 => 
+            array (
+                'id' => 97,
+                'song_id' => 324,
+                'user_id' => 1,
+            'note' => '(Merle Haggard cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:37:49',
+                'updated_at' => '2016-12-12 20:37:49',
+                'order' => 0,
+            ),
+            90 => 
+            array (
+                'id' => 98,
+                'song_id' => 249,
+                'user_id' => 1,
+            'note' => '(Bob Dylan cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:38:11',
+                'updated_at' => '2016-12-12 20:38:11',
+                'order' => 0,
+            ),
+            91 => 
+            array (
+                'id' => 99,
+                'song_id' => 272,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:38:42',
+                'updated_at' => '2016-12-12 20:38:42',
+                'order' => 0,
+            ),
+            92 => 
+            array (
+                'id' => 100,
+                'song_id' => 166,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:39:01',
+                'updated_at' => '2016-12-12 20:39:01',
+                'order' => 0,
+            ),
+            93 => 
+            array (
+                'id' => 101,
+                'song_id' => 259,
+                'user_id' => 1,
+            'note' => '(Charlie Poole cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:39:22',
+                'updated_at' => '2016-12-12 20:39:22',
+                'order' => 0,
+            ),
+            94 => 
+            array (
+                'id' => 102,
+                'song_id' => 323,
+                'user_id' => 1,
+            'note' => '(Merle Haggard cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:39:40',
+                'updated_at' => '2016-12-12 20:39:40',
+                'order' => 0,
+            ),
+            95 => 
+            array (
+                'id' => 103,
+                'song_id' => 204,
+                'user_id' => 1,
+            'note' => '(Merle Haggard cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:40:00',
+                'updated_at' => '2016-12-12 20:40:00',
+                'order' => 0,
+            ),
+            96 => 
+            array (
+                'id' => 104,
+                'song_id' => 213,
+                'user_id' => 1,
+            'note' => '(Paleface cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:40:16',
+                'updated_at' => '2016-12-12 20:40:16',
+                'order' => 0,
+            ),
+            97 => 
+            array (
+                'id' => 105,
+                'song_id' => 275,
+                'user_id' => 1,
+            'note' => '(George Strait cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:40:48',
+                'updated_at' => '2016-12-12 20:40:48',
+                'order' => 0,
+            ),
+            98 => 
+            array (
+                'id' => 106,
+                'song_id' => 201,
+                'user_id' => 1,
+            'note' => '(George Bennard cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:41:14',
+                'updated_at' => '2016-12-12 20:41:14',
+                'order' => 0,
+            ),
+            99 => 
+            array (
+                'id' => 107,
+                'song_id' => 264,
+                'user_id' => 1,
+            'note' => '(Tom Waits cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:41:28',
+                'updated_at' => '2016-12-12 20:41:28',
+                'order' => 0,
+            ),
+            100 => 
+            array (
+                'id' => 108,
+                'song_id' => 205,
+                'user_id' => 1,
+            'note' => '(Willie Nelson cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:41:44',
+                'updated_at' => '2016-12-12 20:41:44',
+                'order' => 0,
+            ),
+            101 => 
+            array (
+                'id' => 109,
+                'song_id' => 261,
+                'user_id' => 1,
+            'note' => '(Jim Croce cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:42:08',
+                'updated_at' => '2016-12-12 20:42:08',
+                'order' => 0,
+            ),
+            102 => 
+            array (
+                'id' => 110,
+                'song_id' => 218,
+                'user_id' => 1,
+            'note' => '(Derroll Adams cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:42:45',
+                'updated_at' => '2016-12-12 20:42:45',
+                'order' => 0,
+            ),
+            103 => 
+            array (
+                'id' => 111,
+                'song_id' => 296,
+                'user_id' => 1,
+            'note' => '(George Jones cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:42:58',
+                'updated_at' => '2016-12-12 20:42:58',
+                'order' => 0,
+            ),
+            104 => 
+            array (
+                'id' => 112,
+                'song_id' => 225,
+                'user_id' => 1,
+            'note' => '(Merle Haggard cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:43:19',
+                'updated_at' => '2016-12-12 20:43:19',
+                'order' => 0,
+            ),
+            105 => 
+            array (
+                'id' => 113,
+                'song_id' => 236,
+                'user_id' => 1,
+            'note' => '(Merle Haggard cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:43:36',
+                'updated_at' => '2016-12-12 20:43:36',
+                'order' => 0,
+            ),
+            106 => 
+            array (
+                'id' => 114,
+                'song_id' => 222,
+                'user_id' => 1,
+            'note' => '(Langhorne Slim cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:44:30',
+                'updated_at' => '2016-12-12 20:44:30',
+                'order' => 0,
+            ),
+            107 => 
+            array (
+                'id' => 115,
+                'song_id' => 234,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:44:50',
+                'updated_at' => '2016-12-12 20:44:50',
+                'order' => 0,
+            ),
+            108 => 
+            array (
+                'id' => 116,
+                'song_id' => 245,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:45:20',
+                'updated_at' => '2016-12-12 20:45:20',
+                'order' => 0,
+            ),
+            109 => 
+            array (
+                'id' => 117,
+                'song_id' => 229,
+                'user_id' => 1,
+            'note' => '(Paul Simon cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:45:37',
+                'updated_at' => '2016-12-12 20:45:37',
+                'order' => 0,
+            ),
+            110 => 
+            array (
+                'id' => 118,
+                'song_id' => 269,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:46:01',
+                'updated_at' => '2016-12-12 20:46:01',
+                'order' => 0,
+            ),
+            111 => 
+            array (
+                'id' => 119,
+                'song_id' => 186,
+                'user_id' => 1,
+            'note' => '(Bob Willis cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:46:30',
+                'updated_at' => '2016-12-12 20:46:30',
+                'order' => 0,
+            ),
+            112 => 
+            array (
+                'id' => 120,
+                'song_id' => 252,
+                'user_id' => 1,
+            'note' => '(Harold Arlen / Doc Watson cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:46:52',
+                'updated_at' => '2016-12-12 20:46:52',
+                'order' => 0,
+            ),
+            113 => 
+            array (
+                'id' => 121,
+                'song_id' => 223,
+                'user_id' => 1,
+            'note' => '(Langhorne Slim cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:47:35',
+                'updated_at' => '2016-12-12 20:47:35',
+                'order' => 0,
+            ),
+            114 => 
+            array (
+                'id' => 122,
+                'song_id' => 288,
+                'user_id' => 1,
+            'note' => '(John Denver cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:47:57',
+                'updated_at' => '2016-12-12 20:47:57',
+                'order' => 0,
+            ),
+            115 => 
+            array (
+                'id' => 123,
+                'song_id' => 342,
+                'user_id' => 1,
+            'note' => '(Beasley Smith / Haven Gillespie cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:48:31',
+                'updated_at' => '2016-12-12 20:48:31',
+                'order' => 0,
+            ),
+            116 => 
+            array (
+                'id' => 124,
+                'song_id' => 312,
+                'user_id' => 1,
+            'note' => '(John Prine cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:50:03',
+                'updated_at' => '2016-12-12 20:50:03',
+                'order' => 0,
+            ),
+            117 => 
+            array (
+                'id' => 125,
+                'song_id' => 178,
+                'user_id' => 1,
+            'note' => '(Paleface cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:50:15',
+                'updated_at' => '2016-12-12 20:50:15',
+                'order' => 0,
+            ),
+            118 => 
+            array (
+                'id' => 126,
+                'song_id' => 215,
+                'user_id' => 1,
+            'note' => '(Zombies cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:50:54',
+                'updated_at' => '2016-12-12 20:50:54',
+                'order' => 0,
+            ),
+            119 => 
+            array (
+                'id' => 127,
+                'song_id' => 173,
+                'user_id' => 1,
+            'note' => '(Flatt &amp; Scruggs cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:51:17',
+                'updated_at' => '2016-12-12 20:51:17',
+                'order' => 0,
+            ),
+            120 => 
+            array (
+                'id' => 128,
+                'song_id' => 321,
+                'user_id' => 1,
+            'note' => '(Rolling Stones cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:51:30',
+                'updated_at' => '2016-12-12 20:51:30',
+                'order' => 0,
+            ),
+            121 => 
+            array (
+                'id' => 129,
+                'song_id' => 196,
+                'user_id' => 1,
+            'note' => '(Richard M. Jones cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:51:44',
+                'updated_at' => '2016-12-12 20:51:44',
+                'order' => 0,
+            ),
+            122 => 
+            array (
+                'id' => 130,
+                'song_id' => 300,
+                'user_id' => 1,
+            'note' => '(Grateful Dead cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:52:06',
+                'updated_at' => '2016-12-12 20:52:06',
+                'order' => 0,
+            ),
+            123 => 
+            array (
+                'id' => 131,
+                'song_id' => 306,
+                'user_id' => 1,
+            'note' => '(John D. Loudermilk cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:52:27',
+                'updated_at' => '2016-12-12 20:52:27',
+                'order' => 0,
+            ),
+            124 => 
+            array (
+                'id' => 132,
+                'song_id' => 198,
+                'user_id' => 1,
+            'note' => '(Jimmie Rodgers conver)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:53:17',
+                'updated_at' => '2016-12-12 20:53:17',
+                'order' => 0,
+            ),
+            125 => 
+            array (
+                'id' => 133,
+                'song_id' => 157,
+                'user_id' => 1,
+            'note' => '(Bob Dylan cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:53:31',
+                'updated_at' => '2016-12-12 20:53:31',
+                'order' => 0,
+            ),
+            126 => 
+            array (
+                'id' => 134,
+                'song_id' => 168,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:53:53',
+                'updated_at' => '2016-12-12 20:53:53',
+                'order' => 0,
+            ),
+            127 => 
+            array (
+                'id' => 135,
+                'song_id' => 165,
+                'user_id' => 1,
+            'note' => '(Paleface cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:54:30',
+                'updated_at' => '2016-12-12 20:54:30',
+                'order' => 0,
+            ),
+            128 => 
+            array (
+                'id' => 136,
+                'song_id' => 240,
+                'user_id' => 1,
+            'note' => '(John Prine cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:54:51',
+                'updated_at' => '2016-12-12 20:54:51',
+                'order' => 0,
+            ),
+            129 => 
+            array (
+                'id' => 137,
+                'song_id' => 217,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:55:05',
+                'updated_at' => '2016-12-12 20:55:05',
+                'order' => 0,
+            ),
+            130 => 
+            array (
+                'id' => 138,
+                'song_id' => 221,
+                'user_id' => 1,
+            'note' => '(Nicole Atkins cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:55:18',
+                'updated_at' => '2016-12-12 20:55:18',
+                'order' => 0,
+            ),
+            131 => 
+            array (
+                'id' => 139,
+                'song_id' => 190,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:55:37',
+                'updated_at' => '2016-12-12 20:55:37',
+                'order' => 0,
+            ),
+            132 => 
+            array (
+                'id' => 140,
+                'song_id' => 273,
+                'user_id' => 1,
+            'note' => '(Jagger &amp; Richards cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:56:06',
+                'updated_at' => '2016-12-12 20:56:06',
+                'order' => 0,
+            ),
+            133 => 
+            array (
+                'id' => 141,
+                'song_id' => 154,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:56:25',
+                'updated_at' => '2016-12-12 20:56:25',
+                'order' => 0,
+            ),
+            134 => 
+            array (
+                'id' => 142,
+                'song_id' => 271,
+                'user_id' => 1,
+            'note' => '(Traditional cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:56:49',
+                'updated_at' => '2016-12-12 20:56:49',
+                'order' => 0,
+            ),
+            135 => 
+            array (
+                'id' => 143,
+                'song_id' => 210,
+                'user_id' => 1,
+            'note' => '(Carole King cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:57:29',
+                'updated_at' => '2016-12-12 20:57:29',
+                'order' => 0,
+            ),
+            136 => 
+            array (
+                'id' => 144,
+                'song_id' => 279,
+                'user_id' => 1,
+            'note' => '(Tom T. Hall cover)',
+                'published' => 1,
+                'type' => 'public',
+                'creator_id' => 1,
+                'created_at' => '2016-12-12 20:57:49',
+                'updated_at' => '2016-12-12 20:57:49',
                 'order' => 0,
             ),
         ));
