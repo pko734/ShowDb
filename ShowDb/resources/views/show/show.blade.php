@@ -58,7 +58,7 @@ Show Viewer
 		@endif
 	      </td>
 	      <td>
-
+		@if($user && $user->admin)
 		@if( count($item->notes) === 0)
 		<small class="edit-video-btn"
 		       data-item-id="{{ $item->id }}">
@@ -70,7 +70,8 @@ Show Viewer
 		       data-video-id="{{ $item->notes->get(0)->id }}">
 		  <span class="glyphicon glyphicon-remove"></span>
 		</small>
-		  @endif
+		@endif
+		@endif
 	      </td>
 	    </tr>
 	    @endforeach
