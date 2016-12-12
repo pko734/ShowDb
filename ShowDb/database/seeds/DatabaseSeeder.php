@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SetlistItemsTableSeeder::class);
         $this->call(SetlistItemNotesTableSeeder::class);
         $this->call(ShowNotesTableSeeder::class);
+        $this->call('SetlistItemNotesTableSeeder');
+        $this->call('ShowNotesTableSeeder');
+        $this->call('SongNotesTableSeeder');
     }
 }
