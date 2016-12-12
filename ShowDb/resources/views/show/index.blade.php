@@ -46,20 +46,24 @@ Show Finder
       </tr>
     </thead>
     <tbody>
-      @foreach($shows as $show)
+      @forelse($shows as $show)
       <tr>
-    <td>{{ $show->id }}</td>
-    <td>{{ $show->date }}</td>
-    <td>
-      @if ($show->setlist_items_count === 0)
-      -
-      @else
-      {{ $show->setlist_items_count }}
-      @endif
-    </td>
-    <td><a href="/shows/{{ $show->id }}">{{ $show->venue }}</a></td>
+	<td>{{ $show->id }}</td>
+	<td>{{ $show->date }}</td>
+	<td>
+	  @if ($show->setlist_items_count === 0)
+	  -
+	  @else
+	  {{ $show->setlist_items_count }}
+	  @endif
+	</td>
+	<td><a href="/shows/{{ $show->id }}">{{ $show->venue }}</a></td>
       </tr>
-      @endforeach
+      @empty
+      <tr>
+	<td colspan="4">No matches</td>
+      </tr>
+      @endforelse
     </tbody>
   </table>
 

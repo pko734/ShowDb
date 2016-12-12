@@ -18,10 +18,10 @@ Plays
     <div class="input-group">
       <span class="ac-song-title">
     <input name="title"
-           value="{{ $song->title }}"
-           class="form-control typeahead"
-           type="text"
-           placeholder="Song Title">
+	   value="{{ $song->title }}"
+	   class="form-control typeahead"
+	   type="text"
+	   placeholder="Song Title">
       </span>
       <span class="input-group-btn">
     <button type="submit" class="btn btn-default">
@@ -38,21 +38,25 @@ Plays
     <tr>
       <th>ID</th>
       <th>
-        <a href="{{ Request::fullUrlWithQuery(['d' => 'asc']) }}">
-          Date
-        </a>
+	<a href="{{ Request::fullUrlWithQuery(['d' => 'asc']) }}">
+	  Date
+	</a>
       </th>
       <th>Venue</th>
     </tr>
       </thead>
       <tbody>
-    @foreach($shows as $show)
+    @forelse($shows as $show)
     <tr>
       <td>{{ $show->id }}</td>
       <td>{{ $show->date }}</td>
       <td><a href="/shows/{{ $show->id }}">{{ $show->venue }}</a></td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+      <td colspan="3">No matches</td>
+    </tr>
+    @endforelse
       </tbody>
     </table>
 

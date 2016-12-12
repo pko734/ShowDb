@@ -46,13 +46,17 @@ Song Finder
       </tr>
     </thead>
     <tbody>
-      @foreach($songs as $song)
+      @forelse($songs as $song)
       <tr>
 	<td>{{ $song->id }}</td>
-	<td>{{ $song->setlist_items_count }}</td>
+	<td><a href="/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
 	<td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
       </tr>
-      @endforeach
+      @empty
+      <tr>
+	<td colspan="3">No Matches</td>
+      </tr>
+      @endforelse
 
     </tbody>
   </table>
