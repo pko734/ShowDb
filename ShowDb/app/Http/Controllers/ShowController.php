@@ -46,7 +46,7 @@ class ShowController extends Controller
         $o = $request->get('o') ?: 'date-desc';
         $sort_order = explode('-', $o);
         $shows = Show::withCount('setlistItems')
-               ->where( 'date', '  LIKE', "%{$q}%" )
+               ->where( 'date',   'LIKE', "%{$q}%" )
                ->orWhere('venue', 'LIKE', "%{$q}%")
                ->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('date', 'desc')
