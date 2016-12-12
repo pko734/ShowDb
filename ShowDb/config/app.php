@@ -183,6 +183,7 @@ return [
         // other
         Laravel\Socialite\SocialiteServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
     ],
 
     /*
