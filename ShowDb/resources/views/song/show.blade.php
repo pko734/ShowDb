@@ -74,11 +74,13 @@ Song Viewer
             </button>
           </span>
           @endif
+	  <!--
           <div class="form-group">
             <small class="form-text text-muted">
               <em>by {{ $note->creator->username or $note->creator->name }}</em>
             </small>
           </div>
+	  -->  
         </td>
           </tr>
           @empty
