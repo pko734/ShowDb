@@ -12,12 +12,12 @@ class ShowNotesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('show_notes')->delete();
-        
+
         \DB::table('show_notes')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'show_id' => 1486,
@@ -26,11 +26,11 @@ class ShowNotesTableSeeder extends Seeder
                 'published' => 1,
                 'type' => 'public',
                 'creator_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'show_id' => 1472,
@@ -39,11 +39,11 @@ class ShowNotesTableSeeder extends Seeder
                 'published' => 1,
                 'type' => 'public',
                 'creator_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'show_id' => 1472,
@@ -52,11 +52,11 @@ class ShowNotesTableSeeder extends Seeder
                 'published' => 1,
                 'type' => 'public',
                 'creator_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'show_id' => 1472,
@@ -65,12 +65,12 @@ class ShowNotesTableSeeder extends Seeder
                 'published' => 1,
                 'type' => 'public',
                 'creator_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
             ),
         ));
-        
-        
+
+
     }
 }
