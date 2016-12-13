@@ -90,10 +90,14 @@ class ShowController extends Controller
 
     public function storeNote($id, Request $request) {
         $this->validate($request, [
-            'notes.*' => 'string|between:5,255'
+            'notes.*' => 'string|between:5,255',
         ]);
 
+        $cnt = 0;
         foreach( $request->notes as $note ) {
+            if( trim($note) === '') {
+                continue;
+            }
             $shownote = new ShowNote();
             $shownote->note = $note;
             $shownote->show_id = $id;
@@ -103,9 +107,14 @@ class ShowController extends Controller
             $shownote->published = '1';
             $shownote->order = 0;
             $shownote->save();
+            $cnt++;
         }
 
-        Session::flash('flash_message', 'Show Note(s) added');
+        if($cnt) {
+            Session::flash('flash_message', 'Show Note(s) added');
+        } else {
+            Session::flash('flash_message', 'Show Note(s) were empty');
+        }
         return Redirect::back();
 
     }

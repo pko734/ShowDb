@@ -259,21 +259,28 @@ class SongController extends Controller
             'notes.*' => 'string|between:5,255'
         ]);
 
+        $cnt = 0;
         foreach( $request->notes as $note ) {
-            if(trim($note) !== '') {
-                $songnote = new SongNote();
-                $songnote->note = $note;
-                $songnote->song_id = $id;
-                $songnote->creator_id = $request->user()->id;
-                $songnote->user_id = $request->user()->id;
-                $songnote->type = 'public';
-                $songnote->published = '1';
-                $songnote->order = 0;
-                $songnote->save();
+            if(trim($note) === '') {
+                continue;
             }
+            $songnote = new SongNote();
+            $songnote->note = $note;
+            $songnote->song_id = $id;
+            $songnote->creator_id = $request->user()->id;
+            $songnote->user_id = $request->user()->id;
+            $songnote->type = 'public';
+            $songnote->published = '1';
+            $songnote->order = 0;
+            $songnote->save();
+            $cnt++;
         }
 
-        Session::flash('flash_message', 'Song Note(s) added');
+        if($cnt) {
+            Session::flash('flash_message', 'Song Note(s) added');
+        } else {
+            Session::flash('flash_message', 'Song Note(s) were empty');
+        }
         return Redirect::back();
 
     }
