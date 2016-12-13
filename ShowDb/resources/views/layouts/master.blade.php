@@ -29,72 +29,72 @@
   <body>
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-	<div class="navbar-header">
+    <div class="navbar-header">
 
-	  <!-- Collapsed Hamburger -->
-	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-	    <span class="sr-only">Toggle Navigation</span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </button>
+      <!-- Collapsed Hamburger -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+	<span class="sr-only">Toggle Navigation</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+      </button>
 
-	  <!-- Branding Image -->
-	  <a class="navbar-brand" href="{{ url('/') }}">
-	    {{ config('app.name', 'Laravel') }}:
+      <!-- Branding Image -->
+      <a class="navbar-brand" href="{{ url('/') }}">
+	{{ config('app.name', 'Laravel') }}:
+      </a>
+      <div class="navbar-brand">@yield('title')</div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+      <!-- Left Side Of Navbar -->
+      <ul class="nav navbar-nav">
+	<li><a href="/shows">Shows</a></li>
+	<li><a href="/songs">Songs</a></li>
+	<!--    <li><a href="/about">About</a></li> -->
+      </ul>
+
+      <!-- Right Side Of Navbar -->
+      <ul class="nav navbar-nav navbar-right">
+	<!-- Authentication Links -->
+	@if (Auth::guest())
+	<li><a href="{{ url('/auth/facebook') }}">Login with Facebook</a></li>
+	<li><a href="{{ url('/login') }}">Login</a></li>
+	<li><a href="{{ url('/register') }}">Register</a></li>
+	@else
+	<li class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+	@if(Auth::user()->username)
+	{{ Auth::user()->username }}
+	@else
+	{{ Auth::user()->name }}
+	@endif
+	<span class="caret"></span>
 	  </a>
-	  <div class="navbar-brand">@yield('title')</div>
-	</div>
 
-	<div class="collapse navbar-collapse" id="app-navbar-collapse">
-	  <!-- Left Side Of Navbar -->
-	  <ul class="nav navbar-nav">
-	    <li><a href="/shows">Shows</a></li>
-	    <li><a href="/songs">Songs</a></li>
-	    <!--    <li><a href="/about">About</a></li> -->
+	  <ul class="dropdown-menu" role="menu">
+	<li>
+	  <a href="{{ url('/logout') }}"
+	     onclick="event.preventDefault();
+		  document.getElementById('logout-form').submit();">
+	    Logout
+	  </a>
+
+	  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+	    {{ csrf_field() }}
+	  </form>
+	</li>
 	  </ul>
-
-	  <!-- Right Side Of Navbar -->
-	  <ul class="nav navbar-nav navbar-right">
-	    <!-- Authentication Links -->
-	    @if (Auth::guest())
-	    <li><a href="{{ url('/auth/facebook') }}">Login with Facebook</a></li>
-	    <li><a href="{{ url('/login') }}">Login</a></li>
-	    <li><a href="{{ url('/register') }}">Register</a></li>
-	    @else
-	    <li class="dropdown">
-	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-		@if(Auth::user()->username)
-		{{ Auth::user()->username }}
-		@else
-		{{ Auth::user()->name }}
-		@endif
-		<span class="caret"></span>
-	      </a>
-
-	      <ul class="dropdown-menu" role="menu">
-		<li>
-		  <a href="{{ url('/logout') }}"
-		     onclick="event.preventDefault();
-			      document.getElementById('logout-form').submit();">
-		    Logout
-		  </a>
-
-		  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-		    {{ csrf_field() }}
-		  </form>
-		</li>
-	      </ul>
-	    </li>
-	    @endif
-	  </ul>
-	</div>
+	</li>
+	@endif
+      </ul>
+    </div>
       </div>
     </nav>
 
 
     @if(Session::get('flash_message') != null)
-    <div class="alert alert-success alert-dismissible center">
+    <div class="alert alert-success alert-dismissible" style="margin-top: -20px;">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>{{ Session::get('flash_message') }}</strong>
     </div>
@@ -103,9 +103,9 @@
     @if (count($errors) > 0)
     <div class="alert alert-danger">
       <ul>
-	@foreach ($errors->all() as $error)
-	<li>{{ $error }}</li>
-	@endforeach
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
       </ul>
     </div>
     @endif
