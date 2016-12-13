@@ -46,17 +46,20 @@ class VideoUpdateCommand extends Command
         $apikey =    env('YOUTUBE_API_KEY');
 
         $page = '';
+	$search = '';
+	$search = 'q=' . urlencode('night') . '&';
         while(true) {
-            $x = json_decode( file_get_contents("https://www.googleapis.com/youtube/v3/search?pageToken={$page}&order=date&part=snippet&q=avett&channelId=$channelId&maxResults=50&key=$apikey"));
+ 	    $url = "https://www.googleapis.com/youtube/v3/search?{$search}{$page}key={$apikey}&channelId={$channelId}&part=snippet&maxResults=50";
+	    $x = json_decode( file_get_contents($url));
             $this->findVideos($x);
             if(isset($x->nextPageToken)) {
-                $page = $x->nextPageToken;
+                $page = "pageToken={$x->nextPageToken}&";
             } else {
-                break;
+	        break;
             }
         }
     }
-
+    private $i = 0;
     private function findVideos($x) {
         foreach($x->items as $item) {
             $song_name = '';
@@ -67,6 +70,11 @@ class VideoUpdateCommand extends Command
             $date = '';
 
             $title = $item->snippet->title;
+
+	    if( stristr( $title, 'avett' ) === false ) {
+	      continue;
+	    }
+	    $matches = [];
             preg_match('/[0-9]{2}\.[0-9]{2}\.[0-9]{2}/', $title, $matches);
             if(isset($matches[0])) {
                 // dcrangerfan messed up the date of these videos.
@@ -78,6 +86,7 @@ class VideoUpdateCommand extends Command
                 $this->error("Could not find date in: $title");
                 continue;
             }
+	    $matches = [];
             preg_match('/"(.*)"/', $title, $matches);
             if(isset($matches[1])) {
                 $song_name = $matches[1];
@@ -89,14 +98,15 @@ class VideoUpdateCommand extends Command
             $show = Show::where('date',  '=', $date->format('Y-m-d'))
                   ->orderBy('id', 'desc')
                   ->first();
-            $song = Song::where('title', '=', $song_name)->first();
+            $song = Song::where('title', 'LIKE', '%' . 
+				str_replace( '...', '', str_replace('The ', '', trim($song_name))))->first();
 
             if(!$show) {
-                $this->error( "Could not find show for: $title)");
+                $this->error( "Could not find show for: $title");
                 continue;
             }
             if(!$song) {
-                $this->error( "Could not find song for: $title)");
+                $this->error( "Could not find song for: $title");
                 continue;
             }
 
@@ -119,7 +129,7 @@ class VideoUpdateCommand extends Command
                 $note->creator_id = 1;
                 $note->order = 1;
                 $note->save();
-                $this->info( "Inserted video: https://youtube.com/watch?v={$item->id->videoId}");
+                $this->info( "Inserted video: https://youtube.com/watch?v={$item->id->videoId}\n$title");
             }
         }
     }
