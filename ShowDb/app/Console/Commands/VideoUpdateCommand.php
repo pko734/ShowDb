@@ -46,7 +46,7 @@ class VideoUpdateCommand extends Command
         $apikey =    env('YOUTUBE_API_KEY');
 
         $page = '';
-        for($i = 0; $i < 100; $i++) {
+        while(true) {
             $x = json_decode( file_get_contents("https://www.googleapis.com/youtube/v3/search?pageToken={$page}&order=date&part=snippet&q=avett&channelId=$channelId&maxResults=50&key=$apikey"));
             $this->findVideos($x);
             if(isset($x->nextPageToken)) {
@@ -64,10 +64,12 @@ class VideoUpdateCommand extends Command
             $song = '';
             $setlist_item = '';
             $note = '';
-            $title = $item->snippet->title;
             $date = '';
+
+            $title = $item->snippet->title;
             preg_match('/[0-9]{2}\.[0-9]{2}\.[0-9]{2}/', $title, $matches);
             if(isset($matches[0])) {
+                // dcrangerfan messed up the date of these videos.
                 if($matches[0] === '05.16.16') {
                     $matches[0] = '05.15.16';
                 }
@@ -118,8 +120,6 @@ class VideoUpdateCommand extends Command
                 $note->order = 1;
                 $note->save();
                 $this->info( "Inserted video: https://youtube.com/watch?v={$item->id->videoId}");
-            } else {
-
             }
         }
     }
