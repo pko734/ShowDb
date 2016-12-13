@@ -184,6 +184,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
+        BackupManager\Laravel\Laravel5ServiceProvider::class,
     ],
 
     /*
