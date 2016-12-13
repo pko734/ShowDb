@@ -46,6 +46,8 @@ class AuthController extends Controller
     private function findOrCreateUser($user)
     {
         if ($authUser = User::where('email', $user->email)->first()) {
+            $authUser->avatar = $user->avatar;
+            $authUser->save();
             return $authUser;
         }
 
