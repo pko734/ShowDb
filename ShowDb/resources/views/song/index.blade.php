@@ -29,37 +29,35 @@ Song Finder
 <div class="container">
   <form action="/songs" method="POST">
     {{ csrf_field() }}
-  <table id="songtable" class="table table-striped">
-    <thead>
-      <tr>
-	<th>ID</th>
-	<th>
-	  <a href="{{ Request::fullUrlWithQuery(['o' => $setlist_item_order]) }}">
-	    Play Count
-	  </a>
-	</th>
-	<th>
-	  <a href="{{ Request::fullUrlWithQuery(['o' => $title_order]) }}">
-	    Title
-	  </a>
-	</th>
-      </tr>
-    </thead>
-    <tbody>
-      @forelse($songs as $song)
-      <tr>
-	<td>{{ $song->id }}</td>
-	<td><a href="/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
-	<td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
-      </tr>
-      @empty
-      <tr>
-	<td colspan="3">No Matches</td>
-      </tr>
-      @endforelse
+    <table id="songtable" class="table table-striped">
+      <thead>
+	<tr>
+	  <th>
+	    <a href="{{ Request::fullUrlWithQuery(['o' => $title_order]) }}">
+	      Title
+	    </a>
+	  </th>
+	  <th style="text-align:center;">
+	    <a href="{{ Request::fullUrlWithQuery(['o' => $setlist_item_order]) }}">
+	      Play Count
+	    </a>
+	  </th>
+	</tr>
+      </thead>
+      <tbody>
+	@forelse($songs as $song)
+	<tr>
+	  <td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
+	  <td style="text-align: center;"><a href="/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
+	</tr>
+	@empty
+	<tr>
+	  <td colspan="2">No Matches</td>
+	</tr>
+	@endforelse
 
-    </tbody>
-  </table>
+      </tbody>
+    </table>
   </form>
   @if($user && $user->admin)
   <ul class="pagination">

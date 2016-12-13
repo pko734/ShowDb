@@ -92,28 +92,25 @@
       </div>
     </nav>
 
-    <div class="container">
-      @if(Session::get('flash_message') != null)
-      <div class="alert alert-success alert-dismissible center">
-	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-	<strong>{{ Session::get('flash_message') }}</strong>
-      </div>
-      @endif
 
-      @if (count($errors) > 0)
-      <div class="alert alert-danger">
-	<ul>
-	  @foreach ($errors->all() as $error)
-	  <li>{{ $error }}</li>
-	  @endforeach
-	</ul>
-      </div>
-      @endif
-
-      @yield('content')
-
+    @if(Session::get('flash_message') != null)
+    <div class="alert alert-success alert-dismissible center">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>{{ Session::get('flash_message') }}</strong>
     </div>
+    @endif
 
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+      <ul>
+	@foreach ($errors->all() as $error)
+	<li>{{ $error }}</li>
+	@endforeach
+      </ul>
+    </div>
+    @endif
+
+    @yield('content')
 
   </body>
 
