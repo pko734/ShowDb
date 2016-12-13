@@ -46,10 +46,9 @@ class VideoUpdateCommand extends Command
         $apikey =    env('YOUTUBE_API_KEY');
 
         $page = '';
-	$search = '';
-	$search = 'q=' . urlencode('night') . '&';
+	$search = 'q=' . urlencode('') . '&';
         while(true) {
- 	    $url = "https://www.googleapis.com/youtube/v3/search?{$search}{$page}key={$apikey}&channelId={$channelId}&part=snippet&maxResults=50";
+ 	    $url = "https://www.googleapis.com/youtube/v3/search?{$search}{$page}key={$apikey}&channelId={$channelId}&order=date&part=snippet&maxResults=50";
 	    $x = json_decode( file_get_contents($url));
             $this->findVideos($x);
             if(isset($x->nextPageToken)) {
@@ -83,7 +82,7 @@ class VideoUpdateCommand extends Command
                 }
                 $date = DateTime::createFromFormat('m.d.y', $matches[0]);
             } else {
-                $this->error("Could not find date in: $title");
+	        $this->error("Could not find date in: $title");
                 continue;
             }
 	    $matches = [];
@@ -99,7 +98,7 @@ class VideoUpdateCommand extends Command
                   ->orderBy('id', 'desc')
                   ->first();
             $song = Song::where('title', 'LIKE', '%' . 
-				str_replace( '...', '', str_replace('The ', '', trim($song_name))))->first();
+				str_replace( '...', '', str_replace('The ', '', trim($song_name))) . '%')->first();
 
             if(!$show) {
                 $this->error( "Could not find show for: $title");
