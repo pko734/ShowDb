@@ -54,7 +54,7 @@
       <ul class="nav navbar-nav">
     <li><a href="/shows">Shows</a></li>
     <li><a href="/songs">Songs</a></li>
-    <li><a href="/about">About</a></li>
+<!--    <li><a href="/about">About</a></li> -->
       </ul>
 
       <!-- Right Side Of Navbar -->
