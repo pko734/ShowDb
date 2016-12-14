@@ -23,6 +23,8 @@ class ShowController extends Controller
             'update',
             'destroy',
             'storeVideo',
+            'approveNote',
+            'approveVideo',
         ]);
         $this->middleware('auth')->only([
             'destroyNote',
@@ -88,7 +90,7 @@ class ShowController extends Controller
         $this->redirect('/');
     }
 
-    public function storeNote($id, Request $request) {
+    public function storeNote($show_id, Request $request) {
         $this->validate($request, [
             'notes.*' => 'string|between:5,255',
         ]);
@@ -100,11 +102,11 @@ class ShowController extends Controller
             }
             $shownote = new ShowNote();
             $shownote->note = $note;
-            $shownote->show_id = $id;
+            $shownote->show_id = $show_id;
             $shownote->creator_id = $request->user()->id;
             $shownote->user_id = $request->user()->id;
             $shownote->type = 'public';
-            $shownote->published = '1';
+            $shownote->published = $request->user()->admin;
             $shownote->order = 0;
             $shownote->save();
             $cnt++;
@@ -119,16 +121,33 @@ class ShowController extends Controller
 
     }
 
-    public function storeVideo($id, Request $request) {
+    public function approveNote($show_id, $note_id, Request $request) {
+        $this->validate($request, [
+            'published' => 'required:boolean'
+        ]);
+
+        $note = ShowNote::findOrFail($note_id);
+        if( $note->show->id != $show_id ) {
+            Session::flash('flash_message', "Show/Note mismatch");
+            return Redirect::back();
+        }
+
+        $note->published = $request->published;
+        $note->save();
+        Session::flash('flash_message', 'Show Note Approved');
+        return Redirect::back();
+    }
+
+    public function storeVideo($setlist_item_id, Request $request) {
         $this->validate($request, [
             'video_url' => 'active_url',
         ]);
 
         $note = new SetlistItemNote();
         $note->note = $request->video_url;
-        $note->setlist_item_id = $id;
+        $note->setlist_item_id = $setlist_item_id;
         $note->user_id = $request->user()->id;
-        $note->published = 1;
+        $note->published = $requiest->user()->admin;
         $note->creator_id = $request->user()->id;
         $note->order = 1;
         $note->save();
@@ -159,7 +178,7 @@ class ShowController extends Controller
             $show = new Show();
             $show->date  = $request->dates[$i];
             $show->venue = $request->venues[$i];
-            $show->published = 1;
+            $show->published = $requiest->user()->admin;
             $show->save();
         }
 
@@ -298,6 +317,23 @@ class ShowController extends Controller
 
         $note->delete();
         Session::flash('flash_message', 'Note Deleted');
+        return Redirect::back();
+    }
+
+    public function approveVideo($item_id, $note_id, Request $request) {
+        $this->validate($request, [
+            'published' => 'required:boolean'
+        ]);
+        $note = SetlistItemNote::findOrFail($note_id);
+        if( $note->setlistItem->id != $item_id ) {
+            Session::flash('flash_message', "Video/Note mismatch");
+            return Redirect::back();
+        }
+
+        $note->published = $request->published;
+        $note->save();
+
+        Session::flash('flash_message', 'Video Approved');
         return Redirect::back();
     }
 

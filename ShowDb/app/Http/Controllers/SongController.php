@@ -253,6 +253,22 @@ class SongController extends Controller
         return redirect('/songs');
     }
 
+    public function approveNote($song_id, $note_id, Request $request) {
+        $this->validate($request, [
+            'published' => 'required:boolean'
+        ]);
+        $note = SongNote::findOrFail($note_id);
+        if( $note->song->id != $song_id ) {
+            Session::flash('flash_message', "Song/Note mismatch");
+            return Redirect::back();
+        }
+
+        $note->published = $request->published;
+        $note->save();
+
+        Session::flash('flash_message', 'Video Approved');
+        return Redirect::back();
+    }
 
     public function storeNote($id, Request $request) {
         $this->validate($request, [
@@ -270,7 +286,7 @@ class SongController extends Controller
             $songnote->creator_id = $request->user()->id;
             $songnote->user_id = $request->user()->id;
             $songnote->type = 'public';
-            $songnote->published = '1';
+            $songnote->published = $request->user()->admin;
             $songnote->order = 0;
             $songnote->save();
             $cnt++;

@@ -37,3 +37,14 @@ Route::get('songs/{song}/plays', 'SongController@showPlays')->name('song.plays.s
 
 Route::post('setlistitems/{item}/video', 'ShowController@storeVideo')->name('show.video.store');
 Route::delete('setlistitems/{item}/video/{video}', 'ShowController@destroyVideo')->name('show.video.destroy');
+
+Route::get('admin', 'AdminController@index')->name('admin.index');
+
+Route::put('songs/{song}/notes/{note}', 'SongController@approveNote')->name('song.note.approve');
+Route::put('shows/{show}/notes/{note}', 'ShowController@approveNote')->name('show.note.approve');
+Route::put('setlistitems/{item}/video/{video}', 'ShowController@approveVideo')->name('show.video.approve');
+
+
+Route::get('about', function() {
+    return view('about');
+});
