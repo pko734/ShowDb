@@ -106,7 +106,7 @@ class ShowController extends Controller
             $shownote->creator_id = $request->user()->id;
             $shownote->user_id = $request->user()->id;
             $shownote->type = 'public';
-            $shownote->published = $request->user()->admin;
+            $shownote->published = 0;
             $shownote->order = 0;
             $shownote->save();
             $cnt++;
@@ -147,7 +147,7 @@ class ShowController extends Controller
         $note->note = $request->video_url;
         $note->setlist_item_id = $setlist_item_id;
         $note->user_id = $request->user()->id;
-        $note->published = $request->user()->admin;
+        $note->published = 0;
         $note->creator_id = $request->user()->id;
         $note->order = 1;
         $note->save();
@@ -178,7 +178,7 @@ class ShowController extends Controller
             $show = new Show();
             $show->date  = $request->dates[$i];
             $show->venue = $request->venues[$i];
-            $show->published = $requiest->user()->admin;
+            $show->published = 0;
             $show->save();
         }
 

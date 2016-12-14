@@ -286,7 +286,7 @@ class SongController extends Controller
             $songnote->creator_id = $request->user()->id;
             $songnote->user_id = $request->user()->id;
             $songnote->type = 'public';
-            $songnote->published = $request->user()->admin;
+            $songnote->published = 0;
             $songnote->order = 0;
             $songnote->save();
             $cnt++;
