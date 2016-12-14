@@ -23,7 +23,7 @@
 	  </div>
 	  <div class="post-description">
 	    <p>{!! $note->note !!}</p>
-	    @if(($user && $user->admin) || ($user && $user->id == $note->user_id))
+	    @if(($user && $user->admin) || ($user && $user->id == $note->creator_id))
 	    <div class="stats">
 	      <span class="input-grp-btn stat-item">
 		<button type="button" class="delete-{{ $type }}-note-btn btn btn-default"

@@ -9,7 +9,7 @@ $('#delete-song-btn').on('click', function() {
 });
 
 $('.delete-song-note-btn').on('click', function() {
-    $('#delete-song-note-form').attr('action', $('#deletenoteform').attr('action') + $(this).attr('data-note-id'));
+    $('#delete-song-note-form').attr('action', $('#delete-song-note-form').attr('action') + $(this).attr('data-note-id'));
     $('#delete-song-note-form').submit();
     $('.delete-song-note-btn').attr('disabled', true);
 });
