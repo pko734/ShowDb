@@ -17,15 +17,6 @@ Show Viewer
       <form method="GET" action="/shows/{{ $show->id }}/edit">
 
 	<div class="form-group">
-	  <label for="show_id">Show ID</label>
-	  <input disabled value="{{ $show->id }}"
-		 type="text"
-		 class="form-control"
-		 id="show_id"
-		 placeholder="">
-	</div>
-
-	<div class="form-group">
 	  <label for="show_date">Show Date</label>
 	  <input disabled value="{{ $show->date }}"
 		 type="text"
