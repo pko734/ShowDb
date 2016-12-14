@@ -26,7 +26,7 @@
 	    @if(($user && $user->admin) || ($user && $user->id == $note->user_id))
 	    <div class="stats">
 	      <span class="input-grp-btn stat-item">
-		<button type="button" class="notedeletebutton btn btn-default"
+		<button type="button" class="delete-{{ $type }}-note-btn btn btn-default"
 			data-note-id="{{ $note->id }}">
 		  <span class="glyphicon glyphicon-trash"></span>
 		</button>
@@ -48,7 +48,7 @@
   <td>
     @if($user)
     <span class="input-grp-btn">
-      <button id="noteaddbutton" type="button" class="pull-left btn btn-default">
+      <button id="add-{{ $type }}-note-btn" type="button" class="pull-left btn btn-default">
 	<span class="glyphicon glyphicon-plus"></span>
       </button>
     </span>

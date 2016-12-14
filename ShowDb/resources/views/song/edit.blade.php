@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('head')
-<link href='/css/song.css' rel='stylesheet'>
-@endsection
-
 @section('title')
 Song Editor
 @endsection

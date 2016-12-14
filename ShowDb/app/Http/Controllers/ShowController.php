@@ -147,7 +147,7 @@ class ShowController extends Controller
         $note->note = $request->video_url;
         $note->setlist_item_id = $setlist_item_id;
         $note->user_id = $request->user()->id;
-        $note->published = $requiest->user()->admin;
+        $note->published = $request->user()->admin;
         $note->creator_id = $request->user()->id;
         $note->order = 1;
         $note->save();

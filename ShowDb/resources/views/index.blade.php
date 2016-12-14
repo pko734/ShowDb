@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('head')
-<link href='/css/home.css' rel='stylesheet'>
-@endsection
-
 @section('content')
 
 <p style="text-align:center;">

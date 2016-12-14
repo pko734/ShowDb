@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('head')
-<link href='/css/show.css' rel='stylesheet'>
-@endsection
-
 @section('title')
 Admin
 @endsection
@@ -20,12 +16,12 @@ Admin
 
     <div id="song-note-column" class="col-md-4">
       <label>Song Notes</label>
-	@include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
+    @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
     </div>
 
     <div id="video-note-column" class="col-md-4">
       <label>Videos</label>
-	@include('admin.videos', ['notes' => $videos])
+    @include('admin.videos', ['notes' => $videos])
     </div>
 
   </div>
@@ -65,5 +61,4 @@ Admin
   <input type="hidden" name="published" value="1">
 </form>
 
-<script src="/js/admin.js"></script>
 @endsection

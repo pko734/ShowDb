@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('head')
-<link href='/css/song.css' rel='stylesheet'>
-@endsection
-
 @section('title')
 Show Editor
 @endsection
@@ -19,47 +15,47 @@ Show Editor
     <div class="form-group">
       <label for="show_id">Show ID</label>
       <input disabled value="{{ $show->id }}"
-         type="text"
-         class="form-control"
-         id="show_id"
-         placeholder="">
+	     type="text"
+	     class="form-control"
+	     id="show_id"
+	     placeholder="">
     </div>
 
     <div class="form-group">
       <label for="show_date">Show Date</label>
       <input value="{{ $show->date }}"
-         name="date"
-         type="text"
-         class="form-control"
-         id="show_date"
-         placeholder="YYYY-MM-DD">
+	     name="date"
+	     type="text"
+	     class="form-control"
+	     id="show_date"
+	     placeholder="YYYY-MM-DD">
     </div>
     <div class="form-group">
       <label for="show_venue">Show Venue</label>
       <input value="{{ $show->venue }}"
-         name="venue"
-         type="text"
-         class="form-control"
-         id="show_venue"
-         placeholder="Venue - City, State">
+	     name="venue"
+	     type="text"
+	     class="form-control"
+	     id="show_venue"
+	     placeholder="Venue - City, State">
     </div>
 
     <label for="show_venue">Set List</label>
     <table id="setlisttable" class="table table-striped">
       <tbody>
-    @foreach($show->setlistItems->sortBy('order') as $item)
-    <tr>
-      <td>
-        <span class="ac-song-title">
-          <input name="songs[]"
-             value="{{ $item->song->title }}"
-             class="form-control typeahead"
-             type="text"
-             placeholder="Song Title">
-        </span>
-      </td>
-    </tr>
-    @endforeach
+	@foreach($show->setlistItems->sortBy('order') as $item)
+	<tr>
+	  <td>
+	    <span class="ac-song-title">
+	      <input name="songs[]"
+		     value="{{ $item->song->title }}"
+		     class="form-control typeahead"
+		     type="text"
+		     placeholder="Song Title">
+	    </span>
+	  </td>
+	</tr>
+	@endforeach
       </tbody>
     </table>
 
@@ -70,8 +66,5 @@ Show Editor
   </form>
 
 </div>
-
-<script src="/js/editshow.js">
-</script>
 
 @endsection
