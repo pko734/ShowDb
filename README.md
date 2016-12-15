@@ -48,14 +48,16 @@ Guests can read Show Notes (once they are approved by an Administrator).
 
 6. Video Links (aka Setlist Item Notes)
 Administrators can create, read, approve (limited edit), or delete Video Links.
-Users and Guests can read Video Links
+Users and Guests can read Video Links.
 
 ### Other Elements
 
-1. Admin vs User vs Guest
+1. Admin vs User vs Guest.
 
-2. Pagination and sorting
+2. Pagination and sorting.
 
+3. VideoUpdateCommand that was used to initially populate videos, using
+google's youtube api.
 
 ### External data source
 The data for Songs, Shows, and SetlistItems was gleaned from this site: http://www.asmylifeturnstoasong.com/
