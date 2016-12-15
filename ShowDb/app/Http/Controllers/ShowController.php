@@ -284,42 +284,43 @@ class ShowController extends Controller
         // * If not found, add the new item with correct play order
         // * Keep track of which items are "good"
         // * Delete any left over (removed) setlist items.
-        foreach($request->songs as $song_title) {
-            if( trim($song_title) === '' ) {
-                continue;
-            }
-
-            $my_item = $items->filter(function($item) use($song_title) {
-                return $item->song->title === $song_title;
-            })->first();
-
-            if( $my_item === null ) {
-                // Add new item!
-                $item = new SetlistItem();
-                $item->show_id = $id;
-                $item->song_id = Song::where('title', '=', $song_title)->first()->id;
-                $item->order   = $i;
-                $item->creator_id = $request->user()->id;
-                $item->save();
-            } else {
-                // Update the item order
-                if($my_item->order != $i) {
-                    $my_item->order = $i;
-                    $my_item->save();
+        if(is_array($request->songs)) {
+            foreach($request->songs as $song_title) {
+                if( trim($song_title) === '' ) {
+                    continue;
                 }
-                // We don't want to delete the "safe" items.
-                $safe[] = $my_item->id;
+
+                $my_item = $items->filter(function($item) use($song_title) {
+                    return $item->song->title === $song_title;
+                })->first();
+
+                if( $my_item === null ) {
+                    // Add new item!
+                    $item = new SetlistItem();
+                    $item->show_id = $id;
+                    $item->song_id = Song::where('title', '=', $song_title)->first()->id;
+                    $item->order   = $i;
+                    $item->creator_id = $request->user()->id;
+                    $item->save();
+                } else {
+                    // Update the item order
+                    if($my_item->order != $i) {
+                        $my_item->order = $i;
+                        $my_item->save();
+                    }
+                    // We don't want to delete the "safe" items.
+                    $safe[] = $my_item->id;
+                }
+                $i++;
             }
-            $i++;
-        }
-        $to_delete = $items->filter(function($item) use($safe) {
-            return !in_array($item->id, $safe);
-        });
+            $to_delete = $items->filter(function($item) use($safe) {
+                return !in_array($item->id, $safe);
+            });
 
-        foreach( $to_delete as $item ) {
-            $item->delete();
+            foreach( $to_delete as $item ) {
+                $item->delete();
+            }
         }
-
         $show->save();
 
         Session::flash('flash_message', 'Changes saved');
