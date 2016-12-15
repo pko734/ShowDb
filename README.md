@@ -14,14 +14,14 @@ They're pretty great, you should check them out.
 
 ## Details for teaching team
 
-** Logging in **
+### Logging in
 Two users are seeded as per the requirements.
 Jill is a "normal" user.
 Jamal is an "admin" user.
 
 You can also login with the "Login With Facebook" link in the top menu.
 
-** CRUD Elements **
+### CRUD Elements
 
 1. Songs
 Administrators can create, read, update, and delete Songs
@@ -50,16 +50,18 @@ Guests can read Show Notes (once they are approved by an Administrator).
 Administrators can create, read, approve (limited edit), or delete Video Links.
 Users and Guests can read Video Links
 
-** Other Elements **
+### Other Elements
 
 1. Admin vs User vs Guest
 
+2. Pagination and sorting
 
-## External data source
+
+### External data source
 The data for Songs, Shows, and SetlistItems was gleaned from this site: http://www.asmylifeturnstoasong.com/
 
 
-## Outside code
+### Outside code
 * Simple wysiwyg editor for adding Notes : https://alex-d.github.io/Trumbowyg/
 * Bootstrap: http://getbootstrap.com/
 * jQuery: https://jquery.com/
