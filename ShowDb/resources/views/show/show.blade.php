@@ -38,7 +38,7 @@ Show Viewer
 		<a href="/songs/{{ $item->song->id }}">{{ $item->song->title }}</a>
 	      </td>
 	      <td>
-		@if( (count($item->notes)) > 0 && $item->notes->get(0)->published)
+		@if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
 		<a target="_vids" href="{{ $item->notes->get(0)->note }}">
 		  <i class="fa fa-youtube-play" aria-hidden="true"></i>
 		</a>

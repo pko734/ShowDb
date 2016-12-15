@@ -13,6 +13,9 @@ use ShowDb\Show;
 class SongController extends Controller
 {
 
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         $this->middleware('admin')->only([
@@ -31,6 +34,7 @@ class SongController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -74,6 +78,12 @@ class SongController extends Controller
             ->withUser($request->user());
     }
 
+    /**
+     * Redirect user to correct show listing for a given song.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function findPlays( Request $request ) {
         $this->validate($request, [
             'title' => 'exists:songs',
@@ -84,8 +94,10 @@ class SongController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the shows where a given song was played.
      *
+     * @param integer                    $song_id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function showPlays($song_id, Request $request)
@@ -114,38 +126,6 @@ class SongController extends Controller
             ->withOrderBy($o)
             ->withUser($request->user());
     }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function plays($id, Request $request)
-    {
-        $this->validate($request, [
-            'o' => 'in:title,setlist_items_count',
-            'q' => 'string',
-        ]);
-        $q = $request->get('q');
-        $o = $request->get('o') ?: 'title';
-        $songs = Song::withCount('setlistItems')
-               ->where( 'title', 'LIKE', '%' . $q . '%' )
-               ->orderBy($o)
-               ->orderBy('title')
-               ->paginate(15)
-               ->setPath( '' );
-        $pagination = $songs->appends( [
-            'q' => $q,
-            'o' => $o,
-        ]);
-
-        return view('song.index')
-            ->withSongs($songs)
-            ->withQuery($q)
-            ->withOrderBy($o)
-            ->withUser($request->user());
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -183,7 +163,8 @@ class SongController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int                      $id
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function show($id, Request $request)
@@ -222,7 +203,7 @@ class SongController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  integer                   $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -243,7 +224,7 @@ class SongController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  integer $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -253,6 +234,14 @@ class SongController extends Controller
         return redirect('/songs');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  integer                  $song_id
+     * @param  integer                  $note_id
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function approveNote($song_id, $note_id, Request $request) {
         $this->validate($request, [
             'published' => 'required:boolean'
@@ -270,6 +259,12 @@ class SongController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  integer $id
+     * @return \Illuminate\Http\Response
+     */
     public function storeNote($id, Request $request) {
         $this->validate($request, [
             'notes.*' => 'string|between:5,255'
@@ -301,6 +296,13 @@ class SongController extends Controller
 
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  integer $song_id
+     * @param  integer $note_id
+     * @return \Illuminate\Http\Response
+     */
     public function destroyNote($song_id, $note_id) {
         $note = SongNote::findOrFail($note_id);
         if( $note->song->id != $song_id ) {

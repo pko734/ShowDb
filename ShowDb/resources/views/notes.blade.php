@@ -1,5 +1,6 @@
-@forelse($notes as $note)
+@foreach($notes as $note)
 @if($note->published || ($user && ($note->creator->id == $user->id)))
+{{--*/ $at_least_one = true /*--}}
 <tr>
   <td>
     <div class="row">
@@ -41,9 +42,12 @@
   </td>
 </tr>
 @endif
-@empty
+@endforeach
+
+@if(!isset($at_least_one))
 <tr><td>No notes</td></tr>
-@endforelse
+@endif
+
 <tr>
   <td>
     @if($user)

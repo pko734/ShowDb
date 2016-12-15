@@ -13,6 +13,12 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    /**
+     *  Display admin interface.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request) {
         $show_notes = ShowNote::orderBy('updated_at', 'desc')
                     ->where('published', '=', 0)

@@ -14,6 +14,10 @@ use Auth;
 
 class ShowController extends Controller
 {
+
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         $this->middleware('admin')->only([
@@ -27,14 +31,15 @@ class ShowController extends Controller
             'approveVideo',
         ]);
         $this->middleware('auth')->only([
-            'destroyNote',
             'storeNote',
+            'destroyNote',
         ]);
     }
 
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -79,6 +84,7 @@ class ShowController extends Controller
             ->withDateOrder($date_order)
             ->withUser($request->user());
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -87,9 +93,15 @@ class ShowController extends Controller
     public function create()
     {
         // handled by index!
-        $this->redirect('/');
+        return redirect('/shows');
     }
 
+    /**
+     * Store a show note.
+     * @param integer                    $show_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function storeNote($show_id, Request $request) {
         $this->validate($request, [
             'notes.*' => 'string|between:5,255',
@@ -107,7 +119,7 @@ class ShowController extends Controller
             $shownote->user_id = $request->user()->id;
             $shownote->type = 'public';
             $shownote->published = 0;
-            $shownote->order = 0;
+            $shownote->order = 0; // not yet utilized
             $shownote->save();
             $cnt++;
         }
@@ -121,6 +133,14 @@ class ShowController extends Controller
 
     }
 
+    /**
+     * Approve a show note.
+     *
+     * @param integer                    $show_id
+     * @param integer                    $note_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function approveNote($show_id, $note_id, Request $request) {
         $this->validate($request, [
             'published' => 'required:boolean'
@@ -138,6 +158,13 @@ class ShowController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * Store a setlist item video link.
+     *
+     * @param  integer                   $setlist_item_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function storeVideo($setlist_item_id, Request $request) {
         $this->validate($request, [
             'video_url' => 'active_url',
@@ -229,7 +256,7 @@ class ShowController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  integer                   $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -249,16 +276,25 @@ class ShowController extends Controller
 
         $i = 1;
         $safe = [];
+
+        // algorithm:
+        // * loop over request songs array
+        // * Look for the song in the existing Show setlist
+        // * If found, update the item play order (if needed)
+        // * If not found, add the new item with correct play order
+        // * Keep track of which items are "good"
+        // * Delete any left over (removed) setlist items.
         foreach($request->songs as $song_title) {
             if( trim($song_title) === '' ) {
                 continue;
             }
+
             $my_item = $items->filter(function($item) use($song_title) {
                 return $item->song->title === $song_title;
             })->first();
 
             if( $my_item === null ) {
-                echo $song_title;
+                // Add new item!
                 $item = new SetlistItem();
                 $item->show_id = $id;
                 $item->song_id = Song::where('title', '=', $song_title)->first()->id;
@@ -266,10 +302,12 @@ class ShowController extends Controller
                 $item->creator_id = $request->user()->id;
                 $item->save();
             } else {
-                if( $my_item->order != $i ) {
+                // Update the item order
+                if($my_item->order != $i) {
                     $my_item->order = $i;
                     $my_item->save();
                 }
+                // We don't want to delete the "safe" items.
                 $safe[] = $my_item->id;
             }
             $i++;
@@ -281,6 +319,7 @@ class ShowController extends Controller
         foreach( $to_delete as $item ) {
             $item->delete();
         }
+
         $show->save();
 
         Session::flash('flash_message', 'Changes saved');
@@ -290,7 +329,7 @@ class ShowController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  integer                   $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -301,6 +340,13 @@ class ShowController extends Controller
 
     }
 
+    /**
+     * Delete a show note.
+     *
+     * @param integer                    $note_id
+     * @param integer                    $show_id
+     * @return \Illuminate\Http\Response
+     */
     public function destroyNote($show_id, $note_id) {
         $note = ShowNote::findOrFail($note_id);
         if( $note->show->id != $show_id ) {
@@ -320,6 +366,15 @@ class ShowController extends Controller
         return Redirect::back();
     }
 
+
+    /**
+     * Approve a setlist item video.
+     *
+     * @param integer                    $item_id
+     * @param integer                    $note_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function approveVideo($item_id, $note_id, Request $request) {
         $this->validate($request, [
             'published' => 'required:boolean'
@@ -337,6 +392,13 @@ class ShowController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * Delete a setlist item video.
+     *
+     * @param integer                    $item_id
+     * @param integer                    $note_id
+     * @return \Illuminate\Http\Response
+     */
     public function destroyVideo($item_id, $note_id) {
         $note = SetlistItemNote::findOrFail($note_id);
         if( $note->setlistItem->id != $item_id ) {
