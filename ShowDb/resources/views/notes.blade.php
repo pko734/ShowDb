@@ -1,6 +1,6 @@
 @foreach($notes as $note)
 @if($note->published || ($user && ($note->creator->id == $user->id)))
-{{--*/ $at_least_one = true /*--}}
+@php ($at_least_one = true)
 <tr>
   <td>
     <div class="row">
