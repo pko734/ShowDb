@@ -14,6 +14,10 @@ http://screencast.com/t/IgXQaDRfO
 
 ## Details for teaching team
 
+### Seeding
+The initial seed takes a few minutes depending on how faster your machine is.
+Don't worry.
+
 ### Logging in
 Two users are seeded as per the requirements.
 Jill is a "normal" user.
@@ -22,7 +26,6 @@ Jamal is an "admin" user.
 You can also login with the "Login With Facebook" link in the top menu.
 
 ### CRUD Elements
-
 1. Songs
 Administrators can create, read, update, and delete Songs
 Users and Guests can read Songs.
