@@ -10,7 +10,7 @@ A maintainable database of Shows, Songs, Setlists, Notes, and Videos related to 
 They're pretty great, you should check them out.
 
 ## Demo
-<TODO>
+http://screencast.com/t/IgXQaDRfO
 
 ## Details for teaching team
 
