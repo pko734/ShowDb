@@ -91,6 +91,7 @@ class UserController extends Controller
                         ->user()
                         ->shows()
                         ->withCount('setlistItems')
+                        ->orderBy('date', 'desc')
                         ->paginate(15));
 
     }
