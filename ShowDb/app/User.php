@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->admin;
     }
+
+    public function shows() {
+        return $this->belongsToMany('ShowDb\Show');
+    }
 }

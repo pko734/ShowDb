@@ -13,16 +13,16 @@ Plays
     </label>
     <div id="plays-input" class="input-group">
       <span class="ac-song-title">
-    <input name="title"
-	   value="{{ $song->title }}"
-	   class="form-control typeahead"
-	   type="text"
-	   placeholder="Song Title">
+	<input name="title"
+	       value="{{ $song->title }}"
+	       class="form-control typeahead"
+	       type="text"
+	       placeholder="Song Title">
       </span>
       <span class="input-group-btn">
-    <button type="submit" class="btn btn-default">
-      <span class="glyphicon glyphicon-search"></span>
-    </button>
+	<button type="submit" class="btn btn-default">
+	  <span class="glyphicon glyphicon-search"></span>
+	</button>
       </span>
     </div>
   </form>
@@ -32,23 +32,34 @@ Plays
   <table id="showtable" class="table table-striped">
     <thead>
       <tr>
-    <th>
-      <a href="{{ Request::fullUrlWithQuery(['d' => 'asc']) }}">
-	Date
-      </a>
-    </th>
-    <th>Venue</th>
+	<th>
+	  <a href="{{ Request::fullUrlWithQuery(['d' => 'asc']) }}">
+	    Date
+	  </a>
+	</th>
+	<th>Venue</th>
       </tr>
     </thead>
     <tbody>
       @forelse($shows as $show)
       <tr>
-    <td>{{ $show->date }}</td>
-    <td><a href="/shows/{{ $show->id }}">{{ $show->venue }}</a></td>
+	<td>{{ $show->date }}</td>
+	<td>
+	  @if($user && $show->users->contains($user->id))
+	  <a class="remove-show-link" data-show-id="{{ $show->id }}" title="Remove from my shows" href="">
+	    <i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i></a>
+
+	  @elseif($user)
+	  <a class="add-show-link" data-show-id="{{ $show->id }}" title="Add to my shows" href="">
+	      <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
+	  @endif
+
+	  <a href="/shows/{{ $show->id }}">{{ $show->venue }}</a>
+	</td>
       </tr>
       @empty
       <tr>
-    <td colspan="2">No matches</td>
+	<td colspan="2">No matches</td>
       </tr>
       @endforelse
     </tbody>
@@ -56,7 +67,15 @@ Plays
 
   {!! $shows->render() !!}
 
+<form method="POST" id="user-add-show-form" action="">
+    {{ csrf_field() }}
+</form>
+
+<form method="POST" id="user-remove-show-form" action="">
+    {{ method_field('DELETE') }}
+    {{ csrf_field() }}
+</form>
+
 </div>
 
-<script src="/js/playssong.js"></script>
 @endsection

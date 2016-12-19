@@ -19,4 +19,8 @@ class Show extends Model
         return $this->hasMany('ShowDb\ShowNote');
     }
 
+    public function users() {
+        return $this->belongsToMany('ShowDb\User');
+    }
+
 }

@@ -44,6 +44,11 @@ Route::put('songs/{song}/notes/{note}', 'SongController@approveNote')->name('son
 Route::put('shows/{show}/notes/{note}', 'ShowController@approveNote')->name('show.note.approve');
 Route::put('setlistitems/{item}/video/{video}', 'ShowController@approveVideo')->name('show.video.approve');
 
+Route::get('mystats', 'UserController@index')->name('user.index');
+Route::get('myshows', 'UserController@shows')->name('user.shows');
+Route::get('mysongs', 'UserController@songs')->name('user.songs');
+Route::post('users/shows/{show_id}', 'UserController@storeShow')->name('user.show.store');
+Route::delete('users/shows/{show_id}', 'UserController@destroyShow')->name('user.show.destroy');
 
 Route::get('about', function() {
     return view('about');

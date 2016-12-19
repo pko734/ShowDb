@@ -225,7 +225,7 @@ class ShowController extends Controller
         $show = Show::find($id);
 
         if(is_null($show)) {
-            Session::flash('message','Book not found');
+            Session::flash('message','Show not found');
             return redirect('/songs');
         }
 
@@ -245,8 +245,8 @@ class ShowController extends Controller
         $show = Show::find($id);
 
         if(is_null($show)) {
-            Session::flash('message','Book not found');
-            return redirect('/songs');
+            Session::flash('message','Show not found');
+            return redirect('/show');
         }
 
         return view('show.edit')->withShow($show);
