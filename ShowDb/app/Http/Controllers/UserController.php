@@ -73,10 +73,16 @@ class UserController extends Controller
                     ->first();
 
         return view('user.index')
-            ->withShows($request
-                        ->user()
-                        ->shows()
-                        ->withCount('setlistItems'))
+            ->withPastShows($request
+                            ->user()
+                            ->shows()
+                            ->whereRaw('UNIX_TIMESTAMP(date) < ?',
+                                       \Carbon\Carbon::now()->timestamp)->get())
+            ->withUpcomingShows($request
+                                ->user()
+                                ->shows()
+                                ->whereRaw('UNIX_TIMESTAMP(date) > ?',
+                                           \Carbon\Carbon::now()->timestamp)->get())
             ->withUser($request->user())
             ->withTotalSongs($total_count)
             ->withFirstShow($first_show)

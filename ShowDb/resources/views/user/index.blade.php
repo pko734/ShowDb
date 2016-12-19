@@ -7,7 +7,8 @@ My Stats
 @section('content')
 
 <div class="container">
-  <p><label>Number of shows:</label> <a href="/myshows">{{ count($user->shows) }}</a></p>
+  <p><label>Past shows:</label> <a href="/myshows">{{ count($past_shows) }}</a></p>
+  <p><label>Upcoming shows:</label> <a href="/myshows">{{ count($upcoming_shows) }}</a></p>
   <p><label>Unique Songs:</label> <a href="/mysongs">{{ count($songs) }}</a></p>
   <p><label>Song Performances:</label> {{ $total_songs }}</p>
   @if($first_show)
@@ -28,15 +29,6 @@ My Stats
     ???
     @endif
   </p>
-
-<!--
-  <p><label>Top 5 Songs</label>
-    <br>
-    @foreach(array_slice($songs, 0, 5) as $song)
-      {{ $song->title }}: {{ $song->setlist_items_count }} <br>
-    @endforeach
-  </p>
--->
   <hr/>
 </div>
 
