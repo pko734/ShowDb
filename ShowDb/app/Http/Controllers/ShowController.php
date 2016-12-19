@@ -11,6 +11,7 @@ use ShowDb\SetlistItemNote;
 use Session;
 use Redirect;
 use Auth;
+use Carbon\Carbon;
 
 class ShowController extends Controller
 {
@@ -127,7 +128,7 @@ class ShowController extends Controller
         if($cnt) {
             Session::flash('flash_message', 'Show Note(s) added');
         } else {
-            Session::flash('flash_message', 'Show Note(s) were empty');
+            Session::flash('flash_error', 'Show Note(s) were empty');
         }
         return Redirect::back();
 
@@ -148,7 +149,7 @@ class ShowController extends Controller
 
         $note = ShowNote::findOrFail($note_id);
         if( $note->show->id != $show_id ) {
-            Session::flash('flash_message', "Show/Note mismatch");
+            Session::flash('flash_error', "Show/Note mismatch");
             return Redirect::back();
         }
 
@@ -191,19 +192,25 @@ class ShowController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'dates.*'  => 'required|date_format:"Y-m-d"',
+            'dates.*'  => 'required',
             'venues.*' => 'required|string|between:10,255',
         ]);
 
         if(count($request->venues) !== count($request->dates) ) {
-            Session::flash('flash_message', 'Data size mismatch :(');
+            Session::flash('flash_error', 'Data size mismatch :(');
             return redirect('/shows');
         }
 
         $show_count = count($request->dates);
         for( $i=0; $i < $show_count; $i++ ) {
+            try {
+                $date = (new Carbon($request->dates[$i]))->toDateString();
+            } catch(\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: ' . $request->dates[$i]);
+                return Redirect::back();
+            }
             $show = new Show();
-            $show->date  = $request->dates[$i];
+            $show->date  = $date;
             $show->venue = $request->venues[$i];
             $show->published = 0;
             $show->save();
@@ -225,7 +232,7 @@ class ShowController extends Controller
         $show = Show::find($id);
 
         if(is_null($show)) {
-            Session::flash('message','Show not found');
+            Session::flash('flash_error','Show not found');
             return redirect('/songs');
         }
 
@@ -245,7 +252,7 @@ class ShowController extends Controller
         $show = Show::find($id);
 
         if(is_null($show)) {
-            Session::flash('message','Show not found');
+            Session::flash('flash_error','Show not found');
             return redirect('/show');
         }
 
@@ -263,14 +270,21 @@ class ShowController extends Controller
     {
         # Validate
         $this->validate($request, [
-            'date'    => 'required|date_format:"Y-m-d"',
+            'date'    => 'required',
             'venue'   => 'required|string|between:10,255',
             'songs.*' => 'exists:songs,title',
         ]);
 
+        try {
+            $date = (new Carbon($request->date))->toDateString();
+        } catch(\Exception $e) {
+            Session::flash('flash_error', 'Failed to parse date: ' . $request->date);
+            return Redirect::back();
+        }
+
         $show = Show::find($id);
         $show->venue = $request->input('venue');
-        $show->date  = $request->input('date');
+        $show->date  = $date;
 
         $items = $show->setlistItems->sortBy('order');
 
@@ -351,13 +365,13 @@ class ShowController extends Controller
     public function destroyNote($show_id, $note_id) {
         $note = ShowNote::findOrFail($note_id);
         if( $note->show->id != $show_id ) {
-            Session::flash('flash_message', "boo");
+            Session::flash('flash_error', "boo");
             return Redirect::back();
         }
 
         if( !Auth::user()->admin ) {
             if( $note->user_id != Auth::user()->id ) {
-                Session::flash('flash_message', 'Sorry, you can only delete notes you have created');
+                Session::flash('flash_error', 'Sorry, you can only delete notes you have created');
                 return Redirect::back();
             }
         }
@@ -382,7 +396,7 @@ class ShowController extends Controller
         ]);
         $note = SetlistItemNote::findOrFail($note_id);
         if( $note->setlistItem->id != $item_id ) {
-            Session::flash('flash_message', "Video/Note mismatch");
+            Session::flash('flash_error', "Video/Note mismatch");
             return Redirect::back();
         }
 
@@ -403,13 +417,13 @@ class ShowController extends Controller
     public function destroyVideo($item_id, $note_id) {
         $note = SetlistItemNote::findOrFail($note_id);
         if( $note->setlistItem->id != $item_id ) {
-            Session::flash('flash_message', "Wrong item_id/note_id");
+            Session::flash('flash_error', "Wrong item_id/note_id");
             return Redirect::back();
         }
 
         if( !Auth::user()->admin ) {
             if( $note->user_id != Auth::user()->id ) {
-                Session::flash('flash_message', 'Sorry, you can only delete notes you have created');
+                Session::flash('flash_error', 'Sorry, you can only delete notes you have created');
                 return Redirect::back();
             }
         }
