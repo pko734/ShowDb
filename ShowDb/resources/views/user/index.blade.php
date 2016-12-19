@@ -23,7 +23,7 @@ My Stats
   <p>
     <label>Next Show:</label>
     @if($next_show)
-    <a href="/shows/{{ $last_show->id }}">{{ $next_show->date }} {{ $next_show->venue }}</a>
+    <a href="/shows/{{ $next_show->id }}">{{ $next_show->date }} {{ $next_show->venue }}</a>
     @else
     ???
     @endif
