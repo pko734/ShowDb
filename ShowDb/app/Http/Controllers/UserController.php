@@ -107,7 +107,7 @@ class UserController extends Controller
              JOIN show_user su     ON su.show_id = si.show_id
              WHERE su.user_id = {$request->user()->id}
              GROUP BY s.title, s.id
-             ORDER BY setlist_items_count DESC"));
+             ORDER BY setlist_items_count DESC, title asc"));
 
         $page = $request->page ?: 1; // Get the ?page=1 from the url
         $perPage = 15; // Number of items per page
