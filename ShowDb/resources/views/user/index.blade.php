@@ -19,6 +19,7 @@ My Stats
     <label>Last Show:</label>
     <a href="/shows/{{ $last_show->id }}">{{ $last_show->date }} {{ $last_show->venue }}</a>
   </p>
+  @endif
   <p>
     <label>Next Show:</label>
     @if($next_show)
@@ -27,7 +28,7 @@ My Stats
     ???
     @endif
   </p>
-  @endif
+
 <!--
   <p><label>Top 5 Songs</label>
     <br>
