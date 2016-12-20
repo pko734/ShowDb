@@ -24,7 +24,7 @@ Database Stats
   <h4>{{ $str }}</h4>
   <dl class="dl-horizontal">
     <dt>Shows</dt>
-    <dd><a href="/myshows?q={{ $str }}">{{ $year->shows }}</a></dd>
+    <dd><a href="/shows?q={{ $str }}">{{ $year->shows }}</a></dd>
     <dt>Unique Songs</dt>
     <dd>{{ $year->unique_songs }}</dd>
     <dt>Song Performances</dt>
