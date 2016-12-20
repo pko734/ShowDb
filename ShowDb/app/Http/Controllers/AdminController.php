@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use ShowDb\ShowNote;
 use ShowDb\SongNote;
 use ShowDb\SetlistItemNote;
+use ShowDb\Audit;
 
 class AdminController extends Controller
 {
@@ -37,7 +38,14 @@ class AdminController extends Controller
             ->withShowNotes($show_notes)
             ->withSongNotes($song_notes)
             ->withVideos($videos);
+    }
 
+    public function audit() {
+        $audit = Audit::with('user')
+               ->orderBy('created_at', 'desc')
+               ->paginate(15);
+        return view('admin.audit')
+            ->withAudits($audit);
 
     }
 }

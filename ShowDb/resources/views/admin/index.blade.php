@@ -16,12 +16,12 @@ Admin
 
     <div id="song-note-column" class="col-md-4">
       <label>Song Notes</label>
-    @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
+      @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
     </div>
 
     <div id="video-note-column" class="col-md-4">
       <label>Videos</label>
-    @include('admin.videos', ['notes' => $videos])
+      @include('admin.videos', ['notes' => $videos])
     </div>
 
   </div>

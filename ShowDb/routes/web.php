@@ -39,6 +39,7 @@ Route::post('setlistitems/{item}/video', 'ShowController@storeVideo')->name('sho
 Route::delete('setlistitems/{item}/video/{video}', 'ShowController@destroyVideo')->name('show.video.destroy');
 
 Route::get('admin', 'AdminController@index')->name('admin.index');
+Route::get('admin/audit', 'AdminController@audit')->name('admin.audit');
 
 Route::put('songs/{song}/notes/{note}', 'SongController@approveNote')->name('song.note.approve');
 Route::put('shows/{show}/notes/{note}', 'ShowController@approveNote')->name('show.note.approve');
