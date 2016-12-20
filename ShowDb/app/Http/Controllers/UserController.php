@@ -27,29 +27,131 @@ class UserController extends Controller
         return Redirect::back();
     }
 
-    public function index(Request $request) {
-        $total = 0;
-        $songs = [];
-        $i = 0;
-
-        $results = DB::select(DB::raw(
+    private function _getMySongs($user) {
+        return DB::select(DB::raw(
             "SELECT COUNT(title) AS setlist_items_count,
                     s.id,
                     s.title
              FROM songs s
              JOIN setlist_items si ON s.id = si.song_id
              JOIN show_user su     ON su.show_id = si.show_id
-             WHERE su.user_id = {$request->user()->id}
+             WHERE su.user_id = {$user->id}
              GROUP BY s.title, s.id
              ORDER BY setlist_items_count DESC"));
+    }
 
-        $total_count = DB::select(DB::raw(
+    private function _getMyTotalSongs($user) {
+        return DB::select(DB::raw(
             "SELECT COUNT(title) AS total_count
              FROM songs s
              JOIN setlist_items si ON s.id = si.song_id
              JOIN show_user su     ON su.show_id = si.show_id
-             WHERE su.user_id = {$request->user()->id}"
+             WHERE su.user_id = {$user->id}"
         ))[0]->total_count;
+    }
+
+    private function _getMyShowsByYear($user) {
+        return DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, count(sh.id) AS show_count
+             FROM shows sh
+             JOIN show_user su ON sh.id = su.show_id
+             WHERE su.user_id = {$user->id}
+             GROUP BY year
+             ORDER BY year desc"
+        ));
+    }
+
+    private function _getMySongsByYear($user) {
+        return DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, count(si.id) AS song_count
+             FROM shows sh
+             JOIN show_user su ON sh.id = su.show_id
+             JOIN setlist_items si ON si.show_id = su.show_id
+             WHERE su.user_id = {$user->id}
+             GROUP BY year
+             ORDER BY year desc"
+        ));
+    }
+
+    private function _getMyUniqueSongsByYear($user) {
+        return DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, COUNT(DISTINCT s.title) as unique_songs
+             FROM shows sh
+             JOIN show_user su ON sh.id = su.show_id
+             JOIN setlist_items si ON si.show_id = su.show_id
+             JOIN songs s on si.song_id = s.id
+             WHERE su.user_id = {$user->id}
+             GROUP BY year
+             ORDER BY year desc"
+        ));
+    }
+
+    private function _getAllSongs() {
+        return DB::select(DB::raw(
+            "SELECT COUNT(title) AS setlist_items_count,
+                    s.id,
+                    s.title
+             FROM songs s
+             JOIN setlist_items si ON s.id = si.song_id
+             GROUP BY s.title, s.id
+             ORDER BY setlist_items_count DESC"));
+    }
+
+    private function _getAllTotalSongs() {
+        return DB::select(DB::raw(
+            "SELECT COUNT(title) AS total_count
+             FROM songs s
+             JOIN setlist_items si ON s.id = si.song_id"
+        ))[0]->total_count;
+    }
+
+    private function _getAllShowsByYear() {
+        return DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, count(sh.id) AS show_count
+             FROM shows sh
+             GROUP BY year
+             ORDER BY year desc"
+        ));
+    }
+
+    private function _getAllSongsByYear() {
+        return DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, count(si.id) AS song_count
+             FROM shows sh
+             JOIN setlist_items si ON si.show_id = sh.id
+             GROUP BY year
+             ORDER BY year desc"
+        ));
+    }
+
+    private function _getAllUniqueSongsByYear() {
+        return DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, COUNT(DISTINCT s.title) as unique_songs
+             FROM shows sh
+             JOIN setlist_items si ON si.show_id = sh.id
+             JOIN songs s on si.song_id = s.id
+             GROUP BY year
+             ORDER BY year desc"
+        ));
+    }
+
+    public function index(Request $request) {
+        $songs = $this->_getMySongs($request->user());
+        $total_songs = $this->_getMyTotalSongs($request->user());
+        $shows_by_year = $this->_getMyShowsByYear($request->user());
+        $songs_by_year = $this->_getMySongsByYear($request->user());
+        $unique_songs_by_year = $this->_getMyUniqueSongsByYear($request->user());
+
+        $yearly_data = [];
+        $i = 0;
+        foreach($shows_by_year as $info) {
+            $yearly_data[$info->year] = (object)[
+                'shows' => $info->show_count,
+                'songs' => $songs_by_year[$i]->song_count,
+                'unique_songs' => $unique_songs_by_year[$i]->unique_songs,
+            ];
+            $i++;
+        }
 
         $user_id = $request->user()->id;
         $first_show = Show::whereHas('users', function($query) use($user_id) {
@@ -58,6 +160,7 @@ class UserController extends Controller
                     ->whereRaw('UNIX_TIMESTAMP(date) < ?', \Carbon\Carbon::now()->timestamp)
                     ->orderBy('date', 'asc')
                     ->first();
+
         $last_show = Show::whereHas('users', function($query) use($user_id) {
             $query->where('user_id', '=', $user_id);
         })
@@ -84,21 +187,60 @@ class UserController extends Controller
                                 ->whereRaw('UNIX_TIMESTAMP(date) > ?',
                                            \Carbon\Carbon::now()->timestamp)->get())
             ->withUser($request->user())
-            ->withTotalSongs($total_count)
+            ->withTotalSongs($total_songs)
             ->withFirstShow($first_show)
             ->withLastShow($last_show)
             ->withNextShow($next_show)
-            ->withSongs($results);
+            ->withYearlyData($yearly_data)
+            ->withSongs($songs);
     }
 
+    public function allstats(Request $request) {
+        $songs = $this->_getAllSongs();
+        $total_songs = $this->_getAllTotalSongs();
+        $shows_by_year = $this->_getAllShowsByYear();
+        $songs_by_year = $this->_getAllSongsByYear();
+        $unique_songs_by_year = $this->_getAllUniqueSongsByYear();
+
+        $yearly_data = [];
+        $i = 0;
+        foreach($shows_by_year as $info) {
+            $yearly_data[$info->year] = (object)[
+                'shows' => $info->show_count,
+                'songs' => $songs_by_year[$i]->song_count,
+                'unique_songs' => $unique_songs_by_year[$i]->unique_songs,
+            ];
+            $i++;
+        }
+
+        return view('user.allstats')
+            ->withPastShows(Show::whereRaw('UNIX_TIMESTAMP(date) < ?',
+                                           \Carbon\Carbon::now()->timestamp)->get())
+            ->withUpcomingShows(Show::whereRaw('UNIX_TIMESTAMP(date) > ?',
+                                               \Carbon\Carbon::now()->timestamp)->get())
+            ->withUser($request->user())
+            ->withTotalSongs($total_songs)
+            ->withYearlyData($yearly_data)
+            ->withSongs($songs);
+    }
+
+
     public function shows(Request $request) {
+        $this->validate($request, [
+            'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
+            'q' => 'string|min:3',
+        ]);
+
+        $q = $request->q;
         return view('user.shows')
             ->withShows($request
                         ->user()
                         ->shows()
+                        ->where( 'date',   'LIKE', "%{$q}%" )
                         ->withCount('setlistItems')
                         ->orderBy('date', 'desc')
-                        ->paginate(15));
+                        ->paginate(15))
+            ->withQ($q);
 
     }
 

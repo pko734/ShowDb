@@ -7,9 +7,7 @@ My Shows
 @section('content')
 
 <div class="container">
-  <h3>My Shows</h3>
-  <form action="/shows" method="POST">
-    {{csrf_field() }}
+  <h3>My Shows{{ $q ? " ($q)" : ''}}</h3>
     <table id="showtable" class="table table-striped">
       <thead>
 	<tr>
@@ -46,8 +44,6 @@ My Shows
 	@endforelse
       </tbody>
     </table>
-
-  </form>
 
   {!! $shows->render() !!}
 

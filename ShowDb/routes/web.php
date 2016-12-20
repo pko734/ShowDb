@@ -49,6 +49,7 @@ Route::get('myshows', 'UserController@shows')->name('user.shows');
 Route::get('mysongs', 'UserController@songs')->name('user.songs');
 Route::post('users/shows/{show_id}', 'UserController@storeShow')->name('user.show.store');
 Route::delete('users/shows/{show_id}', 'UserController@destroyShow')->name('user.show.destroy');
+Route::get('stats', 'UserController@allstats')->name('user.allstats');
 
 Route::get('about', function() {
     return view('about');
