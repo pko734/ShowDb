@@ -18,7 +18,7 @@ class UserController extends Controller
     }
 
     public function storeShow($show_id, Request $request ) {
-        $request->user()->shows()->attach($show_id);
+        $request->user()->shows()->syncWithoutDetaching([$show_id]);
         return Redirect::back();
     }
 
