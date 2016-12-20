@@ -145,10 +145,24 @@ class UserController extends Controller
         $yearly_data = [];
         $i = 0;
         foreach($shows_by_year as $info) {
+            $song_count = 0;
+            $unique_songs = 0;
+            foreach($songs_by_year as $s) {
+                if($s->year === $info->year) {
+                    $song_count = $s->song_count;
+                    break;
+                }
+            }
+            foreach($unique_songs_by_year as $u) {
+                if($u->year === $info->year) {
+                    $unique_songs = $u->unique_songs;
+                    break;
+                }
+            }
             $yearly_data[$info->year] = (object)[
                 'shows' => $info->show_count,
-                'songs' => $songs_by_year[$i]->song_count,
-                'unique_songs' => $unique_songs_by_year[$i]->unique_songs,
+                'songs' => $song_count,
+                'unique_songs' => $unique_songs,
             ];
             $i++;
         }
@@ -205,10 +219,24 @@ class UserController extends Controller
         $yearly_data = [];
         $i = 0;
         foreach($shows_by_year as $info) {
+            $song_count = 0;
+            $unique_songs = 0;
+            foreach($songs_by_year as $s) {
+                if($s->year === $info->year) {
+                    $song_count = $s->song_count;
+                    break;
+                }
+            }
+            foreach($unique_songs_by_year as $u) {
+                if($u->year === $info->year) {
+                    $unique_songs = $u->unique_songs;
+                    break;
+                }
+            }
             $yearly_data[$info->year] = (object)[
                 'shows' => $info->show_count,
-                'songs' => $songs_by_year[$i]->song_count,
-                'unique_songs' => $unique_songs_by_year[$i]->unique_songs,
+                'songs' => $song_count,
+                'unique_songs' => $unique_songs,
             ];
             $i++;
         }
