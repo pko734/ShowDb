@@ -10,6 +10,13 @@ Admin
 
     <table id="audittable" class="table table-striped">
       <tbody>
+	<thead>
+	  <th>When</th>
+	  <th>User</th>
+	  <th>Type</th>
+	  <th>Old</th>
+	  <th>New</th>
+	</thead>
 	@forelse($audits as $audit)
 	<tr>
 	  <td>{{ \Carbon\Carbon::createFromTimeStamp($audit->created_at->timestamp)->diffForHumans() }}</td>
