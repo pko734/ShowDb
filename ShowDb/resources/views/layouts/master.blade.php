@@ -44,9 +44,16 @@
 	    <li><a href="/shows">Shows</a></li>
 	    <li><a href="/songs">Songs</a></li>
 	    @if(Auth::user() && Auth::user()->admin)
-	    <li><a href="/admin">Admin</a></li>
+	    <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+		<span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+		<li><a href="/admin">Notes</a></li>
+		<li><a href="/admin/users">Users</a></li>
+		<li><a href="/admin/audit">Audit</a></li>
+	      </ul>
+	    </li>
 	    @endif
-
 	    <!--    <li><a href="/about">About</a></li> -->
 	  </ul>
 
