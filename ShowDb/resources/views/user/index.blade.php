@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-User Stats ({{ $user->username }})
+Stats ({{ $user->username }})
 @endsection
 
 @section('content')
 
 <div class="container">
-  <h3>User Stats ({{ $user->username }})</h3>
+  <h3>Stats ({{ $user->username }})</h3>
   <dl class="dl-horizontal">
     <dt>Past Shows</dt>
     <dd><a href="{{ url()->current() }}/shows">{{ count($past_shows) }}</a></dd>
