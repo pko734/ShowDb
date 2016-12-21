@@ -12,7 +12,8 @@
         "owen-it/laravel-auditing": "^3.1",
         "orangehill/iseed": "^2.2",
         "backup-manager/laravel": "^1.1",
-        "league/flysystem-dropbox": "^1.0"
+        "league/flysystem-dropbox": "^1.0",
+        "thomaswelton/laravel-gravatar": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

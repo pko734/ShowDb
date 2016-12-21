@@ -184,6 +184,7 @@ return [
         OwenIt\Auditing\AuditingServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         BackupManager\Laravel\Laravel5ServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
     ],
 
     /*
@@ -234,6 +235,7 @@ return [
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
     ],
 
 ];

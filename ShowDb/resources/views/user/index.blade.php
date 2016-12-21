@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-My Stats
+User Stats ({{ $user->username }})
 @endsection
 
 @section('content')
 
 <div class="container">
-  <h3>My Stats</h3>
+  <h3>User Stats ({{ $user->username }})</h3>
   <dl class="dl-horizontal">
     <dt>Past Shows</dt>
     <dd><a href="/myshows">{{ count($past_shows) }}</a></dd>
@@ -25,15 +25,15 @@ My Stats
     @endif
     <dt>Next Show</dt>
     <dd>
-    @if($next_show)
-    <a href="/shows/{{ $next_show->id }}">{{ $next_show->date }} {{ $next_show->venue }}</a>
-    @else
-    ???
-    @endif
+      @if($next_show)
+      <a href="/shows/{{ $next_show->id }}">{{ $next_show->date }} {{ $next_show->venue }}</a>
+      @else
+      ???
+      @endif
     </dd>
   </dl>
   <hr/>
-  <h3>My Yearly Breakdown</h3>
+  <h3>Yearly Breakdown</h3>
   @foreach($yearly_data as $str => $year)
   <h4>{{ $str }}</h4>
   <dl class="dl-horizontal">
@@ -43,8 +43,8 @@ My Stats
     <dd>{{ $year->unique_songs }}</dd>
     <dt>Song Performances</dt>
     <dd>{{ $year->songs }}</dd>
-  <hr/>
-  @endforeach
+    <hr/>
+    @endforeach
 </div>
 
 @endsection

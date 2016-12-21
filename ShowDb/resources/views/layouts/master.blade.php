@@ -38,7 +38,7 @@
 	  <!-- Left Side Of Navbar -->
 	  <ul class="nav navbar-nav">
 	    @if(Auth::user())
-	    <li><a href="/mystats">My Stats</a></li>
+	    <li><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
 	    @endif
 
 	    <li><a href="/shows">Shows</a></li>
@@ -60,15 +60,22 @@
 	    @else
 	    <li class="dropdown">
 	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+		@if(\Gravatar::exists(Auth::user()->email))
+		{!! \Gravatar::image(Auth::user()->email, 'test', ['width'=>25,'height'=>25]) !!}
+		@else
 		@if(Auth::user()->username)
 		{{ Auth::user()->username }}
 		@else
 		{{ Auth::user()->name }}
 		@endif
+		@endif
 		<span class="caret"></span>
 	      </a>
 
 	      <ul class="dropdown-menu" role="menu">
+		<li>
+		  <a href="/settings">Settings</a>
+		</li>
 		<li>
 		  <a href="{{ url('/logout') }}"
 		     onclick="event.preventDefault();

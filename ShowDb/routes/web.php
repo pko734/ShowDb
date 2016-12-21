@@ -40,17 +40,20 @@ Route::delete('setlistitems/{item}/video/{video}', 'ShowController@destroyVideo'
 
 Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/audit', 'AdminController@audit')->name('admin.audit');
+Route::get('admin/users', 'AdminController@users')->name('admin.users');
 
 Route::put('songs/{song}/notes/{note}', 'SongController@approveNote')->name('song.note.approve');
 Route::put('shows/{show}/notes/{note}', 'ShowController@approveNote')->name('show.note.approve');
 Route::put('setlistitems/{item}/video/{video}', 'ShowController@approveVideo')->name('show.video.approve');
 
-Route::get('mystats', 'UserController@index')->name('user.index');
+Route::get('stats', 'UserController@allstats')->name('user.index');
 Route::get('myshows', 'UserController@shows')->name('user.shows');
 Route::get('mysongs', 'UserController@songs')->name('user.songs');
 Route::post('users/shows/{show_id}', 'UserController@storeShow')->name('user.show.store');
 Route::delete('users/shows/{show_id}', 'UserController@destroyShow')->name('user.show.destroy');
-Route::get('stats', 'UserController@allstats')->name('user.allstats');
+Route::get('stats/{username}', 'UserController@userstats')->name('user.stats');
+Route::get('settings', 'UserController@settings')->name('user.settings');
+Route::put('settings/update', 'UserController@update')->name('user.update.store');
 
 Route::get('about', function() {
     return view('about');

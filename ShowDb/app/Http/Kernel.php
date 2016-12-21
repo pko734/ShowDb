@@ -53,5 +53,6 @@ class Kernel extends HttpKernel
         'guest' => \ShowDb\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => \ShowDb\Http\Middleware\Admin::class,
+        'username' => \ShowDb\Http\Middleware\UsernameExists::class,
     ];
 }

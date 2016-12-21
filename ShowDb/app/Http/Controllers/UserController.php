@@ -9,12 +9,17 @@ use \Redirect;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use ShowDb\Show;
+use Validator;
+use Illuminate\Validation\Rule;
+use Session;
+
 
 class UserController extends Controller
 {
 
     public function __construct() {
         $this->middleware('auth');
+        $this->middleware('username')->except(['settings','update']);
     }
 
     public function storeShow($show_id, Request $request ) {
@@ -136,11 +141,29 @@ class UserController extends Controller
     }
 
     public function index(Request $request) {
-        $songs = $this->_getMySongs($request->user());
-        $total_songs = $this->_getMyTotalSongs($request->user());
-        $shows_by_year = $this->_getMyShowsByYear($request->user());
-        $songs_by_year = $this->_getMySongsByYear($request->user());
-        $unique_songs_by_year = $this->_getMyUniqueSongsByYear($request->user());
+        return $this->_showUserStats($request->user());
+    }
+
+    public function userstats($username, Request $request) {
+        $v = Validator::make(['username' => $username], [
+            'username' => [
+                'required',
+                Rule::exists('users'),
+            ],
+        ]);
+
+        if($v->fails()) {
+            return Redirect::to('/')->withErrors($v);
+        }
+        return $this->_showUserStats(User::where('username', '=', $username)->first());
+    }
+
+    private function _showUserStats($user) {
+        $songs = $this->_getMySongs($user);
+        $total_songs = $this->_getMyTotalSongs($user);
+        $shows_by_year = $this->_getMyShowsByYear($user);
+        $songs_by_year = $this->_getMySongsByYear($user);
+        $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
 
         $yearly_data = [];
         $i = 0;
@@ -167,7 +190,7 @@ class UserController extends Controller
             $i++;
         }
 
-        $user_id = $request->user()->id;
+        $user_id = $user->id;
         $first_show = Show::whereHas('users', function($query) use($user_id) {
             $query->where('user_id', '=', $user_id);
         })
@@ -190,17 +213,15 @@ class UserController extends Controller
                     ->first();
 
         return view('user.index')
-            ->withPastShows($request
-                            ->user()
+            ->withPastShows($user
                             ->shows()
                             ->whereRaw('UNIX_TIMESTAMP(date) < ?',
                                        \Carbon\Carbon::now()->timestamp)->get())
-            ->withUpcomingShows($request
-                                ->user()
+            ->withUpcomingShows($user
                                 ->shows()
                                 ->whereRaw('UNIX_TIMESTAMP(date) > ?',
                                            \Carbon\Carbon::now()->timestamp)->get())
-            ->withUser($request->user())
+            ->withUser($user)
             ->withTotalSongs($total_songs)
             ->withFirstShow($first_show)
             ->withLastShow($last_show)
@@ -298,5 +319,32 @@ class UserController extends Controller
         );
         return view('user.songs')
             ->withSongs($paginate);
+    }
+
+    public function settings(Request $request) {
+        return view('user.settings')
+            ->withUser($request->user());
+    }
+
+    public function update(Request $request) {
+        $v = Validator::make($request->all(), [
+            'username' => [
+                'required',
+                'string',
+                'min:3',
+                'max:20',
+                'alphanum',
+                Rule::unique('users')->ignore($request->user()->id),
+            ],
+        ]);
+        if($v->fails()) {
+            return Redirect::back()
+                ->withErrors($v);
+        }
+
+        $request->user()->username = $request->username;
+        $request->user()->save();
+        Session::flash('flash_message', 'Username saved.  Thanks!');
+        return redirect('/');
     }
 }

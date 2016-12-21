@@ -7,6 +7,7 @@ use ShowDb\ShowNote;
 use ShowDb\SongNote;
 use ShowDb\SetlistItemNote;
 use ShowDb\Audit;
+use ShowDb\User;
 
 class AdminController extends Controller
 {
@@ -47,5 +48,11 @@ class AdminController extends Controller
         return view('admin.audit')
             ->withAudits($audit);
 
+    }
+
+    public function users() {
+        $users = User::orderBy('id', 'asc')->paginate(15);
+        return view('admin/users')
+            ->withUsers($users);
     }
 }

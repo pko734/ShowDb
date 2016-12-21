@@ -34,6 +34,9 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
+        if($authUser->username == '') {
+            return redirect('/settings');
+        }
         return Redirect::back();
     }
 
@@ -45,15 +48,17 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($user)
     {
-        if ($authUser = User::where('email', $user->email)->first()) {
+        if ($authUser = User::where('fb_id', $user->id)->orWhere('email', $user->email)->first()) {
             $authUser->avatar = $user->avatar;
+            $authUser->email  = $user->email;
             $authUser->save();
             return $authUser;
         }
 
         return User::create([
-            'name' => $user->name,
+            'name' =>  $user->name,
             'email' => $user->email,
+            'fb_id' => $user->id,
             'username' => '',
             'password' => '',
             'admin'    => 0,
