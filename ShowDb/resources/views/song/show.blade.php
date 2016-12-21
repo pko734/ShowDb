@@ -32,7 +32,7 @@ Song Viewer
 
 	@if($user && $user->admin)
 	<button type="submit" class="pull-left btn btn-primary">Edit Song</button>&nbsp;
-	<button id="delete-song-btn" type="button" class="btn btn-danger">
+	<button id="delete-song-btn" type="button" class="pull-right btn btn-danger">
 	  <span class="glyphicon glyphicon-trash"></span>
 	</button>
 	@endif
