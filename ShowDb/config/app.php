@@ -185,6 +185,7 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         BackupManager\Laravel\Laravel5ServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        Cornford\Googlitics\AnalyticsServiceProvider::class,
     ],
 
     /*
@@ -236,6 +237,7 @@ return [
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
     ],
 
 ];

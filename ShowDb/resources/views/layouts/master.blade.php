@@ -14,7 +14,7 @@
 
     @yield('head')
   </head>
-  <body>
+  <body>{!! Analytics::render() !!}
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
 	<div class="navbar-header">

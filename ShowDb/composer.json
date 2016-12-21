@@ -13,7 +13,8 @@
         "orangehill/iseed": "^2.2",
         "backup-manager/laravel": "^1.1",
         "league/flysystem-dropbox": "^1.0",
-        "thomaswelton/laravel-gravatar": "^1.1"
+        "thomaswelton/laravel-gravatar": "^1.1",
+        "cornford/googlitics": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

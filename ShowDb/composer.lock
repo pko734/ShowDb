@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7619042d58fe38086dead6677c376a04",
-    "content-hash": "c125517ae3660f0c4467d39d5a28108a",
+    "hash": "1b608ff10acf023989bc6648c8040b65",
+    "content-hash": "b61fff8d1ea6c025d30e7a363a09009c",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -236,6 +236,56 @@
                 "preload"
             ],
             "time": "2016-09-16 12:50:15"
+        },
+        {
+            "name": "cornford/googlitics",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bradcornford/Googlitics.git",
+                "reference": "85f3f0805a6f7f1ab6ac5d8b2e22626925b2af55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bradcornford/Googlitics/zipball/85f3f0805a6f7f1ab6ac5d8b2e22626925b2af55",
+                "reference": "85f3f0805a6f7f1ab6ac5d8b2e22626925b2af55",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "illuminate/view": "5.*",
+                "laravel/framework": "5.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.1",
+                "phpspec/phpspec": "2.0.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Cornford\\Googlitics": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bradley Cornford",
+                    "email": "me@bradleycornford.co.uk"
+                }
+            ],
+            "description": "An easy way to intergrate Google Analytics with Laravel.",
+            "keywords": [
+                "analytics",
+                "google",
+                "laravel",
+                "statistics",
+                "tracking"
+            ],
+            "time": "2016-06-14 12:43:13"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
