@@ -51,6 +51,7 @@ class AuthController extends Controller
         if ($authUser = User::where('fb_id', $user->id)->orWhere('email', $user->email)->first()) {
             $authUser->avatar = $user->avatar;
             $authUser->email  = $user->email;
+            $authUser->fb_id  = $user->id;
             $authUser->save();
             return $authUser;
         }

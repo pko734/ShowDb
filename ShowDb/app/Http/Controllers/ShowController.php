@@ -105,7 +105,7 @@ class ShowController extends Controller
      */
     public function storeNote($show_id, Request $request) {
         $this->validate($request, [
-            'notes.*' => 'string|between:5,255',
+            'notes.*' => 'string|between:5,2000',
         ]);
 
         $cnt = 0;
