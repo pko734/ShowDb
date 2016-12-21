@@ -1,3 +1,6 @@
+#audittable td pre {
+  max-width: 500px;
+}
 /*
  * typehead.js-bootstrap3.less
  * @version 0.2.3
