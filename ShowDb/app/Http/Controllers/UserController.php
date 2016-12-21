@@ -306,6 +306,10 @@ class UserController extends Controller
     }
 
     public function songs($username, Request $request) {
+        $this->validate($request, [
+            'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
+            'q' => 'string|min:3',
+        ]);
         $v = Validator::make(['username' => $username], [
             'username' => [
                 'required',
@@ -317,6 +321,8 @@ class UserController extends Controller
             return Redirect::to('/')->withErrors($v);
         }
         $user = User::where('username', '=', $username)->first();
+        $q = $request->q;
+
         $results = DB::select(DB::raw(
             "SELECT COUNT(title) AS setlist_items_count,
                     COUNT(*)     AS total_count,
@@ -325,7 +331,9 @@ class UserController extends Controller
              FROM songs s
              JOIN setlist_items si ON s.id = si.song_id
              JOIN show_user su     ON su.show_id = si.show_id
+             JOIN shows sh         ON si.show_id = sh.id
              WHERE su.user_id = {$user->id}
+             AND sh.date LIKE '%{$q}%'
              GROUP BY s.title, s.id
              ORDER BY setlist_items_count DESC, title asc"));
 
@@ -342,7 +350,8 @@ class UserController extends Controller
         );
         return view('user.songs')
             ->withSongs($paginate)
-            ->withUser($user);
+            ->withUser($user)
+            ->withQ($q);
     }
 
     public function settings(Request $request) {

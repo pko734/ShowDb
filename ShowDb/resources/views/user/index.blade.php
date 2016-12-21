@@ -40,7 +40,7 @@ Stats ({{ $user->username }})
     <dt>Shows</dt>
     <dd><a href="{{ url()->current() }}/shows?q={{ $str }}">{{ $year->shows }}</a></dd>
     <dt>Unique Songs</dt>
-    <dd>{{ $year->unique_songs }}</dd>
+    <dd><a href="{{ url()->current() }}/songs/?q={{ $str }}">{{ $year->unique_songs }}</a></dd>
     <dt>Song Performances</dt>
     <dd>{{ $year->songs }}</dd>
     <hr/>

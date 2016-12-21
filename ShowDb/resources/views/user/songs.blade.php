@@ -7,7 +7,7 @@ Songs ({{ $user->username }})
 @section('content')
 
 <div class="container">
-  <h3>Songs ({{ $user->username }})</h3>
+  <h3>Songs ({{ $user->username }}) {{ $q ? " ($q)" : '' }}</h3>
   <form action="/songs" method="POST">
     {{ csrf_field() }}
     <table id="songtable" class="table table-striped">
