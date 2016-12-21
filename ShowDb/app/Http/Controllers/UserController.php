@@ -274,26 +274,49 @@ class UserController extends Controller
     }
 
 
-    public function shows(Request $request) {
+    public function shows($username, Request $request) {
         $this->validate($request, [
             'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
             'q' => 'string|min:3',
         ]);
 
+        $v = Validator::make(['username' => $username], [
+            'username' => [
+                'required',
+                Rule::exists('users'),
+            ],
+        ]);
+
+        if($v->fails()) {
+            return Redirect::to('/')->withErrors($v);
+        }
+
+        $user = User::where('username', '=', $username)->first();
         $q = $request->q;
         return view('user.shows')
-            ->withShows($request
-                        ->user()
+            ->withShows($user
                         ->shows()
                         ->where( 'date',   'LIKE', "%{$q}%" )
                         ->withCount('setlistItems')
                         ->orderBy('date', 'desc')
                         ->paginate(15))
+            ->withUser($user)
             ->withQ($q);
 
     }
 
-    public function songs(Request $request) {
+    public function songs($username, Request $request) {
+        $v = Validator::make(['username' => $username], [
+            'username' => [
+                'required',
+                Rule::exists('users'),
+            ],
+        ]);
+
+        if($v->fails()) {
+            return Redirect::to('/')->withErrors($v);
+        }
+        $user = User::where('username', '=', $username)->first();
         $results = DB::select(DB::raw(
             "SELECT COUNT(title) AS setlist_items_count,
                     COUNT(*)     AS total_count,
@@ -302,7 +325,7 @@ class UserController extends Controller
              FROM songs s
              JOIN setlist_items si ON s.id = si.song_id
              JOIN show_user su     ON su.show_id = si.show_id
-             WHERE su.user_id = {$request->user()->id}
+             WHERE su.user_id = {$user->id}
              GROUP BY s.title, s.id
              ORDER BY setlist_items_count DESC, title asc"));
 
@@ -311,14 +334,15 @@ class UserController extends Controller
         $offset = ($page * $perPage) - $perPage;
         $songs = new Collection($results);
         $paginate = new LengthAwarePaginator(
-            array_slice($songs->toArray(), $offset, $perPage, true), // Only grab the items we need
+            array_slice($songs->toArray(), $offset, $perPage, true),
             count($songs), // Total items
             $perPage, // Items per page
             $page, // Current page
-            ['path' => $request->url(), 'query' => $request->query()] // We need this so we can keep all old query parameters from the url
+            ['path' => $request->url(), 'query' => $request->query()]
         );
         return view('user.songs')
-            ->withSongs($paginate);
+            ->withSongs($paginate)
+            ->withUser($user);
     }
 
     public function settings(Request $request) {

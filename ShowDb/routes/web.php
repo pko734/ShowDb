@@ -46,12 +46,12 @@ Route::put('songs/{song}/notes/{note}', 'SongController@approveNote')->name('son
 Route::put('shows/{show}/notes/{note}', 'ShowController@approveNote')->name('show.note.approve');
 Route::put('setlistitems/{item}/video/{video}', 'ShowController@approveVideo')->name('show.video.approve');
 
+Route::get('stats/{username}', 'UserController@userstats')->name('user.stats');
+Route::get('stats/{username}/shows', 'UserController@shows')->name('user.shows');
+Route::get('stats/{username}/songs', 'UserController@songs')->name('user.songs');
 Route::get('stats', 'UserController@allstats')->name('user.index');
-Route::get('myshows', 'UserController@shows')->name('user.shows');
-Route::get('mysongs', 'UserController@songs')->name('user.songs');
 Route::post('users/shows/{show_id}', 'UserController@storeShow')->name('user.show.store');
 Route::delete('users/shows/{show_id}', 'UserController@destroyShow')->name('user.show.destroy');
-Route::get('stats/{username}', 'UserController@userstats')->name('user.stats');
 Route::get('settings', 'UserController@settings')->name('user.settings');
 Route::put('settings/update', 'UserController@update')->name('user.update.store');
 

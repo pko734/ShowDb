@@ -10,11 +10,11 @@ User Stats ({{ $user->username }})
   <h3>User Stats ({{ $user->username }})</h3>
   <dl class="dl-horizontal">
     <dt>Past Shows</dt>
-    <dd><a href="/myshows">{{ count($past_shows) }}</a></dd>
+    <dd><a href="{{ url()->current() }}/shows">{{ count($past_shows) }}</a></dd>
     <dt>Upcoming shows</dt>
-    <dd><a href="/myshows">{{ count($upcoming_shows) }}</a></dd>
+    <dd><a href="{{ url()->current() }}/shows">{{ count($upcoming_shows) }}</a></dd>
     <dt>Unique Songs</dt>
-    <dd><a href="/mysongs">{{ count($songs) }}</a></dd>
+    <dd><a href="{{ url()->current() }}/songs">{{ count($songs) }}</a></dd>
     <dt>Song Performances</dt>
     <dd>{{ $total_songs }}</dd>
     @if($first_show)
@@ -38,7 +38,7 @@ User Stats ({{ $user->username }})
   <h4>{{ $str }}</h4>
   <dl class="dl-horizontal">
     <dt>Shows</dt>
-    <dd><a href="/myshows?q={{ $str }}">{{ $year->shows }}</a></dd>
+    <dd><a href="{{ url()->current() }}/shows?q={{ $str }}">{{ $year->shows }}</a></dd>
     <dt>Unique Songs</dt>
     <dd>{{ $year->unique_songs }}</dd>
     <dt>Song Performances</dt>

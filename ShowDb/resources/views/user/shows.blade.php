@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-My Shows
+Shows ({{ $user->username }})
 @endsection
 
 @section('content')
 
 <div class="container">
-  <h3>My Shows{{ $q ? " ($q)" : ''}}</h3>
+  <h3>Shows ({{ $user->username }}) {{ $q ? " ($q)" : ''}}</h3>
     <table id="showtable" class="table table-striped">
       <thead>
 	<tr>

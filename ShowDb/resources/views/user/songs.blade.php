@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-My Songs
+Songs ({{ $user->username }})
 @endsection
 
 @section('content')
 
 <div class="container">
-  <h3>My Songs</h3>
+  <h3>Songs ({{ $user->username }})</h3>
   <form action="/songs" method="POST">
     {{ csrf_field() }}
     <table id="songtable" class="table table-striped">
