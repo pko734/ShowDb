@@ -13,7 +13,9 @@ About
   </div>
   <div class="well">
     <p>
-      Diehard fans of <a href="http://theavettbrothers.com">The Avett Brothers</a> tend to go to a lot of live shows.  A past time for many is keeping track of what shows they have attended, and what songs they've seen performed live, and when.  This site helps users keep track of that information very easily, and share it if they like.  Beyond that, it can act is a repository of interesting notes about Avett Brothers shows and songs, and links to video performances from shows.
+      Diehard fans of <a href="http://theavettbrothers.com">The Avett Brothers</a> tend to go to a lot of live shows.  A past time for many is keeping track of what shows they have attended, and what songs they've seen performed live, and when.  This site helps users keep track of that information very easily, and share it if they like.
+    </p>
+    <p>Beyond that, it can act is a repository of interesting notes about Avett Brothers shows and songs, and links to video performances from shows.
     </p>
   </div>
 
