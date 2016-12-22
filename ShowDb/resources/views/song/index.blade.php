@@ -67,5 +67,4 @@ Song Finder
   {!! $songs->render() !!}
 </div>
 
-<script src="/js/indexsongs.js"></script>
 @endsection
