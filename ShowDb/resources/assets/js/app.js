@@ -11,6 +11,7 @@ require('./indexsongs');
 require('./playsongs');
 require('./showshows');
 require('./showsongs');
+require('./indexusers');
 
 
 /**

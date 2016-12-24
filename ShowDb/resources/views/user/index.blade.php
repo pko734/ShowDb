@@ -7,7 +7,14 @@ Stats ({{ $user->username }})
 @section('content')
 
 <div class="container">
-  <h3>Stats ({{ $user->username }})</h3>
+  <h3>Stats ({{ $user->username }})
+    <button id="usershare" data-toggle="tooltip"
+	    data-placement="right"
+	    title="Copy to clipboard"
+	    class="btn btn-primary btn-sm"
+	    data-clipboard-text="{{ url()->current() }}" ><i class="fa fa-share-alt"></i>
+    </button>
+  </h3>
   <div class="well">
   <dl class="dl-horizontal">
     <dt>Past Shows</dt>

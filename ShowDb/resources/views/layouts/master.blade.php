@@ -137,6 +137,8 @@
     <script src="/js/bootbox.min.js"></script>
     <script src="/trumbowyg/trumbowyg.min.js"></script>
     <script src="https://use.fontawesome.com/0c6c3c7579.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+
 
     <script src="/js/app.js"></script>
 
