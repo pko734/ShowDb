@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SetlistItemNote extends Model
 {
+    use Auditable;
+
     public function setlistItem() {
         return $this->belongsTo('ShowDb\SetlistItem');
     }

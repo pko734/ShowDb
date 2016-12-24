@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class SongNote extends Model
 {
+
+    use Auditable;
+
     public function song() {
         return $this->belongsTo('ShowDb\Song');
     }
