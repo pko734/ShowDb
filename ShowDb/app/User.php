@@ -5,6 +5,7 @@ namespace ShowDb;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Auditable;
 
 class User extends Authenticatable
 {

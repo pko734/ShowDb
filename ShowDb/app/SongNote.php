@@ -3,6 +3,7 @@
 namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Auditable;
 
 class SongNote extends Model
 {
