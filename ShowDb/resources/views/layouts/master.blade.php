@@ -42,6 +42,9 @@
 
 	    <li class="{{ isActiveUrl('/shows') }}"><a href="/shows">Shows</a></li>
 	    <li class="{{ isActiveUrl('/songs') }}"><a href="/songs">Songs</a></li>
+	    <li class="{{ isActiveUrl('/about') }}">
+	      <a href="/about">About</a>
+	    </li>
 	    @if(Auth::user() && Auth::user()->admin)
 	    <li class="dropdown {{ isActiveRoute('admin.*') }}">
 	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
@@ -53,6 +56,7 @@
 	      </ul>
 	    </li>
 	    @endif
+
 	  </ul>
 
 	  <!-- Right Side Of Navbar -->
@@ -80,9 +84,6 @@
 	      <ul class="dropdown-menu" role="menu">
 		<li class="{{ isActiveUrl('/settings') }}">
 		  <a href="/settings">Settings</a>
-		</li>
-		<li class="{{ isActiveUrl('/about') }}">
-		  <a href="/about">About</a>
 		</li>
 		<li>
 		  <a href="{{ url('/logout') }}"
