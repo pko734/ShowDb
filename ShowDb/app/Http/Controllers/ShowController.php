@@ -53,20 +53,26 @@ class ShowController extends Controller
         $q = $request->get('q');
         $o = $request->get('o') ?: 'date-desc';
         $sort_order = explode('-', $o);
-        $shows = Show::withCount('setlistItems')
-               ->where( 'date',   'LIKE', "%{$q}%" )
-               ->orWhere('venue', 'LIKE', "%{$q}%")
-               ->orWhereHas('notes', function($query) use ($q) {
-                   $query->where('note', 'LIKE', "%{$q}%");
-               })
-               ->orderBy($sort_order[0], $sort_order[1])
+        $search = Show::withCount('setlistItems');
+        foreach(preg_split('/\s+/', trim($q)) as $p) {
+            $search = $search
+                    ->where(function($q1) use ($p) {
+                        $q1->where( 'date',   'LIKE', "%{$p}%" )
+                            ->orWhere('venue', 'LIKE', "%{$p}%")
+                            ->orWhereHas('notes', function($query) use ($p) {
+                                $query->where('note', 'LIKE', "%{$p}%");
+                            });
+                    });
+
+        }
+        $search = $search->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('date', 'desc')
                ->paginate(15)
-               ->setPath( '' );
-        $pagination = $shows->appends( [
-            'q' => $request->get('q'),
-            'o' => $request->get('o'),
-        ]);
+               ->setPath( '' )
+                ->appends( [
+                    'q' => $request->get('q'),
+                    'o' => $request->get('o'),
+                ]);
 
         $setlist_order = 'setlist_items_count-asc';
         if( $o === $setlist_order ) {
@@ -79,7 +85,7 @@ class ShowController extends Controller
         }
 
         return view('show.index')
-            ->withShows($shows)
+            ->withShows($search)
             ->withQuery($q)
             ->withSetlistItemOrder($setlist_order)
             ->withDateOrder($date_order)

@@ -186,6 +186,8 @@ return [
         BackupManager\Laravel\Laravel5ServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Cornford\Googlitics\AnalyticsServiceProvider::class,
+        Laravelista\Ekko\EkkoServiceProvider::class,
+
     ],
 
     /*
@@ -238,6 +240,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
+        'Ekko' => Laravelista\Ekko\Facades\Ekko::class,
     ],
 
 ];

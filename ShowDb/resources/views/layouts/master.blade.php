@@ -31,30 +31,28 @@
 	  <a class="navbar-brand" href="{{ url('/') }}">
 	    {{ config('app.name', 'Laravel') }}:
 	  </a>
-	  <div class="navbar-brand">@yield('title')</div>
 	</div>
 
 	<div class="collapse navbar-collapse" id="app-navbar-collapse">
 	  <!-- Left Side Of Navbar -->
 	  <ul class="nav navbar-nav">
 	    @if(Auth::user())
-	    <li><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
+	    <li class="{{ isActiveUrl('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
 	    @endif
 
-	    <li><a href="/shows">Shows</a></li>
-	    <li><a href="/songs">Songs</a></li>
+	    <li class="{{ isActiveUrl('/shows') }}"><a href="/shows">Shows</a></li>
+	    <li class="{{ isActiveUrl('/songs') }}"><a href="/songs">Songs</a></li>
 	    @if(Auth::user() && Auth::user()->admin)
-	    <li class="dropdown">
+	    <li class="dropdown {{ isActiveRoute('admin.*') }}">
 	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
 		<span class="caret"></span></a>
 	      <ul class="dropdown-menu">
-		<li><a href="/admin">Notes</a></li>
-		<li><a href="/admin/users">Users</a></li>
-		<li><a href="/admin/audit">Audit</a></li>
+		<li class="{{ isActiveUrl('/admin')}}"><a href="/admin">Notes</a></li>
+		<li class="{{ isActiveUrl('/admin/users')}}"><a href="/admin/users">Users</a></li>
+		<li class="{{ isActiveUrl('/admin/audit')}}"><a href="/admin/audit">Audit</a></li>
 	      </ul>
 	    </li>
 	    @endif
-	    <!--    <li><a href="/about">About</a></li> -->
 	  </ul>
 
 	  <!-- Right Side Of Navbar -->
@@ -80,10 +78,10 @@
 	      </a>
 
 	      <ul class="dropdown-menu" role="menu">
-		<li>
+		<li class="{{ isActiveUrl('/settings') }}">
 		  <a href="/settings">Settings</a>
 		</li>
-		<li>
+		<li class="{{ isActiveUrl('/about') }}">
 		  <a href="/about">About</a>
 		</li>
 		<li>
