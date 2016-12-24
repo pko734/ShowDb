@@ -63,7 +63,7 @@ About
   <div class="well">
     <p>
       <strong>Site Beta Testers</strong><br>
-      Alison, Tim, Caitlyn, Jen, Wayne, and Shannon
+      Alison, Tim, Caitlyn, Laurie, Todd, and Shannon
     </p>
     <p>
       <strong>Also</strong><br>
