@@ -209,7 +209,7 @@ class UserController extends Controller
             $query->where('user_id', '=', $user_id);
         })
                    ->whereRaw('UNIX_TIMESTAMP(date) > ?', \Carbon\Carbon::now()->timestamp)
-                    ->orderBy('date', 'desc')
+                    ->orderBy('date', 'asc')
                     ->first();
 
         return view('user.index')
