@@ -15,7 +15,8 @@
         "league/flysystem-dropbox": "^1.0",
         "thomaswelton/laravel-gravatar": "^1.1",
         "cornford/googlitics": "^2.2",
-        "laravelista/ekko": "^1.3"
+        "laravelista/ekko": "^1.3",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
