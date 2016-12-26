@@ -20,7 +20,9 @@ $(document).ready(function() {
 	$('#notetable tbody').append('<tr><td><textarea name="notes[]" value="" class="form-control" type="text" placeholder="Note"></textarea></td></tr>');
 
 	$("textarea").trumbowyg({
-	    btns: [['bold', 'italic'], ['link'], ['insertImage']]
+
+	    btns: [['bold', 'italic'], ['link'],['base64']],
+	    autogrow: true
 	});
 
 	if(!datbutton) {

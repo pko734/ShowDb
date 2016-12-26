@@ -8,8 +8,6 @@ use OwenIt\Auditing\Auditable;
 class SongNote extends Model
 {
 
-    use Auditable;
-
     public function song() {
         return $this->belongsTo('ShowDb\Song');
     }

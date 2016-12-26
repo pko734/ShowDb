@@ -267,7 +267,7 @@ class SongController extends Controller
      */
     public function storeNote($id, Request $request) {
         $this->validate($request, [
-            'notes.*' => 'string|between:5,2000'
+            'notes.*' => 'string|between:5,2000000'
         ]);
 
         $cnt = 0;
