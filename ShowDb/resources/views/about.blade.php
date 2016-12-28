@@ -66,8 +66,12 @@ About
       Alison, Tim, Caitlyn, Laurie, Todd, and Shannon
     </p>
     <p>
+      <strong>DCRANGERFAN</strong><br>
+      For your extraorindary video work, and for naming your videos consistently so that hundreds of them could be found and linked to without much trouble.
+    </p>
+    <p>
       <strong>Also</strong><br>
-      Scott, Seth, Bob, Joe, Tania, Mike, Paul, Travis, Dane, Pete, Jim, Susie, and everyone else that plays any roll in making these shows happen.  You came to leave behind the world a better way.
+      Scott, Seth, Bob, Joe, Tania, Mike, Paul, Travis, Dane, Pete, Mike, Jim, Susie, and everyone else that plays any role in making these shows happen.  You came to leave behind the world a better way.
     </p>
   </div>
 
