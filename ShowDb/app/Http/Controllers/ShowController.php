@@ -28,8 +28,8 @@ class ShowController extends Controller
             'update',
             'destroy',
             'storeVideo',
-            'approveNote',
-            'approveVideo',
+            'updateNote',
+            'updateVideo',
         ]);
         $this->middleware('auth')->only([
             'storeNote',
@@ -141,16 +141,17 @@ class ShowController extends Controller
     }
 
     /**
-     * Approve a show note.
+     * Update a show note.
      *
      * @param integer                    $show_id
      * @param integer                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function approveNote($show_id, $note_id, Request $request) {
+    public function updateNote($show_id, $note_id, Request $request) {
         $this->validate($request, [
-            'published' => 'required:boolean'
+            'note'      => 'string|between:5,2000000',
+            'published' => 'boolean'
         ]);
 
         $note = ShowNote::findOrFail($note_id);
@@ -159,9 +160,17 @@ class ShowController extends Controller
             return Redirect::back();
         }
 
-        $note->published = $request->published;
+        if($request->has('published')) {
+            $note->published = $request->published;
+        } else {
+            $note->published = 0;
+        }
+
+        if($request->has('note')) {
+            $note->note = $request->note;
+        }
         $note->save();
-        Session::flash('flash_message', 'Show Note Approved');
+        Session::flash('flash_message', 'Show Note Edited');
         return Redirect::back();
     }
 

@@ -44,7 +44,7 @@ Song Viewer
       <div class="form-group">
 	<label>Song Notes</label>
 
-	<form method="POST" action="/songs/{{ $song->id }}/notes">
+	<form id="song-note-form" method="POST" action="/songs/{{ $song->id }}/notes">
 	  {{ csrf_field() }}
 
 	  <table id="notetable" class="table">
@@ -57,6 +57,12 @@ Song Viewer
 	<form id="delete-song-form" method="POST" action="/songs/{{ $song->id }}">
 	  {{ method_field('DELETE') }}
 	  {{ csrf_field() }}
+	</form>
+
+	<form id="edit-song-note-form" method="POST" action="/songs/{{ $song->id }}/notes/">
+	  {{ method_field('PUT') }}
+	  {{ csrf_field() }}
+	  <input type="hidden" name="note" value="">
 	</form>
 
 	<form id="delete-song-note-form" method="POST" action="/songs/{{ $song->id }}/notes/">

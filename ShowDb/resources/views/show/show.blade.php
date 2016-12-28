@@ -88,7 +88,7 @@ Show Viewer
       {{ csrf_field() }}
     </form>
     <div class="col-md-6">
-      <form method="POST" action="/shows/{{ $show->id }}/notes">
+      <form id="show-note-form" method="POST" action="/shows/{{ $show->id }}/notes">
 	{{ csrf_field() }}
 	<div class="form-group">
 	  <label for="show_id">Show Notes</label>
@@ -106,7 +106,13 @@ Show Viewer
 	{{ csrf_field() }}
       </form>
 
-      <form id="add-video-form" method="POST" action="#">
+      <form id="edit-show-note-form" method="POST" action="/shows/{{ $show->id }}/notes/">
+	{{ method_field('PUT') }}
+	{{ csrf_field() }}
+	<input type="hidden" name="note" value="">
+      </form>
+
+    <form id="add-video-form" method="POST" action="#">
 	<input id="videoinput" type="hidden" name="video_url" value="">
 	{{ csrf_field() }}
       </form>

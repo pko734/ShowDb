@@ -24,6 +24,7 @@ class SongController extends Controller
             'edit',
             'update',
             'destroy',
+            'updateNote',
         ]);
         $this->middleware('auth')->only([
             'destroyNote',
@@ -242,9 +243,10 @@ class SongController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function approveNote($song_id, $note_id, Request $request) {
+    public function updateNote($song_id, $note_id, Request $request) {
         $this->validate($request, [
-            'published' => 'required:boolean'
+            'note' => 'string|between:5,2000000',
+            'published' => 'boolean',
         ]);
         $note = SongNote::findOrFail($note_id);
         if( $note->song->id != $song_id ) {
@@ -252,10 +254,19 @@ class SongController extends Controller
             return Redirect::back();
         }
 
-        $note->published = $request->published;
+        if($request->has('published')) {
+            $note->published = $request->published;
+        } else {
+            $note->published = 0;
+        }
+
+        if($request->has('note')) {
+            $note->note = $request->note;
+        }
+
         $note->save();
 
-        Session::flash('flash_message', 'Video Approved');
+        Session::flash('flash_message', 'Song Note Edited');
         return Redirect::back();
     }
 

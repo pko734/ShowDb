@@ -32,9 +32,21 @@ Admin
   {{ csrf_field() }}
 </form>
 
+<form id="show-note-edit-form" method="POST" action="#">
+  {{ method_field('PUT') }}
+  {{ csrf_field() }}
+  <input type="hidden" name="note" value="">
+</form>
+
 <form id="song-note-delete-form" method="POST" action="#">
   {{ method_field('DELETE') }}
   {{ csrf_field() }}
+</form>
+
+<form id="song-note-edit-form" method="POST" action="#">
+  {{ method_field('PUT') }}
+  {{ csrf_field() }}
+  <input type="hidden" name="note" value="">
 </form>
 
 <form id="video-note-delete-form" method="POST" action="#">

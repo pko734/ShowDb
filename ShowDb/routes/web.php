@@ -42,8 +42,8 @@ Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/audit', 'AdminController@audit')->name('admin.audit');
 Route::get('admin/users', 'AdminController@users')->name('admin.users');
 
-Route::put('songs/{song}/notes/{note}', 'SongController@approveNote')->name('song.note.approve');
-Route::put('shows/{show}/notes/{note}', 'ShowController@approveNote')->name('show.note.approve');
+Route::put('songs/{song}/notes/{note}', 'SongController@updateNote')->name('song.note.update');
+Route::put('shows/{show}/notes/{note}', 'ShowController@updateNote')->name('show.note.update');
 Route::put('setlistitems/{item}/video/{video}', 'ShowController@approveVideo')->name('show.video.approve');
 
 Route::get('stats/{username}', 'UserController@userstats')->name('user.stats');
