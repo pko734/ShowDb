@@ -26,17 +26,19 @@
 	    <span class="note-content">{!! $note->note !!}</span>
 	    @if(($user && $user->admin) || ($user && $user->id == $note->creator_id))
 	    <div class="stats">
+	      @if($user && $user->admin)
 	      <span class="input-grp-btn stat-item">
 		<button type="button" class="edit-{{ $type }}-note-btn btn btn-default"
 			data-note-id="{{ $note->id }}"
-			title="Edit Show Note">
+			title="Edit Note">
 		  <span class="glyphicon glyphicon-edit"></span>
 		</button>
 	      </span>
+	      @endif
 	      <span class="input-grp-btn stat-item">
 		<button type="button" class="delete-{{ $type }}-note-btn btn btn-default"
 			data-note-id="{{ $note->id }}"
-			title="Delete Show Note">
+			title="Delete Note">
 		  <span class="glyphicon glyphicon-trash"></span>
 		</button>
 	      </span>
