@@ -44,8 +44,23 @@ $(document).ready(function() {
 
     });
 
+    if(('#add-show-note-btn').length) {
+	var add_check = {
+	    init: function() {
+		setTimeout(add_check.check, 2000);
+	    },
+	    check: function() {
+		if($('#add-show-note-btn').isOnScreen()) {
+		    $('#add-show-note-btn').tooltip('show')
+		} else {
+		    setTimeout(add_check.check, 2000);
+		}
+	    }
+	}
+	add_check.init();
+    }
 
-    datbutton = false;
+    var datbutton = false;
     $('#add-show-note-btn').click(function() {
 	$('#notetable tbody').append('<tr><td><textarea name="notes[]" class="form-control" type="text" placeholder="Note"></textarea></td></tr>');
 
@@ -57,6 +72,7 @@ $(document).ready(function() {
 
 	if(!datbutton) {
 	    $('#notetable').append( '<button id="addbutton" type="submit" class="btn btn-primary">Add Notes</button>');
+	    window.scrollTo(0,$('#addbutton').offset().top - $(window).height()/2);
 	    datbutton = true;
 	}
 
@@ -91,9 +107,4 @@ $(document).ready(function() {
 	    }
 	});
     });
-
-    setTimeout(function() {
-	$('#add-show-note-btn').tooltip('show')
-    }, 2000 );
-
 });

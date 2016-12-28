@@ -139,7 +139,7 @@
     <script src="/trumbowyg/plugins/base64/trumbowyg.base64.min.js"></script>
     <script src="https://use.fontawesome.com/0c6c3c7579.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
-
+    <script src="/js/jquery.isonscreen.min.js"></script>
 
     <script src="/js/app.js"></script>
 

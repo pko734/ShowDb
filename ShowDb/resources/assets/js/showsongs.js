@@ -34,7 +34,6 @@ $(document).ready(function() {
 
 	var that = this;
 	$('#save-note-btn').on('click', function() {
-	    console.log('asdf');
 	    var note_id = $(that).attr('data-note-id');
 	    $('#edit-song-note-form').attr('action', $('#edit-song-note-form').attr('action') + note_id);
 	    $('#edit-song-note-form').children('input[name=note]').val($('#song-note-edit-textarea').trumbowyg('html'));
@@ -44,6 +43,22 @@ $(document).ready(function() {
 
     });
 
+
+    if(('#add-song-note-btn').length) {
+	var add_check = {
+	    init: function() {
+		setTimeout(add_check.check, 2000);
+	    },
+	    check: function() {
+		if($('#add-song-note-btn').isOnScreen()) {
+		    $('#add-song-note-btn').tooltip('show')
+		} else {
+		    setTimeout(add_check.check, 2000);
+		}
+	    }
+	}
+	add_check.init();
+    }
 
     $(document).ready(function() {
 	var datbutton = false;
@@ -56,14 +71,11 @@ $(document).ready(function() {
 
 	    if(!datbutton) {
 		$('#notetable').append( '<button id="add-song-note-btn" type="submit" class="btn btn-primary">Add Notes</button>');
+		window.scrollTo(0,$('#addbutton').offset().top - $(window).height()/2);
 		datbutton = true;
 	    }
 
 	});
     });
-
-    setTimeout(function() {
-	$('#add-song-note-btn').tooltip('show')
-    }, 2000 );
 
 });
