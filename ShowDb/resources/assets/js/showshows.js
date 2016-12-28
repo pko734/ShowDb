@@ -92,4 +92,8 @@ $(document).ready(function() {
 	});
     });
 
+    setTimeout(function() {
+	$('#add-show-note-btn').tooltip('show')
+    }, 2000 );
+
 });

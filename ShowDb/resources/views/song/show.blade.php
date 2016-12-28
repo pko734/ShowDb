@@ -49,7 +49,7 @@ Song Viewer
 
 	  <table id="notetable" class="table">
 	    <tbody>
-	      @include('notes', ['notes' => $song->notes, 'type' => 'song'])
+	      @include('notes', ['notes' => $song->notes, 'type' => 'song', 'add_tooltip' => 'Why is this song special to you?'])
 	    </tbody>
 	  </table>
 	</form>

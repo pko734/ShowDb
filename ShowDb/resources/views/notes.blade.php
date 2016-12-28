@@ -28,17 +28,23 @@
 	    <div class="stats">
 	      @if($user && $user->admin)
 	      <span class="input-grp-btn stat-item">
-		<button type="button" class="edit-{{ $type }}-note-btn btn btn-default"
+		<button type="button"
+			class="edit-{{ $type }}-note-btn btn btn-info"
 			data-note-id="{{ $note->id }}"
-			title="Edit Note">
+			title="Edit Note"
+			data-toggle="tooltip"
+			data-placement="bottom">
 		  <span class="glyphicon glyphicon-edit"></span>
 		</button>
 	      </span>
 	      @endif
 	      <span class="input-grp-btn stat-item">
-		<button type="button" class="delete-{{ $type }}-note-btn btn btn-default"
+		<button type="button"
+			class="delete-{{ $type }}-note-btn btn btn-danger"
 			data-note-id="{{ $note->id }}"
-			title="Delete Note">
+			title="Delete Note"
+			data-toggle="tooltip"
+			data-placement="bottom">
 		  <span class="glyphicon glyphicon-trash"></span>
 		</button>
 	      </span>
@@ -62,12 +68,14 @@
   <td>
     @if($user)
     <span class="input-grp-btn">
-      <button id="add-{{ $type }}-note-btn" type="button" class="pull-left btn btn-default">
+      <button id="add-{{ $type }}-note-btn"
+	      type="button"
+	      class="pull-left btn btn-primary"
+	      title="{{ $add_tooltip }}"
+	      data-toggle="tooltip"
+	      data-placement="right">
 	<span class="glyphicon glyphicon-plus"></span>
       </button>
-    </span>
-    <span class="input-grp-btn">
-      <!-- right hand button -->
     </span>
     @endif
   </td>

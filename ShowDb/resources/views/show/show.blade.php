@@ -95,7 +95,7 @@ Show Viewer
 
 	  <table id="notetable" class="table">
 	    <tbody>
-	      @include('notes', ['notes' => $show->notes, 'type' => 'show'])
+	      @include('notes', ['notes' => $show->notes, 'type' => 'show', 'add_tooltip' => 'What made this show special?'])
 	    </tbody>
 	  </table>
 	</div>

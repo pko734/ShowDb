@@ -62,4 +62,8 @@ $(document).ready(function() {
 	});
     });
 
+    setTimeout(function() {
+	$('#add-song-note-btn').tooltip('show')
+    }, 2000 );
+
 });
