@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/trumbowyg/ui/trumbowyg.min.css">
     <link href='{{ elixir('css/app.css') }}' type='text/css' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type='text/css' rel='stylesheet'>
     <meta name="_token" content="{{ csrf_token() }}">
     @yield('head')
   </head>
@@ -137,7 +138,7 @@
     <script src="/js/bootbox.min.js"></script>
     <script src="/trumbowyg/trumbowyg.min.js"></script>
     <script src="/trumbowyg/plugins/base64/trumbowyg.base64.min.js"></script>
-    <script src="https://use.fontawesome.com/0c6c3c7579.js"></script>
+<!--    <script src="https://use.fontawesome.com/0c6c3c7579.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
     <script src="/js/jquery.isonscreen.min.js"></script>
 

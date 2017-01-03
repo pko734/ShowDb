@@ -86,12 +86,18 @@ class SongController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function findPlays( Request $request ) {
+
         $this->validate($request, [
             'title' => 'exists:songs',
+            'username' => 'exists:users',
         ]);
 
         $song_id = Song::where('title', '=', $request->title)->first()->id;
-        return redirect('/songs/' . $song_id . '/plays' );
+        $prefix = '';
+        if($request->username) {
+            $prefix = '/stats/' . $request->username;
+        }
+        return redirect($prefix . '/songs/' . $song_id . '/plays' );
     }
 
     /**

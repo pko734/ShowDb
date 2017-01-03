@@ -25,7 +25,7 @@ Songs ({{ $user->username }})
 	@forelse($songs as $song)
 	<tr>
 	  <td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
-	  <td style="text-align: center;"><a href="/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
+	  <td style="text-align: center;"><a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
 	</tr>
 	@empty
 	<tr>

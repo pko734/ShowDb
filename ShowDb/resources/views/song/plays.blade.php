@@ -10,6 +10,9 @@ Plays
   <form action="/plays" method="GET" role="search">
     <label>
       Find Shows Where A Song Was Played
+      @if(isset($user_restriction))
+      ({{ $user_restriction->username }})
+      @endif
     </label>
     <div id="plays-input" class="input-group">
       <span class="ac-song-title">
@@ -18,6 +21,9 @@ Plays
 	       class="form-control typeahead"
 	       type="text"
 	       placeholder="Song Title">
+	@if(isset($user_restriction))
+	<input type="hidden" name="username" value="{{ $user_restriction->username }}">
+	@endif
       </span>
       <span class="input-group-btn">
 	<button type="submit" class="btn btn-default">

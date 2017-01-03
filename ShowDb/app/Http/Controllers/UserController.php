@@ -4,6 +4,7 @@ namespace ShowDb\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ShowDb\User;
+use ShowDb\Song;
 use \DB;
 use \Redirect;
 use Illuminate\Support\Collection;
@@ -143,6 +144,47 @@ class UserController extends Controller
     public function index(Request $request) {
         return $this->_showUserStats($request->user());
     }
+
+    /**
+     * Display the shows where a given song was played.
+     *
+     * @param integer                    $song_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showPlays($username, $song_id, Request $request)
+    {
+        $this->validate($request, [
+            'd' => 'in:asc,desc',
+        ]);
+        $song = Song::findOrFail($song_id);
+        $o = $request->get('o') ?: 'date';
+        $d = $request->get('d') ?: 'desc';
+
+        $user = User::where('username', '=', $username)->first();
+
+        $shows = Show::whereHas('setlistItems', function($query) use($song_id) {
+            $query->where('song_id', '=', $song_id);
+        })->whereHas('users', function($query) use($user) {
+            $query->where('user_id', '=', $user->id);
+        })
+               ->orderBy($o, $d)
+               ->orderBy('date','desc')
+               ->paginate(15)
+               ->setPath('');
+
+        $pagination = $shows->appends( [
+            'd' => $d,
+        ]);
+
+        return view('song.plays')
+            ->withSong($song)
+            ->withShows($shows)
+            ->withOrderBy($o)
+            ->withUserRestriction($request->user())
+            ->withUser($request->user());
+    }
+
 
     public function userstats($username, Request $request) {
         $v = Validator::make(['username' => $username], [
