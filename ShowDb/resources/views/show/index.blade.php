@@ -54,7 +54,7 @@ Show Finder
 	    <i style="color: orange"
 	       class="fa fa-exclamation"
 	       data-toggle="tooltip"
-	       title="Partial Setlist"
+	       title="Partial or incomplete setlist"
 	       aria-hidden="true"></i>
 	    @endif
 	  </td>
