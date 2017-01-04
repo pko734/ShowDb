@@ -19,7 +19,7 @@ Stats ({{ $user->username }})
   <dl class="dl-horizontal">
     <dt>Past Shows</dt>
     <dd><a href="{{ url()->current() }}/shows">{{ count($past_shows) }}</a></dd>
-    <dt>Upcoming shows</dt>
+    <dt>Upcoming Shows</dt>
     <dd><a href="{{ url()->current() }}/shows">{{ count($upcoming_shows) }}</a></dd>
     <dt>Unique Songs</dt>
     <dd><a href="{{ url()->current() }}/songs">{{ count($songs) }}</a></dd>

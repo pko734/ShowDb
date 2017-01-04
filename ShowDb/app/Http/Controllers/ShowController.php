@@ -48,6 +48,7 @@ class ShowController extends Controller
         $this->validate($request, [
             'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
             'q' => 'string|min:3',
+            'i' => 'boolean',
         ]);
 
         $q = $request->get('q');
@@ -65,6 +66,9 @@ class ShowController extends Controller
                     });
 
         }
+        if($request->get('i') == '1') {
+            $search = $search->where('incomplete_setlist', '=', true);
+        }
         $search = $search->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('date', 'desc')
                ->paginate(15)
@@ -72,6 +76,7 @@ class ShowController extends Controller
                 ->appends( [
                     'q' => $request->get('q'),
                     'o' => $request->get('o'),
+                    'i' => $request->get('i'),
                 ]);
 
         $setlist_order = 'setlist_items_count-asc';

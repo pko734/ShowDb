@@ -320,6 +320,7 @@ class UserController extends Controller
         $this->validate($request, [
             'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
             'q' => 'string|min:3',
+            'i' => 'boolean',
         ]);
 
         $v = Validator::make(['username' => $username], [
@@ -335,13 +336,25 @@ class UserController extends Controller
 
         $user = User::where('username', '=', $username)->first();
         $q = $request->q;
+        $shows = $user->shows()
+               ->where( 'date',   'LIKE', "%{$q}%" )
+               ->withCount('setlistItems');
+
+        if($request->get('i') == '1') {
+            $shows = $shows->where('incomplete_setlist', '=', true);
+        }
+
+        $shows = $shows->orderBy('date', 'desc')
+               ->paginate(15)
+               ->setPath('')
+               ->appends( [
+                   'q' => $request->get('q'),
+                   'o' => $request->get('o'),
+                   'i' => $request->get('i'),
+               ]);
+
         return view('user.shows')
-            ->withShows($user
-                        ->shows()
-                        ->where( 'date',   'LIKE', "%{$q}%" )
-                        ->withCount('setlistItems')
-                        ->orderBy('date', 'desc')
-                        ->paginate(15))
+            ->withShows($shows)
             ->withUser($user)
             ->withQ($q);
 
