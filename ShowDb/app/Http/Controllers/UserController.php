@@ -263,6 +263,10 @@ class UserController extends Controller
                                 ->shows()
                                 ->whereRaw('UNIX_TIMESTAMP(date) > ?',
                                            \Carbon\Carbon::now()->timestamp)->get())
+            ->withIncompleteSetlistShows($user
+                                         ->shows()
+                                         ->where('incomplete_setlist', '=', true)->get())
+
             ->withUser($user)
             ->withTotalSongs($total_songs)
             ->withFirstShow($first_show)
