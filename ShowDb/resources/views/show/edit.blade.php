@@ -54,7 +54,7 @@ Show Editor
 	     @if($show->incomplete_setlist)
 	       checked
 	     @endif
-	     >Partial
+	     >Incomplete
     </label>
     </div>
     <table id="setlisttable" class="table table-striped">
