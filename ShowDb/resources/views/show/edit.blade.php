@@ -41,6 +41,22 @@ Show Editor
     </div>
 
     <label for="show_venue">Set List</label>
+    <div class="form-group">
+    <label class="radio-inline">
+      <input type="radio" name="complete" value="1"
+	     @if(!$show->incomplete_setlist)
+	       checked
+	     @endif
+	     >Complete
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="complete" value="0"
+	     @if($show->incomplete_setlist)
+	       checked
+	     @endif
+	     >Partial
+    </label>
+    </div>
     <table id="setlisttable" class="table table-striped">
       <tbody>
 	@foreach($show->setlistItems->sortBy('order') as $item)

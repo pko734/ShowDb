@@ -29,7 +29,15 @@ Show Viewer
 		 placeholder="Venue - City, State">
 	</div>
 
-	<label>Set List</label>
+	<label>
+	  Set List
+	</label>
+	@if($show->incomplete_setlist)
+	<span class="incomplete-setlist">(incomplete)</span>
+	@else
+	<span class="complete-setlist">(complete)</span>
+	@endif
+
 	<table class="table table">
 	  <tbody>
 	    @foreach($show->setlistItems->sortBy('order') as $item)

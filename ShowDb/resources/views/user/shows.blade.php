@@ -30,6 +30,13 @@ Shows ({{ $user->username }})
 	    @else
 	    {{ $show->setlist_items_count }}
 	    @endif
+	    @if($show->incomplete_setlist)
+	    <i style="color: orange"
+	       class="fa fa-exclamation"
+	       data-toggle="tooltip"
+	       title="Partial Setlist"
+	       aria-hidden="true"></i>
+	    @endif
 	  </td>
 	  <td>
 	    <a href="/shows/{{ $show->id }}">

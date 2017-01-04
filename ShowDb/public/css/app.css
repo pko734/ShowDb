@@ -14,6 +14,15 @@ body {
   height: 100%;
   margin-top: -20px;
 }
+.complete-setlist {
+  font-style: italic;
+  color: green;
+  display: none;
+}
+.incomplete-setlist {
+  font-style: italic;
+  color: red;
+}
 #audittable td pre {
   max-width: 500px;
 }

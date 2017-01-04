@@ -151,7 +151,7 @@ class ShowController extends Controller
     public function updateNote($show_id, $note_id, Request $request) {
         $this->validate($request, [
             'note'      => 'string|between:5,2000000',
-            'published' => 'boolean'
+            'published' => 'boolean',
         ]);
 
         $note = ShowNote::findOrFail($note_id);
@@ -228,6 +228,7 @@ class ShowController extends Controller
             $show->date  = $date;
             $show->venue = $request->venues[$i];
             $show->published = 0;
+            $show->incomplete_setlist = 1;
             $show->save();
         }
 
@@ -288,6 +289,7 @@ class ShowController extends Controller
             'date'    => 'required',
             'venue'   => 'required|string|between:10,255',
             'songs.*' => 'exists:songs,title',
+            'complete' => 'required|boolean',
         ]);
 
         try {
@@ -300,6 +302,7 @@ class ShowController extends Controller
         $show = Show::find($id);
         $show->venue = $request->input('venue');
         $show->date  = $date;
+        $show->incomplete_setlist = !$request->complete;
 
         $items = $show->setlistItems->sortBy('order');
 
@@ -353,7 +356,7 @@ class ShowController extends Controller
         $show->save();
 
         Session::flash('flash_message', 'Changes saved');
-        return redirect('/shows');
+        return redirect('/shows/' . $show->id);
     }
 
     /**
