@@ -39,16 +39,15 @@ Stats ({{ $user->username }})
       ???
       @endif
     </dd>
+
+    @if(count($incomplete_setlist_shows))
+    <br>
+    <dt>Incomplete Shows</dt>
+    <dd><a href="{{ url()->current() }}/shows?i=1">{{ count($incomplete_setlist_shows) }} Show(s) with incomplete setlist data</a></dd>
+    @endif
+
   </dl>
   </div>
-
-  @if(count($incomplete_setlist_shows))
-  <h3>Shows With Incomplete or Partial Setlists</h3>
-  <div class="well">
-    <dt>Incomplete Setlist Shows</dt>
-    <dd><a href="{{ url()->current() }}/shows?i=1">{{ count($incomplete_setlist_shows) }}</a></dd>
-  </div>
-  @endif
 
   <h3>Yearly Breakdown</h3>
   @foreach($yearly_data as $str => $year)
