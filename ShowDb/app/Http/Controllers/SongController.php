@@ -118,7 +118,9 @@ class SongController extends Controller
 
         $shows = Show::whereHas('setlistItems', function($query) use($song_id) {
             $query->where('song_id', '=', $song_id);
-        })->orderBy($o, $d)
+        })->withCount('setlistItems')
+               ->withCount('notes')
+               ->orderBy($o, $d)
                ->orderBy('date','desc')
                ->paginate(15)
                ->setPath('');

@@ -27,11 +27,13 @@ Show Finder
     <table id="showtable" class="table table-striped">
       <thead>
 	<tr>
+	  <th></th>
 	  <th>
 	    <a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
 	      Date
 	    </a>
 	  </th>
+
 	  <th>
 	    <a href="{{ Request::FullUrlWithQuery(['o' => $setlist_item_order]) }}">
 	      Songs
@@ -43,6 +45,23 @@ Show Finder
       <tbody>
 	@forelse($shows as $show)
 	<tr>
+	  <td>
+	  @if($show->notes_count > 0)
+	  <i class="fa fa-files-o"
+	     data-toggle="tooltip"
+	     data-placement="right"
+	     title="{{ $show->notes_count }} notes"
+	     aria-hidden="true"></i>
+	  @endif
+	  @if($show->incomplete_setlist)
+	  <i style="color: orange"
+	     class="fa fa-exclamation"
+	     data-toggle="tooltip"
+	     data-placement="right"
+	     title="Partial or incomplete setlist"
+	     aria-hidden="true"></i>
+	  @endif
+	  </td>
 	  <td>{{ $show->date }}</td>
 	  <td>
 	    @if ($show->setlist_items_count === 0)
@@ -50,21 +69,22 @@ Show Finder
 	    @else
 	    {{ $show->setlist_items_count }}
 	    @endif
-	    @if($show->incomplete_setlist)
-	    <i style="color: orange"
-	       class="fa fa-exclamation"
-	       data-toggle="tooltip"
-	       title="Partial or incomplete setlist"
-	       aria-hidden="true"></i>
-	    @endif
 	  </td>
 	  <td>
 	    @if($user && $show->users->contains($user->id))
-	    <a data-toggle="tooltip" data-placement="left" class="remove-show-link" data-show-id="{{ $show->id }}" title="Remove from my shows" href="">
+	    <a data-toggle="tooltip"
+	       data-placement="left"
+	       class="remove-show-link"
+	       data-show-id="{{ $show->id }}"
+	       title="Remove from my shows" href="">
 	      <i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i></a>
 
 	    @elseif($user)
-	    <a data-toggle="tooltip" data-placement="left" class="add-show-link" data-show-id="{{ $show->id }}" title="Add to my shows" href="">
+	    <a data-toggle="tooltip"
+	       data-placement="left"
+	       class="add-show-link"
+	       data-show-id="{{ $show->id }}"
+	       title="Add to my shows" href="">
 	      <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
 	    @endif
 	    <a href="/shows/{{ $show->id }}">

@@ -168,6 +168,8 @@ class UserController extends Controller
         })->whereHas('users', function($query) use($user) {
             $query->where('user_id', '=', $user->id);
         })
+               ->withCount('setlistItems')
+               ->withCount('notes')
                ->orderBy($o, $d)
                ->orderBy('date','desc')
                ->paginate(15)
@@ -342,7 +344,8 @@ class UserController extends Controller
         $q = $request->q;
         $shows = $user->shows()
                ->where( 'date',   'LIKE', "%{$q}%" )
-               ->withCount('setlistItems');
+               ->withCount('setlistItems')
+               ->withCount('notes');
 
         if($request->get('i') == '1') {
             $shows = $shows->where('incomplete_setlist', '=', true);

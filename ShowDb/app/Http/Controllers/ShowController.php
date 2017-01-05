@@ -54,7 +54,8 @@ class ShowController extends Controller
         $q = $request->get('q');
         $o = $request->get('o') ?: 'date-desc';
         $sort_order = explode('-', $o);
-        $search = Show::withCount('setlistItems');
+        $search = Show::withCount('setlistItems')
+                ->withCount('notes');
         foreach(preg_split('/\s+/', trim($q)) as $p) {
             $search = $search
                     ->where(function($q1) use ($p) {
