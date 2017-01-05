@@ -33,7 +33,7 @@
 			data-note-id="{{ $note->id }}"
 			title="Edit Note"
 			data-toggle="tooltip"
-			data-placement="bottom">
+			data-placement="left">
 		  <span class="glyphicon glyphicon-edit"></span>
 		</button>
 	      </span>
@@ -44,7 +44,7 @@
 			data-note-id="{{ $note->id }}"
 			title="Delete Note"
 			data-toggle="tooltip"
-			data-placement="bottom">
+			data-placement="left">
 		  <span class="glyphicon glyphicon-trash"></span>
 		</button>
 	      </span>
