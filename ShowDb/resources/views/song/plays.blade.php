@@ -38,7 +38,7 @@ Plays
   <table id="showtable" class="table table-striped">
     <thead>
       <tr>
-	<th></th>
+	<th width="1px"></th>
 	<th>
 	  <a href="{{ Request::fullUrlWithQuery(['d' => 'asc']) }}">
 	    Date
