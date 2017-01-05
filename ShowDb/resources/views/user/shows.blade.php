@@ -25,6 +25,15 @@ Shows ({{ $user->username }})
 	@forelse($shows as $show)
 	<tr>
 	  <td>
+	    <span style="white-space:nowrap;">
+	    @if($show->incomplete_setlist)
+	    <i style="color: orange"
+	       class="fa fa-exclamation"
+	       data-toggle="tooltip"
+	       data-placement="right"
+	       title="Partial or incomplete setlist"
+	       aria-hidden="true"></i>
+	    @endif
 	    @if($show->notes_count > 0)
 	    <i class="fa fa-files-o"
 	       data-toggle="tooltip"
@@ -32,14 +41,7 @@ Shows ({{ $user->username }})
 	       title="{{ $show->notes_count }} notes"
 	       aria-hidden="true"></i>
 	    @endif
-	    @if($show->incomplete_setlist)
-	    <i style="color: orange"
-	       class="fa fa-exclamation"
-	       data-toggle="tooltip"
-	       data-placement="right"
-	       title="Partial or incomplete setlist"
-	     aria-hidden="true"></i>
-	    @endif
+	    </span>
 	  </td>
 
 	  <td>{{ $show->date }}</td>
