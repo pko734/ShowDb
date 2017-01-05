@@ -27,7 +27,7 @@ Show Finder
     <table id="showtable" class="table table-striped">
       <thead>
 	<tr>
-	  <th></th>
+	  <th width="1px"></th>
 	  <th>
 	    <a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
 	      Date

@@ -388,6 +388,7 @@ class UserController extends Controller
         $results = DB::select(DB::raw(
             "SELECT COUNT(title) AS setlist_items_count,
                     COUNT(*)     AS total_count,
+                    (SELECT count(*) FROM song_notes WHERE song_notes.song_id = s.id) AS notes_count,
                     s.id,
                     s.title
              FROM songs s

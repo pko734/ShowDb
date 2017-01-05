@@ -11,7 +11,7 @@ Shows ({{ $user->username }})
     <table id="showtable" class="table table-striped">
       <thead>
 	<tr>
-	  <th></th>
+	  <th width="1px"></th>
 	  <th>
 	    Date
 	  </th>

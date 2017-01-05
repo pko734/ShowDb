@@ -13,6 +13,7 @@ Songs ({{ $user->username }})
     <table id="songtable" class="table table-striped">
       <thead>
 	<tr>
+	  <th width="1px"></th>
 	  <th>
 	    Title
 	  </th>
@@ -24,6 +25,15 @@ Songs ({{ $user->username }})
       <tbody>
 	@forelse($songs as $song)
 	<tr>
+	  <td>
+	    @if($song->notes_count > 0)
+	    <i class="fa fa-files-o"
+	       data-toggle="tooltip"
+	       data-placement="right"
+	       title="{{ $song->notes_count }} notes"
+	       aria-hidden="true"></i>
+	    @endif
+	  </td>
 	  <td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
 	  <td style="text-align: center;"><a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
 	</tr>
