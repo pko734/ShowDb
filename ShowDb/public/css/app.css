@@ -29,6 +29,18 @@ body {
 .img-center {
   margin: 0 auto;
 }
+small.edit-video-btn,
+small.edit-item-btn {
+  cursor: pointer;
+}
+small.delete-video-btn,
+small.delete-item-btn {
+  cursor: pointer;
+}
+a .fa-youtube-play {
+  font-size: 18px;
+  color: red;
+}
 /*
  * typehead.js-bootstrap3.less
  * @version 0.2.3
@@ -37,16 +49,6 @@ body {
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
-small.edit-video-btn {
-  cursor: pointer;
-}
-small.delete-video-btn {
-  cursor: pointer;
-}
-a .fa-youtube-play {
-  font-size: 18px;
-  color: red;
-}
 .full-height {
   height: 100vh;
 }

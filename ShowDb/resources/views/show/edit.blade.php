@@ -40,7 +40,7 @@ Show Editor
 	     placeholder="Venue - City, State">
     </div>
 
-    <label for="show_venue">Set List</label>
+    <label for="show_setlist">Set List</label>
     <div class="form-group">
     <label class="radio-inline">
       <input type="radio" name="complete" value="1"

@@ -12,7 +12,9 @@ require('./playsongs');
 require('./showshows');
 require('./showsongs');
 require('./indexusers');
-
+require('./indexalbums');
+require('./showalbums');
+require('./editalbum.js');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
