@@ -63,13 +63,9 @@ Albums ({{ $user->username }})
 	</a>
       </td>
       <td style="text-align: center;">
-	@if($song_counts[$song->id])
 	<a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">
-	@endif
 	<strong>{{ $song_counts[$song->id] }}</strong>
-	@if($song_counts[$song->id])
 	</a>
-	@endif
       </td>
     </tr>
     @empty
