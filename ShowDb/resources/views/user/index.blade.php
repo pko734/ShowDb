@@ -59,8 +59,17 @@ Stats ({{ $user->username }})
 	  @foreach($albums as $album)
 	  <dt>{{ $album->title }}</dt>
 	  <dd>
-	    <a href="{{ url()->current() }}/albums?id={{ $album->album_id }}">
-	      {{ round(100*($album->album_songs / $album->total),2) }}%
+	    <a href="{{ url()->current() }}/albums?id={{ $album->id }}">
+	    @php($found = false)
+	    @foreach($album_info as $al)
+	    @if($al->album_id == $album->id)
+	    {{ round(100*($al->album_songs / $al->total),2) }}%
+            @php($found = true)
+	    @endif
+	    @endforeach
+            @if(!$found)
+	    0%
+	    @endif
 	    </a>
 	  </dd>
 	  @endforeach

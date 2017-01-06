@@ -275,8 +275,10 @@ class UserController extends Controller
              AND sh.id = su.show_id
              AND su.user_id = {$user_id}
              GROUP BY al.id, al.title
-             ORDER BY album_id"
+             ORDER BY release_date"
         ));
+
+	$albums = Album::orderBy('release_date')->get();
 
         return view('user.index')
             ->withPastShows($user
@@ -292,7 +294,8 @@ class UserController extends Controller
                                          ->where('incomplete_setlist', '=', true)->get())
 
             ->withUser($user)
-            ->withAlbums($album_info)
+            ->withAlbumInfo($album_info)
+            ->withAlbums($albums)
             ->withTotalSongs($total_songs)
             ->withFirstShow($first_show)
             ->withLastShow($last_show)
