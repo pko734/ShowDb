@@ -49,7 +49,7 @@ Shows ({{ $user->username }})
 	    @if ($show->setlist_items_count === 0)
 	    -
 	    @else
-	    {{ $show->setlist_items_count }}
+	    <strong>{{ $show->setlist_items_count }}</strong>
 	    @endif
 	  </td>
 	  <td>

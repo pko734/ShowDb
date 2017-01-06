@@ -1,13 +1,31 @@
 @extends('layouts.master')
 
 @section('title')
-Songs ({{ $user->username }})
+Albums ({{ $user->username }})
 @endsection
 
 @section('content')
 
 <div class="container">
-  <h3>Songs ({{ $user->username }}) {{ $q ? " ($q)" : '' }}</h3>
+  <h3>Album Songs ({{ $user->username }})</h3>
+  <form id="album-form" action="{{ url()->current() }}" method="GET" role="search">
+    <div class="form-group">
+      <select class="form-control" id="album-select" name="id">
+    @foreach($albums as $album)
+    <option value="{{ $album->id }}"
+	@if($album_id == $album->id)
+	SELECTED
+	@endif
+	>
+      {{ $album->title }} ({{ date_format(new DateTime($album->release_date),'Y') }})
+    </option>
+    @endforeach
+      </select>
+    </div>
+  </form>
+</div>
+
+<div class="container">
   <form action="/songs" method="POST">
     {{ csrf_field() }}
     <table id="songtable" class="table table-striped">
@@ -34,11 +52,24 @@ Songs ({{ $user->username }})
 	   aria-hidden="true"></i>
 	@endif
       </td>
-      <td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
-      <td style="text-align: center;">
-	<a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">
-	  <strong>{{ $song->setlist_items_count }}</strong>
+      <td>
+	@if(!$song_counts[$song->id])
+	<i class="fa"></i>
+	@else
+	<i class="fa fa-check" style="color:green;"></i>
+	@endif
+	<a href="/songs/{{ $song->id }}">
+	  {{ $song->title }}
 	</a>
+      </td>
+      <td style="text-align: center;">
+	@if($song_counts[$song->id])
+	<a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">
+	@endif
+	<strong>{{ $song_counts[$song->id] }}</strong>
+	@if($song_counts[$song->id])
+	</a>
+	@endif
       </td>
     </tr>
     @empty
@@ -50,7 +81,7 @@ Songs ({{ $user->username }})
       </tbody>
     </table>
   </form>
-  {!! $songs->render() !!}
+
 </div>
 
 @endsection

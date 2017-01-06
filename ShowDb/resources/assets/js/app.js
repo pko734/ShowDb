@@ -14,7 +14,8 @@ require('./showsongs');
 require('./indexusers');
 require('./indexalbums');
 require('./showalbums');
-require('./editalbum.js');
+require('./editalbum');
+require('./indexuseralbums');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

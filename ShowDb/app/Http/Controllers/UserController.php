@@ -5,6 +5,7 @@ namespace ShowDb\Http\Controllers;
 use Illuminate\Http\Request;
 use ShowDb\User;
 use ShowDb\Song;
+use ShowDb\Album;
 use \DB;
 use \Redirect;
 use Illuminate\Support\Collection;
@@ -256,6 +257,27 @@ class UserController extends Controller
                     ->orderBy('date', 'asc')
                     ->first();
 
+        $album_info = DB::select(DB::raw(
+            "SELECT al.id as album_id,
+                    al.title,
+                    COUNT(DISTINCT so.title) AS album_songs,
+                    (
+                        SELECT COUNT(DISTINCT song_id)
+                        FROM album_items
+                        WHERE album_items.album_id = al.id
+                    ) as total
+             FROM
+             albums al, album_items ai, songs so, setlist_items si, shows sh, show_user su
+             WHERE al.id = ai.album_id
+             AND ai.song_id = so.id
+             AND so.id = si.song_id
+             AND si.show_id = sh.id
+             AND sh.id = su.show_id
+             AND su.user_id = {$user_id}
+             GROUP BY al.id, al.title
+             ORDER BY album_id"
+        ));
+
         return view('user.index')
             ->withPastShows($user
                             ->shows()
@@ -270,6 +292,7 @@ class UserController extends Controller
                                          ->where('incomplete_setlist', '=', true)->get())
 
             ->withUser($user)
+            ->withAlbums($album_info)
             ->withTotalSongs($total_songs)
             ->withFirstShow($first_show)
             ->withLastShow($last_show)
@@ -365,6 +388,39 @@ class UserController extends Controller
             ->withUser($user)
             ->withQ($q);
 
+    }
+
+    public function albums($username, Request $request) {
+        $this->validate($request, [
+            'id' => 'exists:albums',
+        ]);
+        $album_id = $request->id;
+        $user = User::where('username', '=', $username)->first();
+
+        $albums = Album::orderBy('release_date')->get();
+
+        $songs = Song::whereHas('albumItems', function($query) use ($album_id){
+            $query->where('album_id', '=', $album_id);
+        })->get();
+
+        $song_counts = [];
+        foreach( $songs as $song ) {
+            $count = DB::select(DB::raw(
+                "SELECT COUNT(*) AS setlist_items_count
+                 FROM setlist_items si
+                 JOIN show_user su ON su.show_id = si.show_id
+                 WHERE su.user_id = {$user->id}
+                 AND si.song_id = {$song->id}"
+            ));
+            $song_counts[$song->id] = $count[0]->{'setlist_items_count'};
+        }
+
+        return view('user.albums')
+            ->withAlbumId($album_id)
+            ->withSongs($songs)
+            ->withSongCounts($song_counts)
+            ->withUser($user)
+            ->withAlbums($albums);
     }
 
     public function songs($username, Request $request) {

@@ -43,7 +43,7 @@ Album Viewer
 		@if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
 
 		<i data-toggle="tooltip"
-		   data-placement="right"
+		   data-placement="left"
 		   title="{{ $item->notes->get(0)->note }}"
 		   class="fa fa-files-o" aria-hidden="true"></i>
 

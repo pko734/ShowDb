@@ -11,7 +11,7 @@ Album Finder
     <div class="input-group">
       <input type="text" class="form-control" name="q"
 	     placeholder="Search Albums" value="{{ $query or '' }}">
-      <small class="form-text text-muted">examples: <em>2013, 2016-05, raleigh, jerry, etc</em></small>
+      <small class="form-text text-muted">examples: <em>november blue, 40 east, etc</em></small>
       <span class="input-group-btn" style="vertical-align:top;">
 	<button type="submit" class="btn btn-default">
 	  <span class="glyphicon glyphicon-search"></span>

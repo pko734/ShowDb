@@ -55,7 +55,11 @@ Song Finder
 	  </td>
 
 	  <td><a href="/songs/{{ $song->id }}">{{ $song->title }}</a></td>
-	  <td style="text-align: center;"><a href="/songs/{{ $song->id }}/plays">{{ $song->setlist_items_count }}</a></td>
+	  <td style="text-align: center;">
+	    <a href="/songs/{{ $song->id }}/plays">
+	      <strong>{{ $song->setlist_items_count }}</strong>
+	    </a>
+	  </td>
 	</tr>
 	@empty
 	<tr>

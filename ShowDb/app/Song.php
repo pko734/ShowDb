@@ -19,6 +19,10 @@ class Song extends Model
         return $this->hasMany('ShowDb\SetlistItem');
     }
 
+    public function albumItems() {
+        return $this->hasMany('ShowDb\AlbumItem');
+    }
+
     public function notes() {
         return $this->hasMany('ShowDb\SongNote');
     }
