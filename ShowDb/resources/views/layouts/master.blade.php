@@ -43,6 +43,9 @@
 
 	    <li class="{{ isActiveUrl('/shows') }}"><a href="/shows">Shows</a></li>
 	    <li class="{{ isActiveUrl('/songs') }}"><a href="/songs">Songs</a></li>
+	    @if(Auth::user() && Auth::user()->admin)
+	    <li class="{{ isActiveUrl('/albums') }}"><a href="/albums">Albums</a></li>
+	    @endif
 	    <li class="{{ isActiveUrl('/about') }}">
 	      <a href="/about">About</a>
 	    </li>
