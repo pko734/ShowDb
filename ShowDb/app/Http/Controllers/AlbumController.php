@@ -291,7 +291,7 @@ class AlbumController extends Controller
         # Validate
         $this->validate($request, [
             'date'    => 'required',
-            'title'   => 'required|string|between:10,255',
+            'title'   => 'required|string|between:3,255',
             'songs.*' => 'exists:songs,title',
         ]);
 
@@ -319,14 +319,25 @@ class AlbumController extends Controller
         // * Keep track of which items are "good"
         // * Delete any left over (removed) setlist items.
         if(is_array($request->songs)) {
+
+	    $tracker = [];
             foreach($request->songs as $song_title) {
                 if( trim($song_title) === '' ) {
                     continue;
                 }
-
-                $my_item = $items->filter(function($item) use($song_title) {
+		if( !isset($tracker[$song_title]) ) {
+		    $tracker[$song_title] = 0;
+		}
+                $my_items = $items->filter(function($item) use($song_title) {
                     return $item->song->title === $song_title;
-                })->first();
+                });
+
+		if( count($my_items) <= 1 ) {
+		    $my_item = $my_items->first();
+                } else {
+		    $my_item = $my_items->get($tracker[$song_title]);
+		    $tracker[$song_title] += 1;
+		}
 
                 if( $my_item === null ) {
                     // Add new item!
