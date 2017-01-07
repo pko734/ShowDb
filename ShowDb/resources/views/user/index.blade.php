@@ -63,11 +63,11 @@ Stats ({{ $user->username }})
 	    @php($found = false)
 	    @foreach($album_info as $al)
 	    @if($al->album_id == $album->id)
-	    {{ round(100*($al->album_songs / $al->total),2) }}%
-            @php($found = true)
+	    {{ round(100*($al->album_songs / $al->total),1) }}%
+	    @php($found = true)
 	    @endif
 	    @endforeach
-            @if(!$found)
+	    @if(!$found)
 	    0%
 	    @endif
 	    </a>
