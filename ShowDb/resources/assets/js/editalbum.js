@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     // passing in `null` for the `options` arguments will result in the default
     // options being used
-    $('#setlisttable .ac-song-title .typeahead').typeahead({
+    $('#albumitemtable .ac-song-title .typeahead').typeahead({
 	highlight: true,
 	cache: false
     }, {
