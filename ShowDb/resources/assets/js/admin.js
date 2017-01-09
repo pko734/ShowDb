@@ -25,6 +25,18 @@ $(document).ready(function() {
 	$('#song-note-delete-form').submit();
     });
 
+    $('#album-note-column .notedeletebutton').on('click', function() {
+	var that = this;
+
+	$('#album-note-delete-form').attr('action',
+					 '/albums/' +
+					 $(that).attr('data-parent-id') +
+					 '/notes/' +
+					 $(that).attr('data-note-id'));
+
+	$('#album-note-delete-form').submit();
+    });
+
     $('#video-note-column .notedeletebutton').on('click', function() {
 	var that = this;
 
@@ -107,6 +119,41 @@ $(document).ready(function() {
 
     });
 
+    $('#album-note-column .post-description').on('click', function(e) {
+	var that = this;
+	if(!$(e.target).hasClass('noteeditbutton') && !$(e.target).hasClass('glyphicon-edit')) {
+	    return;
+	}
+	console.log('asdf');
+	var content = $($(this).children('.note-content')[0]);
+	content.addClass('hide');
+
+	$($(this).children('.stats')[0]).append( '<button id="save-note-btn" type="submit" class="btn btn-primary">Save Note</button>');
+	$('.noteeditbutton').attr('disabled', true);
+
+	content.after('<textarea id="album-note-edit-textarea" name="note">' + content.html() + '</textarea>');
+	$("textarea").trumbowyg({
+
+	    btns: [['bold', 'italic'], ['link'],['base64']],
+	    autogrow: true
+	});
+
+	$('#save-note-btn').on('click', function() {
+	    var album_id = $(that).attr('data-parent-id');
+	    var note_id = $(that).attr('data-note-id');
+	    $('#album-note-edit-form').attr('action',
+					   '/albums/' +
+					   album_id +
+					   '/notes/' +
+					   note_id);
+	    $('#album-note-edit-form').children('input[name=note]').val($('#album-note-edit-textarea').trumbowyg('html'));
+	    $('#album-note-edit-form').submit();
+	    $('#save-note-btn').attr('disabled', true);
+	});
+
+    });
+
+
     // approves
     $('#show-note-column .noteapprovebutton').on('click', function() {
 	var that = this;
@@ -131,6 +178,19 @@ $(document).ready(function() {
 
 	$('#song-note-approve-form').submit();
     });
+
+    $('#album-note-column .noteapprovebutton').on('click', function() {
+	var that = this;
+
+	$('#album-note-approve-form').attr('action',
+					  '/albums/' +
+					  $(that).attr('data-parent-id') +
+					  '/notes/' +
+					  $(that).attr('data-note-id'));
+
+	$('#album-note-approve-form').submit();
+    });
+
 
     $('#video-note-column .noteapprovebutton').on('click', function() {
 	var that = this;

@@ -20,12 +20,16 @@
       <div class="post-description" data-parent-id="{{ $note->$type->id }}" data-note-id="{{ $note->id }}">
 	<p>
 	  @if(isset($note->show))
-	  <a href="/shows/{{ $note->show->id }}">
+	  <a href="/shows/{{ $note->show->id }}"><br><br>
 	    {{ $note->show->date }} {{ $note->show->venue }}
 	  </a>
-	  @else
-	  <a href="/songs/{{ $note->song->id }}">
+	  @elseif(isset($note->song))
+	  <a href="/songs/{{ $note->song->id }}"><br><br>
 	    {{ $note->song->title }}
+	  </a>
+	  @elseif(isset($note->album))
+	  <a href="/albums/{{ $note->album->id }}"><br><br>
+	    {{ $note->album->title }}
 	  </a>
 	  @endif
 	</p>

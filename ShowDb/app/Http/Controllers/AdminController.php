@@ -8,6 +8,7 @@ use ShowDb\SongNote;
 use ShowDb\SetlistItemNote;
 use ShowDb\Audit;
 use ShowDb\User;
+use ShowDb\AlbumNote;
 
 class AdminController extends Controller
 {
@@ -30,6 +31,10 @@ class AdminController extends Controller
                     ->where('published', '=', 0)
                     ->paginate(5);
 
+        $album_notes = AlbumNote::orderBy('updated_at', 'desc')
+                    ->where('published', '=', 0)
+                    ->paginate(5);
+
         $videos = SetListItemNote::orderBy('updated_at', 'desc')
                 ->where('published', '=', 0)
                 ->paginate(5);
@@ -38,6 +43,7 @@ class AdminController extends Controller
             ->withUser($request->user())
             ->withShowNotes($show_notes)
             ->withSongNotes($song_notes)
+            ->withAlbumNotes($album_notes)
             ->withVideos($videos);
     }
 

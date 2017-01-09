@@ -9,17 +9,22 @@ Admin
 <div class="container">
   <div class="row">
 
-    <div id="show-note-column" class="col-md-4">
+    <div id="show-note-column" class="col-md-3">
       <label>Show Notes</label>
       @include('admin.notes', ['notes' => $show_notes, 'type' => 'show'])
     </div>
 
-    <div id="song-note-column" class="col-md-4">
+    <div id="song-note-column" class="col-md-3">
       <label>Song Notes</label>
       @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
     </div>
 
-    <div id="video-note-column" class="col-md-4">
+    <div id="album-note-column" class="col-md-3">
+      <label>Album Notes</label>
+      @include('admin.notes', ['notes' => $album_notes, 'type' => 'album'])
+    </div>
+
+    <div id="video-note-column" class="col-md-3">
       <label>Videos</label>
       @include('admin.videos', ['notes' => $videos])
     </div>
@@ -33,6 +38,17 @@ Admin
 </form>
 
 <form id="show-note-edit-form" method="POST" action="#">
+  {{ method_field('PUT') }}
+  {{ csrf_field() }}
+  <input type="hidden" name="note" value="">
+</form>
+
+<form id="album-note-delete-form" method="POST" action="#">
+  {{ method_field('DELETE') }}
+  {{ csrf_field() }}
+</form>
+
+<form id="album-note-edit-form" method="POST" action="#">
   {{ method_field('PUT') }}
   {{ csrf_field() }}
   <input type="hidden" name="note" value="">
@@ -62,6 +78,12 @@ Admin
 </form>
 
 <form id="song-note-approve-form" method="POST" action="#">
+  {{ method_field('PUT') }}
+  {{ csrf_field() }}
+  <input type="hidden" name="published" value="1">
+</form>
+
+<form id="album-note-approve-form" method="POST" action="#">
   {{ method_field('PUT') }}
   {{ csrf_field() }}
   <input type="hidden" name="published" value="1">
