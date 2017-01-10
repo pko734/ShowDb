@@ -70,6 +70,10 @@ Route::delete('users/shows/{show_id}', 'UserController@destroyShow')->name('user
 Route::get('settings',        'UserController@settings')->name('user.settings');
 Route::put('settings/update', 'UserController@update')->name('user.update.store');
 
+Route::get('privacy', function() {
+    return view('privacy');
+});
+
 Route::get('about', function() {
     return view('about');
 });
