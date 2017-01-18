@@ -12,6 +12,7 @@ $(document).ready(function() {
 	cache: false
     }, {
 	name: 'songs',
+	limit: 10,
 	source: songs,
     });
 

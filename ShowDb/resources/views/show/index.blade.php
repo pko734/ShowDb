@@ -7,11 +7,13 @@ Show Finder
 @section('content')
 
 <div class="container">
-  <form action="/shows" method="GET" role="search">
+  <form action="{{ url()->current() }}" method="GET" role="search">
     <div class="input-group">
       <input type="text" class="form-control" name="q"
 	     placeholder="Search Shows" value="{{ $query or '' }}">
+      @if($display_search_examples)
       <small class="form-text text-muted">examples: <em>2013, 2016-05, raleigh, jerry, etc</em></small>
+      @endif
       <span class="input-group-btn" style="vertical-align:top;">
 	<button type="submit" class="btn btn-default">
 	  <span class="glyphicon glyphicon-search"></span>
@@ -22,24 +24,32 @@ Show Finder
 </div>
 
 <div class="container">
-  <form action="/shows" method="POST">
+  <form action="{{ url()->current() }}" method="POST">
     {{csrf_field() }}
-    <table id="showtable" class="table table-striped">
+    <table id="showtable" class="table table-striped" data-display-creator-notice="{{ $display_creator_notice }}">
       <thead>
 	<tr>
 	  <th width="1px"></th>
+	  @if($display_show_date)
 	  <th>
 	    <a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
 	      Date
 	    </a>
 	  </th>
-
+	  @endif
+	  @if($display_show_creator)
+	  <th>
+	    <a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
+	      Creator
+	    </a>
+	  </th>
+	  @endif
 	  <th>
 	    <a href="{{ Request::FullUrlWithQuery(['o' => $setlist_item_order]) }}">
 	      Songs
 	    </a>
 	  </th>
-	  <th>Venue</th>
+	  <th>{{ $venue_display }}</th>
 	</tr>
       </thead>
       <tbody>
@@ -47,6 +57,7 @@ Show Finder
 	<tr>
 	  <td>
 	    <span style="white-space:nowrap;">
+	  @if($display_complete)
 	  @if($show->incomplete_setlist)
 	  <i style="color: orange"
 	     class="fa fa-exclamation"
@@ -54,6 +65,7 @@ Show Finder
 	     data-placement="right"
 	     title="Partial or incomplete setlist"
 	     aria-hidden="true"></i>
+	  @endif
 	  @endif
 	  @if($show->notes_count > 0)
 	  <i class="fa fa-files-o"
@@ -65,7 +77,12 @@ Show Finder
 
 	    </span>
 	  </td>
+	  @if($display_show_date)
 	  <td>{{ $show->date }}</td>
+	  @endif
+	  @if($display_show_creator)
+	  <td>{{ $show->creator->username }}</td>
+	  @endif
 	  <td>
 	    @if ($show->setlist_items_count === 0)
 	    -
@@ -74,6 +91,7 @@ Show Finder
 	    @endif
 	  </td>
 	  <td>
+	    @if($display_show_checkbox)
 	    @if($user && $show->users->contains($user->id))
 	    <a data-toggle="tooltip"
 	       data-placement="left"
@@ -90,25 +108,32 @@ Show Finder
 	       title="Add to my shows" href="">
 	      <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
 	    @endif
-	    <a href="/shows/{{ $show->id }}">
+	    @endif
+	    <a href="{{ url()->current() }}/{{ $show->id }}">
 	      {{ $show->venue }}
 	    </a>
 	  </td>
 	</tr>
 	@empty
 	<tr>
-	  <td colspan="3">No matches</td>
+	  <td colspan="4">No matches</td>
 	</tr>
 	@endforelse
       </tbody>
     </table>
 
   </form>
-  @if($user && $user->admin)
+  @if($user && ($user->admin || $user_can_add_show))
   <ul class="pagination">
     <li>
-      <button id="addbutton" type="button" class="pull-left btn btn-default">
-	<span class="glyphicon glyphicon-plus"></span>
+      <button id="addbutton"
+	      type="button"
+	      class="pull-left btn btn-default"
+	      data-show-date="{{ $display_show_date }}">
+	<span class="glyphicon glyphicon-plus"
+	      title="{{ $show_add_tooltip }}"
+	      data-toggle="tooltip"
+	      data-placement="right"></span>
       </button>
     </li>
   </ul>
@@ -118,7 +143,7 @@ Show Finder
 
 </div>
 
-<form method="POST" id="user-add-show-form" action="">
+<form method="POST" id="user-add-show-form" action="" data-default-date="{{ $default_date }}">
     {{ csrf_field() }}
 </form>
 

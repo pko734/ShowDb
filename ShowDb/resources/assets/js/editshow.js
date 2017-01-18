@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    if(('#addbutton span').length) {
+	$('#addbutton span').tooltip('show')
+    }
+
     var songs = new Bloodhound({
 	datumTokenizer: Bloodhound.tokenizers.whitespace,
 	queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -6,6 +10,7 @@ $(document).ready(function() {
     });
 
     $('#addbutton').click(function() {
+	$('#addbutton span').tooltip('hide')
 	$('#setlisttable tbody').append('<tr><td><span class="ac-song-title-new"><input name="songs[]" value="" class="form-control typeahead" type="text" placeholder="Song Title"></span></td></tr>');
 
 	$('.ac-song-title-new .typeahead').typeahead({
@@ -29,14 +34,13 @@ $(document).ready(function() {
 	prefetch: '/data/songs'
     });
 
-    // passing in `null` for the `options` arguments will result in the default
-    // options being used
     $('#setlisttable .ac-song-title .typeahead').typeahead({
 	highlight: true,
 	cache: false
     }, {
 	name: 'songs',
-	source: songs,
+	limit: 10,
+	source: songs
     });
 
 });

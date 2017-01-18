@@ -1,11 +1,15 @@
 $(document).ready(function() {
-    datbutton = false;
+    var datbutton = false;
+    var date_type = $('#addbutton').attr('data-show-date') ? "text" : "hidden";
 
     $('#addbutton').click(function() {
-	$('#showtable tbody').append('<tr><td></td><td><input name="dates[]" value="" class="form-control" type="text" placeholder="YYYY-MM-DD"></td><td></td><td><input name="venues[]" value="" class="form-control" type="text" placeholder="Venue - City, State"></td></tr>');
+	$('#showtable tbody').append('<tr><td></td><td><input name="dates[]" class="form-control" type="' + date_type + '" placeholder="YYYY-MM-DD" value="' + $('#user-add-show-form').attr('data-default-date') + '"></td><td></td><td><input name="venues[]" value="" class="form-control" type="text" placeholder="Venue - City, State"></td></tr>');
 
 	if(!datbutton) {
-	    $('#showtable').append( '<button id="addbutton" type="submit" class="btn btn-primary">Submit</button>');
+	    $('#showtable').append('<button id="addbutton" type="submit" class="btn btn-primary">Submit</button>');
+	    if($('#showtable').attr('data-display-creator-notice') == '1') {
+		$('#showtable').after('<div>Please note: Fantasy shows that you create can be seen by any logged in user of this site, and will show your username as well.</div>');
+	    }
 	    datbutton = true;
 	}
 

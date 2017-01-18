@@ -10,8 +10,9 @@ Show Viewer
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <form method="GET" action="/shows/{{ $show->id }}/edit">
+      <form method="GET" action="{{ url()->current() }}/edit">
 
+	@if($display_show_date)
 	<div class="form-group">
 	  <label for="show_date">Show Date</label>
 	  <input disabled value="{{ $show->date }}"
@@ -20,8 +21,15 @@ Show Viewer
 		 id="show_date"
 		 placeholder="YYYY-MM-DD">
 	</div>
+	@else
+	  <input disabled value="{{ $show->date }}"
+		 type="hidden"
+		 class="form-control"
+		 id="show_date"
+		 placeholder="YYYY-MM-DD">
+	@endif
 	<div class="form-group">
-	  <label for="show_venue">Show Venue</label>
+	  <label for="show_venue">Show {{ $venue_display }}</label>
 	  <input disabled value="{{ $show->venue }}"
 		 type="text"
 		 class="form-control"
@@ -32,10 +40,12 @@ Show Viewer
 	<label>
 	  Set List
 	</label>
+	@if($display_complete)
 	@if($show->incomplete_setlist)
 	<span class="incomplete-setlist">(incomplete)</span>
 	@else
 	<span class="complete-setlist">(complete)</span>
+	@endif
 	@endif
 
 	<table class="table table">
@@ -73,7 +83,7 @@ Show Viewer
 
 	    <tr>
 	      <td colspan="3">
-		@if($user && $user->admin)
+		@if(($user && $user->admin) || ($show->user_id == $user->id))
 		<span class="input-grp-btn">
 		  <button type="submit" class="pull-left btn btn-primary">Edit Show</button>
 		</span>
@@ -91,30 +101,30 @@ Show Viewer
 	</table>
       </form>
     </div>
-    <form id="delete-show-form" method="POST" action="/shows/{{ $show->id }}">
+    <form id="delete-show-form" method="POST" action="{{ url()->current() }}">
       {{ method_field('DELETE') }}
       {{ csrf_field() }}
     </form>
     <div class="col-md-6">
-      <form id="show-note-form" method="POST" action="/shows/{{ $show->id }}/notes">
+      <form id="show-note-form" method="POST" action="{{ url()->current() }}/notes">
 	{{ csrf_field() }}
 	<div class="form-group">
 	  <label for="show_id">Show Notes</label>
 
 	  <table id="notetable" class="table">
 	    <tbody>
-	      @include('notes', ['notes' => $show->notes, 'type' => 'show', 'add_tooltip' => 'What made this show special?'])
+	      @include('notes', ['notes' => $show->notes, 'type' => 'show', 'add_tooltip' => $note_tooltip])
 	    </tbody>
 	  </table>
 	</div>
       </form>
 
-      <form id="delete-show-note-form" method="POST" action="/shows/{{ $show->id }}/notes/">
+      <form id="delete-show-note-form" method="POST" action="{{ url()->current() }}/notes/">
 	{{ method_field('DELETE') }}
 	{{ csrf_field() }}
       </form>
 
-      <form id="edit-show-note-form" method="POST" action="/shows/{{ $show->id }}/notes/">
+      <form id="edit-show-note-form" method="POST" action="{{ url()->current() }}/notes/">
 	{{ method_field('PUT') }}
 	{{ csrf_field() }}
 	<input type="hidden" name="note" value="">

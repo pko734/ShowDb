@@ -23,4 +23,8 @@ class Show extends Model
         return $this->belongsToMany('ShowDb\User');
     }
 
+    public function creator() {
+        return $this->belongsTo('ShowDb\User', 'user_id');
+    }
+
 }

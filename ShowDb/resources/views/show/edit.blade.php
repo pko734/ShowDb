@@ -7,20 +7,12 @@ Show Editor
 @section('content')
 
 <div class="container">
-  <form method="POST" action="/shows/{{ $show->id }}">
+  <form method="POST" action="{{ dirname(url()->current()) }}">
 
     {{ method_field('PUT') }}
     {{ csrf_field() }}
 
-    <div class="form-group">
-      <label for="show_id">Show ID</label>
-      <input disabled value="{{ $show->id }}"
-	     type="text"
-	     class="form-control"
-	     id="show_id"
-	     placeholder="">
-    </div>
-
+    @if($display_show_date)
     <div class="form-group">
       <label for="show_date">Show Date</label>
       <input value="{{ $show->date }}"
@@ -30,8 +22,18 @@ Show Editor
 	     id="show_date"
 	     placeholder="YYYY-MM-DD">
     </div>
+    @else
+      <input value="{{ $show->date }}"
+	     name="date"
+	     type="hidden"
+	     class="form-control"
+	     id="show_date"
+	     placeholder="YYYY-MM-DD">
+
+    @endif
+
     <div class="form-group">
-      <label for="show_venue">Show Venue</label>
+      <label for="show_venue">Show {{ $venue_display }}</label>
       <input value="{{ $show->venue }}"
 	     name="venue"
 	     type="text"
@@ -41,6 +43,7 @@ Show Editor
     </div>
 
     <label for="show_setlist">Set List</label>
+    @if($display_complete)
     <div class="form-group">
     <label class="radio-inline">
       <input type="radio" name="complete" value="1"
@@ -57,6 +60,7 @@ Show Editor
 	     >Incomplete
     </label>
     </div>
+    @endif
     <table id="setlisttable" class="table table-striped">
       <tbody>
 	@foreach($show->setlistItems->sortBy('order') as $item)
@@ -75,8 +79,14 @@ Show Editor
       </tbody>
     </table>
 
-    <button id="addbutton" type="button" class="btn btn-default">
-      <span class="glyphicon glyphicon-plus"></span>
+    <button id="addbutton"
+	    type="button"
+	    class="btn btn-default">
+      <span class="glyphicon glyphicon-plus"
+	    title="{{ $setlist_item_add_tooltip}}"
+	    data-toggle="tooltip"
+	    data-placement="right"
+></span>
     </button>
     <button type="submit" class="pull-right btn btn-primary">Submit</button>
   </form>

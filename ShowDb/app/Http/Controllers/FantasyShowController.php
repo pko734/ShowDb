@@ -13,7 +13,7 @@ use Redirect;
 use Auth;
 use Carbon\Carbon;
 
-class ShowController extends AbstractShowController
+class FantasyShowController extends AbstractShowController
 {
 
     /**
@@ -22,20 +22,31 @@ class ShowController extends AbstractShowController
     public function __construct()
     {
         $this->middleware('admin')->only([
-            'create',
-            'store',
-            'edit',
-            'update',
-            'destroy',
             'updateNote',
             'storeItemNote',
             'updateItemNote',
         ]);
         $this->middleware('auth')->only([
+            'index',
             'storeNote',
             'destroyNote',
+            'create',
+            'store',
+            'edit',
+            'update',
+            'destroy',
         ]);
+
+        $this->display_complete = false;
+        $this->notes_require_approval = false;
+        $this->display_show_checkbox = false;
+        $this->display_show_date = false;
+        $this->display_show_creator = true;
+        $this->display_search_examples = false;
+        $this->display_creator_notice = 1;
+        $this->venue_display = 'Description';
     }
+
 
     /**
      * Display a listing of the resource.
@@ -45,7 +56,10 @@ class ShowController extends AbstractShowController
      */
     public function index(Request $request)
     {
-        $this->showbase = Show::whereNull('user_id');
+        $this->showbase = Show::whereNotNull('user_id');
+        $this->default_date = date('Y-m-d');
+        $this->user_can_add_show = true;
+        $this->show_add_tooltip = 'Click here to add a fantasy show!';
         return parent::index($request);
     }
 
@@ -103,6 +117,7 @@ class ShowController extends AbstractShowController
      */
     public function store(Request $request)
     {
+        $this->show_user_id = $request->user()->id;
         return parent::store($request);
     }
 
@@ -114,8 +129,8 @@ class ShowController extends AbstractShowController
      */
     public function show($id, Request $request)
     {
-        $this->showbase = Show::whereNull('user_id');
-        $this->note_tooltip = 'What made this show special?';
+        $this->showbase = Show::whereNotNull('user_id');
+        $this->note_tooltip = 'Add any special notes here!';
         return parent::show($id, $request);
     }
 
@@ -127,7 +142,13 @@ class ShowController extends AbstractShowController
      */
     public function edit($id, Request $request)
     {
-        $this->showbase = Show::whereNull('user_id');
+        if($request->user()->isAdmin()) {
+            $this->showbase = Show::whereNotNull('user_id');
+        } else {
+            $this->showbase = Show::where('user_id', '=', $request->user()->id);
+        }
+
+        $this->setlist_item_add_tooltip = 'Click here to add songs!';
         return parent::edit($id, $request);
     }
 
@@ -140,7 +161,12 @@ class ShowController extends AbstractShowController
      */
     public function update($id, Request $request)
     {
-        $this->showbase = Show::whereNull('user_id');
+        if($request->user()->isAdmin()) {
+            $this->showbase = Show::whereNotNull('user_id');
+        } else {
+            $this->showbase = Show::where('user_id', '=', $request->user()->id);
+        }
+
         return parent::update($id, $request);
     }
 
@@ -152,7 +178,12 @@ class ShowController extends AbstractShowController
      */
     public function destroy($id, Request $request)
     {
-        $this->showbase = Show::whereNull('user_id');
+        if($request->user()->isAdmin()) {
+            $this->showbase = Show::whereNotNull('user_id');
+        } else {
+            $this->showbase = Show::where('user_id', '=', $request->user()->id);
+        }
+
         return parent::destroy($id, $request);
     }
 

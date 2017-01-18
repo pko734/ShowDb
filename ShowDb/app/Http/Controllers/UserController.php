@@ -63,6 +63,7 @@ class UserController extends Controller
              FROM shows sh
              JOIN show_user su ON sh.id = su.show_id
              WHERE su.user_id = {$user->id}
+             AND sh.user_id IS NULL
              GROUP BY year
              ORDER BY year desc"
         ));
@@ -75,6 +76,7 @@ class UserController extends Controller
              JOIN show_user su ON sh.id = su.show_id
              JOIN setlist_items si ON si.show_id = su.show_id
              WHERE su.user_id = {$user->id}
+             AND sh.user_id IS NULL
              GROUP BY year
              ORDER BY year desc"
         ));
@@ -88,6 +90,7 @@ class UserController extends Controller
              JOIN setlist_items si ON si.show_id = su.show_id
              JOIN songs s on si.song_id = s.id
              WHERE su.user_id = {$user->id}
+             AND sh.user_id IS NULL
              GROUP BY year
              ORDER BY year desc"
         ));
@@ -116,6 +119,7 @@ class UserController extends Controller
         return DB::select(DB::raw(
             "SELECT SUBSTRING(date,1,4) AS year, count(sh.id) AS show_count
              FROM shows sh
+             WHERE sh.user_id IS NULL
              GROUP BY year
              ORDER BY year desc"
         ));
@@ -126,6 +130,7 @@ class UserController extends Controller
             "SELECT SUBSTRING(date,1,4) AS year, count(si.id) AS song_count
              FROM shows sh
              JOIN setlist_items si ON si.show_id = sh.id
+             WHERE sh.user_id IS NULL
              GROUP BY year
              ORDER BY year desc"
         ));
@@ -137,6 +142,7 @@ class UserController extends Controller
              FROM shows sh
              JOIN setlist_items si ON si.show_id = sh.id
              JOIN songs s on si.song_id = s.id
+             WHERE sh.user_id IS NULL
              GROUP BY year
              ORDER BY year desc"
         ));
@@ -169,6 +175,7 @@ class UserController extends Controller
         })->whereHas('users', function($query) use($user) {
             $query->where('user_id', '=', $user->id);
         })
+               ->whereNull('user_id')
                ->withCount('setlistItems')
                ->withCount('notes')
                ->orderBy($o, $d)
@@ -239,6 +246,7 @@ class UserController extends Controller
         $first_show = Show::whereHas('users', function($query) use($user_id) {
             $query->where('user_id', '=', $user_id);
         })
+                    ->whereNull('user_id')
                     ->whereRaw('UNIX_TIMESTAMP(date) < ?', \Carbon\Carbon::now()->timestamp)
                     ->orderBy('date', 'asc')
                     ->first();
@@ -246,16 +254,18 @@ class UserController extends Controller
         $last_show = Show::whereHas('users', function($query) use($user_id) {
             $query->where('user_id', '=', $user_id);
         })
+                   ->whereNull('user_id')
                    ->whereRaw('UNIX_TIMESTAMP(date) < ?', \Carbon\Carbon::now()->timestamp)
-                    ->orderBy('date', 'desc')
-                    ->first();
+                   ->orderBy('date', 'desc')
+                   ->first();
 
         $next_show = Show::whereHas('users', function($query) use($user_id) {
             $query->where('user_id', '=', $user_id);
         })
+                   ->whereNull('user_id')
                    ->whereRaw('UNIX_TIMESTAMP(date) > ?', \Carbon\Carbon::now()->timestamp)
-                    ->orderBy('date', 'asc')
-                    ->first();
+                   ->orderBy('date', 'asc')
+                   ->first();
 
         $album_info = DB::select(DB::raw(
             "SELECT al.id as album_id,
@@ -278,19 +288,22 @@ class UserController extends Controller
              ORDER BY release_date"
         ));
 
-	$albums = Album::orderBy('release_date')->get();
+    $albums = Album::orderBy('release_date')->get();
 
         return view('user.index')
             ->withPastShows($user
                             ->shows()
+                            ->whereNull('shows.user_id')
                             ->whereRaw('UNIX_TIMESTAMP(date) < ?',
                                        \Carbon\Carbon::now()->timestamp)->get())
             ->withUpcomingShows($user
                                 ->shows()
+                                ->whereNull('shows.user_id')
                                 ->whereRaw('UNIX_TIMESTAMP(date) > ?',
                                            \Carbon\Carbon::now()->timestamp)->get())
             ->withIncompleteSetlistShows($user
                                          ->shows()
+                                         ->whereNull('shows.user_id')
                                          ->where('incomplete_setlist', '=', true)->get())
 
             ->withUser($user)
@@ -338,9 +351,13 @@ class UserController extends Controller
 
         return view('user.allstats')
             ->withPastShows(Show::whereRaw('UNIX_TIMESTAMP(date) < ?',
-                                           \Carbon\Carbon::now()->timestamp)->get())
+                                           \Carbon\Carbon::now()->timestamp)
+                            ->whereNull('user_id')
+                            ->get())
             ->withUpcomingShows(Show::whereRaw('UNIX_TIMESTAMP(date) > ?',
-                                               \Carbon\Carbon::now()->timestamp)->get())
+                                               \Carbon\Carbon::now()->timestamp)
+                                ->whereNull('user_id')
+                                ->get())
             ->withUser($request->user())
             ->withTotalSongs($total_songs)
             ->withYearlyData($yearly_data)

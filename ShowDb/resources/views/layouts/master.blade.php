@@ -41,9 +41,12 @@
 	    <li class="{{ isActiveUrl('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
 	    @endif
 
-	    <li class="{{ isActiveRoute('shows.*') }}"><a href="/shows">Shows</a></li>
-	    <li class="{{ isActiveRoute('songs.*') }}"><a href="/songs">Songs</a></li>
-	    <li class="{{ isActiveRoute('albums.*') }}"><a href="/albums">Albums</a></li>
+	    <li class="{{ isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
+	    <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
+	    <li class="{{ isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
+	    @if(Auth::user())
+	    <li class="{{ isActiveRoute('fantasy.*.*') }}"><a href="/fantasy/shows">Fantasy</a></li>
+	    @endif
 	    <li class="{{ isActiveUrl('/about') }}">
 	      <a href="/about">About</a>
 	    </li>
