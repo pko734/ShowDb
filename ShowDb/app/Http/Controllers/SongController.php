@@ -229,7 +229,7 @@ class SongController extends Controller
         $song->save();
 
         Session::flash('flash_message', 'Changes saved');
-        return redirect('/songs');
+        return redirect('/songs/' . $song->id);
     }
 
     /**

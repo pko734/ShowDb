@@ -37,7 +37,7 @@ class AuthController extends Controller
         if($authUser->username == '') {
             return redirect('/settings');
         }
-        return Redirect::back();
+        return Redirect::intended('/');
     }
 
     /**

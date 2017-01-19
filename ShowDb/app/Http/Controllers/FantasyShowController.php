@@ -32,6 +32,7 @@ class FantasyShowController extends AbstractShowController
             'destroyNote',
             'create',
             'store',
+            'show',
             'edit',
             'update',
             'destroy',
