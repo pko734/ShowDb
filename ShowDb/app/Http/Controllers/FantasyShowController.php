@@ -46,6 +46,7 @@ class FantasyShowController extends AbstractShowController
         $this->display_search_examples = false;
         $this->display_creator_notice = 1;
         $this->venue_display = 'Description';
+	$this->default_sort_column = 'created_at';
     }
 
 

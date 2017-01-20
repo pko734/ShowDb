@@ -31,6 +31,7 @@ class AbstractShowController extends Controller
     protected $display_search_examples = true;
     protected $display_creator_notice = false;
     protected $venue_display = 'Venue';
+    protected $default_sort_column = 'date';
 
     /**
      * Display a listing of the resource.
@@ -70,7 +71,7 @@ class AbstractShowController extends Controller
             $search = $search->where('incomplete_setlist', '=', true);
         }
         $search = $search->orderBy($sort_order[0], $sort_order[1])
-               ->orderBy('date', 'desc')
+               ->orderBy($this->default_sort_column, 'desc')
                ->paginate(15)
                ->setPath( '' )
                 ->appends( [
