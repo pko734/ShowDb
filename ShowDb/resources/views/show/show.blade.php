@@ -83,7 +83,7 @@ Show Viewer
 
 	    <tr>
 	      <td colspan="3">
-		@if(($user && $user->admin) || ($show->user_id == $user->id))
+		@if(($user && $user->admin) || ($user && ($show->user_id == $user->id)))
 		<span class="input-grp-btn">
 		  <button type="submit" class="pull-left btn btn-primary">Edit Show</button>
 		</span>
