@@ -48,6 +48,7 @@ class SongController extends Controller
         $o = $request->get('o') ?: 'title-asc';
         $sort_order = explode('-', $o);
         $songs = Song::withCount('setlistItems')
+               ->whereNull('user_id')
                ->withCount('notes')
                ->where( 'title', 'LIKE', '%' . $q . '%' )
                ->orWhereHas('notes', function($query) use ($q) {
