@@ -26,4 +26,8 @@ class Song extends Model
     public function notes() {
         return $this->hasMany('ShowDb\SongNote');
     }
+
+    public function getShowCount() {
+    	return \DB::select("SELECT COUNT(*) AS cnt FROM setlist_items si, shows s WHERE s.id = si.show_id AND si.song_id = {$this->id} AND s.user_id IS NULL")[0]->cnt;
+    }
 }

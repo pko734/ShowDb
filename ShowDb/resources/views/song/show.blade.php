@@ -26,7 +26,7 @@ Song Viewer
 
 	<div class="form-group">
 	  <a href="/songs/{{ $song->id }}/plays">
-	    Times played: {{ count($song->setlistItems) }}
+	    Times played: {{ $song->getShowCount() }}
 	  </a>
 	</div>
 
