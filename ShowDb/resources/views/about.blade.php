@@ -33,7 +33,7 @@ About
   </div>
   <div class="well">
     <p>
-      Data is spotty for some of the early shows.  If you can help fill in the gaps, contact one of the administrators!
+      Data is spotty for the early shows.  If you can help fill in the gaps, contact one of the administrators!
     </p>
   </div>
 
@@ -42,7 +42,7 @@ About
   </div>
   <div class="well">
     <p>
-      The site is administered, maintained, and developed by Paul Oehler and Tim Mossberger.
+      The site is administered, maintained, and developed by <a href="https://twitter.com/11x0000FF">Paul Oehler</a> and <a href="https://twitter.com/AvettArchivist">Tim Mossberger</a>.
     </p>
   </div>
 
@@ -52,7 +52,7 @@ About
 
   <div class="well">
     <p>
-      This Avett Setlist Database and Website were conceived and created in December 2016 by Paul Oehler.
+      This Avett Setlist Database and Website were conceived and created in December 2016 by <a href="https://twitter.com/11x0000FF">Paul Oehler</a>.
     </p>
   </div>
 
@@ -67,7 +67,7 @@ About
     </p>
     <p>
       <strong>DCRANGERFAN</strong><br>
-      For your extraorindary video work, and for naming your videos consistently so that hundreds of them could be found and linked to without much trouble.
+      For your <a href="https://www.youtube.com/user/DCRANGERFAN">extraorindary video work</a>, and for naming your videos consistently so that hundreds of them could be found and linked to without much trouble.
     </p>
     <p>
       <strong>Also</strong><br>
