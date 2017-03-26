@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+require('./shared');
 require('./admin');
 require('./editshow');
 require('./indexshows');

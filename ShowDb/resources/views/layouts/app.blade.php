@@ -22,7 +22,7 @@
   </head>
   <body>
     <div id="app">
-      <nav class="navbar navbar-default navbar-static-top">
+      <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 	  <div class="navbar-header">
 
@@ -77,8 +77,10 @@
 	  </div>
 	</div>
       </nav>
-
-      @yield('content')
+    @yield('before_content')
+      <div id="main-container">
+        @yield('content')
+      </div>
     </div>
 
     <!-- Scripts -->

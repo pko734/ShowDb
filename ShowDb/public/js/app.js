@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// identity function for calling harmory imports with the correct context
 /******/ 	__webpack_require__.i = function(value) { return value; };
-
+/******/
 /******/ 	// define getter function for harmory exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		Object.defineProperty(exports, name, {
@@ -44,7 +44,7 @@
 /******/ 			get: getter
 /******/ 		});
 /******/ 	};
-
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -53,13 +53,13 @@
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-
+/******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
@@ -140,7 +140,13 @@ eval("$(document).ready(function() {\n\n    $('#delete-song-btn').on('click', fu
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-eval("/**\n * First we will load all of this project's JavaScript dependencies which\n * include Vue and Vue Resource. This gives a great starting point for\n * building robust, powerful web applications using Vue and Laravel.\n */\n\n__webpack_require__(0);\n__webpack_require__(2);\n__webpack_require__(4);\n__webpack_require__(5);\n__webpack_require__(8);\n__webpack_require__(10);\n__webpack_require__(11);\n__webpack_require__(7);\n__webpack_require__(3);\n__webpack_require__(9);\n__webpack_require__(1);\n__webpack_require__(6);\n\n/**\n * Next, we will create a fresh Vue application instance and attach it to\n * the body of the page. From here, you may begin adding components to\n * the application, or feel free to tweak this setup for your needs.\n */\n/**\n\nVue.component('example', require('./components/Example.vue'));\n\nconst app = new Vue({\n    el: '#app'\n});\n*/\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTIuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vcmVzb3VyY2VzL2Fzc2V0cy9qcy9hcHAuanM/OGI2NyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEZpcnN0IHdlIHdpbGwgbG9hZCBhbGwgb2YgdGhpcyBwcm9qZWN0J3MgSmF2YVNjcmlwdCBkZXBlbmRlbmNpZXMgd2hpY2hcbiAqIGluY2x1ZGUgVnVlIGFuZCBWdWUgUmVzb3VyY2UuIFRoaXMgZ2l2ZXMgYSBncmVhdCBzdGFydGluZyBwb2ludCBmb3JcbiAqIGJ1aWxkaW5nIHJvYnVzdCwgcG93ZXJmdWwgd2ViIGFwcGxpY2F0aW9ucyB1c2luZyBWdWUgYW5kIExhcmF2ZWwuXG4gKi9cblxucmVxdWlyZSgnLi9hZG1pbicpO1xucmVxdWlyZSgnLi9lZGl0c2hvdycpO1xucmVxdWlyZSgnLi9pbmRleHNob3dzJyk7XG5yZXF1aXJlKCcuL2luZGV4c29uZ3MnKTtcbnJlcXVpcmUoJy4vcGxheXNvbmdzJyk7XG5yZXF1aXJlKCcuL3Nob3dzaG93cycpO1xucmVxdWlyZSgnLi9zaG93c29uZ3MnKTtcbnJlcXVpcmUoJy4vaW5kZXh1c2VycycpO1xucmVxdWlyZSgnLi9pbmRleGFsYnVtcycpO1xucmVxdWlyZSgnLi9zaG93YWxidW1zJyk7XG5yZXF1aXJlKCcuL2VkaXRhbGJ1bScpO1xucmVxdWlyZSgnLi9pbmRleHVzZXJhbGJ1bXMnKTtcblxuLyoqXG4gKiBOZXh0LCB3ZSB3aWxsIGNyZWF0ZSBhIGZyZXNoIFZ1ZSBhcHBsaWNhdGlvbiBpbnN0YW5jZSBhbmQgYXR0YWNoIGl0IHRvXG4gKiB0aGUgYm9keSBvZiB0aGUgcGFnZS4gRnJvbSBoZXJlLCB5b3UgbWF5IGJlZ2luIGFkZGluZyBjb21wb25lbnRzIHRvXG4gKiB0aGUgYXBwbGljYXRpb24sIG9yIGZlZWwgZnJlZSB0byB0d2VhayB0aGlzIHNldHVwIGZvciB5b3VyIG5lZWRzLlxuICovXG4vKipcblxuVnVlLmNvbXBvbmVudCgnZXhhbXBsZScsIHJlcXVpcmUoJy4vY29tcG9uZW50cy9FeGFtcGxlLnZ1ZScpKTtcblxuY29uc3QgYXBwID0gbmV3IFZ1ZSh7XG4gICAgZWw6ICcjYXBwJ1xufSk7XG4qL1xuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIHJlc291cmNlcy9hc3NldHMvanMvYXBwLmpzIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0FBTUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7Ozs7Ozs7Ozs7OyIsInNvdXJjZVJvb3QiOiIifQ==");
+eval("/**\n * First we will load all of this project's JavaScript dependencies which\n * include Vue and Vue Resource. This gives a great starting point for\n * building robust, powerful web applications using Vue and Laravel.\n */\n\n__webpack_require__(13);\n__webpack_require__(0);\n__webpack_require__(2);\n__webpack_require__(4);\n__webpack_require__(5);\n__webpack_require__(8);\n__webpack_require__(10);\n__webpack_require__(11);\n__webpack_require__(7);\n__webpack_require__(3);\n__webpack_require__(9);\n__webpack_require__(1);\n__webpack_require__(6);\n\n/**\n * Next, we will create a fresh Vue application instance and attach it to\n * the body of the page. From here, you may begin adding components to\n * the application, or feel free to tweak this setup for your needs.\n */\n/**\n\nVue.component('example', require('./components/Example.vue'));\n\nconst app = new Vue({\n    el: '#app'\n});\n*/\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTIuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vcmVzb3VyY2VzL2Fzc2V0cy9qcy9hcHAuanM/OGI2NyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEZpcnN0IHdlIHdpbGwgbG9hZCBhbGwgb2YgdGhpcyBwcm9qZWN0J3MgSmF2YVNjcmlwdCBkZXBlbmRlbmNpZXMgd2hpY2hcbiAqIGluY2x1ZGUgVnVlIGFuZCBWdWUgUmVzb3VyY2UuIFRoaXMgZ2l2ZXMgYSBncmVhdCBzdGFydGluZyBwb2ludCBmb3JcbiAqIGJ1aWxkaW5nIHJvYnVzdCwgcG93ZXJmdWwgd2ViIGFwcGxpY2F0aW9ucyB1c2luZyBWdWUgYW5kIExhcmF2ZWwuXG4gKi9cblxucmVxdWlyZSgnLi9zaGFyZWQnKTtcbnJlcXVpcmUoJy4vYWRtaW4nKTtcbnJlcXVpcmUoJy4vZWRpdHNob3cnKTtcbnJlcXVpcmUoJy4vaW5kZXhzaG93cycpO1xucmVxdWlyZSgnLi9pbmRleHNvbmdzJyk7XG5yZXF1aXJlKCcuL3BsYXlzb25ncycpO1xucmVxdWlyZSgnLi9zaG93c2hvd3MnKTtcbnJlcXVpcmUoJy4vc2hvd3NvbmdzJyk7XG5yZXF1aXJlKCcuL2luZGV4dXNlcnMnKTtcbnJlcXVpcmUoJy4vaW5kZXhhbGJ1bXMnKTtcbnJlcXVpcmUoJy4vc2hvd2FsYnVtcycpO1xucmVxdWlyZSgnLi9lZGl0YWxidW0nKTtcbnJlcXVpcmUoJy4vaW5kZXh1c2VyYWxidW1zJyk7XG5cbi8qKlxuICogTmV4dCwgd2Ugd2lsbCBjcmVhdGUgYSBmcmVzaCBWdWUgYXBwbGljYXRpb24gaW5zdGFuY2UgYW5kIGF0dGFjaCBpdCB0b1xuICogdGhlIGJvZHkgb2YgdGhlIHBhZ2UuIEZyb20gaGVyZSwgeW91IG1heSBiZWdpbiBhZGRpbmcgY29tcG9uZW50cyB0b1xuICogdGhlIGFwcGxpY2F0aW9uLCBvciBmZWVsIGZyZWUgdG8gdHdlYWsgdGhpcyBzZXR1cCBmb3IgeW91ciBuZWVkcy5cbiAqL1xuLyoqXG5cblZ1ZS5jb21wb25lbnQoJ2V4YW1wbGUnLCByZXF1aXJlKCcuL2NvbXBvbmVudHMvRXhhbXBsZS52dWUnKSk7XG5cbmNvbnN0IGFwcCA9IG5ldyBWdWUoe1xuICAgIGVsOiAnI2FwcCdcbn0pO1xuKi9cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyByZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcyJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztBQU1BO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7Ozs7Ozs7Ozs7OyIsInNvdXJjZVJvb3QiOiIifQ==");
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+eval("/* This stuff is shared across the site */\n\nvar ASD = ASD || {};\n\nASD.imageRotators = {\n  init: function(){\n    $('[data-bg-images]').each(function(){\n      var self = $(this);\n      var data = self.attr('data-bg-images');\n      data = data.replace(/,\\s*$/, \"\");\n      var arr = data.split(',');\n      var rand = Math.floor(Math.random() * (arr.length))\n      $('<div class=\"bg-slider\"/>').css({'background-image': 'url(' + arr[rand] + ')','display':'none'}).appendTo($(this)).fadeIn('slow');\n      self.find('.loading').fadeOut('slow');\n    })\n  }\n};\n\n$(document).ready(function(){\n  ASD.imageRotators.init();\n});//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vcmVzb3VyY2VzL2Fzc2V0cy9qcy9zaGFyZWQuanM/NDc1ZSJdLCJzb3VyY2VzQ29udGVudCI6WyIvKiBUaGlzIHN0dWZmIGlzIHNoYXJlZCBhY3Jvc3MgdGhlIHNpdGUgKi9cblxudmFyIEFTRCA9IEFTRCB8fCB7fTtcblxuQVNELmltYWdlUm90YXRvcnMgPSB7XG4gIGluaXQ6IGZ1bmN0aW9uKCl7XG4gICAgJCgnW2RhdGEtYmctaW1hZ2VzXScpLmVhY2goZnVuY3Rpb24oKXtcbiAgICAgIHZhciBzZWxmID0gJCh0aGlzKTtcbiAgICAgIHZhciBkYXRhID0gc2VsZi5hdHRyKCdkYXRhLWJnLWltYWdlcycpO1xuICAgICAgZGF0YSA9IGRhdGEucmVwbGFjZSgvLFxccyokLywgXCJcIik7XG4gICAgICB2YXIgYXJyID0gZGF0YS5zcGxpdCgnLCcpO1xuICAgICAgdmFyIHJhbmQgPSBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAoYXJyLmxlbmd0aCkpXG4gICAgICAkKCc8ZGl2IGNsYXNzPVwiYmctc2xpZGVyXCIvPicpLmNzcyh7J2JhY2tncm91bmQtaW1hZ2UnOiAndXJsKCcgKyBhcnJbcmFuZF0gKyAnKScsJ2Rpc3BsYXknOidub25lJ30pLmFwcGVuZFRvKCQodGhpcykpLmZhZGVJbignc2xvdycpO1xuICAgICAgc2VsZi5maW5kKCcubG9hZGluZycpLmZhZGVPdXQoJ3Nsb3cnKTtcbiAgICB9KVxuICB9XG59O1xuXG4kKGRvY3VtZW50KS5yZWFkeShmdW5jdGlvbigpe1xuICBBU0QuaW1hZ2VSb3RhdG9ycy5pbml0KCk7XG59KTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gcmVzb3VyY2VzL2Fzc2V0cy9qcy9zaGFyZWQuanMiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ }
 /******/ ]);

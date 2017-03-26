@@ -10,19 +10,13 @@
 @color_10: #333333;
 @color_11: #262626;
 
-html,body { height: 100%; margin: 0px; padding: 0px; }
+html,body { height: 100%; margin: 0px; padding: 0px; background:#000; }
 
 .hide {
       display: none;
 }
 
-#sobig {
-    background:url('https://media.npr.org/assets/img/2016/06/14/avett-brothers_wide-86bcd6a92ae39d1f3e21d10fa0e450269b0e1533.jpg?s=1400') no-repeat;
-    background-size:cover;
-    width:100%;
-    height:100%;
-    margin-top:-20px;
-}
+
 
 .complete-setlist {
     font-style: italic;
@@ -643,6 +637,103 @@ fieldset[disabled] {
 	}
     }
 }
+/* ====================================== */
+/*           Bootstrap Overrides          */
+/* ====================================== */
+.panel-heading{
+  h3{
+    margin:0;
+  }
+}
+/* ====================================== */
+/*               Misc Stuff               */
+/* ====================================== */
+.bg-slider {
+    background-color:#000;
+    //background:url('') no-repeat;
+    position:fixed;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100%;
+}
+.loading{
+  color: #FFF;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 10;
+  .fa{
+    opacity: .5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    display: inline-block;
+  }
+}
+.pagination{
+  margin:0;
+}
+.is-table{
+  width:100%;
+  display:table;
+  padding:0px;
+
+}
+.is-table-col{
+  display:table-cell;
+  float:none;
+  padding:0px;
+  table{
+    margin-bottom:0px;
+  }
+  .bg-slider{
+    background-color:#EEE;
+    position:absolute;
+    .fa{
+      color:#555;
+    }
+  }
+}
+/* ====================================== */
+/*            Stuff with IDs              */
+/* ====================================== */
+#asd-container{
+  padding-top:80px;
+}
+#asd-navbar{
+  background:rgba(0,0,0,.5);
+  border:none;
+  border-radius:0px;
+  box-shadow:none;
+  ul{
+    li{
+      a{
+        line-height: 24px;
+        color:#FFF;
+      }
+      &.open{
+        a{
+          background:#FFF;
+          color:#000;
+        }
+      }
+      &.active{
+        a{
+          background:rgba(255,255,255,.25);
+        }
+      }
+    }
+    .dropdown-menu{
+      border:none;
+    }
+  }
+}
+
 @media (min-width: 1200px) {
     .row.row-grid {
 	[class*="col-lg-"] {
