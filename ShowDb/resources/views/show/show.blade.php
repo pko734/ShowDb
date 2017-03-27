@@ -4,8 +4,10 @@ Show Viewer
 @endsection
 @section('content')
 <div class="container">
-	<div class="row">
+
 		<div class="col-md-6">
+		<div class="panel panel-default">
+		<div class="panel-body">
 			<form method="GET" action="{{ url()->current() }}/edit">
 				@if($display_show_date)
 				<div class="form-group">
@@ -92,6 +94,7 @@ Show Viewer
 					</tbody>
 				</table>
 			</form>
+			</div></div>
 		</div>
 		<form id="delete-show-form" method="POST" action="{{ url()->current() }}">
 			{{ method_field('DELETE') }}
@@ -101,7 +104,6 @@ Show Viewer
 			<form id="show-note-form" method="POST" action="{{ url()->current() }}/notes">
 				{{ csrf_field() }}
 				<div class="form-group">
-					<label for="show_id">Show Notes</label>
 					<table id="notetable" class="table">
 						<tbody>
 							@include('notes', ['notes' => $show->notes, 'type' => 'show', 'add_tooltip' => $note_tooltip])
@@ -127,6 +129,6 @@ Show Viewer
 				{{ method_field('DELETE') }}
 			</form>
 		</div>
-	</div>
+
 </div>
 @endsection

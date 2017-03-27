@@ -21,7 +21,7 @@ Song Finder
     </div><!--/.panel-heading-->
     <div class="is-table panel-body">
 
-      <div class="is-table-col col-xs-3">
+      <div class="is-table-col col-xs-3 image-col">
         @include('widgets.slider', ['slides' => [
         'http://thelstory.weebly.com/uploads/2/1/7/1/21710700/3103595.jpg']
         ])
@@ -88,6 +88,7 @@ Song Finder
         <div class="pull-right">
           {!! $songs->render() !!}
         </div>
+        <div style="clear:both;"></div>
       </div>
   </div><!--/.panel-->
 </div><!--/.container-->

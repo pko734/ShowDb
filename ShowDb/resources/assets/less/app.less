@@ -645,6 +645,16 @@ fieldset[disabled] {
     margin:0;
   }
 }
+.navbar-brand{
+  padding-top:10px;
+  font-size:12px;
+  display:inline-block;
+  width:100px;
+  text-transform: uppercase;
+  color:#FCC!important;
+  text-align: right;
+  line-height:11px;
+}
 /* ====================================== */
 /*               Misc Stuff               */
 /* ====================================== */
@@ -699,9 +709,50 @@ fieldset[disabled] {
     }
   }
 }
+.alert{
+  margin:6px 0px 0px 0px;
+  .close{
+    margin-top:-6px;
+  }
+  .alert-right{
+    padding-left:20px;
+    vertical-align:middle;
+    display:table-cell;
+    strong{
+      text-transform: capitalize;
+    }
+    p{
+      margin:0;
+    }
+  }
+  .alert-left{
+    width:1%;
+    vertical-align:middle;
+    i{
+      @include opacity(.5);
+      font-size:30px;
+    }
+    display:table-cell;
+  }
+}
+.trumbowyg-editor{
+  background:#FFF;
+}
 /* ====================================== */
 /*            Stuff with IDs              */
 /* ====================================== */
+#modal-alerts{
+  position:fixed;
+  width:80%;
+  top:0px;
+  left:10%;
+  z-index:99999999;
+}
+#asd-messages-box{
+  .alert{
+    display:none;
+  }
+}
 #asd-container{
   padding-top:80px;
 }
@@ -733,7 +784,11 @@ fieldset[disabled] {
     }
   }
 }
-
+#notetable{
+  td{
+    padding:0px;
+  }
+}
 @media (min-width: 1200px) {
     .row.row-grid {
 	[class*="col-lg-"] {
@@ -760,4 +815,12 @@ fieldset[disabled] {
 	    }
 	}
     }
+}
+@media (max-width: 650px) {
+  .is-table-col{
+    width:100%;
+  }
+  .image-col{
+    display:none;
+  }
 }

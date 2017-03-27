@@ -7,7 +7,8 @@ Song Editor
 @section('content')
 
 <div class="container">
-
+  <div class="panel panel-default">
+  <div class="panel-body">
   <form method="POST" action="/songs/{{ $song->id }}">
 
     {{ method_field('PUT') }}
@@ -33,7 +34,8 @@ Song Editor
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
    </form>
-
+   </div>
+   </div>
 </div>
 
 @endsection

@@ -61,7 +61,7 @@
 @endforeach
 
 @if(!isset($at_least_one))
-<tr><td>No notes</td></tr>
+<tr><td><div class="panel panel-default"><div class="panel-body">No notes</div></div></td></tr>
 @endif
 
 <tr>
@@ -74,7 +74,7 @@
 	      title="{{ $add_tooltip }}"
 	      data-toggle="tooltip"
 	      data-placement="right">
-	<span class="glyphicon glyphicon-plus"></span>
+	<span class="glyphicon glyphicon-plus"></span> Add A Note
       </button>
     </span>
     @endif

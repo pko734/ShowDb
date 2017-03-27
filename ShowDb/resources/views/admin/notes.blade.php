@@ -67,6 +67,7 @@
   </div>
 </div>
 @empty
-<div>No new notes</div>
-
+<div class="panel panel-default">
+	<div class="panel-body">No new notes</div>
+</div>
 @endforelse

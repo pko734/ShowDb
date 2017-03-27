@@ -7,28 +7,31 @@ Admin
 @section('content')
 
 <div class="container">
-  <div class="row">
-
-    <div id="show-note-column" class="col-md-3">
-      <label>Show Notes</label>
-      @include('admin.notes', ['notes' => $show_notes, 'type' => 'show'])
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Audit Log</h3>
     </div>
+    <div class="panel-body">
+      <div id="show-note-column" class="col-md-3">
+        <label>Show Notes</label>
+        @include('admin.notes', ['notes' => $show_notes, 'type' => 'show'])
+      </div>
 
-    <div id="song-note-column" class="col-md-3">
-      <label>Song Notes</label>
-      @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
+      <div id="song-note-column" class="col-md-3">
+        <label>Song Notes</label>
+        @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
+      </div>
+
+      <div id="album-note-column" class="col-md-3">
+        <label>Album Notes</label>
+        @include('admin.notes', ['notes' => $album_notes, 'type' => 'album'])
+      </div>
+
+      <div id="video-note-column" class="col-md-3">
+        <label>Videos</label>
+        @include('admin.videos', ['notes' => $videos])
+      </div>
     </div>
-
-    <div id="album-note-column" class="col-md-3">
-      <label>Album Notes</label>
-      @include('admin.notes', ['notes' => $album_notes, 'type' => 'album'])
-    </div>
-
-    <div id="video-note-column" class="col-md-3">
-      <label>Videos</label>
-      @include('admin.videos', ['notes' => $videos])
-    </div>
-
   </div>
 </div>
 

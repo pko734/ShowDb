@@ -28,7 +28,7 @@
           </button>
           <!-- Branding Image -->
           <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}:
+            {{ config('app.name', 'Laravel') }}
           </a>
         </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -100,20 +100,21 @@
           </div>
         </div>
       </nav>
-      @if(Session::get('flash_message') != null)
-      <div class="alert alert-success alert-dismissible" style="margin-top: -20px;">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>{{ Session::get('flash_message') }}</strong>
-      </div>
-      @endif
-      @if(Session::get('flash_error') != null)
-      <div class="alert alert-danger alert-dismissible" style="margin-top: -20px;">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>{{ Session::get('flash_error') }}</strong>
-      </div>
-      @endif
-      @if (count($errors) > 0)
-      <div id="asd-error-box">
+
+      <div id="asd-messages-box">
+        @if(Session::get('flash_message') != null)
+        <div class="alert alert-success alert-dismissible" style="margin-top: -20px;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>{{ Session::get('flash_message') }}</strong>
+        </div>
+        @endif
+        @if(Session::get('flash_error') != null)
+        <div class="alert alert-danger alert-dismissible" style="margin-top: -20px;">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>{{ Session::get('flash_error') }}</strong>
+        </div>
+        @endif
+        @if (count($errors) > 0)
         <div class="alert alert-danger">
           <ul>
             @foreach ($errors->all() as $error)
@@ -121,8 +122,9 @@
             @endforeach
           </ul>
         </div>
+        @endif
       </div>
-      @endif
+
       @yield('before_content')
       <div id="asd-container">
         @yield('content')

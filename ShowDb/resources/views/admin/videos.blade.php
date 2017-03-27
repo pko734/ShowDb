@@ -56,5 +56,7 @@
       </div>
     </div>
 @empty
-<div>No new videos</div>
+<div class="panel panel-default">
+	<div class="panel-body">No new videos</div>
+</div>
 @endforelse
