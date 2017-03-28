@@ -31,7 +31,7 @@ ASD.animateAlerts = function(){
       _type = 'info';
     }
     _alert.find('strong').remove();
-    _message = _alert.find('.alert-right p').text();
+    _message = _alert.html();
     ASD.alert({type:_type,message:_message});
     _alert.remove();
   })
