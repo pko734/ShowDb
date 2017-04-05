@@ -53,7 +53,7 @@ ASD.alert = function(args){
 
   args.type = args.type || 'warning';
   args.message = args.message || '';
-  args.time = args.time || 5000;
+  args.time = args.time || 10000;
   switch(args.type){
     case 'warning':
       icon = '<i class="glyphicon glyphicon-warning-sign"></i>';
@@ -88,7 +88,7 @@ ASD.alert = function(args){
     var me = $(this);
     setTimeout(function(){
       me.slideUp('fast',function(){
-        $(this).remove();
+	$(this).remove();
       });
     },args.time);
   });
@@ -101,4 +101,3 @@ $(document).ready(function(){
   ASD.imageRotators.init();
   ASD.animateAlerts();
 });
-
