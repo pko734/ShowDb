@@ -21,9 +21,7 @@ Album Finder
       </div><!--/.panel-heading-->
       <div class="panel-body is-table">
 	<div class="is-table-col col-xs-3 image-col">
-	  @include('widgets.slider', ['slides' => [
-	  'http://thelstory.weebly.com/uploads/2/1/7/1/21710700/3103595.jpg']
-	  ])
+	  @include('widgets.slider', ['slides' => glob('sliderimages/*.jpg')])
 	  </div><!--/.is-table-col-->
 	  <div class="is-table-col col-xs-9">
 	    <form action="/albums" method="POST">
