@@ -21,7 +21,9 @@ Album Finder
       </div><!--/.panel-heading-->
       <div class="panel-body is-table">
 	<div class="is-table-col col-xs-3 image-col">
-	  @include('widgets.slider', ['slides' => glob('sliderimages/*.jpg')])
+	  @include('widgets.slider', ['slides' =>
+	    array_map(function($a){ return "/{$a}"; }, glob('sliderimages/*.jpg'))
+	    ] )
 	  </div><!--/.is-table-col-->
 	  <div class="is-table-col col-xs-9">
 	    <form action="/albums" method="POST">
