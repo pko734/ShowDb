@@ -124,7 +124,7 @@ class VideoUpdateCommand extends Command
                 $note->note = "https://youtube.com/watch?v={$item->id->videoId}";
                 $note->setlist_item_id = $setlist_item->id;
                 $note->user_id = 1;
-                $note->published = 1;
+                $note->published = 0;
                 $note->creator_id = 1;
                 $note->order = 1;
                 $note->save();
