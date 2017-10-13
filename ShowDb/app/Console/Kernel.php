@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\VideoUpdateCommand::class,
 	Commands\ImageMigrateCommand::class,
+	Commands\MarkEmptySetlists::class,
     ];
 
     /**
