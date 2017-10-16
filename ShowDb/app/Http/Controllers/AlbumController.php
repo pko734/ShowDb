@@ -67,7 +67,8 @@ class AlbumController extends Controller
                                 });
                             })
                             ->orWhereHas('notes', function($query) use ($p) {
-                                $query->where('note', 'LIKE', "%{$p}%");
+                                $query->where('note', 'LIKE', "%{$p}%")
+                                      ->where('note', 'NOT LIKE', '%<img src="data:%');
                             });
                     });
 

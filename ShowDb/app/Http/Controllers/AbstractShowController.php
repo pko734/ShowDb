@@ -62,7 +62,8 @@ class AbstractShowController extends Controller
                                 $query->where('username', 'LIKE', "%{$p}%");
                             })
                             ->orWhereHas('notes', function($query) use ($p) {
-                                $query->where('note', 'LIKE', "%{$p}%");
+                                $query->where('note', 'LIKE', "%{$p}%")
+                                      ->where('note', 'NOT LIKE', '%<img src="data:%');
                             });
                     });
 
