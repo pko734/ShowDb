@@ -50,6 +50,7 @@ Stats ({{ $user->username }})
                   <dd><a href="{{ url()->current() }}/shows?i=1">{{ count($incomplete_setlist_shows) }} Show(s) with incomplete setlist data</a></dd>
                   @endif
 		</dl>
+                <div class="fb-like" data-href="https://www.facebook.com/db.nov.blue/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
               </div>
             </div>
           </div>

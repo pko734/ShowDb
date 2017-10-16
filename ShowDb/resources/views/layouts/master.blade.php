@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-      @yield('title')
+      @yield('title', 'November Blue Database')
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +31,18 @@
 
 
     </script>
+
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1769812696591894";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <nav id="asd-navbar" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
