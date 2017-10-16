@@ -11,9 +11,9 @@ Shows ({{ $user->username }})
     <div class="is-table panel-body">
 
       <div class="is-table-col col-xs-3 image-col">
-    @include('widgets.slider', ['slides' =>
-      array_map(function($a){ return "/{$a}"; }, glob('sliderimages/*.jpg'))
-      ] )
+	@include('widgets.slider', ['slides' =>
+	array_map(function($a){ return "/{$a}"; }, glob('sliderimages/*.jpg'))
+	] )
       </div>
       <div class="is-table-col col-xs-9">
 	<table id="showtable" class="table table-striped">

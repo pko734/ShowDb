@@ -12,28 +12,28 @@ Album Editor
         <div class="form-group">
           <label for="album_id">Album ID</label>
           <input disabled value="{{ $album->id }}"
-          type="text"
-          class="form-control"
-          id="album_id"
-          placeholder="">
+		 type="text"
+		 class="form-control"
+		 id="album_id"
+		 placeholder="">
         </div>
         <div class="form-group">
           <label for="album_date">Album Release Date</label>
           <input value="{{ $album->release_date }}"
-          name="date"
-          type="text"
-          class="form-control"
-          id="album_date"
-          placeholder="YYYY-MM-DD">
+		 name="date"
+		 type="text"
+		 class="form-control"
+		 id="album_date"
+		 placeholder="YYYY-MM-DD">
         </div>
         <div class="form-group">
           <label for="album_venue">Album Title</label>
           <input value="{{ $album->title }}"
-          name="title"
-          type="text"
-          class="form-control"
-          id="album_title"
-          placeholder="Album Title">
+		 name="title"
+		 type="text"
+		 class="form-control"
+		 id="album_title"
+		 placeholder="Album Title">
         </div>
         <label for="album_songs">Songs</label>
         <table id="albumitemtable" class="table table-striped">
@@ -43,10 +43,10 @@ Album Editor
               <td>
                 <span class="ac-song-title">
                   <input name="songs[]"
-                  value="{{ $item->song->title }}"
-                  class="form-control typeahead"
-                  type="text"
-                  placeholder="Song Title">
+			 value="{{ $item->song->title }}"
+			 class="form-control typeahead"
+			 type="text"
+			 placeholder="Song Title">
                 </span>
               </td>
             </tr>
@@ -54,7 +54,7 @@ Album Editor
           </tbody>
         </table>
         <button id="albumitemaddbutton" type="button" class="btn btn-default">
-        <span class="glyphicon glyphicon-plus"></span>
+          <span class="glyphicon glyphicon-plus"></span>
         </button>
         <button type="submit" class="pull-right btn btn-primary">Submit</button>
       </form>
