@@ -70,7 +70,7 @@ ASD.alert = function(args){
   }
   output += '<div class="alert-modal" style="display:none;">';
   output += '<div class="alert alert-'+args.type+'">';
-  output += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+  //output += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
   output += '<div class="alert-left">';
   output += icon;
   output += '</div>';
