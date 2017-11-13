@@ -21,11 +21,11 @@ Route::get('auth/facebook',          'Auth\AuthController@redirectToProvider')->
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback')->name('fb.callback');
 
 // fantasy shows
-Route::resource('fantasy/shows',                     'FantasyShowController', ['as' =>'fantasy']);
-Route::get(     'fantasy',                           'FantasyShowController@list')->name('fantasy.shows.list');
-Route::post(    'fantasy/shows/{show}/notes',        'FantasyShowController@storeNote')->name('fantasy.show.notes.store');
-Route::delete(  'fantasy/shows/{show}/notes/{note}', 'FantasyShowController@destroyNote')->name('fantasy.show.notes.destroy');
-Route::put(     'fantasy/shows/{show}/notes/{note}', 'FantasyShowController@updateNote')->name('fantasy.shows.note.update');
+//Route::resource('fantasy/shows',                     'FantasyShowController', ['as' =>'fantasy']);
+//Route::get(     'fantasy',                           'FantasyShowController@list')->name('fantasy.shows.list');
+//Route::post(    'fantasy/shows/{show}/notes',        'FantasyShowController@storeNote')->name('fantasy.show.notes.store');
+//Route::delete(  'fantasy/shows/{show}/notes/{note}', 'FantasyShowController@destroyNote')->name('fantasy.show.notes.destroy');
+//Route::put(     'fantasy/shows/{show}/notes/{note}', 'FantasyShowController@updateNote')->name('fantasy.shows.note.update');
 
 // songs
 Route::resource('songs',                     'SongController');
