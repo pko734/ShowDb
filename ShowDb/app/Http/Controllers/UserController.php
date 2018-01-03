@@ -65,7 +65,7 @@ class UserController extends Controller
              WHERE su.user_id = {$user->id}
              AND sh.user_id IS NULL
              GROUP BY year
-             ORDER BY year desc"
+             ORDER BY year asc"
         ));
     }
 
@@ -78,7 +78,7 @@ class UserController extends Controller
              WHERE su.user_id = {$user->id}
              AND sh.user_id IS NULL
              GROUP BY year
-             ORDER BY year desc"
+             ORDER BY year asc"
         ));
     }
 
@@ -92,7 +92,7 @@ class UserController extends Controller
              WHERE su.user_id = {$user->id}
              AND sh.user_id IS NULL
              GROUP BY year
-             ORDER BY year desc"
+             ORDER BY year asc"
         ));
     }
 
@@ -218,6 +218,15 @@ class UserController extends Controller
         $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
 
         $yearly_data = [];
+	$yearly_graph_data = [
+          'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
+          'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
+          'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
+        ];
+	$max_shows  = 0;
+	$max_unique = 0;
+	$max_songs  = 0;
+
         $i = 0;
         foreach($shows_by_year as $info) {
             $song_count = 0;
@@ -234,6 +243,27 @@ class UserController extends Controller
                     break;
                 }
             }
+
+	    if( $info->show_count > 0 ) {
+                $yearly_graph_data['shows'][] = [$info->year, $info->show_count, '#377bb5'];
+            }
+            if( $song_count > 0 ) {
+                $yearly_graph_data['songs'][] = [$info->year, $song_count, '#377bb5'];
+            }
+            if( $unique_songs > 0 ) {
+                $yearly_graph_data['unique_songs'][] = [$info->year, $unique_songs, '#377bb5'];
+            }
+
+	    if($max_shows < $info->show_count) {
+	        $max_shows = $info->show_count;
+	    }
+	    if($max_songs < $song_count) {
+	        $max_songs = $song_count;
+	    }
+	    if($max_unique < $unique_songs) {
+	        $max_unique = $unique_songs;
+	    }
+
             $yearly_data[$info->year] = (object)[
                 'shows' => $info->show_count,
                 'songs' => $song_count,
@@ -314,6 +344,10 @@ class UserController extends Controller
             ->withLastShow($last_show)
             ->withNextShow($next_show)
             ->withYearlyData($yearly_data)
+            ->withYearlyGraphData($yearly_graph_data)
+            ->withMaxUnique($max_unique)
+	    ->withMaxSongs($max_songs)
+	    ->withMaxShows($max_shows)
             ->withSongs($songs);
     }
 
