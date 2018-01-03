@@ -103,151 +103,6 @@ Avett Brothers Stats: ({{ $user->username }})
 				
 				<div class="row">
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawCharts);
- 
-      window.onresize = drawCharts;
-
-      function drawCharts() {
-        drawChart1( JSON.parse('<?php echo json_encode($yearly_graph_data['shows']) ?>') );
-        drawChart2( JSON.parse('<?php echo json_encode($yearly_graph_data['unique_songs']) ?>') );
-        drawChart3( JSON.parse('<?php echo json_encode($yearly_graph_data['songs']) ?>') );
-      }
-
-      function drawChart1(data) {
-        console.log(data);
-        var data = google.visualization.arrayToDataTable(data);
-
-      var options = {
-        titlePosition: 'none',
-        legend:{position:'none'},
-        height: 300,
-        width: '100%',
-        chartArea: {'width': '80%', 'height': '80%'},
-        tooltip: { trigger: 'selection' },
-        hAxis: {
-          title: 'Year',
-          titleTextStyle: {
-            fontName: 'Lato',
-          },
-        },
-        vAxis: {
-          title: 'Number of shows',
-          titleTextStyle: {
-            fontName: 'Lato',           
-          },
-          gridlines: {count: 6},
-          viewWindow:{
-              max:{{ $max_shows }},
-              min:0
-          }          
-        }
-      };
-
-      var chart = new google.visualization.ColumnChart(
-        document.getElementById('chart_div1')
-      );
-      chart.setAction({
-        id: 'shows',
-        text: 'See Shows',
-        action: function() {
-          var selection = chart.getSelection();
-          var row = selection[0].row;
-          var year = data.getValue(row, 0);
-          location.href="{{ url()->current() }}/shows?q=" + year;
-        }
-      });
-
-      chart.draw(data, options);
-    }
-
-    function drawChart2(data) {
-      var data = google.visualization.arrayToDataTable(data);
-      var options = {
-        titlePosition: 'none',
-        legend:{position:'none'},
-        height: 300,
-        width: '100%',
-        tooltip: { trigger: 'selection' },
-        chartArea: {'width': '80%', 'height': '80%'},
-        hAxis: {
-          title: 'Year',
-          titleTextStyle: {
-            fontName: 'Lato',
-          },
-        },
-        vAxis: {
-          title: 'Number of Unique Songs',
-          titleTextStyle: {
-            fontName: 'Lato',        
-          },
-          gridlines: {count: 6},
-          viewWindow:{
-              max: {{ $max_unique }},
-              min:0
-          }          
-        }
-      };
-
-      var chart = new google.visualization.ColumnChart(
-        document.getElementById('chart_div2'));
-
-      chart.setAction({
-        id: 'songs',
-        text: 'See Songs',
-        action: function() {
-          var selection = chart.getSelection();
-          var row = selection[0].row;
-          var year = data.getValue(row, 0);
-          location.href="{{ url()->current() }}/songs/?q=" + year;
-        }
-      });
-
-      chart.draw(data, options);
-    }
-
-    function drawChart3(data) {
-      var data = google.visualization.arrayToDataTable(data);
-      var options = {
-        titlePosition: 'none',
-        legend:{position:'none'},
-        height: 300,
-        width: '100%',
-        chartArea: {'width': '80%', 'height': '80%'},
-        hAxis: {
-          title: 'Year',
-          titleTextStyle: {
-            fontName: 'Lato',
-          },
-        },
-        vAxis: {
-          title: 'Number of Song Performances',
-          titleTextStyle: {
-            fontName: 'Lato',        
-          },
-          gridlines: {count: 6},
-          viewWindow:{
-              max: {{ $max_songs }},
-              min:0
-          }          
-        }
-      };
-
-      var chart = new google.visualization.ColumnChart(
-        document.getElementById('chart_div3'));
-
-      chart.draw(data, options);
-    }
-
-
-    </script>
-
 					<div class="yearly">
 					  <h1>Yearly Breakdown</h1>
 					  <p><em>A comparison of shows and songs across years.</em></p>
@@ -269,3 +124,150 @@ Avett Brothers Stats: ({{ $user->username }})
         </div> <!-- container -->
 	
 	</div> <!-- wrap -->
+<script language="javascript">
+
+    function drawCharts(data1, max1, data2, max2, data3, max3) {
+	drawChart1( data1, max1 );
+	drawChart2( data2, max2 );
+	drawChart3( data3, max3 );
+    }
+
+    function drawChart1(data, max) {
+	var data = google.visualization.arrayToDataTable(data);
+
+	var options = {
+            titlePosition: 'none',
+            legend:{position:'none'},
+            height: 300,
+            width: '100%',
+            chartArea: {'width': '80%', 'height': '80%'},
+            tooltip: { trigger: 'selection' },
+            hAxis: {
+		title: 'Year',
+		titleTextStyle: {
+		    fontName: 'Lato',
+		},
+            },
+            vAxis: {
+		title: 'Number of shows',
+		titleTextStyle: {
+		    fontName: 'Lato',           
+		},
+		gridlines: {count: 6},
+		viewWindow:{
+		    max:max,
+		    min:0
+		}          
+            }
+	};
+
+	var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div1')
+	);
+	chart.setAction({
+            id: 'shows',
+            text: 'See Shows',
+            action: function() {
+		var selection = chart.getSelection();
+		var row = selection[0].row;
+		var year = data.getValue(row, 0);
+		location.href="{{ url()->current() }}/shows?q=" + year;
+            }
+	});
+
+	chart.draw(data, options);
+    }
+
+    function drawChart2(data, max) {
+	var data = google.visualization.arrayToDataTable(data);
+	var options = {
+            titlePosition: 'none',
+            legend:{position:'none'},
+            height: 300,
+            width: '100%',
+            tooltip: { trigger: 'selection' },
+            chartArea: {'width': '80%', 'height': '80%'},
+            hAxis: {
+		title: 'Year',
+		titleTextStyle: {
+		    fontName: 'Lato',
+		},
+            },
+            vAxis: {
+		title: 'Number of Unique Songs',
+		titleTextStyle: {
+		    fontName: 'Lato',        
+		},
+		gridlines: {count: 6},
+		viewWindow:{
+		    max:max,
+		    min:0
+		}          
+            }
+	};
+
+	var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div2'));
+
+	chart.setAction({
+            id: 'songs',
+            text: 'See Songs',
+            action: function() {
+		var selection = chart.getSelection();
+		var row = selection[0].row;
+		var year = data.getValue(row, 0);
+		location.href="{{ url()->current() }}/songs/?q=" + year;
+            }
+	});
+
+	chart.draw(data, options);
+    }
+
+    function drawChart3(data, max) {
+	var data = google.visualization.arrayToDataTable(data);
+	var options = {
+            titlePosition: 'none',
+            legend:{position:'none'},
+            height: 300,
+            width: '100%',
+            chartArea: {'width': '80%', 'height': '80%'},
+            hAxis: {
+		title: 'Year',
+		titleTextStyle: {
+		    fontName: 'Lato',
+		},
+            },
+            vAxis: {
+		title: 'Number of Song Performances',
+		titleTextStyle: {
+		    fontName: 'Lato',        
+		},
+		gridlines: {count: 6},
+		viewWindow:{
+		    max:max,
+		    min:0
+		}          
+            }
+	};
+
+	var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div3'));
+
+	chart.draw(data, options);
+    }
+
+function drawChartsLocal() {
+   
+   var data1 = JSON.parse('<?php echo json_encode($yearly_graph_data['shows']) ?>');
+   var data2 = JSON.parse('<?php echo json_encode($yearly_graph_data['unique_songs']) ?>');
+   var data3 = JSON.parse('<?php echo json_encode($yearly_graph_data['songs']) ?>');
+   var max1  = {{ $max_shows }};
+   var max2  = {{ $max_unique }};
+   var max3  = {{ $max_songs }};
+
+   drawCharts(data1, max1, data2, max2, data3, max3);
+   window.onresize = drawChartsLocal;
+}
+
+</script>
+
