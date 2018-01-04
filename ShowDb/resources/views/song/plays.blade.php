@@ -3,9 +3,22 @@
 Plays: {{ $song->title }}
 @endsection
 @section('content')
-<div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
+
+  <div class="panel panel-default container">
+    <div class="panel-heading row">
+
+      <div class="col-lg-6 col-md-6">
+	<h1>Shows</h1>
+	<p>
+	  <em>
+	    A listing of shows where the selected song was played
+	    @if(isset($user_restriction))
+	    ({{ $user_restriction->username }})
+	    @endif
+	  </em>
+	</p>
+      </div>
+      <div class="col-lg-6 col-md-6" style="margin-top: 20px">
       <form action="/plays" method="GET" role="search">
 	<label>
 	  Find Shows Where A Song Was Played
@@ -31,13 +44,10 @@ Plays: {{ $song->title }}
 	  </span>
 	</div>
       </form>
+      </div>
+
     </div><!--/.panel-heading-->
     <div class="is-table panel-body">
-      <div class="is-table-col col-xs-3 image-col">
-	@include('widgets.slider', ['slides' =>
-	array_map(function($a){ return "/{$a}"; }, glob('sliderimages/*.jpg'))
-	] )
-      </div>
       <div class="is-table-col col-xs-9">
 	<table id="showtable" class="table table-striped">
 	  <thead>
@@ -93,6 +103,11 @@ Plays: {{ $song->title }}
 	  </tbody>
 	</table>
       </div><!--/.is-table-col-->
+      <div class="is-table-col col-xs-3 image-col">
+	@include('widgets.slider', ['slides' =>
+	array_map(function($a){ return "/{$a}"; }, glob('sliderimages/*.jpg'))
+	] )
+      </div>
     </div><!--/.is-table-->
     <div class="panel-footer">
       <div class=" pull-right">
@@ -108,5 +123,4 @@ Plays: {{ $song->title }}
     {{ method_field('DELETE') }}
     {{ csrf_field() }}
   </form>
-</div><!--/.container-->
 @endsection
