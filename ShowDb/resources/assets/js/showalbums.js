@@ -61,7 +61,6 @@ $(document).ready(function() {
     }
 
     var datbutton = false;
-    console.log('asdf2');
     $('#add-album-note-btn').click(function() {
 	$('#notetable tbody').append('<tr><td><textarea name="notes[]" class="form-control" type="text" placeholder="Note"></textarea></td></tr>');
 

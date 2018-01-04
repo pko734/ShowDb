@@ -218,7 +218,6 @@ class UserController extends Controller
         $songs_by_year = $this->_getMySongsByYear($user);
         $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
 
-        $yearly_data = [];
 	$yearly_graph_data = [
           'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
           'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],

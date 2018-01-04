@@ -17,8 +17,6 @@ html,body { height: 100%; margin: 0px; padding: 0px; background:#000; }
       display: none;
 }
 
-
-
 .complete-setlist {
     font-style: italic;
     color: green;
@@ -843,8 +841,18 @@ a {
 .wrap {
 background: #FFF;
 	width: 90%;
-	max-width: 940px;
-	margin: 80px auto;
+	max-width: 1170px;
+	margin: 0px auto;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+}
+
+@media (max-width: 650px) {
+  .wrap {
+    width:100%;
+  }
 }
 
 h1 {

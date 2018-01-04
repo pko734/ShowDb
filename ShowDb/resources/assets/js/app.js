@@ -18,6 +18,7 @@ require('./showalbums');
 require('./editalbum');
 require('./indexuseralbums');
 require('./googlecharts');
+require('./unflash');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -7,7 +7,7 @@ Avett Brothers Stats: ({{ $user->username }})
 
   <div class="container-fluid">
     
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-7 col-md-7">
       <div class="row">
 	<div class="stats">
 	  <h1>Show Stats ({{ $user->username }})</h1>
@@ -93,25 +93,16 @@ Avett Brothers Stats: ({{ $user->username }})
 	
       </div> <!-- row -->
     </div> <!-- left column -->
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-5 col-md-5">
       <div class="row">
         <div class="fb-like" data-href="https://www.facebook.com/db.nov.blue/" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true" data-width="300"></div>
+
 	<div class="badges">
 	  <h2>My Badges</h2>
 	  <ul>
 	    @foreach($badges as $badge)
             <li><img src="{{ $badge->image_url }}" alt="{{ $badge->title }}" data-toggle="tooltip" title="{{ $badge->description }}" width="73" height="105"></li>
             @endforeach
-	    <!--
-		<li><img src="/img/early-adopter.png" alt="Early Adopter icon"></li>
-	    <li><img src="/img/year-club.png" alt="Year Club icon"></li>
-	    <li><img src="/img/donor.png" alt="Donor icon"></li>
-	    <li><img src="/img/shows.png" alt="Shows icon"></li>
-	    <li><img src="/img/songs.png" alt="Songs icon"></li>
-	    <li><img src="/img/unique-songs.png" alt="Unique Songs icons"></li>
-	    <li><img src="/img/notes.png" alt="Notes icon"></li>
-	    <li><img src="/img/album.png" alt="Album icon"></li>
-	    -->
 	  </ul>
 	</div><!-- badges section -->
       </div> <!-- row -->
@@ -137,8 +128,7 @@ Avett Brothers Stats: ({{ $user->username }})
     </div> <!-- right column -->
 
   </div> <!-- container -->
-  
-</div> <!-- wrap -->
+
 <script language="javascript">
 
   function drawCharts(data1, max1, data2, max2, data3, max3) {
@@ -292,4 +282,6 @@ Avett Brothers Stats: ({{ $user->username }})
   }
 
 </script>
+</div> <!-- wrap -->
 
+@endsection
