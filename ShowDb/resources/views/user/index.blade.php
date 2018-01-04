@@ -95,8 +95,8 @@ Avett Brothers Stats: ({{ $user->username }})
     </div> <!-- left column -->
     <div class="col-lg-5 col-md-5">
       <div class="row">
-        <div class="fb-like" data-href="https://www.facebook.com/db.nov.blue/" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true" data-width="300"></div>
-
+        <div class="fb-like" data-href="https://www.facebook.com/db.nov.blue/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+        <div class="fb-share-button" data-href="{{ url()->current() }}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}&amp;src=sdkpreparse">Share</a></div>
 	<div class="badges">
 	  <h2>My Badges</h2>
 	  <ul>

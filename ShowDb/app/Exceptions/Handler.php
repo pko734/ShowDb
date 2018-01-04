@@ -60,6 +60,10 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest('login');
+	if( preg_match('#/stats/(.*)$#', url()->current(), $matches) === 1 ) {
+            return redirect()->route('login', ['share_user' => $matches[1]]);
+        } else {			 
+            return redirect()->guest('login');
+        }
     }
 }
