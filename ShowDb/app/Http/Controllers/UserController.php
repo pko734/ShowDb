@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use ShowDb\User;
 use ShowDb\Song;
 use ShowDb\Album;
+use ShowDb\Badge;
 use \DB;
 use \Redirect;
 use Illuminate\Support\Collection;
@@ -226,7 +227,9 @@ class UserController extends Controller
 	$max_shows  = 0;
 	$max_unique = 0;
 	$max_songs  = 0;
-
+        $song_count = 0;
+        $unique_songs = 0;
+       
         $i = 0;
         foreach($shows_by_year as $info) {
             $song_count = 0;
@@ -264,11 +267,6 @@ class UserController extends Controller
 	        $max_unique = $unique_songs;
 	    }
 
-            $yearly_data[$info->year] = (object)[
-                'shows' => $info->show_count,
-                'songs' => $song_count,
-                'unique_songs' => $unique_songs,
-            ];
             $i++;
         }
 
@@ -315,17 +313,20 @@ class UserController extends Controller
              AND sh.id = su.show_id
              AND su.user_id = {$user_id}
              GROUP BY al.id, al.title
-             ORDER BY release_date"
+             ORDER BY release_date asc"
         ));
 
-    $albums = Album::orderBy('release_date')->get();
+        $albums = Album::orderBy('release_date')->get();
+
+	$past_shows = $user->shows()
+                           ->whereNull('shows.user_id')
+                           ->whereRaw('UNIX_TIMESTAMP(date) < ?',
+                                      \Carbon\Carbon::now()->timestamp)->get();
+
+        $this->_generateBadges($user, $album_info, $total_songs, count($songs), count($past_shows));
 
         return view('user.index')
-            ->withPastShows($user
-                            ->shows()
-                            ->whereNull('shows.user_id')
-                            ->whereRaw('UNIX_TIMESTAMP(date) < ?',
-                                       \Carbon\Carbon::now()->timestamp)->get())
+            ->withPastShows($past_shows)
             ->withUpcomingShows($user
                                 ->shows()
                                 ->whereNull('shows.user_id')
@@ -337,19 +338,151 @@ class UserController extends Controller
                                          ->where('incomplete_setlist', '=', true)->get())
 
             ->withUser($user)
+            ->withBadges($user->badges()->get())
             ->withAlbumInfo($album_info)
             ->withAlbums($albums)
             ->withTotalSongs($total_songs)
             ->withFirstShow($first_show)
             ->withLastShow($last_show)
             ->withNextShow($next_show)
-            ->withYearlyData($yearly_data)
             ->withYearlyGraphData($yearly_graph_data)
             ->withMaxUnique($max_unique)
 	    ->withMaxSongs($max_songs)
 	    ->withMaxShows($max_shows)
             ->withSongs($songs);
     }
+
+    private function _generateBadges($user, $album_info, $songs, $unique, $shows) {
+        $user->badges()->detach();
+
+        // early adopter badge
+        if(strtotime($user->created_at) < strtotime('2017-02-01')) {
+            $user->badges()->attach(Badge::where('code', '=', 'EARLY')->first()->id); 
+        }
+
+        // donor badge
+	if($user->donor) {
+            $user->badges()->attach(Badge::where('code', '=', 'DONOR')->first()->id); 
+        }
+	
+        // notes
+	$note_count1 = DB::select(DB::raw(
+                "SELECT COUNT(*) as cnt
+                 FROM show_notes sn
+                 WHERE sn.user_id = {$user->id}"
+        ));
+	$note_count2 = DB::select(DB::raw(
+                "SELECT COUNT(*) as cnt 
+                 FROM song_notes sn
+                 WHERE sn.user_id = {$user->id}"
+        ));
+
+        if($note_count1[0]->cnt + $note_count2[0]->cnt > 10) {
+            $Badge = Badge::where('code', '=', "NOTE")->first();
+            if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
+
+        // album badges
+	$i = 1;
+	foreach( $album_info as $al ) {
+            if( round(100*($al->album_songs / $al->total)) == 100 ) {
+                $Badge = Badge::where('code', '=', "ALBUM{$i}")->first();
+                if($Badge) {
+                    $user->badges()->attach($Badge->id);
+                }
+            }
+	    $i++;
+        }
+
+        // year club
+        $first_show_date = $user->shows()->min('date');
+	if($first_show_date) {
+            $Badge = Badge::where('code', '=', 'YEAR' . substr($first_show_date, 0, 4))->first();
+	    if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
+
+        // songs
+	$song_code = 0;
+	if( $songs >= 500 && $songs <= 999 ) {
+	    $song_code = 500;
+        }
+	if( $songs >= 1000 && $songs <= 1499 ) {
+	    $song_code = 1000;
+        }
+	if( $songs >= 1500 && $songs <= 999 ) {
+	    $song_code = 1500;
+        }
+	if( $songs >= 2000 && $songs <= 2999 ) {
+	    $song_code = 2000;
+        }
+	if( $songs >= 3000 && $songs <= 3999 ) {
+	    $song_code = 3000;
+        }
+	if( $songs >= 4000 && $songs <= 4999 ) {
+	    $song_code = 4000;
+        }
+	if( $songs > 5000 ) {
+	    $song_code = 5000;
+        }
+	if( $song_code ) {
+            $Badge = Badge::where('code', '=', 'SONGS' . $song_code)->first();
+	    if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
+
+        // unique songs
+	$unique_code = 0;
+	if( $unique >= 100 && $unique <= 149 ) {
+	    $unique_code = 100;
+        }
+	if( $unique >= 150 && $unique <= 199 ) {
+	    $unique_code = 150;
+        }
+	if( $unique >= 200 && $unique <= 249 ) {
+	    $unique_code = 200;
+        }
+	if( $unique >= 250 && $unique <= 299 ) {
+	    $unique_code = 250;
+        }
+	if( $unique >= 300 ) {
+	    $unique_code = 300;
+        }
+	if( $unique_code ) {
+            $Badge = Badge::where('code', '=', 'UNIQUE' . $unique_code)->first();
+	    if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
+        
+	// shows
+	$show_code = 0;
+	if( $shows >= 10 && $shows <= 24 ) {
+	    $show_code = 10;
+        }
+	if( $shows >= 25 && $shows <= 49 ) {
+	    $show_code = 25;
+        }
+	if( $shows >= 50 && $shows <= 74 ) {
+	    $show_code = 50;
+        }
+	if( $shows >= 75 && $shows <= 99 ) {
+	    $show_code = 75;
+        }
+	if( $shows >= 100 ) {
+	    $show_code = 100;
+        }
+	if( $show_code ) {
+            $Badge = Badge::where('code', '=', 'SHOWS' . $show_code)->first();
+	    if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
+    }   
 
     public function allstats(Request $request) {
         $songs = $this->_getAllSongs();
