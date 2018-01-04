@@ -41,4 +41,7 @@ class User extends Authenticatable
         return $this->belongsToMany('ShowDb\Show');
     }
 
+    public function badges() {
+        return $this->belongsToMany('ShowDb\Badge');
+    }
 }

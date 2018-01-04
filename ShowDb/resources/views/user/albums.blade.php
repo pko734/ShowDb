@@ -6,11 +6,14 @@ Albums ({{ $user->username }})
 
 @section('content')
 
-<div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
 
-      <h3>Album Songs ({{ $user->username }})</h3>
+<div class="panel panel-default container">
+  <div class="panel-heading row">
+    <div class="col-lg-6 col-md-6">
+      <h1>Album Songs</h1>
+      <p><em>Songs from the specified album for user: <b>{{ $user->username }}</b></em></p>
+    </div>
+    <div class="col-lg-6 col-md-6" style="margin-top: 20px">
       <form id="album-form" action="{{ url()->current() }}" method="GET" role="search">
 	<div class="form-group">
 	  <select class="form-control" id="album-select" name="id">
@@ -26,13 +29,16 @@ Albums ({{ $user->username }})
 	  </select>
 	</div>
       </form>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading row">
+
+      <h3>Album Songs ({{ $user->username }})</h3>
+
     </div><!--/.panel-heading-->
     <div class="panel-body is-table">
-      <div class="is-table-col col-xs-3 image-col">
-	@include('widgets.slider', ['slides' => [
-	'http://thelstory.weebly.com/uploads/2/1/7/1/21710700/3103595.jpg']
-	])
-      </div><!--/.is-table-col-->
       <div class="is-table-col col-xs-9">  <form action="/songs" method="POST">
 	  {{ csrf_field() }}
 	  <table id="songtable" class="table table-striped">
@@ -85,10 +91,15 @@ Albums ({{ $user->username }})
 	  </table>
 	</form>
       </div><!--/.is-table-col-->
+      <div class="is-table-col col-xs-3 image-col">
+	@include('widgets.slider', ['slides' =>
+	array_map(function($a){ return "/{$a}"; }, glob('sliderimages/*.jpg'))
+	] )
+      </div><!--/.is-table-col-->
     </div><!--/.is-table-->
-    <div class="panel-footer">
+    <div class="panel-footer row">
     </div><!--/.panel-footer-->
   </div><!--/.panel-->
-</div><!--/.container-->
+
 
 @endsection

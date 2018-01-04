@@ -70,9 +70,9 @@ $(document).ready(function() {
 	    });
 
 	    if(!datbutton) {
-		$('#notetable').append( '<button id="add-song-note-btn" type="submit" class="btn btn-primary">Add Notes</button>');
+		$('#notetable').append( '<button id="add-song-note-btn" type="submit" class="btn btn-primary">Add Notes</button>'); 
+                datbutton = true;		
 		window.scrollTo(0,$('#addbutton').offset().top - $(window).height()/2);
-		datbutton = true;
 	    }
 
 	});
