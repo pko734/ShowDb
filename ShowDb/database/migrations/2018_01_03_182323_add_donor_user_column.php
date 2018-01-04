@@ -14,7 +14,7 @@ class AddDonorUserColumn extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->boolean('donor');
+            $table->boolean('donor')->default(0);
         });
     }
 
