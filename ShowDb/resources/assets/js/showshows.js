@@ -72,8 +72,9 @@ $(document).ready(function() {
 
 	if(!datbutton) {
 	    $('#notetable').append( '<button id="addbutton" type="submit" class="btn btn-primary">Add Notes</button>');
-	    window.scrollTo(0,$('#addbutton').offset().top - $(window).height()/2);
 	    datbutton = true;
+	    window.scrollTo(0,$('#addbutton').offset().top - $(window).height()/2);
+
 	}
 
     });
