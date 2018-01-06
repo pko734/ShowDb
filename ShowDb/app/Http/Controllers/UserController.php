@@ -172,7 +172,8 @@ class UserController extends Controller
         $user = User::where('username', '=', $username)->first();
 
         $shows = Show::whereHas('setlistItems', function($query) use($song_id) {
-            $query->where('song_id', '=', $song_id);
+            $query->where('song_id', '=', $song_id)
+	    ->orWhere('interlude_song_id', '=', $song_id);
         })->whereHas('users', function($query) use($user) {
             $query->where('user_id', '=', $user->id);
         })
@@ -307,7 +308,7 @@ class UserController extends Controller
              albums al, album_items ai, songs so, setlist_items si, shows sh, show_user su
              WHERE al.id = ai.album_id
              AND ai.song_id = so.id
-             AND so.id = si.song_id
+             AND (so.id = si.song_id OR so.id = si.interlude_song_id)
              AND si.show_id = sh.id
              AND sh.id = su.show_id
              AND su.user_id = {$user_id}
@@ -596,7 +597,7 @@ class UserController extends Controller
                  FROM setlist_items si
                  JOIN show_user su ON su.show_id = si.show_id
                  WHERE su.user_id = {$user->id}
-                 AND si.song_id = {$song->id}"
+                 AND (si.song_id = {$song->id} OR si.interlude_song_id = {$song->id})"
             ));
             $song_counts[$song->id] = $count[0]->{'setlist_items_count'};
         }

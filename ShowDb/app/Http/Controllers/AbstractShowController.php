@@ -48,6 +48,11 @@ class AbstractShowController extends Controller
         ]);
 
         $q = $request->get('q');
+
+	//if(($sec = strtotime($q)) !== false) {
+	//  $q = date('Y-m-d', $sec);
+	//}
+
         $o = $request->get('o') ?: 'date-desc';
         $sort_order = explode('-', $o);
         $search = $this->showbase
@@ -320,7 +325,7 @@ class AbstractShowController extends Controller
             'date'    => 'required',
             'venue'   => 'required|string|between:10,255',
             'songs.*' => 'exists:songs,title',
-            'interlude_songs.*' => 'exists:songs,title',
+            'interlude_song' => 'exists:songs,title',
             'complete' => 'boolean',
         ]);
 

@@ -47,7 +47,7 @@ class SongController extends Controller
         $q = $request->get('q');
         $o = $request->get('o') ?: 'title-asc';
         $sort_order = explode('-', $o);
-        $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and si.song_id = songs.id and s.user_id is null) as setlist_items_count'))
+        $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
                ->withCount('notes')
                ->where( 'title', 'LIKE', '%' . $q . '%' )
                ->orWhereHas('notes', function($query) use ($q) {
@@ -119,7 +119,8 @@ class SongController extends Controller
         $d = $request->get('d') ?: 'desc';
 
         $shows = Show::whereHas('setlistItems', function($query) use($song_id) {
-            $query->where('song_id', '=', $song_id);
+            $query->where('song_id', '=', $song_id)
+	    ->orWhere('interlude_song_id', '=', $song_id);
         })->whereNull('user_id')
                ->withCount('setlistItems')
                ->withCount('notes')
