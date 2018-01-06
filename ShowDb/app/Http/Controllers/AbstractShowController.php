@@ -320,6 +320,7 @@ class AbstractShowController extends Controller
             'date'    => 'required',
             'venue'   => 'required|string|between:10,255',
             'songs.*' => 'exists:songs,title',
+            'interlude_songs.*' => 'exists:songs,title',
             'complete' => 'boolean',
         ]);
 
@@ -372,11 +373,20 @@ class AbstractShowController extends Controller
                     $item->creator_id = $request->user()->id;
                     $item->save();
                 } else {
+		    // handle interludes		    
+		    if($my_item->song->title === 'Pretty Girl from Annapolis' && isset($request->interlude_song) && $request->interlude_song) {
+ 		      $my_item->interlude_song_id = 
+		        Song::where('title', '=', $request->interlude_song)->first()->id;
+		    } else {
+		      $my_item->interlude_song_id = null;
+		    }
+
                     // Update the item order
                     if($my_item->order != $i) {
                         $my_item->order = $i;
-                        $my_item->save();
                     }
+		    $my_item->save();
+
                     // We don't want to delete the "safe" items.
                     $safe[] = $my_item->id;
                 }

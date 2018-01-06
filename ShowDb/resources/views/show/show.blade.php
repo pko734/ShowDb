@@ -49,6 +49,9 @@
 	      <tr class="item-row">
 		<td>{{ $item->order }}.
 		  <a href="/songs/{{ $item->song->id }}">{{ $item->song->title }}</a>
+		  @if($item->interlude_song_id)
+		  <br/><em>Interlude: {{ $item->interludeSong->title }}</em>
+		  @endif
 		</td>
 		<td>
 		  @if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))

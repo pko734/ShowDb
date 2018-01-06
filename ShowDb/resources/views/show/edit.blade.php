@@ -68,6 +68,17 @@ Show Editor
 			 placeholder="Song Title">
                 </span>
               </td>
+              @if($item->song->title === "Pretty Girl from Annapolis")
+              <td>
+                <span class="ac-song-title">
+                  <input name="interlude_song"
+			 value="@if($item->interludeSong){{ $item->interludeSong->title }}@endif"
+			 class="form-control typeahead"
+			 type="text"
+			 placeholder="Interlude Song Title">
+                </span>
+              </td>
+	      @endif
             </tr>
             @endforeach
           </tbody>
