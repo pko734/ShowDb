@@ -387,7 +387,7 @@ class UserController extends Controller
 	$i = 1;
 	foreach( $album_info as $al ) {
             if( round(100*($al->album_songs / $al->total)) == 100 ) {
-                $Badge = Badge::where('code', '=', "ALBUM{$i}")->first();
+                $Badge = Badge::where('code', '=', "ALBUM{$al->album_id}")->first();
                 if($Badge) {
                     $user->badges()->attach($Badge->id);
                 }
