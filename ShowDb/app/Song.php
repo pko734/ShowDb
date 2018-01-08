@@ -28,6 +28,6 @@ class Song extends Model
     }
 
     public function getShowCount() {
-    	return \DB::select("SELECT COUNT(*) AS cnt FROM setlist_items si, shows s WHERE s.id = si.show_id AND si.song_id = {$this->id} AND s.user_id IS NULL")[0]->cnt;
+    	return \DB::select("SELECT COUNT(*) AS cnt FROM setlist_items si, shows s WHERE s.id = si.show_id AND (si.song_id = {$this->id} OR si.interlude_song_id = {$this->id}) AND s.user_id IS NULL")[0]->cnt;
     }
 }
