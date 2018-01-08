@@ -57,7 +57,7 @@ Route::delete(  'albumitems/{item}/note/{note}',   'AlbumController@destroyItemN
 Route::put(     'albumitems/{item}/note/{note}',   'AlbumController@approveItemNote')->name('albums.itemnote.approve');
 
 // stats
-//Route::get('stats',                               'UserController@allstats')->name('user.index');
+Route::get('stats',                               'UserController@allstats')->name('user.index');
 Route::get('stats/{username}/songs/{song}/plays', 'UserController@showPlays')->name('users.songs.plays.show');
 Route::get('stats/{username}',                    'UserController@userstats')->name('user.stats');
 Route::get('stats/{username}/shows',              'UserController@shows')->name('user.shows');

@@ -65,6 +65,8 @@
           <ul class="nav navbar-nav">
             @if(Auth::user())
             <li class="{{ isActiveUrl('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
+	    @else
+            <li class="{{ isActiveUrl('/register') }}"><a href="/register">My Stats</a></li>
             @endif
             <li class="{{ isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
             <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>

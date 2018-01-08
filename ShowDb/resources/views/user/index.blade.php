@@ -120,6 +120,7 @@ Avett Brothers Stats: ({{ $user->username }})
           <p><br/></p>
           <p>Songs Performances by Year</p>
           <div id="chart_div3"></div>
+          <p><br/></p>
 	</div> <!-- yearly breakdown section -->
 
       </div> <!-- row -->
@@ -130,155 +131,155 @@ Avett Brothers Stats: ({{ $user->username }})
   </div> <!-- container -->
 
 <script language="javascript">
+    function drawCharts(data1, max1, data2, max2, data3, max3) {
+	if(data1.length > 1) {
+	    drawChart1( data1, max1 );
+	}
+	if(data2.length > 1) {
+	    drawChart2( data2, max2 );
+	}
+	if(data3.length > 1) {
+	    drawChart3( data3, max3 );
+	}
+    }
 
-  function drawCharts(data1, max1, data2, max2, data3, max3) {
-  if(data1.length > 1) {
-  drawChart1( data1, max1 );
-  }
-  if(data2.length > 1) {
-  drawChart2( data2, max2 );
-  }
-  if(data3.length > 1) {
-  drawChart3( data3, max3 );
-  }
-  }
+    function drawChart1(data, max) {
+	var data = google.visualization.arrayToDataTable(data);
 
-  function drawChart1(data, max) {
-  var data = google.visualization.arrayToDataTable(data);
+	var options = {
+	    titlePosition: 'none',
+	    legend:{position:'none'},
+	    height: 300,
+	    width: '100%',
+	    chartArea: {'width': '80%', 'height': '80%'},
+	    tooltip: { trigger: 'selection' },
+	    hAxis: {
+		title: 'Year',
+		titleTextStyle: {
+		    fontName: 'Lato',
+		},
+	    },
+	    vAxis: {
+		title: 'Number of shows',
+		titleTextStyle: {
+		    fontName: 'Lato',           
+		},
+		gridlines: {count: -1},
+		viewWindow:{
+		    max: Math.ceil(max/5)*5,
+		    min:0
+		}          
+	    }
+	};
 
-  var options = {
-  titlePosition: 'none',
-  legend:{position:'none'},
-  height: 300,
-  width: '100%',
-  chartArea: {'width': '80%', 'height': '80%'},
-  tooltip: { trigger: 'selection' },
-  hAxis: {
-  title: 'Year',
-  titleTextStyle: {
-  fontName: 'Lato',
-  },
-  },
-  vAxis: {
-  title: 'Number of shows',
-  titleTextStyle: {
-  fontName: 'Lato',           
-  },
-  gridlines: {count: -1},
-  viewWindow:{
-  max: Math.ceil(max/5)*5,
-  min:0
-  }          
-  }
-  };
+	var chart = new google.visualization.ColumnChart(
+	    document.getElementById('chart_div1')
+	);
+	chart.setAction({
+	    id: 'shows',
+	    text: 'See Shows',
+	    action: function() {
+		var selection = chart.getSelection();
+		var row = selection[0].row;
+		var year = data.getValue(row, 0);
+		location.href="{{ url()->current() }}/shows?q=" + year;
+	    }
+	});
 
-  var chart = new google.visualization.ColumnChart(
-  document.getElementById('chart_div1')
-  );
-  chart.setAction({
-  id: 'shows',
-  text: 'See Shows',
-  action: function() {
-  var selection = chart.getSelection();
-  var row = selection[0].row;
-  var year = data.getValue(row, 0);
-  location.href="{{ url()->current() }}/shows?q=" + year;
-  }
-  });
+	chart.draw(data, options);
+    }
 
-  chart.draw(data, options);
-  }
+    function drawChart2(data, max) {
+	var data = google.visualization.arrayToDataTable(data);
+	var options = {
+	    titlePosition: 'none',
+	    legend:{position:'none'},
+	    height: 300,
+	    width: '100%',
+	    tooltip: { trigger: 'selection' },
+	    chartArea: {'width': '80%', 'height': '80%'},
+	    hAxis: {
+		title: 'Year',
+		titleTextStyle: {
+		    fontName: 'Lato',
+		},
+	    },
+	    vAxis: {
+		title: 'Number of Unique Songs',
+		titleTextStyle: {
+		    fontName: 'Lato',        
+		},
+		gridlines: {count: -1},
+		viewWindow:{
+		    max: Math.ceil(max/5)*5,
+		    min:0
+		}          
+	    }
+	};
 
-  function drawChart2(data, max) {
-  var data = google.visualization.arrayToDataTable(data);
-  var options = {
-  titlePosition: 'none',
-  legend:{position:'none'},
-  height: 300,
-  width: '100%',
-  tooltip: { trigger: 'selection' },
-  chartArea: {'width': '80%', 'height': '80%'},
-  hAxis: {
-  title: 'Year',
-  titleTextStyle: {
-  fontName: 'Lato',
-  },
-  },
-  vAxis: {
-  title: 'Number of Unique Songs',
-  titleTextStyle: {
-  fontName: 'Lato',        
-  },
-  gridlines: {count: -1},
-  viewWindow:{
-  max: Math.ceil(max/5)*5,
-  min:0
-  }          
-  }
-  };
+	var chart = new google.visualization.ColumnChart(
+	    document.getElementById('chart_div2'));
 
-  var chart = new google.visualization.ColumnChart(
-  document.getElementById('chart_div2'));
+	chart.setAction({
+	    id: 'songs',
+	    text: 'See Songs',
+	    action: function() {
+		var selection = chart.getSelection();
+		var row = selection[0].row;
+		var year = data.getValue(row, 0);
+		location.href="{{ url()->current() }}/songs/?q=" + year;
+	    }
+	});
 
-  chart.setAction({
-  id: 'songs',
-  text: 'See Songs',
-  action: function() {
-  var selection = chart.getSelection();
-  var row = selection[0].row;
-  var year = data.getValue(row, 0);
-  location.href="{{ url()->current() }}/songs/?q=" + year;
-  }
-  });
+	chart.draw(data, options);
+    }
 
-  chart.draw(data, options);
-  }
+    function drawChart3(data, max) {
+	var data = google.visualization.arrayToDataTable(data);
+	var options = {
+	    titlePosition: 'none',
+	    legend:{position:'none'},
+	    height: 300,
+	    width: '100%',
+	    tooltip: { trigger: 'selection' },
+	    chartArea: {'width': '80%', 'height': '80%'},
+	    hAxis: {
+		title: 'Year',
+		titleTextStyle: {
+		    fontName: 'Lato',
+		},
+	    },
+	    vAxis: {
+		title: 'Number of Song Performances',
+		titleTextStyle: {
+		    fontName: 'Lato',        
+		},
+		gridlines: {count: -1},
+		viewWindow:{
+		    max: Math.ceil(max/5)*5,
+		    min:0
+		}          
+	    }
+	};
 
-  function drawChart3(data, max) {
-  var data = google.visualization.arrayToDataTable(data);
-  var options = {
-  titlePosition: 'none',
-  legend:{position:'none'},
-  height: 300,
-  width: '100%',
-  tooltip: { trigger: 'selection' },
-  chartArea: {'width': '80%', 'height': '80%'},
-  hAxis: {
-  title: 'Year',
-  titleTextStyle: {
-  fontName: 'Lato',
-  },
-  },
-  vAxis: {
-  title: 'Number of Song Performances',
-  titleTextStyle: {
-  fontName: 'Lato',        
-  },
-  gridlines: {count: -1},
-  viewWindow:{
-  max: Math.ceil(max/5)*5,
-  min:0
-  }          
-  }
-  };
+	var chart = new google.visualization.ColumnChart(
+	    document.getElementById('chart_div3'));
 
-  var chart = new google.visualization.ColumnChart(
-  document.getElementById('chart_div3'));
+	chart.draw(data, options);
+    }
 
-  chart.draw(data, options);
-  }
 
   function drawChartsLocal() {
   
-  var data1 = JSON.parse('<?php echo json_encode($yearly_graph_data['shows']) ?>');
-  var data2 = JSON.parse('<?php echo json_encode($yearly_graph_data['unique_songs']) ?>');
-  var data3 = JSON.parse('<?php echo json_encode($yearly_graph_data['songs']) ?>');
-  var max1  = {{ $max_shows }};
-  var max2  = {{ $max_unique }};
-  var max3  = {{ $max_songs }};
+    var data1 = JSON.parse('<?php echo json_encode($yearly_graph_data['shows']) ?>');
+    var data2 = JSON.parse('<?php echo json_encode($yearly_graph_data['unique_songs']) ?>');
+    var data3 = JSON.parse('<?php echo json_encode($yearly_graph_data['songs']) ?>');
+    var max1  = {{ $max_shows }};
+    var max2  = {{ $max_unique }};
+    var max3  = {{ $max_songs }};
 
-  drawCharts(data1, max1, data2, max2, data3, max3);
-  window.onresize = drawChartsLocal;
+    drawCharts(data1, max1, data2, max2, data3, max3);
+    window.onresize = drawChartsLocal;
   }
 
 </script>

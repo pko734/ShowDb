@@ -122,7 +122,7 @@ class UserController extends Controller
              FROM shows sh
              WHERE sh.user_id IS NULL
              GROUP BY year
-             ORDER BY year desc"
+             ORDER BY year asc"
         ));
     }
 
@@ -133,7 +133,7 @@ class UserController extends Controller
              JOIN setlist_items si ON si.show_id = sh.id
              WHERE sh.user_id IS NULL
              GROUP BY year
-             ORDER BY year desc"
+             ORDER BY year asc"
         ));
     }
 
@@ -145,7 +145,7 @@ class UserController extends Controller
              JOIN songs s on si.song_id = s.id
              WHERE sh.user_id IS NULL
              GROUP BY year
-             ORDER BY year desc"
+             ORDER BY year asc"
         ));
     }
 
@@ -211,25 +211,13 @@ class UserController extends Controller
         return $this->_showUserStats(User::where('username', '=', $username)->first());
     }
 
-    private function _showUserStats($user) {
-        $songs = $this->_getMySongs($user);
-        $total_songs = $this->_getMyTotalSongs($user);
-        $shows_by_year = $this->_getMyShowsByYear($user);
-        $songs_by_year = $this->_getMySongsByYear($user);
-        $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
-
-	$yearly_graph_data = [
-          'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
-          'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
-          'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
-        ];
-	$max_shows  = 0;
-	$max_unique = 0;
-	$max_songs  = 0;
-        $song_count = 0;
-        $unique_songs = 0;
-       
-        $i = 0;
+    private function _calcYearlyGraphData($shows_by_year,
+					  $songs_by_year,
+					  $unique_songs_by_year,
+					  &$yearly_graph_data, 
+					  &$max_shows, 
+					  &$max_songs, 
+					  &$max_unique) {
         foreach($shows_by_year as $info) {
             $song_count = 0;
             $unique_songs = 0;
@@ -265,10 +253,35 @@ class UserController extends Controller
 	    if($max_unique < $unique_songs) {
 	        $max_unique = $unique_songs;
 	    }
-
-            $i++;
         }
+    }
 
+    private function _showUserStats($user) {
+        $songs = $this->_getMySongs($user);
+        $total_songs = $this->_getMyTotalSongs($user);
+        $shows_by_year = $this->_getMyShowsByYear($user);
+        $songs_by_year = $this->_getMySongsByYear($user);
+        $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
+
+	$yearly_graph_data = [
+          'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
+          'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
+          'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
+        ];
+	$max_shows  = 0;
+	$max_unique = 0;
+	$max_songs  = 0;
+        $song_count = 0;
+        $unique_songs = 0;
+	
+	$this->_calcYearlyGraphData($shows_by_year, 
+				    $songs_by_year,
+				    $unique_songs_by_year,
+				    $yearly_graph_data, 
+				    $max_shows, 
+				    $max_songs, 
+				    $max_unique);
+      
         $user_id = $user->id;
         $first_show = Show::whereHas('users', function($query) use($user_id) {
             $query->where('user_id', '=', $user_id);
@@ -490,32 +503,61 @@ class UserController extends Controller
         $songs_by_year = $this->_getAllSongsByYear();
         $unique_songs_by_year = $this->_getAllUniqueSongsByYear();
 
-        $yearly_data = [];
-        $i = 0;
-        foreach($shows_by_year as $info) {
-            $song_count = 0;
-            $unique_songs = 0;
-            foreach($songs_by_year as $s) {
-                if($s->year === $info->year) {
-                    $song_count = $s->song_count;
-                    break;
-                }
-            }
-            foreach($unique_songs_by_year as $u) {
-                if($u->year === $info->year) {
-                    $unique_songs = $u->unique_songs;
-                    break;
-                }
-            }
-            $yearly_data[$info->year] = (object)[
-                'shows' => $info->show_count,
-                'songs' => $song_count,
-                'unique_songs' => $unique_songs,
-            ];
-            $i++;
-        }
+//        $yearly_data = [];
+//        foreach($shows_by_year as $info) {
+//            $song_count = 0;
+//            $unique_songs = 0;
+//            foreach($songs_by_year as $s) {
+//                if($s->year === $info->year) {
+//                    $song_count = $s->song_count;
+//                    break;
+//                }
+//            }
+//            foreach($unique_songs_by_year as $u) {
+//                if($u->year === $info->year) {
+//                    $unique_songs = $u->unique_songs;
+//                    break;
+//                }
+//            }
+//            $yearly_data[$info->year] = (object)[
+//                'shows' => $info->show_count,
+//                'songs' => $song_count,
+//                'unique_songs' => $unique_songs,
+//            ];
+//        }
+	$yearly_graph_data = [
+          'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
+          'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
+          'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
+        ];
+	$max_shows  = 0;
+	$max_unique = 0;
+	$max_songs  = 0;
+        $song_count = 0;
+        $unique_songs = 0;
+
+	$this->_calcYearlyGraphData($shows_by_year, 
+				    $songs_by_year,
+				    $unique_songs_by_year,
+				    $yearly_graph_data, 
+				    $max_shows, 
+				    $max_songs, 
+				    $max_unique);
+
+
+	$all_user_show_data = DB::table('show_user')
+	  ->select(DB::raw('COUNT(show_id) as show_count'))
+	  ->groupBy('user_id')->pluck('show_count')->toArray();
+
+	array_unshift($all_user_show_data, 'People');
+	$all_user_show_data = array_map( function($x) { return [$x]; }, $all_user_show_data);
 
         return view('user.allstats')
+  	    ->withYearlyGraphData($yearly_graph_data)
+	    ->withMaxShows($max_shows)
+	    ->withMaxSongs($max_songs)
+	    ->withMaxUnique($max_unique)
+	    ->withAllUserShowData($all_user_show_data)
             ->withPastShows(Show::whereRaw('UNIX_TIMESTAMP(date) < ?',
                                            \Carbon\Carbon::now()->timestamp)
                             ->whereNull('user_id')
@@ -525,8 +567,7 @@ class UserController extends Controller
                                 ->whereNull('user_id')
                                 ->get())
             ->withUser($request->user())
-            ->withTotalSongs($total_songs)
-            ->withYearlyData($yearly_data)
+            ->withTotalSongs($total_songs)            
             ->withSongs($songs);
     }
 
