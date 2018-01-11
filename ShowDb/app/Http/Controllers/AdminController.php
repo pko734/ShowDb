@@ -9,6 +9,7 @@ use ShowDb\SetlistItemNote;
 use ShowDb\Audit;
 use ShowDb\User;
 use ShowDb\AlbumNote;
+use ShowDb\Show;
 
 class AdminController extends Controller
 {
@@ -39,12 +40,18 @@ class AdminController extends Controller
                 ->where('published', '=', 0)
                 ->paginate(5);
 
+	$shows = Show::has('images')
+	  ->whereHas('images', function ($query) {
+	      $query->where('published', '=', '0');
+	    })->get();
+	
         return view('admin.index')
             ->withUser($request->user())
             ->withShowNotes($show_notes)
             ->withSongNotes($song_notes)
             ->withAlbumNotes($album_notes)
-            ->withVideos($videos);
+            ->withVideos($videos)
+	    ->withPhotoShows($shows);
     }
 
     public function audit() {

@@ -30,6 +30,8 @@ class ShowController extends AbstractShowController
             'updateNote',
             'storeItemNote',
             'updateItemNote',
+	    'deleteImagePost',
+	    'approveImage',
         ]);
         $this->middleware('auth')->only([
             'storeNote',
@@ -68,6 +70,16 @@ class ShowController extends AbstractShowController
     public function storeNote($show_id, Request $request)
     {
         return parent::storeNote($show_id, $request);
+    }
+
+    public function uploadImagePost($id, Request $request) {
+        $this->showbase = Show::whereNull('user_id');
+        return parent::uploadImagePost($id, $request);
+    }
+
+    public function deleteImagePost($id, $photo_id, Request $request) {
+        $this->showbase = Show::whereNull('user_id');
+        return parent::deleteImagePost($id, $photo_id, $request);
     }
 
     /**
@@ -116,6 +128,7 @@ class ShowController extends AbstractShowController
     {
         $this->showbase = Show::whereNull('user_id');
         $this->note_tooltip = 'What made this show special?';
+
         return parent::show($id, $request);
     }
 

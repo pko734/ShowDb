@@ -9,7 +9,7 @@ Show Editor
       <form method="POST" action="{{ dirname(url()->current()) }}">
         {{ method_field('PUT') }}
         {{ csrf_field() }}
-        @if($display_show_date)
+        @if($displayShowDate)
         <div class="form-group">
           <label for="show_date">Show Date</label>
           <input value="{{ $show->date }}"
@@ -28,7 +28,7 @@ Show Editor
                placeholder="YYYY-MM-DD">
         @endif
         <div class="form-group">
-          <label for="show_venue">Show {{ $venue_display }}</label>
+          <label for="show_venue">Show {{ $venueDisplay }}</label>
           <input value="{{ $show->venue }}"
 		 name="venue"
 		 type="text"
@@ -37,7 +37,7 @@ Show Editor
 		 placeholder="Venue - City, State">
         </div>
         <label for="show_setlist">Set List</label>
-        @if($display_complete)
+        @if($displayComplete)
         <div class="form-group">
           <label class="radio-inline">
             <input type="radio" name="complete" value="1"
@@ -87,7 +87,7 @@ Show Editor
 		type="button"
 		class="btn btn-default">
           <span class="glyphicon glyphicon-plus"
-		title="{{ $setlist_item_add_tooltip}}"
+		title="{{ $setlistItemAddTooltip}}"
 		data-toggle="tooltip"
 		data-placement="right"
 		></span>

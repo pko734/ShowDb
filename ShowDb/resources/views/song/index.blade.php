@@ -34,12 +34,12 @@ Song Finder
 	      <tr>
 		<th width="1px"></th>
 		<th>
-		  <a href="{{ Request::fullUrlWithQuery(['o' => $title_order]) }}">
+		  <a href="{{ Request::fullUrlWithQuery(['o' => $titleOrder]) }}">
 		    Title
 		  </a>
 		</th>
 		<th style="text-align:center;">
-		  <a href="{{ Request::fullUrlWithQuery(['o' => $setlist_item_order]) }}">
+		  <a href="{{ Request::fullUrlWithQuery(['o' => $setlistItemOrder]) }}">
 		    Play Count
 		  </a>
 		</th>

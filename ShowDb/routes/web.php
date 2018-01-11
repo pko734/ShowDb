@@ -47,6 +47,10 @@ Route::put(     'setlistitems/{item}/video/{video}', 'ShowController@approveItem
 Route::post(    'users/shows/{show_id}',             'UserController@storeShow')->name('user.show.store');
 Route::delete(  'users/shows/{show_id}',             'UserController@destroyShow')->name('user.show.destroy');
 
+Route::post('shows/{show}/upload', 'ShowController@uploadImagePost')->name('show.image.upload');
+Route::delete('shows/{show}/photos/{photo}', 'ShowController@deleteImagePost')->name('show.image.delete');
+Route::put('shows/{show}/photos/{photo}', 'ShowController@approvePhoto')->name('show.image.approve');
+
 // albums
 Route::resource('albums',                          'AlbumController');
 Route::post(    'albums/{album}/notes',            'AlbumController@storeNote')->name('albums.notes.store');

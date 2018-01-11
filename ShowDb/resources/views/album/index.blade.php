@@ -34,12 +34,12 @@ Album Finder
 	    <tr>
 	      <th width="1px"></th>
 	      <th>
-		<a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
+		<a href="{{ Request::fullUrlWithQuery(['o' => $dateOrder]) }}">
 		  Release Date
 		</a>
 	      </th>
 	      <th>
-		<a href="{{ Request::FullUrlWithQuery(['o' => $album_item_order]) }}">
+		<a href="{{ Request::FullUrlWithQuery(['o' => $albumItemOrder]) }}">
 		  Songs
 		</a>
 	      </th>

@@ -5,8 +5,9 @@ namespace ShowDb;
 use Illuminate\Database\Eloquent\Model;
 
 use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class Show extends Model
+class Show extends Model implements AuditableContract
 {
 
     use Auditable;
@@ -17,6 +18,10 @@ class Show extends Model
 
     public function notes() {
         return $this->hasMany('ShowDb\ShowNote');
+    }
+
+    public function images() {
+        return $this->hasMany('ShowDb\ShowImage');
     }
 
     public function users() {

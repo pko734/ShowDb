@@ -33,30 +33,30 @@ Show Finder
 
       <form action="{{ url()->current() }}" method="POST">
         {{csrf_field() }}
-        <table id="showtable" class="table table-striped" data-display-creator-notice="{{ $display_creator_notice }}">
+        <table id="showtable" class="table table-striped" data-display-creator-notice="{{ $displayCreatorNotice }}">
           <thead>
             <tr>
 	      <th width="1px"></th>
-	      @if($display_show_date)
+	      @if($displayShowDate)
 	      <th>
-		<a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
+		<a href="{{ Request::fullUrlWithQuery(['o' => $dateOrder]) }}">
 		  Date
 		</a>
 	      </th>
 	      @endif
-	      @if($display_show_creator)
+	      @if($displayShowCreator)
 	      <th>
-		<a href="{{ Request::fullUrlWithQuery(['o' => $date_order]) }}">
+		<a href="{{ Request::fullUrlWithQuery(['o' => $dateOrder]) }}">
 		  Creator
 		</a>
 	      </th>
 	      @endif
 	      <th>
-		<a href="{{ Request::FullUrlWithQuery(['o' => $setlist_item_order]) }}">
+		<a href="{{ Request::FullUrlWithQuery(['o' => $setlistItemOrder]) }}">
 		  Songs
 		</a>
 	      </th>
-	      <th>{{ $venue_display }}</th>
+	      <th>{{ $venueDisplay }}</th>
             </tr>
           </thead>
           <tbody>
@@ -64,7 +64,7 @@ Show Finder
             <tr>
 	      <td>
 		<span style="white-space:nowrap;">
-		  @if($display_complete)
+		  @if($displayComplete)
 		  @if($show->incomplete_setlist)
 		  <i style="color: orange"
 		     class="fa fa-exclamation"
@@ -83,10 +83,10 @@ Show Finder
 		  @endif
 		</span>
 	      </td>
-	      @if($display_show_date)
+	      @if($displayShowDate)
 	      <td>{{ $show->date }}</td>
 	      @endif
-	      @if($display_show_creator)
+	      @if($displayShowCreator)
 	      <td>{{ $show->creator->username }}</td>
 	      @endif
 	      <td>
@@ -97,7 +97,7 @@ Show Finder
 		@endif
 	      </td>
 	      <td>
-		@if($display_show_checkbox)
+		@if($displayShowCheckbox)
 		@if($user && $show->users->contains($user->id))
 		<a data-toggle="tooltip"
 		   data-placement="left"
@@ -145,9 +145,9 @@ Show Finder
         <button id="addbutton"
 		type="button"
 		class="pull-left btn btn-default"
-		data-show-date="{{ $display_show_date }}">
+		data-show-date="{{ $displayShowDate }}">
           <span class="glyphicon glyphicon-plus"
-		title="{{ $show_add_tooltip }}"
+		title="{{ $showAddTooltip }}"
 		data-toggle="tooltip"
 		data-placement="right"></span>
         </button>
@@ -161,7 +161,7 @@ Show Finder
   </div>
 </div><!--/.panel-->
 
-<form method="POST" id="user-add-show-form" action="" data-default-date="{{ $default_date }}">
+<form method="POST" id="user-add-show-form" action="" data-default-date="{{ $defaultDate }}">
   {{ csrf_field() }}
 </form>
 <form method="POST" id="user-remove-show-form" action="">

@@ -13,19 +13,19 @@ Avett Brothers Stats: ({{ $user->username }})
 	  <h1>Show Stats ({{ $user->username }})</h1>
 	  <p><em>Stats about your Avett Brother shows.</em></p>
 	  <div class="col-lg-6 col-md-6 space-above">
-	    <p><img src="/img/calendar-past.png" alt="Past Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{ count($past_shows) }}</span></a><br>
+	    <p><img src="/img/calendar-past.png" alt="Past Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{ count($pastShows) }}</span></a><br>
 	      Past Shows</p>
 	    <hr>
 	    <p>First Show<br>
-	      @if($first_show)
-	      <a href="/shows/{{ $first_show->id }}">{{ $first_show->date }} {{ $first_show->venue }}</a></p>
+	      @if($firstShow)
+	      <a href="/shows/{{ $firstShow->id }}">{{ $firstShow->date }} {{ $firstShow->venue }}</a></p>
 	    @else
 	    N/A
 	    @endif
 	    <hr>
 	    <p>Most Recent Show<br>
-	      @if($first_show)
-	      <a href="/shows/{{ $last_show->id }}">{{ $last_show->date }} {{ $last_show->venue }}</a></p>
+	      @if($firstShow)
+	      <a href="/shows/{{ $lastShow->id }}">{{ $lastShow->date }} {{ $lastShow->venue }}</a></p>
 	    @else
 	    N/A
 	    @endif
@@ -34,15 +34,15 @@ Avett Brothers Stats: ({{ $user->username }})
 	      <a href="{{ url()->current() }}/songs">{{ count($songs) }}</a></p>
 	    <hr>
 	    <p>Total Song Performances<br>
-	      {{ $total_songs }}</p>
+	      {{ $totalSongs }}</p>
 	  </div> <!-- past shows column -->
 	  <div class="col-lg-6 col-md-6 space-above">
-	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcoming_shows) }}</span></a><br>
+	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcomingShows) }}</span></a><br>
 	      Upcoming Shows</p>
 	    <hr>
 	    <p>Next Show<br>
-	      @if($next_show)
-	      <a href="/shows/{{ $next_show->id }}">{{ $next_show->date }} {{ $next_show->venue }}</a></p>
+	      @if($nextShow)
+	      <a href="/shows/{{ $nextShow->id }}">{{ $nextShow->date }} {{ $nextShow->venue }}</a></p>
 	    @else
 	    ???
 	    @endif
@@ -59,7 +59,7 @@ Avett Brothers Stats: ({{ $user->username }})
             @php($al_percentage = 0)
 	    @foreach($albums as $album)
 	    @php($found = false)
-	    @foreach($album_info as $al)
+	    @foreach($albumInfo as $al)
 	    @if($al->album_id == $album->id)
   	    @php($al_percentage = round(100*($al->album_songs / $al->total),0))
 	    @php($found = true)
@@ -271,12 +271,12 @@ Avett Brothers Stats: ({{ $user->username }})
 
   function drawChartsLocal() {
   
-    var data1 = JSON.parse('<?php echo json_encode($yearly_graph_data['shows']) ?>');
-    var data2 = JSON.parse('<?php echo json_encode($yearly_graph_data['unique_songs']) ?>');
-    var data3 = JSON.parse('<?php echo json_encode($yearly_graph_data['songs']) ?>');
-    var max1  = {{ $max_shows }};
-    var max2  = {{ $max_unique }};
-    var max3  = {{ $max_songs }};
+    var data1 = JSON.parse('<?php echo json_encode($yearlyGraphData['shows']) ?>');
+    var data2 = JSON.parse('<?php echo json_encode($yearlyGraphData['unique_songs']) ?>');
+    var data3 = JSON.parse('<?php echo json_encode($yearlyGraphData['songs']) ?>');
+    var max1  = {{ $maxShows }};
+    var max2  = {{ $maxUnique }};
+    var max3  = {{ $maxSongs }};
 
     drawCharts(data1, max1, data2, max2, data3, max3);
     window.onresize = drawChartsLocal;

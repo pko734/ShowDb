@@ -9,6 +9,9 @@ body {
 .hide {
   display: none;
 }
+.modal {
+  z-index: 1071;
+}
 .complete-setlist {
   font-style: italic;
   color: green;
@@ -95,6 +98,19 @@ body {
 .panel-white .panel-footer {
   background-color: #fff;
   border-color: #ddd;
+}
+.stats {
+  margin-top: 20px;
+}
+.stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.stats .stat-item .icon {
+  margin-right: 8px;
+}
+.clickable {
+  cursor: pointer;
 }
 .post .post-heading {
   height: 95px;

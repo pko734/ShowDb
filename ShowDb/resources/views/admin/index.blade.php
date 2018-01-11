@@ -9,27 +9,44 @@ Admin
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3>Audit Log</h3>
+      <h3>Admin Panel</h3>
     </div>
     <div class="panel-body">
+      <div class="row">
+	<div class="col-md-12">
+	  <label>Approve Photos</label>
+	  <p>
+	  @forelse($photoShows as $show)
+	  <a href="/shows/{{ $show->id }}">
+	    {{ $show->date }} {{ $show->venue }}
+	  </a>
+	  <br />
+	  @empty
+	  N/A
+	  @endforelse
+	  </p>
+	</div>
+      </div>
+      <div class="row">
       <div id="show-note-column" class="col-md-3">
         <label>Show Notes</label>
-        @include('admin.notes', ['notes' => $show_notes, 'type' => 'show'])
+        @include('admin.notes', ['notes' => $showNotes, 'type' => 'show'])
       </div>
 
       <div id="song-note-column" class="col-md-3">
         <label>Song Notes</label>
-        @include('admin.notes', ['notes' => $song_notes, 'type' => 'song'])
+        @include('admin.notes', ['notes' => $songNotes, 'type' => 'song'])
       </div>
 
       <div id="album-note-column" class="col-md-3">
         <label>Album Notes</label>
-        @include('admin.notes', ['notes' => $album_notes, 'type' => 'album'])
+        @include('admin.notes', ['notes' => $albumNotes, 'type' => 'album'])
       </div>
 
       <div id="video-note-column" class="col-md-3">
         <label>Videos</label>
         @include('admin.videos', ['notes' => $videos])
+      </div>
       </div>
     </div>
   </div>
