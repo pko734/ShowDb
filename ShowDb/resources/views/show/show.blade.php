@@ -50,35 +50,13 @@
 	           ($user && $user->admin) ||
 	           ($user && ($user->id == $img->user_id)))
 	    <a href="{{ $img->url }}" 
-	       data-toggle="lightbox" 
-	       data-gallery="show_photos"
-	       title="@if(!$img->published) Pending approval @endif"
-	       data-footer='
-	       @if($img->caption)
-	       <b>Photo Caption: </b>{{ $img->caption }}
-	       <br/>
-	       @endif
-	       @if($img->photo_credit)
-	       <b>Photo Credit:</b> {{ $img->photo_credit }}
-	       @endif
+	       data-gallery
+	       data-photo-id="{{ $img->id }}"
+	       title="@if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
 	       @if($user && $user->admin)
-	       <div class="stats"
-	       <span class="input-grp-btn stat-item">
-		 <button type="button"
-			 class="photo-delete-btn btn btn-danger pull-right"
-			 title="Delete Photo"
-			 data-photo-id="{{ $img->id }}">
-		   <span class="glyphicon glyphicon-trash"></span>
-		 </button>
-	       </span>
+	       data-deletable="1"
 	       @if(!$img->published)
-	       <span class="input-grp-btn stat-item">
-		 <button type="button" class="photo-approve-btn btn btn-success"
-			 data-photo-id="{{ $img->id }}" 
-			 title="Approve Photo">
-		   <span class="glyphicon glyphicon-check"></span>
-		 </button>
-	       </span>
+	       data-approvable="1"
 	       @endif
 	       @endif
 	       '
@@ -117,7 +95,13 @@
 		</td>
 		<td>
 		  @if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
-		  <a target="_vids" data-toggle="lightbox" data-width="1280" href="{{ $item->notes->get(0)->note }}">
+		  <a class="video_link"
+		     target="_vids"
+		     data-gallery
+		     title="{{ $show->date }} {{ $show->venue }} {{ $item->song->title }}"
+		     href="{{ $item->notes->get(0)->note }}"
+		     type="text/html"
+		     >
 		    <i class="fa fa-youtube-play" aria-hidden="true"></i>
 		  </a>
 		  @endif

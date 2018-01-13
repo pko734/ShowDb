@@ -139,7 +139,7 @@ Show Finder
 
 
   <div class="panel-footer row">
-    @if($user && ($user->admin || $user_can_add_show))
+    @if($user && ($user->admin || $userCanAddShow))
     <ul class="pagination">
       <li>
         <button id="addbutton"

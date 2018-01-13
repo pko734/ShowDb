@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('.video_link').attr('data-youtube', function() { return getVideoId(this.href).id }); 
 
     $('#delete-show-btn').on('click', function() {
 	bootbox.confirm('Are you sure you want to delete this show?', function(result) {
@@ -171,24 +172,51 @@ $(document).ready(function() {
 	});
     });
 
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-        event.preventDefault();
-        $(this).ekkoLightbox({
-        alwaysShowClose: true,
-        onContentLoaded: function() {
-            console.log('Checking our the events huh?');
-	            $('.photo-delete-btn').on('click', function(e) {
-	                var photo_id = $(this).attr('data-photo-id');
-	                $('#delete-photo-form').attr('action', $('#delete-photo-form').attr('action') + photo_id);
-	                $('#delete-photo-form').submit();
-            });
-	            $('.photo-approve-btn').on('click', function(e) {
-	                var photo_id = $(this).attr('data-photo-id');
-	                $('#approve-photo-form').attr('action', $('#approve-photo-form').attr('action') + photo_id);
-	                $('#approve-photo-form').submit();
-            });
-        }
-        });
+    $('.blueimp-gallery > .delete').on('click', function(e) {
+        var photo_id = $(this).attr('data-photo-id');
+        $('#delete-photo-form').attr('action', $('#delete-photo-form').attr('action') + photo_id);
+        $('#delete-photo-form').submit();
     });
 
+    $('.blueimp-gallery > .approve').on('click', function(e) {
+        var photo_id = $(this).attr('data-photo-id');
+        $('#approve-photo-form').attr('action', $('#approve-photo-form').attr('action') + photo_id);
+        $('#approve-photo-form').submit();
+    });
+
+    $('#blueimp-gallery').on('open', function(e) {
+	$('#blueimp-gallery').data('gallery').options.continuous = false;
+    });
+
+    $('#blueimp-gallery').on('slide', function(e, index, slide) {
+	var photo_id = $($('#blueimp-gallery').data('gallery').list[index]).data('photo-id');
+
+	$('.blueimp-gallery > .delete').hide();
+	if($($('#blueimp-gallery').data('gallery').list[index]).data('deletable') == '1') {
+	    $('.blueimp-gallery > .delete').show();
+	    $('.blueimp-gallery > .delete').off('click');
+	    $('.blueimp-gallery > .delete').on('click', function(e) {
+		bootbox.confirm('Delete this photo?', function(result) {
+		    if(result) {
+			$('#delete-photo-form').attr('action', $('#delete-photo-form').attr('action') + photo_id);
+			$('#delete-photo-form').submit();
+		    }
+		});
+	    });
+	}
+
+	$('.blueimp-gallery > .approve').hide();	
+	if($($('#blueimp-gallery').data('gallery').list[index]).data('approvable') == '1') {
+	    $('.blueimp-gallery > .approve').show();
+	    $('.blueimp-gallery > .approve').off('click');
+	    $('.blueimp-gallery > .approve').on('click', function(e) {
+		bootbox.confirm('Approve this photo?', function(result) {
+		    if(result) {
+			$('#approve-photo-form').attr('action', $('#approve-photo-form').attr('action') + photo_id);
+    			$('#approve-photo-form').submit();
+		    }
+		});
+	    });
+	}
+    });
 });

@@ -1,35 +1,8 @@
+
 /**
- * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
- * building robust, powerful web applications using Vue and Laravel.
+ * First, we will load all of this project's Javascript utilities and other
+ * dependencies. Then, we will be ready to develop a robust and powerful
+ * application frontend using useful Laravel and JavaScript libraries.
  */
 
-require('./shared');
-require('./admin');
-require('./editshow');
-require('./indexshows');
-require('./indexsongs');
-require('./playsongs');
-require('./showshows');
-require('./showsongs');
-require('./indexusers');
-require('./indexalbums');
-require('./showalbums');
-require('./editalbum');
-require('./indexuseralbums');
-require('./googlecharts');
-require('./unflash');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the body of the page. From here, you may begin adding components to
- * the application, or feel free to tweak this setup for your needs.
- */
-/**
-
-Vue.component('example', require('./components/Example.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
-*/
+require('./bootstrap');
