@@ -44,7 +44,9 @@
 	  <div class="form-group">
 	    <label>Photos</label>
 	    <div>
+	      @if($user)
 	       <i class="clickable photo-add-btn fa fa-plus" title="Add a photo"></i>&nbsp;
+	      @endif
 	    @foreach($images as $img)
 	       @if($img->published ||
 	           ($user && $user->admin) ||

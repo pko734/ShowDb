@@ -36,6 +36,7 @@ class ShowController extends AbstractShowController
         $this->middleware('auth')->only([
             'storeNote',
             'destroyNote',
+	    'uploadImagePost',
         ]);
     }
 
