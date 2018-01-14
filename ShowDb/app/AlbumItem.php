@@ -5,8 +5,9 @@ namespace ShowDb;
 use Illuminate\Database\Eloquent\Model;
 
 use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class AlbumItem extends Model
+class AlbumItem extends Model implements AuditableContract
 {
     use Auditable;
 

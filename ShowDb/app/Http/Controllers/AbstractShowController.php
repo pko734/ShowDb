@@ -8,10 +8,12 @@ use ShowDb\SetlistItem;
 use ShowDb\Song;
 use ShowDb\ShowNote;
 use ShowDb\SetlistItemNote;
+use ShowDb\ShowImage;
 use Session;
 use Redirect;
 use Auth;
 use Carbon\Carbon;
+use \Storage;
 
 class AbstractShowController extends Controller
 {
@@ -256,6 +258,73 @@ class AbstractShowController extends Controller
     }
 
     /**
+     * Delete an image.
+     * @param integer                    $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteImagePost($id, $photo_id, Request $request) {
+      $show = $this->showbase
+	->where('id', '=', $id)
+	->first();
+
+      $photo = ShowImage::where('show_id', '=', $show->id)
+	->where('id', '=', $photo_id)
+	->first();
+
+        if(is_null($show)) {
+	  echo 'bye'; exit;
+            Session::flash('flash_error','Show not found');
+            return redirect(dirname(dirname(url()->current())));
+        }
+
+        if(is_null($photo)) {
+	  echo 'hi'; exit;
+            Session::flash('flash_error','Photo not found');
+            return redirect(dirname(dirname(url()->current())));
+        }
+
+	Storage::disk('s3')->delete($photo->path);
+
+        $photo->delete();
+        Session::flash('flash_message', 'Image Deleted');
+        return Redirect::back();
+    }
+    /**
+     * Upload an image.
+     * @param integer                    $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function uploadImagePost($id, Request $request) {
+      request()->validate([
+	  'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50000',
+          'tos'     => 'accepted',
+	  'certify' => 'accepted',
+	]);
+
+      $show = $this->showbase
+	->where('id', '=', $id)
+	->first();
+      $imageName = $request->image->store("/images/{$show->date}/{$show->id}", 's3');
+
+      $image = new ShowImage();
+      $image->user_id = $request->user()->id;
+      $image->show_id = $show->id;
+      $image->caption = $request->photo_caption;
+      $image->photo_credit = $request->photo_credit;
+      $image->published = $request->user()->admin;
+      $image->path = $imageName;
+      $image->url = Storage::disk('s3')->url($imageName);
+      $image->save();
+
+      Session::flash('flash_message', 'Photo Submitted.  Thank you!');
+      return back()
+        ->withShowId($id)
+	->with('image',$imageName);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -263,10 +332,12 @@ class AbstractShowController extends Controller
      */
     public function show($id, Request $request)
     {
-        $user = $request->user();
         $show = $this->showbase
               ->where('id', '=', $id)
               ->first();
+
+	$images = ShowImage::where('show_id', '=', $show->id)->get();
+        $user = $request->user();
 
         if(is_null($show)) {
             Session::flash('flash_error','Show not found');
@@ -276,6 +347,7 @@ class AbstractShowController extends Controller
         return view('show.show')
             ->withShow($show)
             ->withUser($user)
+	    ->withImages($images)
             ->withNoteTooltip($this->note_tooltip)
             ->withDisplayComplete($this->display_complete)
             ->withVenueDisplay($this->venue_display)
@@ -450,6 +522,30 @@ class AbstractShowController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * Approve a photo.
+     *
+     * @param integer                    $show_id
+     * @param integer                    $photo_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function approvePhoto($show_id, $photo_id, Request $request) {
+        $this->validate($request, [
+            'published' => 'required:boolean'
+        ]);
+        $photo = ShowImage::findOrFail($photo_id);
+        if( $photo->show->id != $show_id ) {
+            Session::flash('flash_error', "Show/Photo mismatch");
+            return Redirect::back();
+        }
+
+        $photo->published = $request->published;
+        $photo->save();
+
+        Session::flash('flash_message', 'Photo Approved');
+        return Redirect::back();
+    }
 
     /**
      * Approve a setlist item item-note.

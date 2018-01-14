@@ -1,0 +1,1 @@
+~/.local/bin/aws s3 sync s3://images.db.nov.blue

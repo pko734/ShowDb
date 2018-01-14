@@ -3,13 +3,21 @@
 {{ $show->date }} {{ $show->venue }}
 @endsection
 @section('content')
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+            'showId' => $show->id,
+	    'username' => (isset($user)) ? $user->name : '',
+            'showDetail' => "{$show->date} {$show->venue}",
+        ]); ?>
+    </script>
 <div class="container">
 
   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-body">
 	<form method="GET" action="{{ url()->current() }}/edit">
-	  @if($display_show_date)
+	  @if($displayShowDate)
 	  <div class="form-group">
 	    <label for="show_date">Show Date</label>
 	    <input disabled value="{{ $show->date }}"
@@ -26,17 +34,52 @@
 		 placeholder="YYYY-MM-DD">
 	  @endif
 	  <div class="form-group">
-	    <label for="show_venue">Show {{ $venue_display }}</label>
+	    <label for="show_venue">Show {{ $venueDisplay }}</label>
 	    <input disabled value="{{ $show->venue }}"
 		   type="text"
 		   class="form-control"
 		   id="show_venue"
 		   placeholder="Venue - City, State">
 	  </div>
+	  <div class="form-group">
+	    <label>Photos</label>
+	    <div>
+	      @if($user)
+	       <i class="clickable photo-add-btn fa fa-plus" title="Add a photo"></i>&nbsp;
+	      @endif
+	       &nbsp;
+	    @foreach($images as $img)
+	       @if($img->published ||
+	           ($user && $user->admin) ||
+	           ($user && ($user->id == $img->user_id)))
+	    <a href="{{ $img->url }}" 
+	       data-gallery
+	       data-photo-id="{{ $img->id }}"
+	       title="@if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
+	       @if($user && $user->admin)
+	       data-deletable="1"
+	       @if(!$img->published)
+	       data-approvable="1"
+	       @endif
+	       @endif
+	       '
+	       >
+	       <i class="fa fa-image fa-lg
+			 @if($img->published)
+			 text-primary
+			 @else 
+			 text-danger
+			 @endif" 
+		  aria-hidden="true"></i>
+	    </a>
+	    @endif
+	    @endforeach
+	    </div>
+	  </div>
 	  <label>
 	    Set List
 	  </label>
-	  @if($display_complete)
+	  @if($displayComplete)
 	  @if($show->incomplete_setlist)
 	  <span class="incomplete-setlist">(incomplete)</span>
 	  @else
@@ -55,7 +98,13 @@
 		</td>
 		<td>
 		  @if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
-		  <a target="_vids" href="{{ $item->notes->get(0)->note }}">
+		  <a class="video_link"
+		     target="_vids"
+		     data-gallery
+		     title="{{ $show->date }} {{ $show->venue }} {{ $item->song->title }}"
+		     href="{{ $item->notes->get(0)->note }}"
+		     type="text/html"
+		     >
 		    <i class="fa fa-youtube-play" aria-hidden="true"></i>
 		  </a>
 		  @endif
@@ -109,7 +158,7 @@
       <div class="form-group">
 	<table id="notetable" class="table">
 	  <tbody>
-	    @include('notes', ['notes' => $show->notes, 'type' => 'show', 'add_tooltip' => $note_tooltip])
+	    @include('notes', ['notes' => $show->notes, 'type' => 'show', 'add_tooltip' => $noteTooltip])
 	  </tbody>
 	</table>
       </div>
@@ -118,10 +167,19 @@
       {{ method_field('DELETE') }}
       {{ csrf_field() }}
     </form>
+    <form id="delete-photo-form" method="POST" action="{{ url()->current() }}/photos/">
+      {{ method_field('DELETE') }}
+      {{ csrf_field() }}
+    </form>
     <form id="edit-show-note-form" method="POST" action="{{ url()->current() }}/notes/">
       {{ method_field('PUT') }}
       {{ csrf_field() }}
       <input type="hidden" name="note" value="">
+    </form>
+    <form id="approve-photo-form" method="POST" action="{{ url()->current() }}/photos/">
+      {{ method_field('PUT') }}
+      {{ csrf_field() }}
+      <input type="hidden" name="published" value="1">
     </form>
     <form id="add-video-form" method="POST" action="#">
       <input id="videoinput" type="hidden" name="video_url" value="">

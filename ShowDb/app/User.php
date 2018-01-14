@@ -5,13 +5,11 @@ namespace ShowDb;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Auditable;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
-    use Auditable;
 
     /**
      * The attributes that are mass assignable.
@@ -39,6 +37,10 @@ class User extends Authenticatable
 
     public function shows() {
         return $this->belongsToMany('ShowDb\Show');
+    }
+
+    public function images() {
+        return $this->hasMany('ShowDb\ShowImages');
     }
 
     public function badges() {

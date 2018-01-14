@@ -6,32 +6,53 @@
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="/trumbowyg/ui/trumbowyg.min.css">
     <link href='{{ elixir('css/app.css') }}' type='text/css' rel='stylesheet'>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type='text/css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+    <style>
 
+.blueimp-gallery > .delete {
+  position: absolute;
+  bottom: 105px;
+  right: 17px;
+  display: none;
+  cursor: pointer;
+}
+
+.blueimp-gallery > .approve {
+  position: absolute;
+  bottom: 60px;
+  right: 15px;
+  display: none;
+  cursor: pointer;
+}
+
+    </style>
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAGhoaAMjIyADc3NwASEhIACYmJgAzMzMA6OjoACwsLABoaGgAxcXFAHt7ewAxMTEAnJycAMvLywAwMDAAPT09ACIiIgBKSkoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQGBgMAAAAAAAAAAAAAAA0GBgYGDwAAAAAAAAAAAAAJBgYGBgYAAAAABgYGAAAAAAYGBgYGAAAABgYGBgYAAAAABQYGBgAAAAYGBgYGDAAAAAAAAAYAAAAKBgYGBgwAAAAAAAAGAAAAAAABCAsMAAAAAAAABgAAAAAAAAAODAAAAAAAAAYAAAAAAAAADgwAAAAAAAAGAAAAAAAAAA4MAAAAAAAABgYGBgAAAAAODAAAAAAAAAYGBgYGBhAAAgwAAAAAAAAGBgYGBgYGBgYMAAAAAAAAAAYGBgYGBgYGDAAAAAAAAAAAAAcMBgYGBgwAAAAAAAAAAAAAAAAAEQYSAIf/AAAD/wAAA8cAAIODAADDgQAA+4EAAPvhAAD7+QAA+/kAAPv5AAD4eQAA+AkAAPgBAAD8AQAA/wEAAP/xAAA=" rel="icon" type="image/x-icon" />
     <meta name="_token" content="{{ csrf_token() }}">
     @yield('head')
   </head>
   <body>
+    <div id="blueimp-gallery" class="blueimp-gallery">
+      <div class="slides"></div>
+      <h3 class="title"></h3>
+      <a class="prev">‹</a>
+      <a class="next">›</a>
+      <a class="close">×</a>
+      <a class="play-pause"></a>
+      <a class="delete text-danger" title="Delete Photo"><i class="fa fa-trash fa-lg text-danger"></i></a>
+      <a class="approve text-danger" title="Approve Photo"><i class="fa fa-check fa-lg text-success"></i></a>
+      <ol class="indicator"></ol>
+    </div>
     <script>
-
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
       ga('create', 'UA-65243648-2', 'auto');
 
-
       ga('send', 'pageview');
-
-
     </script>
 
     <div id="fb-root"></div>
@@ -71,11 +92,6 @@
             <li class="{{ isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
             <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
             <li class="{{ isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
-	    <!--
-            @if(Auth::user())
-            <li class="{{ isActiveRoute('fantasy.*.*') }}"><a href="/fantasy/shows">Fantasy</a></li>
-            @endif
-            -->
             <li class="{{ isActiveUrl('/about') }}">
               <a href="/about">About</a>
             </li>
@@ -162,6 +178,7 @@
     <div id="asd-container">
       @yield('content')
     </div>
+<!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -169,9 +186,20 @@
     <script src="/js/bootbox.min.js"></script>
     <script src="/trumbowyg/trumbowyg.min.js"></script>
     <script src="/trumbowyg/plugins/base64/trumbowyg.base64.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+
     <script src="/js/jquery.isonscreen.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+-->
+<!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+-->
     <script src="/js/app.js"></script>
+
+    <script>
+    </script>
   </body>
 </html>

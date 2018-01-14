@@ -56,10 +56,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'key' => 'AKIAJBOTJFAYZZ5MRIRA',
+            'secret' => 'E+aUFpJofp9SqzEe4LxDinje2CRe6zJM+ciHPQfy',
+            'region' => 'us-east-2',
+            'bucket' => 'images.db.nov.blue',
         ],
 
     ],

@@ -183,11 +183,11 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
-        BackupManager\Laravel\Laravel5ServiceProvider::class,
+        BackupManager\Laravel\Laravel55ServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Cornford\Googlitics\AnalyticsServiceProvider::class,
         Laravelista\Ekko\EkkoServiceProvider::class,
-
+	Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -241,6 +241,7 @@ return [
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
         'Ekko' => Laravelista\Ekko\Facades\Ekko::class,
+	'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

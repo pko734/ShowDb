@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+@import "/trumbowyg/ui/trumbowyg.min.css";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i";
+@import "https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css";
+@import "//blueimp.github.io/Gallery/css/blueimp-gallery.min.css";
 html,
 body {
   height: 100%;
@@ -8,6 +14,9 @@ body {
 }
 .hide {
   display: none;
+}
+.modal {
+  z-index: 1000000;
 }
 .complete-setlist {
   font-style: italic;
@@ -95,6 +104,19 @@ body {
 .panel-white .panel-footer {
   background-color: #fff;
   border-color: #ddd;
+}
+.stats {
+  margin-top: 20px;
+}
+.stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.stats .stat-item .icon {
+  margin-right: 8px;
+}
+.clickable {
+  cursor: pointer;
 }
 .post .post-heading {
   height: 95px;

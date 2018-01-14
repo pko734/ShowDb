@@ -4,8 +4,9 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class SetlistItemNote extends Model
+class SetlistItemNote extends Model implements AuditableContract
 {
     use Auditable;
 
