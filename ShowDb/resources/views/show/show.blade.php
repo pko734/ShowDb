@@ -47,6 +47,7 @@
 	      @if($user)
 	       <i class="clickable photo-add-btn fa fa-plus" title="Add a photo"></i>&nbsp;
 	      @endif
+	       &nbsp;
 	    @foreach($images as $img)
 	       @if($img->published ||
 	           ($user && $user->admin) ||
@@ -63,7 +64,7 @@
 	       @endif
 	       '
 	       >
-	       <i class="fa fa-camera fa-lg
+	       <i class="fa fa-image fa-lg
 			 @if($img->published)
 			 text-primary
 			 @else 

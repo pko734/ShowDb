@@ -17,6 +17,7 @@ require('imports?define=>false!../../../node_modules/trumbowyg/plugins/base64/tr
 require('imports?define=>false!../../../node_modules/jquery-on-screen/index.js');
 require('imports?define=>false!../../../node_modules/typeahead.js/dist/typeahead.jquery.js');
 require('imports?define=>false!../../../node_modules/blueimp-gallery/js/jquery.blueimp-gallery.min.js');
+require('imports?define=>false!../../../node_modules/bootstrap-validator/dist/validator.js');
 window.Bloodhound = require('imports?define=>false!../../../node_modules/typeahead.js/dist/bloodhound.js');
 window.GoogleCharts = require('google-charts').GoogleCharts;
 window.Clipboard = require('imports?define=>false!clipboard');

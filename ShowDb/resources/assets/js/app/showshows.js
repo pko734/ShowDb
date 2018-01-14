@@ -101,14 +101,18 @@ $(document).ready(function() {
 	    "<p>When you contribute images to this site, you retain any copyright you have in the content, but you grant us permission to use it to provide our service, including reproducing and displaying your content to the public on our site.</p>" + 
 	    "<p>If the content you contribute is not owned by you, you represent and warrant that it is either in the public domain or available under a Creative Commons license, or that you are authorized to use it by the rights holder or by law.</p>" +
 	    "<p>Finally, we require that you grant permission for The Avett Brothers to use it in any way they see fit.</p>" + 
-            "<form id='photo-add-form' method='POST' action='" + window.Laravel.showId + "/upload' accept-charset='UTF-8' enctype='multipart/form-data'>" +
+            "<form data-focus='false' data-toggle='validator' id='photo-add-form' method='POST' action='" + window.Laravel.showId + "/upload' accept-charset='UTF-8' enctype='multipart/form-data'>" +
 	    "<div class='form-group'>" + 
 	    "<div class='checkbox'>" +	
-	    "<label><input name='tos' type='checkbox' checked value='1'>I have read and agree the above terms.</label>" + 
+	    "<label><input name='tos' type='checkbox' checked value='1' required>I have read and agree the above terms.</label>" + 
 	    "</div>" + 
+	    "</div>" + 
+	    "<div class='form-group'>" + 
 	    "<div class='checkbox'>" +	
-	    "<label><input name='certify' type='checkbox' value='1' checked>I certify that this photo is from following show:<br/>" + window.Laravel.showDetail + "</label>" + 
+	    "<label><input name='certify' type='checkbox' value='1' checked required>I certify that this photo is from following show:<br/>" + window.Laravel.showDetail + "</label>" + 
 	    "</div>" + 
+	    "</div>" + 
+	    "<div class='form-group'>" + 
 	    "<label for='name'>Photo Credit</label>" + 
 	    "<input type='text' class='form-control' id='name' name='photo_credit' value='" + window.Laravel.username + "'>" + 
 	    "</div>" + 
@@ -116,19 +120,21 @@ $(document).ready(function() {
 	    "<label for='name'>Photo Caption</label>" + 
 	    "<input type='text' class='form-control' id='name' name='photo_caption' placeholder='Optional'>" + 	    
 	    "</div>" + 
+	    "<div class='form-group'>" + 
 	    "<input name='_token' type='hidden' value='" + window.Laravel.csrfToken + "'>" + 
             "<div class='row'>" + 
             "<div class='col-md-6'>" + 
-	    "<input id='fupload' class='form-control' name='image' type='file'>" + 
+	    "<input id='fupload' class='form-control' name='image' type='file' required>" + 
             "</div>" +
             "<div class='col-md-6'>" + 
+            "</div>" +
             "</div>" +
             "</div>" +
             "</form>" +
 	    "<br />" +
 	    "<span style='margin-left:5px !important;' id='fileList'></span>" +
 	    "</div><div class='clearfix'></div>";
-	
+	console.log('hi');
 	bootbox.dialog({
 	    message: uploadHtml,
 	    title: "Image Upload",
@@ -138,10 +144,17 @@ $(document).ready(function() {
 		    label: "Upload",
 		    className: "btn-default",
 		    callback: function () {
+			window.photo_add_form_valid = true;
+			$('#photo-add-form').validator().on('submit', function (e) {
+			    window.photo_add_form_valid = !e.isDefaultPrevented();
+			});
 			$('#photo-add-form').submit();
+			return window.photo_add_form_valid;
 		    }
 		}
 	    }
+	}).init(function() {
+	    $('#photo-add-form').validator('update');
 	});
 
 
