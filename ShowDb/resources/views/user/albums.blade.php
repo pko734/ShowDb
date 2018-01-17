@@ -19,7 +19,7 @@ Albums ({{ $user->username }})
 	  <select class="form-control" id="album-select" name="id">
 	    @foreach($albums as $album)
 	    <option value="{{ $album->id }}"
-		    @if($album_id == $album->id)
+		    @if($albumId == $album->id)
 	      SELECTED
 	      @endif
 	      >
@@ -66,7 +66,7 @@ Albums ({{ $user->username }})
 		  @endif
 		</td>
 		<td>
-		  @if(!$song_counts[$song->id])
+		  @if(!$songCounts[$song->id])
 		  <i class="fa"></i>
 		  @else
 		  <i class="fa fa-check" style="color:green;"></i>
@@ -77,7 +77,7 @@ Albums ({{ $user->username }})
 		</td>
 		<td style="text-align: center;">
 		  <a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">
-		    <strong>{{ $song_counts[$song->id] }}</strong>
+		    <strong>{{ $songCounts[$song->id] }}</strong>
 		  </a>
 		</td>
 	      </tr>

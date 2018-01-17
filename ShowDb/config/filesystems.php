@@ -56,10 +56,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => 'AKIAJBOTJFAYZZ5MRIRA',
-            'secret' => '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',
-            'region' => 'us-east-2',
-            'bucket' => 'images.db.nov.blue',
+            'key' => env('AWS_S3_KEY'),
+            'secret' => env('AWS_S3_SECRET'),
+            'region' => env('AWS_REGION'),
+            'bucket' => env('AWS_S3_BUCKET'),
         ],
 
     ],

@@ -16,7 +16,7 @@ body {
   display: none;
 }
 .modal {
-  z-index: 1000000;
+  z-index: 2147483647;
 }
 .complete-setlist {
   font-style: italic;
