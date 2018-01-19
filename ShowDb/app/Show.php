@@ -4,13 +4,8 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
-
-class Show extends Model implements AuditableContract
+class Show extends Model
 {
-
-    use Auditable;
 
     public function setlistItems() {
         return $this->hasMany('ShowDb\SetlistItem');

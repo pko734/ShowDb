@@ -4,13 +4,8 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
-
-class SetlistItem extends Model implements AuditableContract
+class SetlistItem extends Model
 {
-
-    use Auditable;
 
     public $timestamps = false;
 
