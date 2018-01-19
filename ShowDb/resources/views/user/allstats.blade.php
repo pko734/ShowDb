@@ -135,13 +135,13 @@ Database Stats
 
   function drawChartsLocal() {
   
-    var data1 = JSON.parse('<?php echo json_encode($yearly_graph_data['shows']) ?>');
-    var data2 = JSON.parse('<?php echo json_encode($yearly_graph_data['unique_songs']) ?>');
-    var data3 = JSON.parse('<?php echo json_encode($yearly_graph_data['songs']) ?>');
-    var max1  = {{ $max_shows }};
-    var max2  = {{ $max_unique }};
-    var max3  = {{ $max_songs }};
-    var histogram = JSON.parse('<?php echo json_encode($all_user_show_data) ?>');
+    var data1 = JSON.parse('<?php echo json_encode($yearlyGraphData['shows']) ?>');
+    var data2 = JSON.parse('<?php echo json_encode($yearlyGraphData['unique_songs']) ?>');
+    var data3 = JSON.parse('<?php echo json_encode($yearlyGraphData['songs']) ?>');
+    var max1  = {{ $maxShows }};
+    var max2  = {{ $maxUnique }};
+    var max3  = {{ $maxSongs }};
+    var histogram = JSON.parse('<?php echo json_encode($allUserShowData) ?>');
 
     drawCharts(data1, max1, data2, max2, data3, max3, histogram);
     window.onresize = drawChartsLocal;
