@@ -3,13 +3,9 @@
 namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class SetlistItemNote extends Model implements AuditableContract
+class SetlistItemNote extends Model
 {
-    use Auditable;
-
     public function setlistItem() {
         return $this->belongsTo('ShowDb\SetlistItem');
     }

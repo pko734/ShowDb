@@ -4,13 +4,8 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
-
-class Song extends Model implements AuditableContract
+class Song extends Model
 {
-
-    use Auditable;
 
     public function creator() {
         return $this->belongsTo('ShowDb\User');
