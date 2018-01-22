@@ -36,7 +36,6 @@ Show Finder
         <table id="showtable" class="table table-striped" data-display-creator-notice="{{ $displayCreatorNotice }}">
           <thead>
             <tr>
-	      <th width="1px"></th>
 	      @if($displayShowDate)
 	      <th>
 		<a href="{{ Request::fullUrlWithQuery(['o' => $dateOrder]) }}">
@@ -57,34 +56,14 @@ Show Finder
 		</a>
 	      </th>
 	      <th>{{ $venueDisplay }}</th>
+	      <th width="1px"></th>
             </tr>
           </thead>
           <tbody>
             @forelse($shows as $show)
             <tr>
-	      <td>
-		<span style="white-space:nowrap;">
-		  @if($displayComplete)
-		  @if($show->incomplete_setlist)
-		  <i style="color: orange"
-		     class="fa fa-exclamation"
-		     data-toggle="tooltip"
-		     data-placement="right"
-		     title="Partial or incomplete setlist"
-		     aria-hidden="true"></i>
-		  @endif
-		  @endif
-		  @if($show->notes_count > 0)
-		  <i class="fa fa-files-o"
-		     data-toggle="tooltip"
-		     data-placement="right"
-		     title="{{ $show->notes_count }} notes"
-		     aria-hidden="true"></i>
-		  @endif
-		</span>
-	      </td>
 	      @if($displayShowDate)
-	      <td>{{ $show->date }}</td>
+	      <td style="white-space:nowrap;">{{ $show->date }}</td>
 	      @endif
 	      @if($displayShowCreator)
 	      <td>{{ $show->creator->username }}</td>
@@ -118,6 +97,56 @@ Show Finder
 		  {{ $show->venue }}
 		</a>
 	      </td>
+	      <td>
+		<span style="white-space:nowrap;">
+		  @if($displayComplete && $show->incomplete_setlist && $show->date < date('Y-m-d'))
+		  <i style="color: orange"
+		     class="fa fa-exclamation"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="Partial or incomplete setlist"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden fa fa-exclamation"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+		  @if($show->notes_count > 0)
+		  <i class="fa fa-files-o"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="{{ $show->notes_count }} notes"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden fa fa-files-o"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+		  @if($show->setlist_items_notes_count > 0)
+		  <i class="fa fa-youtube-play"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="{{ $show->setlist_items_notes_count }} videos"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden fa fa-youtube-play"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+		  @if($show->images_count > 0)
+		  <i class="fa fa-image"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="{{ $show->images_count }} photos"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden fa fa-image"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+
+		</span>
+ 	      </td>
             </tr>
             @empty
             <tr>

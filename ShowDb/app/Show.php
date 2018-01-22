@@ -11,6 +11,10 @@ class Show extends Model
         return $this->hasMany('ShowDb\SetlistItem');
     }
 
+    public function setlistItemsNotes() {
+    	return $this->hasManyThrough('ShowDb\SetlistItemNote', 'ShowDb\SetlistItem');
+    }
+
     public function notes() {
         return $this->hasMany('ShowDb\ShowNote');
     }

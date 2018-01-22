@@ -54,8 +54,10 @@ class AbstractShowController extends Controller
         $o = $request->get('o') ?: 'date-desc';
         $sort_order = explode('-', $o);
         $search = $this->showbase
-                ->withCount('setlistItems')
-                ->withCount('notes');
+	        ->withCount('setlistItems')
+                ->withCount('setlistItemsNotes')
+                ->withCount('notes')
+ 	        ->withCount('images');
         foreach(preg_split('/\s+/', trim($q)) as $p) {
             $search = $search
                     ->where(function($q1) use ($p) {
@@ -72,7 +74,8 @@ class AbstractShowController extends Controller
 
         }
         if($request->get('i') == '1') {
-            $search = $search->where('incomplete_setlist', '=', true);
+            $search = $search
+	      ->where('incomplete_setlist', '=', true);
         }
         $search = $search->orderBy($sort_order[0], $sort_order[1])
                ->orderBy($this->default_sort_column, 'desc')
