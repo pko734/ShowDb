@@ -336,7 +336,9 @@ class UserController extends Controller
                            ->whereRaw('UNIX_TIMESTAMP(date) < ?',
                                       \Carbon\Carbon::now()->timestamp)->get();
 
-        $this->_generateBadges($user, $album_info, $total_songs, count($songs), count($past_shows));
+	$photos = $user->images()->get();
+
+        $this->_generateBadges($user, $album_info, $total_songs, count($songs), count($past_shows), count($photos));
 
         return view('user.index')
             ->withPastShows($past_shows)
@@ -365,7 +367,7 @@ class UserController extends Controller
             ->withSongs($songs);
     }
 
-    private function _generateBadges($user, $album_info, $songs, $unique, $shows) {
+    private function _generateBadges($user, $album_info, $songs, $unique, $shows, $photos) {
         $user->badges()->detach();
 
         // early adopter badge
@@ -495,6 +497,36 @@ class UserController extends Controller
                 $user->badges()->attach($Badge->id);
             }
         }
+
+	// photos
+	$photo_code = 0;
+	if( $photos >= 1 && $photos <= 4 ) {
+	  $photo_code = 1;
+	}
+	if( $photos >= 5 && $photos <= 9 ) {
+	  $photo_code = 5;
+	}
+	if( $photos >= 10 && $photos <= 19 ) {
+	  $photo_code = 10;
+	}
+	if( $photos >= 20 && $photos <= 29 ) {
+	  $photo_code = 20;
+	}
+	if( $photos >= 30 && $photos <= 39 ) {
+	  $photo_code = 30;
+	}
+	if( $photos >= 40 && $photos <= 49 ) {
+	  $photo_code = 40;
+	}
+	if( $photos >= 50 ) {
+	  $photo_code = 50;
+	}
+	if( $photo_code ) {
+            $Badge = Badge::where('code', '=', 'PHOTOS' . $photo_code)->first();
+	    if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
     }   
 
     public function allstats(Request $request) {
@@ -548,6 +580,7 @@ class UserController extends Controller
 
 	$all_user_show_data = DB::table('show_user')
 	  ->select(DB::raw('COUNT(show_id) as show_count'))
+          ->havingRaw('COUNT(show_id) < 300')
 	  ->groupBy('user_id')->pluck('show_count')->toArray();
 
 	array_unshift($all_user_show_data, 'People');

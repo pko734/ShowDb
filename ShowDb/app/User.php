@@ -40,7 +40,7 @@ class User extends Authenticatable
     }
 
     public function images() {
-        return $this->hasMany('ShowDb\ShowImages');
+        return $this->hasMany('ShowDb\ShowImage');
     }
 
     public function badges() {
