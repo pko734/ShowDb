@@ -35,6 +35,9 @@ Avett Brothers Stats: ({{ $user->username }})
 	    <hr>
 	    <p>Total Song Performances<br>
 	      {{ $totalSongs }}</p>
+	    <hr>
+	    <p>Photos Uploaded<br>
+	      {{ count($photos) }}</p>
 	  </div> <!-- past shows column -->
 	  <div class="col-lg-6 col-md-6 space-above">
 	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcomingShows) }}</span></a><br>

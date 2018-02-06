@@ -364,7 +364,8 @@ class UserController extends Controller
             ->withMaxUnique($max_unique)
 	    ->withMaxSongs($max_songs)
 	    ->withMaxShows($max_shows)
-            ->withSongs($songs);
+            ->withSongs($songs)
+            ->withPhotos($photos);
     }
 
     private function _generateBadges($user, $album_info, $songs, $unique, $shows, $photos) {
