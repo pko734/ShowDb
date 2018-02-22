@@ -37,7 +37,33 @@ Avett Brothers Stats: ({{ $user->username }})
 	      {{ $totalSongs }}</p>
 	    <hr>
 	    <p>Photos Uploaded<br>
-	      {{ count($photos) }}</p>
+	    @foreach($photos as $img)
+	       @if($img->published ||
+	           ($user && $user->admin) ||
+	           ($user && ($user->id == $img->user_id)))
+	    <a href="{{ $img->url }}" 
+	       data-gallery
+	       data-photo-id="{{ $img->id }}"
+	       title="{{ $img->show->date }} {{ $img->show->venue }} @if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
+	       @if($user && $user->admin)
+	       data-deletable="1"
+	       @if(!$img->published)
+	       data-approvable="1"
+	       @endif
+	       @endif
+	       '
+	       >
+	       <i class="fa fa-image fa-lg
+			 @if($img->published)
+			 text-primary
+			 @else 
+			 text-danger
+			 @endif" 
+		  aria-hidden="true"></i>
+	    </a>
+	    @endif
+	    @endforeach
+</p>
 	  </div> <!-- past shows column -->
 	  <div class="col-lg-6 col-md-6 space-above">
 	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcomingShows) }}</span></a><br>
