@@ -41,7 +41,7 @@ About
       </div><!--/.panel-->
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3>Where did this come from?</h3>
+          <h3>Where did this site come from?</h3>
         </div>
         <div class="panel-body">
           <p>
@@ -56,6 +56,16 @@ About
         <div class="panel-body">
           <p>
             The site is administered, maintained, and developed by <a href="https://twitter.com/11x0000FF">Paul Oehler</a> and <a href="https://twitter.com/AvettArchivist">Tim Mossberger</a>.
+          </p>
+        </div>
+      </div><!--/.panel-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>How can I help?</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            A variety of ways!  Visit our <a href="http://patreon.com/avettdb">patreon</a> for details.
           </p>
         </div>
       </div><!--/.panel-->
