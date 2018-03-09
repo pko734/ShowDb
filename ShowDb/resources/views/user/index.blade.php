@@ -37,7 +37,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	      {{ $totalSongs }}</p>
 	    <hr>
 	    <p>Photos Uploaded<br>
-	    @foreach($photos as $img)
+	    @forelse($photos as $img)
 	       @if($img->published ||
 	           ($user && $user->admin) ||
 	           ($user && ($user->id == $img->user_id)))
@@ -62,7 +62,9 @@ Avett Brothers Stats: ({{ $user->username }})
 		  aria-hidden="true"></i>
 	    </a>
 	    @endif
-	    @endforeach
+            @empty
+            N/A
+	    @endforelse
 </p>
 	  </div> <!-- past shows column -->
 	  <div class="col-lg-6 col-md-6 space-above">
