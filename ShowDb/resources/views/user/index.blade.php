@@ -13,28 +13,50 @@ Avett Brothers Stats: ({{ $user->username }})
 	  <h1>Show Stats ({{ $user->username }})</h1>
 	  <p><em>Stats about your Avett Brother shows.</em></p>
 	  <div class="col-lg-6 col-md-6 space-above">
-	    <p><img src="/img/calendar-past.png" alt="Past Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{ count($pastShows) }}</span></a><br>
-	      Past Shows</p>
+	    <p>
+	      <img src="/img/calendar-past.png" alt="Past Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{ count($pastShows) }}</span></a><br>
+	      Past Shows
+	    </p>
 	    <hr>
-	    <p>First Show<br>
+	    <p>
+	      First Show<br>
 	      @if($firstShow)
-	      <a href="/shows/{{ $firstShow->id }}">{{ $firstShow->date }} {{ $firstShow->venue }}</a></p>
+	      <a href="/shows/{{ $firstShow->id }}">{{ $firstShow->date }} {{ $firstShow->venue }}</a>
+	    </p>
 	    @else
 	    N/A
 	    @endif
 	    <hr>
-	    <p>Most Recent Show<br>
+	    <p>
+	      Most Recent Show<br>
 	      @if($firstShow)
-	      <a href="/shows/{{ $lastShow->id }}">{{ $lastShow->date }} {{ $lastShow->venue }}</a></p>
+	      <a href="/shows/{{ $lastShow->id }}">{{ $lastShow->date }} {{ $lastShow->venue }}</a>
+	    </p>
 	    @else
 	    N/A
 	    @endif
 	    <hr>
-	    <p>Unique Songs You've Seen<br>
-	      <a href="{{ url()->current() }}/songs">{{ count($songs) }}</a></p>
+	    <p>
+	      Unique Songs You've Seen<br>
+	      <a href="{{ url()->current() }}/songs">{{ count($songs) }}</a>
+	    </p>
 	    <hr>
-	    <p>Total Song Performances<br>
-	      {{ $totalSongs }}</p>
+	    <p>
+	      Total Song Performances<br>
+	      {{ $totalSongs }}
+	    </p>
+	    <hr>
+	  </div> <!-- past shows column -->
+	  <div class="col-lg-6 col-md-6 space-above">
+	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcomingShows) }}</span></a><br>
+	      Upcoming Shows</p>
+	    <hr>
+	    <p>Next Show<br>
+	      @if($nextShow)
+	      <a href="/shows/{{ $nextShow->id }}">{{ $nextShow->date }} {{ $nextShow->venue }}</a></p>
+	    @else
+	    ???
+	    @endif
 	    <hr>
 	    <p>Photos Uploaded<br>
 	    @forelse($photos as $img)
@@ -65,19 +87,6 @@ Avett Brothers Stats: ({{ $user->username }})
             @empty
             N/A
 	    @endforelse
-</p>
-	  </div> <!-- past shows column -->
-	  <div class="col-lg-6 col-md-6 space-above">
-	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcomingShows) }}</span></a><br>
-	      Upcoming Shows</p>
-	    <hr>
-	    <p>Next Show<br>
-	      @if($nextShow)
-	      <a href="/shows/{{ $nextShow->id }}">{{ $nextShow->date }} {{ $nextShow->venue }}</a></p>
-	    @else
-	    ???
-	    @endif
-	    <hr>
 	  </div> <!-- upcoming shows column -->
 	</div> <!-- stats -->
 
