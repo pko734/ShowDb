@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\VideoUpdateCommand::class,
 	Commands\ImageMigrateCommand::class,
 	Commands\MarkEmptySetlists::class,
+        Commands\ArchiveVideos::class,
     ];
 
     /**
