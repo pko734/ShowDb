@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SetlistItemNotesTableSeeder::class);
         $this->call(ShowNotesTableSeeder::class);
         $this->call(SongNotesTableSeeder::class);
+	$this->call(StatesSeeder::class);
     }
 }

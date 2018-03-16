@@ -23,7 +23,8 @@
         "antennaio/laravel-clyde": "~0.0.1",
         "illuminate/html": "^5.0",
         "laravelcollective/html": "^5.5",
-        "intervention/image": "^2.4"         
+        "intervention/image": "^2.4",
+        "adrianmejias/laravel-states": "^1.2"         
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

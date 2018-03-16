@@ -188,6 +188,7 @@ return [
         Cornford\Googlitics\AnalyticsServiceProvider::class,
         Laravelista\Ekko\EkkoServiceProvider::class,
 	Intervention\Image\ImageServiceProvider::class,
+	AdrianMejias\States\StatesServiceProvider::class,
     ],
 
     /*
@@ -242,6 +243,7 @@ return [
         'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
         'Ekko' => Laravelista\Ekko\Facades\Ekko::class,
 	'Image' => Intervention\Image\Facades\Image::class,
+	'States' => AdrianMejias\States\StatesFacade::class,
     ],
 
 ];
