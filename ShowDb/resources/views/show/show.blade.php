@@ -42,6 +42,14 @@
 		   placeholder="Venue - City, State">
 	  </div>
 	  <div class="form-group">
+	    <label for="show_state">State / Provence / Country</label>
+	    <input disabled value="{{ $show->state()->first() == null ? '' : $show->state()->first()->name }}"
+		   type="text"
+		   class="form-control"
+		   id="show_state"
+		   placeholder="State Name">
+	  </div>
+	  <div class="form-group">
 	    <label>Photos</label>
 	    <div>
 	      @if($user)

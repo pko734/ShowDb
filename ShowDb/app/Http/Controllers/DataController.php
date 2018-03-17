@@ -3,7 +3,9 @@
 namespace ShowDb\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use ShowDb\Song;
+use ShowDb\Song;
+use ShowDb\State;
+
 
 class DataController extends Controller
 {
@@ -13,4 +15,11 @@ class DataController extends Controller
     public function songs() {
         return Song::all()->pluck('title')->toJson();
     }
+
+    /**
+     * Available state information.
+     */
+     public function states() {
+         return State::all()->pluck('name')->toJson();
+     }
 }

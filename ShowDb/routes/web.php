@@ -51,6 +51,8 @@ Route::post('shows/{show}/upload', 'ShowController@uploadImagePost')->name('show
 Route::delete('shows/{show}/photos/{photo}', 'ShowController@deleteImagePost')->name('show.image.delete');
 Route::put('shows/{show}/photos/{photo}', 'ShowController@approvePhoto')->name('show.image.approve');
 
+Route::get('data/states', 'DataController@states')->name('data.states');
+
 // albums
 Route::resource('albums',                          'AlbumController');
 Route::post(    'albums/{album}/notes',            'AlbumController@storeNote')->name('albums.notes.store');

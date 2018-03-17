@@ -28,19 +28,39 @@ $(document).ready(function() {
 	$('html, body').scrollTop( $(document).height() );
     });
 
-    var songs = new Bloodhound({
-	datumTokenizer: Bloodhound.tokenizers.whitespace,
-	queryTokenizer: Bloodhound.tokenizers.whitespace,
-	prefetch: '/data/songs'
-    });
+    (function() {
+	var songs = new Bloodhound({
+	    datumTokenizer: Bloodhound.tokenizers.whitespace,
+	    queryTokenizer: Bloodhound.tokenizers.whitespace,
+	    prefetch: '/data/songs'
+	});
 
-    $('#setlisttable .ac-song-title .typeahead').typeahead({
-	highlight: true,
-	cache: false
-    }, {
-	name: 'songs',
-	limit: 10,
-	source: songs
-    });
+	$('#setlisttable .ac-song-title .typeahead').typeahead({
+	    highlight: true,
+	    cache: false
+	}, {
+	    name: 'songs',
+	    limit: 10,
+	    source: songs
+	})
+     })();
+
+    (function() {
+	var states = new Bloodhound({
+	    datumTokenizer: Bloodhound.tokenizers.whitespace,
+	    queryTokenizer: Bloodhound.tokenizers.whitespace,
+	    prefetch: '/data/states'
+	});
+
+	$('.ac-show-state .typeahead').typeahead({
+	    highlight: true,
+	    cache: false
+	}, {
+	    name: 'states',
+	    limit: 10,
+	    source: states
+	})
+     })();
+
 
 });

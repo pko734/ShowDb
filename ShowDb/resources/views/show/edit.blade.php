@@ -36,6 +36,17 @@ Show Editor
 		 id="show_venue"
 		 placeholder="Venue - City, State">
         </div>
+	  <div class="form-group">
+	    <label for="show_state">State / Provence / Country</label>
+	    <span class="ac-show-state">
+	    <input value="{{ $show->state()->first() == null ? '' : $show->state()->first()->name }}"
+                   name="state"
+		   type="text"
+		   class="form-control typeahead"
+		   id="show_state"
+		   placeholder="State Name">
+	    </span>
+	  </div>
         <label for="show_setlist">Set List</label>
         @if($displayComplete)
         <div class="form-group">

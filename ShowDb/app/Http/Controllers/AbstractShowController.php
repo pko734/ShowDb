@@ -9,6 +9,7 @@ use ShowDb\Song;
 use ShowDb\ShowNote;
 use ShowDb\SetlistItemNote;
 use ShowDb\ShowImage;
+use ShowDb\State;
 use Session;
 use Redirect;
 use Auth;
@@ -230,6 +231,7 @@ class AbstractShowController extends Controller
         $this->validate($request, [
             'dates.*'  => 'required',
             'venues.*' => 'required|string|between:10,255',
+            'states.*' => 'required|exists:states,name',
         ]);
 
         if(count($request->venues) !== count($request->dates) ) {
@@ -248,6 +250,7 @@ class AbstractShowController extends Controller
             $show = new Show();
             $show->date  = $date;
             $show->venue = $request->venues[$i];
+	    $show->state_id  = State::where('name', '=', $request->states[$i])->first()->id;
             $show->published = 0;
             $show->incomplete_setlist = 1;
             if( $this->show_user_id !== null ) {
@@ -397,6 +400,7 @@ class AbstractShowController extends Controller
             'venue'   => 'required|string|between:10,255',
             'songs.*' => 'exists:songs,title',
             'interlude_song' => 'exists:songs,title',
+            'state'   => 'exists:states,name',
             'complete' => 'boolean',
         ]);
 
@@ -412,6 +416,14 @@ class AbstractShowController extends Controller
               ->first();
         $show->venue = $request->input('venue');
         $show->date  = $date;
+
+	if($request->state == '') {
+	    $state_id = null;
+	} else {
+	    $state_id = State::where('name', '=', $request->state)->first()->id;
+	}
+	$show->state_id = $state_id;
+
         if(isset($request->complete)) {
             $show->incomplete_setlist = !$request->complete;
         } else {
