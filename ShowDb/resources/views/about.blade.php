@@ -64,8 +64,12 @@ About
           <h3>How can I help?</h3>
         </div>
         <div class="panel-body">
-          <p>
-            A variety of ways!  Visit our <a href="http://patreon.com/avettdb">patreon</a> for details.
+          <p>Like and Share the site on social media!</p>
+	  <p>Upload your awesome show photos!</p>
+	  <p>Share your show experiences and stories!</p>
+	  <p>
+            <a href="https://www.patreon.com/bePatron?u=10149415" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>.
+	  </p>
           </p>
         </div>
       </div><!--/.panel-->
