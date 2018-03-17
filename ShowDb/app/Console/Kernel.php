@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
 	Commands\ImageMigrateCommand::class,
 	Commands\MarkEmptySetlists::class,
         Commands\ArchiveVideos::class,
+	Commands\MapStateData::class,
     ];
 
     /**

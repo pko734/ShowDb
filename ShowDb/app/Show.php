@@ -31,4 +31,8 @@ class Show extends Model
         return $this->belongsTo('ShowDb\User', 'user_id');
     }
 
+    public function state() {
+        return $this->belongsTo('ShowDb\State');
+    }
+
 }
