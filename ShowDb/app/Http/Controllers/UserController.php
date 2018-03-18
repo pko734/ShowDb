@@ -429,7 +429,7 @@ class UserController extends Controller
 	if( $songs >= 1000 && $songs <= 1499 ) {
 	    $song_code = 1000;
         }
-	if( $songs >= 1500 && $songs <= 999 ) {
+	if( $songs >= 1500 && $songs <= 1999 ) {
 	    $song_code = 1500;
         }
 	if( $songs >= 2000 && $songs <= 2999 ) {
