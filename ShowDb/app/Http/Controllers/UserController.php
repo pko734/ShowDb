@@ -7,6 +7,7 @@ use ShowDb\User;
 use ShowDb\Song;
 use ShowDb\Album;
 use ShowDb\Badge;
+use ShowDb\State;
 use \DB;
 use \Redirect;
 use Illuminate\Support\Collection;
@@ -528,6 +529,22 @@ class UserController extends Controller
                 $user->badges()->attach($Badge->id);
             }
         }
+
+	// states
+	$states = DB::table('states')
+	    ->join('shows', 'states.id', '=', 'shows.state_id')
+            ->join('show_user', 'shows.id', '=', 'show_user.show_id')
+            ->select('iso_3166_2 as code', 'country_code')
+	    ->distinct()
+            ->where('show_user.user_id', '=', $user->id)
+	    ->get();
+
+	foreach($states as $state) {
+	    $Badge = Badge::where('code', '=', 'STATE_' . $state->code . '_' . $state->country_code)->first();
+	    if($Badge) {
+	    	$user->badges()->attach($Badge->id);
+	    }
+	}
     }   
 
     public function allstats(Request $request) {
