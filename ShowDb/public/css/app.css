@@ -768,12 +768,14 @@ hr {
 }
 .stats p,
 .albums li,
-.yearly p {
+.yearly p,
+.states p {
   font-weight: bold;
 }
 .stats p em,
 .albums p em,
-.yearly p em {
+.yearly p em,
+.states p em {
   font-weight: normal;
   color: #878585;
 }
