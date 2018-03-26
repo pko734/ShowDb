@@ -68,7 +68,7 @@ About
 	  <p>Upload your awesome show photos!</p>
 	  <p>Share your show experiences and stories!</p>
 	  <p>
-            <a href="https://www.patreon.com/bePatron?u=10149415" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>.
+            <a href="https://www.patreon.com/bePatron?u=10149415" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 	  </p>
           </p>
         </div>
