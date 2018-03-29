@@ -7,6 +7,7 @@ use ShowDb\User;
 use ShowDb\Song;
 use ShowDb\Album;
 use ShowDb\Badge;
+use ShowDb\State;
 use \DB;
 use \Redirect;
 use Illuminate\Support\Collection;
@@ -282,6 +283,8 @@ class UserController extends Controller
 				    $max_shows, 
 				    $max_songs, 
 				    $max_unique);
+
+	$state_graph_data = $this->_getStateGraphData($user);
       
         $user_id = $user->id;
         $first_show = Show::whereHas('users', function($query) use($user_id) {
@@ -361,6 +364,7 @@ class UserController extends Controller
             ->withLastShow($last_show)
             ->withNextShow($next_show)
             ->withYearlyGraphData($yearly_graph_data)
+	    ->withStateGraphData($state_graph_data)
             ->withMaxUnique($max_unique)
 	    ->withMaxSongs($max_songs)
 	    ->withMaxShows($max_shows)
@@ -528,8 +532,46 @@ class UserController extends Controller
                 $user->badges()->attach($Badge->id);
             }
         }
+
+	// states
+	$states = DB::table('states')
+	    ->join('shows', 'states.id', '=', 'shows.state_id')
+            ->join('show_user', 'shows.id', '=', 'show_user.show_id')
+            ->select('iso_3166_2 as code', 'country_code')
+	    ->distinct()
+            ->where('show_user.user_id', '=', $user->id)
+            ->orderBy('states.name')
+	    ->get();
+
+	foreach($states as $state) {
+	    $Badge = Badge::where('code', '=', 'STATE_' . $state->code . '_' . $state->country_code)->first();
+	    if($Badge) {
+	    	$user->badges()->attach($Badge->id);
+	    }
+	}
     }   
 
+    private function _getStateGraphData($user = null) {
+	$state_data = DB::table('states')
+	    ->join('shows', 'states.id', '=', 'shows.state_id')
+	    ->select('iso_3166_2 as code', 'country_code', 'name', DB::raw('COUNT(shows.id) as show_count'))
+	    ->whereNull('shows.user_id')
+	    ->groupBy('code', 'country_code', 'name');
+
+	if( $user !== null ) {
+            $state_data = $state_data->where('show_user.user_id', '=', $user->id)
+                ->join('show_user', 'shows.id', '=', 'show_user.show_id');
+	}
+
+	$state_data = $state_data->get();
+
+	$results = [['State', 'Number of shows']];
+	foreach($state_data as $one_state) {
+	    $results[] = ["{$one_state->name}", $one_state->show_count];	
+	}
+	return $results;
+    }
+    
     public function allstats(Request $request) {
         $songs = $this->_getAllSongs();
         $total_songs = $this->_getAllTotalSongs();
@@ -537,28 +579,6 @@ class UserController extends Controller
         $songs_by_year = $this->_getAllSongsByYear();
         $unique_songs_by_year = $this->_getAllUniqueSongsByYear();
 
-//        $yearly_data = [];
-//        foreach($shows_by_year as $info) {
-//            $song_count = 0;
-//            $unique_songs = 0;
-//            foreach($songs_by_year as $s) {
-//                if($s->year === $info->year) {
-//                    $song_count = $s->song_count;
-//                    break;
-//                }
-//            }
-//            foreach($unique_songs_by_year as $u) {
-//                if($u->year === $info->year) {
-//                    $unique_songs = $u->unique_songs;
-//                    break;
-//                }
-//            }
-//            $yearly_data[$info->year] = (object)[
-//                'shows' => $info->show_count,
-//                'songs' => $song_count,
-//                'unique_songs' => $unique_songs,
-//            ];
-//        }
 	$yearly_graph_data = [
           'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
           'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
@@ -578,6 +598,7 @@ class UserController extends Controller
 				    $max_songs, 
 				    $max_unique);
 
+        $state_graph_data = $this->_getStateGraphData();
 
 	$all_user_show_data = DB::table('show_user')
 	  ->select(DB::raw('COUNT(show_id) as show_count'))
@@ -589,6 +610,7 @@ class UserController extends Controller
 
         return view('user.allstats')
   	    ->withYearlyGraphData($yearly_graph_data)
+            ->withStateGraphData($state_graph_data)
 	    ->withMaxShows($max_shows)
 	    ->withMaxSongs($max_songs)
 	    ->withMaxUnique($max_unique)

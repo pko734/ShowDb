@@ -21,9 +21,10 @@ Database Stats
           <div id="chart_div2"></div>
           <div id="chart_div3"></div>
           <div id="chart_div4"></div>
+          <div id="chart_div5"></div>
   </div>
 <script language="javascript">
-    function drawCharts(data1, max1, data2, max2, data3, max3, histogram) {
+    function drawCharts(data1, max1, data2, max2, data3, max3, histogram, data4) {
 	if(data1.length > 1) {
 	    drawChart1( data1, max1 );
 	}
@@ -34,6 +35,7 @@ Database Stats
 	    drawChart3( data3, max3 );
 	}
 	drawHisto(histogram);
+	drawChart4( data4 );
     }
 
     function drawHisto(data) {
@@ -132,18 +134,33 @@ Database Stats
 	chart.draw(data, options);
     }
 
+    function drawChart4(data) {
+        var data = google.visualization.arrayToDataTable(data);
+        var geochart = new google.visualization.GeoChart(
+            document.getElementById('chart_div5')
+        );
+        var options = {
+            region: "US", 
+            resolution: "provinces",
+            colorAxis: {colors: ['#ccffcc', '#008800']},
+            width: '100%',
+	    chartArea: {'width': '80%', 'height': '80%'},
+        }
+        geochart.draw(data, options);
+    }
 
   function drawChartsLocal() {
   
     var data1 = JSON.parse('<?php echo json_encode($yearlyGraphData['shows']) ?>');
     var data2 = JSON.parse('<?php echo json_encode($yearlyGraphData['unique_songs']) ?>');
     var data3 = JSON.parse('<?php echo json_encode($yearlyGraphData['songs']) ?>');
+    var data4 = JSON.parse('<?php echo json_encode($stateGraphData) ?>');
     var max1  = {{ $maxShows }};
     var max2  = {{ $maxUnique }};
     var max3  = {{ $maxSongs }};
     var histogram = JSON.parse('<?php echo json_encode($allUserShowData) ?>');
 
-    drawCharts(data1, max1, data2, max2, data3, max3, histogram);
+    drawCharts(data1, max1, data2, max2, data3, max3, histogram, data4);
     window.onresize = drawChartsLocal;
   }
 </script>

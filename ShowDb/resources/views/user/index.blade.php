@@ -141,10 +141,26 @@ Avett Brothers Stats: ({{ $user->username }})
 	  <h2>My Badges</h2>
 	  <ul>
 	    @foreach($badges as $badge)
+	    @if(strpos($badge->code, 'STATE_') === false)
             <li><img src="{{ $badge->image_url }}" alt="{{ $badge->title }}" data-toggle="tooltip" title="{{ $badge->description }}" width="73" height="105"></li>
+	    @endif
             @endforeach
 	  </ul>
 	</div><!-- badges section -->
+
+	@if(count($badges) > 0)
+	<div class="badges">
+	  <h2>And I Will Travel...</h2>
+	  <ul>
+	    @foreach($badges as $badge)
+	    @if(strpos($badge->code, 'STATE_') !== false)
+            <li><img src="{{ $badge->image_url }}" alt="{{ $badge->title }}" data-toggle="tooltip" title="{{ $badge->description }}" width="73" height="105"></li>
+	    @endif
+            @endforeach
+	  </ul>
+	</div><!-- badges section -->
+	@endif
+
       </div> <!-- row -->
       
       <div class="row">
@@ -162,6 +178,12 @@ Avett Brothers Stats: ({{ $user->username }})
           <div id="chart_div3"></div>
           <p><br/></p>
 	</div> <!-- yearly breakdown section -->
+	<div class="states">
+	  <h1>Location Breakdown</h1>
+	  <p><em>It's not the chase that I love, it's me following you...</em></p>
+          <p>US States</p>
+          <div id="chart_div4"></div>
+	</div>
 
       </div> <!-- row -->
       
@@ -171,7 +193,7 @@ Avett Brothers Stats: ({{ $user->username }})
   </div> <!-- container -->
 
 <script language="javascript">
-    function drawCharts(data1, max1, data2, max2, data3, max3) {
+    function drawCharts(data1, max1, data2, max2, data3, max3, data4) {
 	if(data1.length > 1) {
 	    drawChart1( data1, max1 );
 	}
@@ -181,6 +203,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	if(data3.length > 1) {
 	    drawChart3( data3, max3 );
 	}
+	drawChart4( data4 );
     }
 
     function drawChart1(data, max) {
@@ -308,17 +331,34 @@ Avett Brothers Stats: ({{ $user->username }})
 	chart.draw(data, options);
     }
 
+    function drawChart4(data) {
+        var data = google.visualization.arrayToDataTable(data);
+        var geochart = new google.visualization.GeoChart(
+            document.getElementById('chart_div4')
+        );
+        var options = {
+            region: "US", 
+            resolution: "provinces",
+            colorAxis: {colors: ['#ccffcc', '#008800']},
+	    height: '100%',
+            width: '100%',
+	    chartArea: {'width': '80%', 'height': '80%'},
+        }
+        geochart.draw(data, options);
+    }
+
 
   function drawChartsLocal() {
   
     var data1 = JSON.parse('<?php echo json_encode($yearlyGraphData['shows']) ?>');
     var data2 = JSON.parse('<?php echo json_encode($yearlyGraphData['unique_songs']) ?>');
     var data3 = JSON.parse('<?php echo json_encode($yearlyGraphData['songs']) ?>');
+    var data4 = JSON.parse('<?php echo json_encode($stateGraphData) ?>');
     var max1  = {{ $maxShows }};
     var max2  = {{ $maxUnique }};
     var max3  = {{ $maxSongs }};
 
-    drawCharts(data1, max1, data2, max2, data3, max3);
+    drawCharts(data1, max1, data2, max2, data3, max3, data4);
     window.onresize = drawChartsLocal;
   }
 

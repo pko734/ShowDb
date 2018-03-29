@@ -59,21 +59,27 @@ class AbstractShowController extends Controller
                 ->withCount('setlistItemsNotes')
                 ->withCount('notes')
  	        ->withCount('images');
-        foreach(preg_split('/\s+/', trim($q)) as $p) {
-            $search = $search
-                    ->where(function($q1) use ($p) {
-                        $q1->where( 'date',   'LIKE', "%{$p}%" )
-                            ->orWhere('venue', 'LIKE', "%{$p}%")
-                            ->orWhereHas('creator', function($query) use ($p) {
-                                $query->where('username', 'LIKE', "%{$p}%");
-                            })
-                            ->orWhereHas('notes', function($query) use ($p) {
-                                $query->where('note', 'LIKE', "%{$p}%")
-                                      ->where('note', 'NOT LIKE', '%<img src="data:%');
-                            });
-                    });
 
-        }
+	$state = State::where('name', '=', $q)->first();
+	if($state !== null) {
+            $search = $search->where('state_id', '=', $state->id);
+	} else {
+            foreach(preg_split('/\s+/', trim($q)) as $p) {
+                $search = $search
+                        ->where(function($q1) use ($p) {
+                            $q1->where( 'date',   'LIKE', "%{$p}%" )
+                                ->orWhere('venue', 'LIKE', "%{$p}%")
+                                ->orWhereHas('creator', function($query) use ($p) {
+                                    $query->where('username', 'LIKE', "%{$p}%");
+                                })
+                                ->orWhereHas('notes', function($query) use ($p) {
+                                    $query->where('note', 'LIKE', "%{$p}%")
+                                          ->where('note', 'NOT LIKE', '%<img src="data:%');
+                                });
+                        });
+    
+            }
+	}
         if($request->get('i') == '1') {
             $search = $search
 	      ->where('incomplete_setlist', '=', true);
