@@ -164,6 +164,12 @@ Avett Brothers Stats: ({{ $user->username }})
       </div> <!-- row -->
       
       <div class="row">
+	<div class="states">
+	  <h1>Location Breakdown</h1>
+	  <p><em>It's not the chase that I love, it's me following you...</em></p>
+          <p>US States</p>
+          <div id="chart_div4"></div>
+	</div>
 
 	<div class="yearly">
 	  <h1>Yearly Breakdown</h1>
@@ -178,12 +184,6 @@ Avett Brothers Stats: ({{ $user->username }})
           <div id="chart_div3"></div>
           <p><br/></p>
 	</div> <!-- yearly breakdown section -->
-	<div class="states">
-	  <h1>Location Breakdown</h1>
-	  <p><em>It's not the chase that I love, it's me following you...</em></p>
-          <p>US States</p>
-          <div id="chart_div4"></div>
-	</div>
 
       </div> <!-- row -->
       

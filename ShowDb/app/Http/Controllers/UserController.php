@@ -540,6 +540,7 @@ class UserController extends Controller
             ->select('iso_3166_2 as code', 'country_code')
 	    ->distinct()
             ->where('show_user.user_id', '=', $user->id)
+	    ->whereRaw('UNIX_TIMESTAMP(shows.date) < ?', \Carbon\Carbon::now()->timestamp)
             ->orderBy('states.name')
 	    ->get();
 
@@ -556,6 +557,7 @@ class UserController extends Controller
 	    ->join('shows', 'states.id', '=', 'shows.state_id')
 	    ->select('iso_3166_2 as code', 'country_code', 'name', DB::raw('COUNT(shows.id) as show_count'))
 	    ->whereNull('shows.user_id')
+	    ->whereRaw('UNIX_TIMESTAMP(shows.date) < ?', \Carbon\Carbon::now()->timestamp)	                  				                                      
 	    ->groupBy('code', 'country_code', 'name');
 
 	if( $user !== null ) {
