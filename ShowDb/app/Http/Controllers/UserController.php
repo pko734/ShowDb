@@ -353,7 +353,9 @@ class UserController extends Controller
             ->withIncompleteSetlistShows($user
                                          ->shows()
                                          ->whereNull('shows.user_id')
-                                         ->where('incomplete_setlist', '=', true)->get())
+                                         ->where('incomplete_setlist', '=', true)
+                                         ->whereRaw('UNIX_TIMESTAMP(date) < ?',
+                                           \Carbon\Carbon::now()->timestamp)->get())
 
             ->withUser($user)
             ->withBadges($user->badges()->get())

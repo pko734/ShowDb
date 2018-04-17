@@ -46,6 +46,13 @@ Avett Brothers Stats: ({{ $user->username }})
 	      {{ $totalSongs }}
 	    </p>
 	    <hr>
+	    @if(count($incompleteSetlistShows) > 0)
+	    <p>
+	      Shows with incomplete setlist data<br>
+	      <a href="{{ url()->current() }}/shows?i=1">{{ count($incompleteSetlistShows) }}</a>
+	    </p>
+	    @endif
+
 	  </div> <!-- past shows column -->
 	  <div class="col-lg-6 col-md-6 space-above">
 	    <p><img src="/img/calendar-upcoming.png" alt="Upcoming Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{count($upcomingShows) }}</span></a><br>
