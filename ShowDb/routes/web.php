@@ -75,6 +75,12 @@ Route::get('admin',       'AdminController@index')->name('admin.index');
 Route::get('admin/audit', 'AdminController@audit')->name('admin.audit');
 Route::get('admin/users', 'AdminController@users')->name('admin.users');
 
+// timeline admin
+Route::resource('admin/timeline', 'AdminTimelineController');
+
+// timeline
+Route::get('timeline', 'TimelineController@index')->name('timeline.index');
+
 // settings
 Route::get('settings',        'UserController@settings')->name('user.settings');
 Route::put('settings/update', 'UserController@update')->name('user.update.store');

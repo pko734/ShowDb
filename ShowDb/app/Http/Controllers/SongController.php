@@ -186,13 +186,14 @@ class SongController extends Controller
         $song = Song::find($id);
 
         if(is_null($song)) {
-            Session::flash('message','Book not found');
+            Session::flash('message','Song not found');
             return redirect('/songs');
         }
 
         return view('song.show')
             ->withSong($song)
-            ->withUser($user);    }
+            ->withUser($user);
+    }
 
     /**
      * Show the form for editing the specified resource.
