@@ -92,6 +92,9 @@
             <li class="{{ isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
             <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
             <li class="{{ isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
+            @if(Auth::user() && Auth::user()->admin)
+            <li class="{{ isActiveUrl('/timeline')  }}"><a href="/timeline">Timeline</a></li>
+            @endif
             <li class="{{ isActiveUrl('/about') }}">
               <a href="/about">About</a>
             </li>
@@ -102,6 +105,7 @@
               <ul class="dropdown-menu">
                 <li class="{{ isActiveUrl('/admin')}}"><a href="/admin">Notes</a></li>
                 <li class="{{ isActiveUrl('/admin/users')}}"><a href="/admin/users">Users</a></li>
+                <li class="{{ isActiveUrl('/admin/timeline')}}"><a href="/admin/timeline">Timeline</a></li>
                 <li class="{{ isActiveUrl('/admin/audit')}}"><a href="/admin/audit">Audit</a></li>
               </ul>
             </li>

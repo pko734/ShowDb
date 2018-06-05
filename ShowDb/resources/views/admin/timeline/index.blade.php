@@ -48,7 +48,7 @@ Timeline Admin
 	        @forelse($slides as $slide)
 	        <tr>
 		      <td>{{ $slide->start_date }}</td>
-		      <td><a href="/timeine/{{ $slide->id }}">{{ $slide->text_headline }}</a></td>
+		      <td><a href="/admin/timeline/{{ $slide->id }}">{{ $slide->text_headline }}</a></td>
 	        </tr>
 	        @empty
 	        <tr>

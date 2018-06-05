@@ -306,7 +306,7 @@ class AlbumController extends Controller
         $album = Album::find($id);
         $album->title = $request->input('title');
         $album->release_date = $date;
-
+        $album->description = $request->description ?? null;
         $items = $album->albumItems->sortBy('order');
 
         $i = 1;

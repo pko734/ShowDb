@@ -53,7 +53,7 @@ class ArchiveVideos extends Command
 	    $cmd = "youtube-dl '{$Note->note}'";
 	    exec($cmd, $result, $retval);
 	    if($retval !== 0) {
-	      echo "\n{$Note->note}\n";
+	      echo "\n{$Note->note}\n{$Note->setlistItem->show->date}\n";
 	      var_export($result);
 	      echo "\n";
 	      exec("rm -rf {$tmp_dir}");

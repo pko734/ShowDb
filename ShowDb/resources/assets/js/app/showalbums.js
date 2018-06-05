@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     });
 
-    if(('#add-album-note-btn').length) {
+/*    if(('#add-album-note-btn').length) {
 	var add_check = {
 	    init: function() {
 		setTimeout(add_check.check, 2000);
@@ -59,7 +59,7 @@ $(document).ready(function() {
 	}
 	add_check.init();
     }
-
+*/
     var datbutton = false;
     $('#add-album-note-btn').click(function() {
 	$('#notetable tbody').append('<tr><td><textarea name="notes[]" class="form-control" type="text" placeholder="Note"></textarea></td></tr>');

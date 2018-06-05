@@ -8,6 +8,7 @@ Add Timeline Slide
     <div class="panel panel-default">
       <div class="panel-body">
 	    <form method="POST" action="/admin/timeline">
+          {{ csrf_field() }}
 	      <div class="form-group">
 	        <label for="slide_headline">Slide Headline</label>
 	        <input value=""
@@ -19,7 +20,7 @@ Add Timeline Slide
 	      </div>
 	      <div class="form-group">
 	        <label for="slide_type">Slide Type</label>
-            <select class="form-control">
+            <select name="type" class="form-control">
               <option value="slide">normal</option>
               <option value="era">era</option>
               <option value="title">title (there can only be one)</option>
@@ -45,7 +46,7 @@ Add Timeline Slide
           </div>
 	      <div class="form-group">
 	        <label for="slide_text">Slide Text (optional)</label>
-            <textarea id="slide_text" name="slide_text_text"></textarea>
+            <textarea id="slide_text" name="text"></textarea>
 	      </div>
 	      <div class="form-group">
 	        <label for="slide_media_url">Media URL (optional)</label>
@@ -76,7 +77,7 @@ Add Timeline Slide
 		           placeholder="media credit goes here">
 	      </div>
 	      <div class="form-group">
-	        <label for="slide_media_credit">Media Thumbnail URL (optional)</label>
+	        <label for="slide_media_thumbnail_url">Media Thumbnail URL (optional)</label>
 	        <input value=""
 		           name="media_thumbnail_url"
 		           type="text"

@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('#delete-show-btn').on('click', function() {
 	bootbox.confirm('Are you sure you want to delete this show?', function(result) {
 	    if(result) {
-		$('#delete-show-form').submit();
+		    $('#delete-show-form').submit();
 	    }
 	});
 

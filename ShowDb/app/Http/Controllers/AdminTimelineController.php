@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use Redirect;
 use Auth;
+use Carbon\Carbon;
 use ShowDb\TimelineSlide;
 
 class AdminTimelineController extends Controller
@@ -50,7 +51,45 @@ class AdminTimelineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+                                   'headline' => 'required',
+                                   'type' => 'required',
+                                   'start_date' => 'required'
+        ]);
+
+        if( $request->start_date ) {
+            try {
+                $start_date = (new Carbon($request->start_date))->toDateString();
+            } catch(\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: ' . $request->start_date);
+                return Redirect::back();
+            }
+        }
+        if( $request->end_date ) {
+            try {
+                $end_date = (new Carbon($request->end_date))->toDateString();
+            } catch(\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: ' . $request->end_date);
+                return Redirect::back();
+            }
+        }
+
+        $slide = new TimelineSlide();
+        $slide->type = ($request->type === 'normal') ? null : $request->type;
+        $slide->start_date = $start_date ?? null;
+        $slide->end_date = $end_date ?? null;
+        $slide->text_headline = $request->headline;
+        $slide->text_text = $request->text ?? null;
+        $slide->media_url = $request->media_url ?? null;
+        $slide->media_caption = $request->media_caption ?? null;
+        $slide->media_credit = $request->media_credit ?? null;
+        $slide->media_thumbnail_url = $request->media_thumbnail_url ?? null;
+        $slide->creator_id = $request->user()->id;
+        $slide->published = true;
+        $slide->save();
+
+        Session::flash('flash_message', 'Changes saved');
+        return redirect(url()->current());        
     }
 
     /**
@@ -81,9 +120,18 @@ class AdminTimelineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
-        //
+        $slide = TimelineSlide::where('id', '=', $id)
+            ->first();
+
+        if(is_null($slide)) {
+            Session::flash('flash_error','Slide not found');
+            return redirect(dirname(url()->current()));
+        }
+
+        return view('admin.timeline.edit')
+            ->withSlide($slide);
     }
 
     /**
@@ -95,9 +143,46 @@ class AdminTimelineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $this->validate($request, [
+                                   'headline' => 'required',
+                                   'type' => 'required',
+                                   'start_date' => 'required'
+        ]);
 
+        if( $request->start_date ) {
+            try {
+                $start_date = (new Carbon($request->start_date))->toDateString();
+            } catch(\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: ' . $request->start_date);
+                return Redirect::back();
+            }
+        }
+        if( $request->end_date ) {
+            try {
+                $end_date = (new Carbon($request->end_date))->toDateString();
+            } catch(\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: ' . $request->end_date);
+                return Redirect::back();
+            }
+        }
+
+        $slide = TimelineSlide::find($id)->first();
+        $slide->type = ($request->type === 'normal') ? null : $request->type;
+        $slide->start_date = $start_date ?? null;
+        $slide->end_date = $end_date ?? null;
+        $slide->text_headline = $request->headline;
+        $slide->text_text = $request->text ?? null;
+        $slide->media_url = $request->media_url ?? null;
+        $slide->media_caption = $request->media_caption ?? null;
+        $slide->media_credit = $request->media_credit ?? null;
+        $slide->media_thumbnail_url = $request->media_thumbnail_url ?? null;
+        $slide->published = true;
+        $slide->save();
+
+        Session::flash('flash_message', 'Changes saved');
+        return redirect(url()->current());
+    }
+  
     /**
      * Remove the specified resource from storage.
      *
@@ -106,6 +191,11 @@ class AdminTimelineController extends Controller
      */
     public function destroy($id)
     {
-        //
+        TimelineSlide::where('id', '=', $id)
+            ->first()
+            ->delete();
+        Session::flash('flash_message', 'Slide Deleted');
+        return redirect(dirname(url()->current()));
+
     }
 }
