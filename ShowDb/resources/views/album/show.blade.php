@@ -24,6 +24,14 @@
 		           id="album_title"
 		           placeholder="Album Title">
 	      </div>
+          @if($album->spotify_link)
+	      <div class="form-group">
+	        <label for="album_spotify">Listen</label>
+            <div>
+	        {!! $album->spotify_link !!}
+            </div>
+	      </div>
+          @endif
 	      <label>
 	        Song List
 	      </label>

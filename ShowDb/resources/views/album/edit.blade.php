@@ -36,6 +36,22 @@ Album Editor
 		         placeholder="Album Title">
         </div>
         <div class="form-group">
+          <label for="album_type">Album Type</label>
+            <select id="album_type" name="type" class="form-control">
+              <option @if($album->type == 'studio') SELECTED @endif value="studio">Studio</option>
+              <option @if($album->type == 'live') SELECTED @endif value="live">Live</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="album_spotify_link">Spotify Link</label>
+          <input value="{{ $album->spotify_link }}"
+		         name="spotify_link"
+		         type="text"
+		         class="form-control"
+		         id="album_spotify_link"
+		         placeholder="Spotify Link">
+        </div>
+        <div class="form-group">
           <label for="album_description">Album Timeline Description</label>
           <textarea id="album_description" name="description">{{ $album->description }}</textarea>
         </div>

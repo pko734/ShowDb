@@ -307,6 +307,8 @@ class AlbumController extends Controller
         $album->title = $request->input('title');
         $album->release_date = $date;
         $album->description = $request->description ?? null;
+        $album->spotify_link = $request->spotify_link ?? null;
+        $album->type = $request->type ?? 'studio';
         $items = $album->albumItems->sortBy('order');
 
         $i = 1;

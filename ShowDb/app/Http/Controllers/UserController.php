@@ -328,11 +328,14 @@ class UserController extends Controller
              AND si.show_id = sh.id
              AND sh.id = su.show_id
              AND su.user_id = {$user_id}
+             AND al.type = 'studio'
              GROUP BY al.id, al.title
              ORDER BY release_date asc"
         ));
 
-        $albums = Album::orderBy('release_date')->get();
+        $albums = Album::orderBy('release_date')
+            ->where('type', '=', 'studio')
+            ->get();
 
 	$past_shows = $user->shows()
                            ->whereNull('shows.user_id')

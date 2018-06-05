@@ -4,13 +4,8 @@ namespace ShowDb;
 
 use Illuminate\Database\Eloquent\Model;
 
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
-
-class AlbumItem extends Model implements AuditableContract
+class AlbumItem extends Model
 {
-    use Auditable;
-
     public $timestamps = false;
 
     public function album() {

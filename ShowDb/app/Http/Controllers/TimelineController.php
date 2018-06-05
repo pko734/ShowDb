@@ -111,9 +111,13 @@ class TimelineController extends Controller
             $event['start_date']['day'] = date("d", $stamp);
             $event['start_date']['year'] = date("Y", $stamp);
             $event['text']['headline'] = $album->title;
-            $event['text']['text'] = $this->_getAlbumSongs($album);
+            $event['text']['text'] = '';
+            $event['text']['text'] .= $this->_getAlbumSongs($album);
+            if($album->spotify_link) {
+                $event['text']['text'] .= $album->spotify_link;
+            }
             if($album->description) {
-                $event['text']['text'] = $event['text']['text'] . '<hr>' . $album->description;
+                $event['text']['text'] .= '<hr>' . $album->description;
             }
             $event['media']['url'] = '/images/albumcovers/' . $album->id . '.jpg';
             $event['media']['caption'] = "<a href=\"/albums/{$album->id}\">View this album in the database</a>";
