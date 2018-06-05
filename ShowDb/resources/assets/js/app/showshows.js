@@ -30,7 +30,7 @@ $(document).ready(function() {
 	content.after('<textarea id="show-note-edit-textarea" name="note">' + content.html() + '</textarea>');
 	$("textarea").trumbowyg({
 
-	    btns: [['bold', 'italic'], ['link'],['base64']],
+	    btns: [['bold', 'italic'], ['link'],['base64'], ['removeformat']],
 	    autogrow: true
 	});
 

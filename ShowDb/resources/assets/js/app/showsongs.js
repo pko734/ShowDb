@@ -28,7 +28,7 @@ $(document).ready(function() {
 	content.after('<textarea id="song-note-edit-textarea" name="note">' + content.html() + '</textarea>');
 	$("textarea").trumbowyg({
 
-	    btns: [['bold', 'italic'], ['link'],['base64']],
+	    btns: [['bold', 'italic'], ['link'],['base64'], ['removeformat']],
 	    autogrow: true
 	});
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
 	    $('#notetable tbody').append('<tr><td><textarea name="notes[]" value="" class="form-control" type="text" placeholder="Note"></textarea></td></tr>');
 
 	    $("textarea").trumbowyg({
-		btns: [['bold', 'italic'], ['link'], ['base64']]
+		btns: [['bold', 'italic'], ['link'], ['base64'], ['removeformat']]
 	    });
 
 	    if(!datbutton) {

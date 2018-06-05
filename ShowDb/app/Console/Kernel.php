@@ -14,10 +14,11 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\VideoUpdateCommand::class,
-	Commands\ImageMigrateCommand::class,
-	Commands\MarkEmptySetlists::class,
+        Commands\ImageMigrateCommand::class,
+        Commands\MarkEmptySetlists::class,
         Commands\ArchiveVideos::class,
-	Commands\MapStateData::class,
+        Commands\MapStateData::class,
+        Commands\SpotifyPopulate::class,
     ];
 
     /**
