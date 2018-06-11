@@ -85,6 +85,9 @@ class TimelineController extends Controller
             if($e->media_link_target) {
                 $event['media']['link_target'] = $e->link_target;
             }
+            if($e->display_date) {
+                $event['display_date'] = $e->display_date;
+            }
             $ta['events'][] = $event;
         }
 

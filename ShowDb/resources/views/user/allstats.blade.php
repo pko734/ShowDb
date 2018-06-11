@@ -47,7 +47,7 @@ Database Stats
 	var options = {
 	    title: 'Distribution of users by number of shows',
 	    legend:{position:'none'},
-	    height: 400,
+	    height: 600,
 	    width: '100%',
 	    colors: ['#377bb5'],
             histogram: {

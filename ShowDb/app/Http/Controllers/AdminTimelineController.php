@@ -78,6 +78,7 @@ class AdminTimelineController extends Controller
         $slide->type = ($request->type === 'normal') ? null : $request->type;
         $slide->start_date = $start_date ?? null;
         $slide->end_date = $end_date ?? null;
+        $slide->display_date = $request->display_date ?? null;
         $slide->text_headline = $request->headline;
         $slide->text_text = $request->text ?? null;
         $slide->media_url = $request->media_url ?? null;
@@ -165,10 +166,12 @@ class AdminTimelineController extends Controller
                 return Redirect::back();
             }
         }
-
-        $slide = TimelineSlide::find($id)->first();
+        #        var_export($id); exit;
+        \DB::connection()->enableQueryLog();
+        $slide = TimelineSlide::find($id);
         $slide->type = ($request->type === 'normal') ? null : $request->type;
         $slide->start_date = $start_date ?? null;
+        $slide->display_date = $request->display_date ?? null;
         $slide->end_date = $end_date ?? null;
         $slide->text_headline = $request->headline;
         $slide->text_text = $request->text ?? null;

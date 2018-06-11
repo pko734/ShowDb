@@ -41,6 +41,15 @@
             </div>
           </div>
 	      <div class="form-group">
+	        <label for="display_date">Override Display Date (optional)</label>
+            <input disabled 
+                   value="{{ $slide->display_date }}" 
+                   name="display_date" 
+                   type="text" 
+                   class="form-control" 
+                   placeholder="Override date display">
+          </div>
+	      <div class="form-group">
 	        <label for="slide_type">End Date (optional)</label>
             <div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-z-index-offset="9999">
               <input disabled 

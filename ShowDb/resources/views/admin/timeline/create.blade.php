@@ -27,13 +27,17 @@ Add Timeline Slide
             </select>
 	      </div>
 	      <div class="form-group">
-	        <label for="slide_type">Start Date</label>
+	        <label for="start_date">Start Date</label>
             <div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-z-index-offset="9999">
               <input name="start_date" type="text" class="form-control" placeholder="YYYY-MM-DD">
               <div class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
             </div>
+          </div>
+	      <div class="form-group">
+	        <label for="display_date">Override Display Date (optional)</label>
+            <input name="display_date" type="text" class="form-control" placeholder="Override date display">
           </div>
 	      <div class="form-group">
 	        <label for="slide_type">End Date (optional)</label>
