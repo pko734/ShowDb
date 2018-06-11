@@ -35,4 +35,8 @@ class Show extends Model
         return $this->belongsTo('ShowDb\State');
     }
 
+    public function getShowDisplay() {
+        return "{$this->date} {$this->venue}";
+    }
+
 }

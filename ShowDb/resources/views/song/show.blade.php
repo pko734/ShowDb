@@ -18,11 +18,19 @@
 		           id="song_title"
 		           placeholder="Song Title">
 	      </div>
+          @if($song->getShowCount() > 0)
+	      <div class="form-group">
+          <label for="first_play">First Time Played</label>
+            <div>
+              <a href="/shows/{{ $song->shows()->orderBy('date', 'asc')->first()->show_id }}">{{ $song->shows()->orderBy('date', 'asc')->first()->getShowDisplay() }}</a>
+            </div>
+	      </div>
+          @endif
           @if($song->spotify_link)
 	      <div class="form-group">
-	        <label for="song_title">Listen</label>
+	        <label for="spotify_link">Listen</label>
             <div>
-            {!! $song->spotify_link !!}
+              {!! $song->spotify_link !!}
             </div>
 	      </div>
           @endif
