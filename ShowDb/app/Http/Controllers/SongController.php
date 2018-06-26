@@ -9,6 +9,7 @@ use Session;
 use Redirect;
 use Auth;
 use ShowDb\Show;
+use DB;
 
 class SongController extends Controller
 {
@@ -32,6 +33,30 @@ class SongController extends Controller
         ]);
     }
 
+    private function _getSongPlaysByYear($song_id)
+    {
+        $plays_by_year = DB::select(DB::raw(
+            "SELECT SUBSTRING(date,1,4) AS year, COUNT(si.id) AS song_count
+             FROM shows sh
+             JOIN setlist_items si ON si.show_id = sh.id
+             WHERE sh.user_id IS NULL
+             AND si.song_id = {$song_id}
+             GROUP BY year
+             ORDER BY year ASC"
+        ));
+
+        $graph_data = [['Year', 'Plays', (object)['role' => 'style']]];
+        $last_year = 0;
+        foreach($plays_by_year as $info) {
+            while($last_year > 0 && $last_year < $info->year - 1) {
+                $graph_data[] = [++$last_year, 0, '#377bb5'];
+            }
+            $graph_data[] = [$info->year, $info->song_count, '#377bb5'];
+            $last_year = $info->year;
+        }
+        return $graph_data;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,19 +70,19 @@ class SongController extends Controller
             'q' => 'string|min:3',
         ]);
         $q = $request->get('q');
-        $o = $request->get('o') ?: 'title-asc';
+        $o = $request->get('o') ?: 'setlist_items_count-desc';
         $sort_order = explode('-', $o);
         $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
-               ->withCount('notes')
-               ->where( 'title', 'LIKE', '%' . $q . '%' )
-               ->orWhereHas('notes', function($query) use ($q) {
-                   $query->where('note', 'LIKE', "%{$q}%")
-                         ->where('note', 'NOT LIKE', '%<img src="data:%');
-               })
-               ->orderBy($sort_order[0], $sort_order[1])
-               ->orderBy('title')
-               ->paginate(15)
-               ->setPath( '' );
+            ->withCount('notes')
+            ->where( 'title', 'LIKE', '%' . $q . '%' )
+            ->orWhereHas('notes', function($query) use ($q) {
+                    $query->where('note', 'LIKE', "%{$q}%")
+                    ->where('note', 'NOT LIKE', '%<img src="data:%');
+                })
+            ->orderBy($sort_order[0], $sort_order[1])
+            ->orderBy('title')
+            ->paginate(15)
+            ->setPath( '' );
         $pagination = $songs->appends( [
             'q' => $q,
             'o' => $o,
@@ -192,7 +217,8 @@ class SongController extends Controller
 
         return view('song.show')
             ->withSong($song)
-            ->withUser($user);
+            ->withUser($user)
+            ->withSongStats($this->_getSongPlaysByYear($id));
     }
 
     /**

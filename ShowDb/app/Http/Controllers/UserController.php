@@ -236,7 +236,7 @@ class UserController extends Controller
                 }
             }
 
-	    if( $info->show_count > 0 ) {
+            if( $info->show_count > 0 ) {
                 $yearly_graph_data['shows'][] = [$info->year, $info->show_count, '#377bb5'];
             }
             if( $song_count > 0 ) {
@@ -246,15 +246,15 @@ class UserController extends Controller
                 $yearly_graph_data['unique_songs'][] = [$info->year, $unique_songs, '#377bb5'];
             }
 
-	    if($max_shows < $info->show_count) {
-	        $max_shows = $info->show_count;
-	    }
-	    if($max_songs < $song_count) {
-	        $max_songs = $song_count;
-	    }
-	    if($max_unique < $unique_songs) {
-	        $max_unique = $unique_songs;
-	    }
+            if($max_shows < $info->show_count) {
+                $max_shows = $info->show_count;
+            }
+            if($max_songs < $song_count) {
+                $max_songs = $song_count;
+            }
+            if($max_unique < $unique_songs) {
+                $max_unique = $unique_songs;
+            }
         }
     }
 
@@ -265,18 +265,18 @@ class UserController extends Controller
         $songs_by_year = $this->_getMySongsByYear($user);
         $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
 
-	$yearly_graph_data = [
+        $yearly_graph_data = [
           'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
           'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
           'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
         ];
-	$max_shows  = 0;
-	$max_unique = 0;
-	$max_songs  = 0;
+        $max_shows  = 0;
+        $max_unique = 0;
+        $max_songs  = 0;
         $song_count = 0;
         $unique_songs = 0;
 	
-	$this->_calcYearlyGraphData($shows_by_year, 
+        $this->_calcYearlyGraphData($shows_by_year, 
 				    $songs_by_year,
 				    $unique_songs_by_year,
 				    $yearly_graph_data, 
@@ -284,7 +284,7 @@ class UserController extends Controller
 				    $max_songs, 
 				    $max_unique);
 
-	$state_graph_data = $this->_getStateGraphData($user);
+        $state_graph_data = $this->_getStateGraphData($user);
       
         $user_id = $user->id;
         $first_show = Show::whereHas('users', function($query) use($user_id) {
@@ -337,12 +337,12 @@ class UserController extends Controller
             ->where('type', '=', 'studio')
             ->get();
 
-	$past_shows = $user->shows()
+        $past_shows = $user->shows()
                            ->whereNull('shows.user_id')
                            ->whereRaw('UNIX_TIMESTAMP(date) < ?',
                                       \Carbon\Carbon::now()->timestamp)->get();
 
-	$photos = $user->images()->get();
+        $photos = $user->images()->get();
 
         $this->_generateBadges($user, $album_info, $total_songs, count($songs), count($past_shows), count($photos));
 
@@ -369,10 +369,10 @@ class UserController extends Controller
             ->withLastShow($last_show)
             ->withNextShow($next_show)
             ->withYearlyGraphData($yearly_graph_data)
-	    ->withStateGraphData($state_graph_data)
+            ->withStateGraphData($state_graph_data)
             ->withMaxUnique($max_unique)
-	    ->withMaxSongs($max_songs)
-	    ->withMaxShows($max_shows)
+            ->withMaxSongs($max_songs)
+            ->withMaxShows($max_shows)
             ->withSongs($songs)
             ->withPhotos($photos);
     }
@@ -386,17 +386,17 @@ class UserController extends Controller
         }
 
         // donor badge
-	if($user->donor) {
+        if($user->donor) {
             $user->badges()->attach(Badge::where('code', '=', 'DONOR')->first()->id); 
         }
 	
         // notes
-	$note_count1 = DB::select(DB::raw(
+        $note_count1 = DB::select(DB::raw(
                 "SELECT COUNT(*) as cnt
                  FROM show_notes sn
                  WHERE sn.user_id = {$user->id}"
         ));
-	$note_count2 = DB::select(DB::raw(
+        $note_count2 = DB::select(DB::raw(
                 "SELECT COUNT(*) as cnt 
                  FROM song_notes sn
                  WHERE sn.user_id = {$user->id}"
@@ -410,173 +410,173 @@ class UserController extends Controller
         }
 
         // album badges
-	$i = 1;
-	foreach( $album_info as $al ) {
+        $i = 1;
+        foreach( $album_info as $al ) {
             if( round(100*($al->album_songs / $al->total)) == 100 ) {
                 $Badge = Badge::where('code', '=', "ALBUM{$al->album_id}")->first();
                 if($Badge) {
                     $user->badges()->attach($Badge->id);
                 }
             }
-	    $i++;
+            $i++;
         }
-
+        
         // year club
         $first_show_date = $user->shows()->min('date');
-	if($first_show_date) {
+        if($first_show_date) {
             $Badge = Badge::where('code', '=', 'YEAR' . substr($first_show_date, 0, 4))->first();
-	    if($Badge) {
+            if($Badge) {
                 $user->badges()->attach($Badge->id);
             }
         }
-
+        
         // songs
-	$song_code = 0;
-	if( $songs >= 500 && $songs <= 999 ) {
-	    $song_code = 500;
+        $song_code = 0;
+        if( $songs >= 500 && $songs <= 999 ) {
+            $song_code = 500;
         }
-	if( $songs >= 1000 && $songs <= 1499 ) {
-	    $song_code = 1000;
+        if( $songs >= 1000 && $songs <= 1499 ) {
+            $song_code = 1000;
         }
-	if( $songs >= 1500 && $songs <= 1999 ) {
-	    $song_code = 1500;
+        if( $songs >= 1500 && $songs <= 1999 ) {
+            $song_code = 1500;
         }
-	if( $songs >= 2000 && $songs <= 2999 ) {
-	    $song_code = 2000;
+        if( $songs >= 2000 && $songs <= 2999 ) {
+            $song_code = 2000;
         }
-	if( $songs >= 3000 && $songs <= 3999 ) {
-	    $song_code = 3000;
+        if( $songs >= 3000 && $songs <= 3999 ) {
+            $song_code = 3000;
         }
-	if( $songs >= 4000 && $songs <= 4999 ) {
-	    $song_code = 4000;
+        if( $songs >= 4000 && $songs <= 4999 ) {
+            $song_code = 4000;
         }
-	if( $songs > 5000 ) {
-	    $song_code = 5000;
+        if( $songs > 5000 ) {
+            $song_code = 5000;
         }
-	if( $song_code ) {
+        if( $song_code ) {
             $Badge = Badge::where('code', '=', 'SONGS' . $song_code)->first();
-	    if($Badge) {
+            if($Badge) {
                 $user->badges()->attach($Badge->id);
             }
         }
 
         // unique songs
-	$unique_code = 0;
-	if( $unique >= 100 && $unique <= 149 ) {
-	    $unique_code = 100;
+        $unique_code = 0;
+        if( $unique >= 100 && $unique <= 149 ) {
+            $unique_code = 100;
         }
-	if( $unique >= 150 && $unique <= 199 ) {
-	    $unique_code = 150;
+        if( $unique >= 150 && $unique <= 199 ) {
+            $unique_code = 150;
         }
-	if( $unique >= 200 && $unique <= 249 ) {
-	    $unique_code = 200;
+        if( $unique >= 200 && $unique <= 249 ) {
+            $unique_code = 200;
         }
-	if( $unique >= 250 && $unique <= 299 ) {
-	    $unique_code = 250;
+        if( $unique >= 250 && $unique <= 299 ) {
+            $unique_code = 250;
         }
-	if( $unique >= 300 ) {
-	    $unique_code = 300;
+        if( $unique >= 300 ) {
+            $unique_code = 300;
         }
-	if( $unique_code ) {
+        if( $unique_code ) {
             $Badge = Badge::where('code', '=', 'UNIQUE' . $unique_code)->first();
-	    if($Badge) {
+            if($Badge) {
                 $user->badges()->attach($Badge->id);
             }
         }
         
-	// shows
-	$show_code = 0;
-	if( $shows >= 10 && $shows <= 24 ) {
-	    $show_code = 10;
+        // shows
+        $show_code = 0;
+        if( $shows >= 10 && $shows <= 24 ) {
+            $show_code = 10;
         }
-	if( $shows >= 25 && $shows <= 49 ) {
-	    $show_code = 25;
+        if( $shows >= 25 && $shows <= 49 ) {
+            $show_code = 25;
         }
-	if( $shows >= 50 && $shows <= 74 ) {
-	    $show_code = 50;
+        if( $shows >= 50 && $shows <= 74 ) {
+            $show_code = 50;
         }
-	if( $shows >= 75 && $shows <= 99 ) {
-	    $show_code = 75;
+        if( $shows >= 75 && $shows <= 99 ) {
+            $show_code = 75;
         }
-	if( $shows >= 100 ) {
-	    $show_code = 100;
+        if( $shows >= 100 ) {
+            $show_code = 100;
         }
-	if( $show_code ) {
+        if( $show_code ) {
             $Badge = Badge::where('code', '=', 'SHOWS' . $show_code)->first();
-	    if($Badge) {
+            if($Badge) {
                 $user->badges()->attach($Badge->id);
             }
         }
 
-	// photos
-	$photo_code = 0;
-	if( $photos >= 1 && $photos <= 4 ) {
-	  $photo_code = 1;
-	}
-	if( $photos >= 5 && $photos <= 9 ) {
-	  $photo_code = 5;
-	}
-	if( $photos >= 10 && $photos <= 19 ) {
-	  $photo_code = 10;
-	}
-	if( $photos >= 20 && $photos <= 29 ) {
-	  $photo_code = 20;
-	}
-	if( $photos >= 30 && $photos <= 39 ) {
-	  $photo_code = 30;
-	}
-	if( $photos >= 40 && $photos <= 49 ) {
-	  $photo_code = 40;
-	}
-	if( $photos >= 50 ) {
-	  $photo_code = 50;
-	}
-	if( $photo_code ) {
+        // photos
+        $photo_code = 0;
+        if( $photos >= 1 && $photos <= 4 ) {
+            $photo_code = 1;
+        }
+        if( $photos >= 5 && $photos <= 9 ) {
+            $photo_code = 5;
+        }
+        if( $photos >= 10 && $photos <= 19 ) {
+            $photo_code = 10;
+        }
+        if( $photos >= 20 && $photos <= 29 ) {
+            $photo_code = 20;
+        }
+        if( $photos >= 30 && $photos <= 39 ) {
+            $photo_code = 30;
+        }
+        if( $photos >= 40 && $photos <= 49 ) {
+            $photo_code = 40;
+        }
+        if( $photos >= 50 ) {
+            $photo_code = 50;
+        }
+        if( $photo_code ) {
             $Badge = Badge::where('code', '=', 'PHOTOS' . $photo_code)->first();
-	    if($Badge) {
+            if($Badge) {
                 $user->badges()->attach($Badge->id);
             }
         }
 
-	// states
-	$states = DB::table('states')
-	    ->join('shows', 'states.id', '=', 'shows.state_id')
+        // states
+        $states = DB::table('states')
+            ->join('shows', 'states.id', '=', 'shows.state_id')
             ->join('show_user', 'shows.id', '=', 'show_user.show_id')
             ->select('iso_3166_2 as code', 'country_code')
-	    ->distinct()
+            ->distinct()
             ->where('show_user.user_id', '=', $user->id)
-	    ->whereRaw('UNIX_TIMESTAMP(shows.date) < ?', \Carbon\Carbon::now()->timestamp)
+            ->whereRaw('UNIX_TIMESTAMP(shows.date) < ?', \Carbon\Carbon::now()->timestamp)
             ->orderBy('states.name')
-	    ->get();
+            ->get();
 
-	foreach($states as $state) {
-	    $Badge = Badge::where('code', '=', 'STATE_' . $state->code . '_' . $state->country_code)->first();
-	    if($Badge) {
-	    	$user->badges()->attach($Badge->id);
-	    }
-	}
+        foreach($states as $state) {
+            $Badge = Badge::where('code', '=', 'STATE_' . $state->code . '_' . $state->country_code)->first();
+            if($Badge) {
+                $user->badges()->attach($Badge->id);
+            }
+        }
     }   
 
     private function _getStateGraphData($user = null) {
-	$state_data = DB::table('states')
-	    ->join('shows', 'states.id', '=', 'shows.state_id')
-	    ->select('iso_3166_2 as code', 'country_code', 'name', DB::raw('COUNT(shows.id) as show_count'))
-	    ->whereNull('shows.user_id')
-	    ->whereRaw('UNIX_TIMESTAMP(shows.date) < ?', \Carbon\Carbon::now()->timestamp)	                  				                                      
-	    ->groupBy('code', 'country_code', 'name');
+        $state_data = DB::table('states')
+            ->join('shows', 'states.id', '=', 'shows.state_id')
+            ->select('iso_3166_2 as code', 'country_code', 'name', DB::raw('COUNT(shows.id) as show_count'))
+            ->whereNull('shows.user_id')
+            ->whereRaw('UNIX_TIMESTAMP(shows.date) < ?', \Carbon\Carbon::now()->timestamp)	                  				                                      
+            ->groupBy('code', 'country_code', 'name');
 
-	if( $user !== null ) {
+        if( $user !== null ) {
             $state_data = $state_data->where('show_user.user_id', '=', $user->id)
                 ->join('show_user', 'shows.id', '=', 'show_user.show_id');
-	}
+        }
 
-	$state_data = $state_data->get();
+        $state_data = $state_data->get();
 
-	$results = [['State', 'Number of shows']];
-	foreach($state_data as $one_state) {
-	    $results[] = ["{$one_state->name}", $one_state->show_count];	
-	}
-	return $results;
+        $results = [['State', 'Number of shows']];
+        foreach($state_data as $one_state) {
+            $results[] = ["{$one_state->name}", $one_state->show_count];	
+        }
+        return $results;
     }
     
     public function allstats(Request $request) {
@@ -586,50 +586,50 @@ class UserController extends Controller
         $songs_by_year = $this->_getAllSongsByYear();
         $unique_songs_by_year = $this->_getAllUniqueSongsByYear();
 
-	$yearly_graph_data = [
-          'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
-          'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
-          'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
-        ];
-	$max_shows  = 0;
-	$max_unique = 0;
-	$max_songs  = 0;
+        $yearly_graph_data = [
+                              'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
+                              'songs'        => [['Year', 'Songs', (object)['role' => 'style']]],
+                              'unique_songs' => [['Year', 'Unique Songs', (object)['role' => 'style']]],
+                              ];
+        $max_shows  = 0;
+        $max_unique = 0;
+        $max_songs  = 0;
         $song_count = 0;
         $unique_songs = 0;
 
-	$this->_calcYearlyGraphData($shows_by_year, 
-				    $songs_by_year,
-				    $unique_songs_by_year,
-				    $yearly_graph_data, 
-				    $max_shows, 
-				    $max_songs, 
-				    $max_unique);
+        $this->_calcYearlyGraphData($shows_by_year, 
+                                    $songs_by_year,
+                                    $unique_songs_by_year,
+                                    $yearly_graph_data, 
+                                    $max_shows, 
+                                    $max_songs, 
+                                    $max_unique);
 
         $state_graph_data = $this->_getStateGraphData();
 
-	$all_user_show_data = DB::table('show_user')
-	  ->select(DB::raw('COUNT(show_id) as show_count'))
-          ->havingRaw('COUNT(show_id) < 300')
-	  ->groupBy('user_id')->pluck('show_count')->toArray();
+        $all_user_show_data = DB::table('show_user')
+            ->select(DB::raw('COUNT(show_id) as show_count'))
+            ->havingRaw('COUNT(show_id) < 300')
+            ->groupBy('user_id')->pluck('show_count')->toArray();
 
-	array_unshift($all_user_show_data, 'People');
-	$all_user_show_data = array_map( function($x) { return [$x]; }, $all_user_show_data);
+        array_unshift($all_user_show_data, 'People');
+        $all_user_show_data = array_map( function($x) { return [$x]; }, $all_user_show_data);
 
         return view('user.allstats')
-  	    ->withYearlyGraphData($yearly_graph_data)
+            ->withYearlyGraphData($yearly_graph_data)
             ->withStateGraphData($state_graph_data)
-	    ->withMaxShows($max_shows)
-	    ->withMaxSongs($max_songs)
-	    ->withMaxUnique($max_unique)
-	    ->withAllUserShowData($all_user_show_data)
+            ->withMaxShows($max_shows)
+            ->withMaxSongs($max_songs)
+            ->withMaxUnique($max_unique)
+            ->withAllUserShowData($all_user_show_data)
             ->withPastShows(Show::whereRaw('UNIX_TIMESTAMP(date) < ?',
-                                           \Carbon\Carbon::now()->timestamp)
-                            ->whereNull('user_id')
-                            ->get())
+                \Carbon\Carbon::now()->timestamp)
+                ->whereNull('user_id')
+                ->get())
             ->withUpcomingShows(Show::whereRaw('UNIX_TIMESTAMP(date) > ?',
-                                               \Carbon\Carbon::now()->timestamp)
-                                ->whereNull('user_id')
-                                ->get())
+                 \Carbon\Carbon::now()->timestamp)
+                 ->whereNull('user_id')
+                 ->get())
             ->withUser($request->user())
             ->withTotalSongs($total_songs)            
             ->withSongs($songs);
@@ -638,17 +638,17 @@ class UserController extends Controller
 
     public function shows($username, Request $request) {
         $this->validate($request, [
-            'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
-            'q' => 'string|min:3',
-            'i' => 'boolean',
-        ]);
+                                   'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
+                                   'q' => 'string|min:3',
+                                   'i' => 'boolean',
+                                   ]);
 
         $v = Validator::make(['username' => $username], [
-            'username' => [
-                'required',
-                Rule::exists('users'),
-            ],
-        ]);
+                                                         'username' => [
+                                                                        'required',
+                                                                        Rule::exists('users'),
+                                                                        ],
+                                                         ]);
 
         if($v->fails()) {
             return Redirect::to('/')->withErrors($v);
@@ -657,22 +657,22 @@ class UserController extends Controller
         $user = User::where('username', '=', $username)->first();
         $q = $request->q;
         $shows = $user->shows()
-               ->where( 'date',   'LIKE', "%{$q}%" )
-               ->withCount('setlistItems')
-               ->withCount('notes');
+            ->where( 'date',   'LIKE', "%{$q}%" )
+            ->withCount('setlistItems')
+            ->withCount('notes');
 
         if($request->get('i') == '1') {
             $shows = $shows->where('incomplete_setlist', '=', true);
         }
 
         $shows = $shows->orderBy('date', 'desc')
-               ->paginate(15)
-               ->setPath('')
-               ->appends( [
-                   'q' => $request->get('q'),
-                   'o' => $request->get('o'),
-                   'i' => $request->get('i'),
-               ]);
+            ->paginate(15)
+            ->setPath('')
+            ->appends( [
+                        'q' => $request->get('q'),
+                        'o' => $request->get('o'),
+                        'i' => $request->get('i'),
+                        ]);
 
         return view('user.shows')
             ->withShows($shows)
