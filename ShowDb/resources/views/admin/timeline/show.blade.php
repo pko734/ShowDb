@@ -104,6 +104,15 @@
 		           id="slide_media_thumbnail_url"
 		           placeholder="http://...">
 	      </div>
+	      <div class="form-group">
+	        <label for="slide_background">Background</label>
+	        <input disabled value="{{$slide->background}}"
+		           name="background"
+		           type="text"
+		           class="form-control"
+		           id="slide_background"
+		           placeholder="http://...">
+	      </div>
 
 	      <button type="submit" class="pull-left btn btn-primary">Edit Slide</button>&nbsp;
 	      <button id="delete-slide-btn" type="button" class="pull-right btn btn-danger">

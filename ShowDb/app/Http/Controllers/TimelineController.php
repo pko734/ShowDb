@@ -55,6 +55,7 @@ class TimelineController extends Controller
                 $event['end_date']['day'] = date("d", $stamp);
                 $event['end_date']['year'] = date("Y", $stamp);
             }
+            #$event['background'] = ['color' => '#000000'];
             if($e->start_time) {
                 $event['start_time']['headline'] = $e->text_headline;
             }
@@ -78,6 +79,9 @@ class TimelineController extends Controller
             }
             if($e->media_thumbnail_url) {
                 $event['media']['url'] = $e->media_thumbnail_url;
+            }
+            if($e->background) {
+                $event['background'] = ['url' => $e->background];
             }
             if($e->media_link) {
                 $event['media']['link'] = $e->media_link;

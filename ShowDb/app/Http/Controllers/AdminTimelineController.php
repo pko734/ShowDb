@@ -86,6 +86,7 @@ class AdminTimelineController extends Controller
         $slide->media_credit = $request->media_credit ?? null;
         $slide->media_thumbnail_url = $request->media_thumbnail_url ?? null;
         $slide->creator_id = $request->user()->id;
+        $slide->background = $request->background ?? null;
         $slide->published = true;
         $slide->save();
 
@@ -179,6 +180,7 @@ class AdminTimelineController extends Controller
         $slide->media_caption = $request->media_caption ?? null;
         $slide->media_credit = $request->media_credit ?? null;
         $slide->media_thumbnail_url = $request->media_thumbnail_url ?? null;
+        $slide->background = $request->background ?? null;
         $slide->published = true;
         $slide->save();
 

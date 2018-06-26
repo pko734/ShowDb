@@ -89,6 +89,15 @@ Add Timeline Slide
 		           id="slide_media_thumbnail_url"
 		           placeholder="http://...">
 	      </div>
+	      <div class="form-group">
+	        <label for="slide_background">Background</label>
+	        <input value=""
+		           name="background"
+		           type="text"
+		           class="form-control"
+		           id="background"
+		           placeholder="http://...">
+	      </div>
 
 	      <button type="submit" class="pull-left btn btn-primary">Add Slide</button>&nbsp;
 	    </form>
