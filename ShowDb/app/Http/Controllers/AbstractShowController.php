@@ -45,10 +45,10 @@ class AbstractShowController extends Controller
     public function index(Request $request)
     {
         $this->validate($request, [
-            'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
-            'q' => 'string|min:3',
-            'i' => 'boolean',
-        ]);
+                                   'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
+                                   'q' => 'string|min:3',
+                                   'i' => 'boolean',
+                                   ]);
 
         $q = $request->get('q');
 
@@ -56,43 +56,43 @@ class AbstractShowController extends Controller
         $sort_order = explode('-', $o);
         $search = $this->showbase
 	        ->withCount('setlistItems')
-                ->withCount('setlistItemsNotes')
-                ->withCount('notes')
+            ->withCount('setlistItemsNotes')
+            ->withCount('notes')
  	        ->withCount('images');
 
-	$state = State::where('name', '=', $q)->first();
-	if($state !== null) {
+        $state = State::where('name', '=', $q)->first();
+        if($state !== null) {
             $search = $search->where('state_id', '=', $state->id);
-	} else {
+        } else {
             foreach(preg_split('/\s+/', trim($q)) as $p) {
                 $search = $search
-                        ->where(function($q1) use ($p) {
+                    ->where(function($q1) use ($p) {
                             $q1->where( 'date',   'LIKE', "%{$p}%" )
-                                ->orWhere('venue', 'LIKE', "%{$p}%")
-                                ->orWhereHas('creator', function($query) use ($p) {
+                            ->orWhere('venue', 'LIKE', "%{$p}%")
+                            ->orWhereHas('creator', function($query) use ($p) {
                                     $query->where('username', 'LIKE', "%{$p}%");
                                 })
-                                ->orWhereHas('notes', function($query) use ($p) {
+                            ->orWhereHas('notes', function($query) use ($p) {
                                     $query->where('note', 'LIKE', "%{$p}%")
-                                          ->where('note', 'NOT LIKE', '%<img src="data:%');
+                                    ->where('note', 'NOT LIKE', '%<img src="data:%');
                                 });
                         });
     
             }
-	}
+        }
         if($request->get('i') == '1') {
             $search = $search
-	      ->where('incomplete_setlist', '=', true);
+                ->where('incomplete_setlist', '=', true);
         }
         $search = $search->orderBy($sort_order[0], $sort_order[1])
-               ->orderBy($this->default_sort_column, 'desc')
-               ->paginate(15)
-               ->setPath( '' )
-                ->appends( [
-                    'q' => $request->get('q'),
-                    'o' => $request->get('o'),
-                    'i' => $request->get('i'),
-                ]);
+            ->orderBy($this->default_sort_column, 'desc')
+            ->paginate(15)
+            ->setPath( '' )
+            ->appends( [
+                        'q' => $request->get('q'),
+                        'o' => $request->get('o'),
+                        'i' => $request->get('i'),
+                        ]);
 
         $setlist_order = 'setlist_items_count-asc';
         if( $o === $setlist_order ) {
@@ -130,8 +130,8 @@ class AbstractShowController extends Controller
      */
     public function storeNote($show_id, Request $request) {
         $this->validate($request, [
-            'notes.*' => 'string|between:5,2000000',
-        ]);
+                                   'notes.*' => 'string|between:5,2000000',
+                                   ]);
 
         $cnt = 0;
         foreach( $request->notes as $note ) {
@@ -173,9 +173,9 @@ class AbstractShowController extends Controller
      */
     public function updateNote($show_id, $note_id, Request $request) {
         $this->validate($request, [
-            'note'      => 'string|between:5,2000000',
-            'published' => 'boolean',
-        ]);
+                                   'note'      => 'string|between:5,2000000',
+                                   'published' => 'boolean',
+                                   ]);
 
         $note = ShowNote::findOrFail($note_id);
         if( $note->show->id != $show_id ) {
@@ -206,8 +206,8 @@ class AbstractShowController extends Controller
      */
     public function storeItemNote($setlist_item_id, Request $request) {
         $this->validate($request, [
-            'video_url' => 'active_url',
-        ]);
+                                   'video_url' => 'active_url',
+                                   ]);
 
         $note = new SetlistItemNote();
         $note->note = $request->video_url;
@@ -235,10 +235,10 @@ class AbstractShowController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'dates.*'  => 'required',
-            'venues.*' => 'required|string|between:10,255',
-            'states.*' => 'required|exists:states,name',
-        ]);
+                                   'dates.*'  => 'required',
+                                   'venues.*' => 'required|string|between:10,255',
+                                   'states.*' => 'required|exists:states,name',
+                                   ]);
 
         if(count($request->venues) !== count($request->dates) ) {
             Session::flash('flash_error', 'Data size mismatch :(');
@@ -256,7 +256,7 @@ class AbstractShowController extends Controller
             $show = new Show();
             $show->date  = $date;
             $show->venue = $request->venues[$i];
-	    $show->state_id  = State::where('name', '=', $request->states[$i])->first()->id;
+            $show->state_id  = State::where('name', '=', $request->states[$i])->first()->id;
             $show->published = 0;
             $show->incomplete_setlist = 1;
             if( $this->show_user_id !== null ) {
@@ -276,27 +276,27 @@ class AbstractShowController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function deleteImagePost($id, $photo_id, Request $request) {
-      $show = $this->showbase
-	->where('id', '=', $id)
-	->first();
+        $show = $this->showbase
+            ->where('id', '=', $id)
+            ->first();
 
-      $photo = ShowImage::where('show_id', '=', $show->id)
-	->where('id', '=', $photo_id)
-	->first();
+        $photo = ShowImage::where('show_id', '=', $show->id)
+            ->where('id', '=', $photo_id)
+            ->first();
 
         if(is_null($show)) {
-	  echo 'bye'; exit;
+            echo 'bye'; exit;
             Session::flash('flash_error','Show not found');
             return redirect(dirname(dirname(url()->current())));
         }
 
         if(is_null($photo)) {
-	  echo 'hi'; exit;
+            echo 'hi'; exit;
             Session::flash('flash_error','Photo not found');
             return redirect(dirname(dirname(url()->current())));
         }
 
-	Storage::disk('s3')->delete($photo->path);
+        Storage::disk('s3')->delete($photo->path);
 
         $photo->delete();
         Session::flash('flash_message', 'Image Deleted');
@@ -309,31 +309,31 @@ class AbstractShowController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function uploadImagePost($id, Request $request) {
-      request()->validate([
-	  'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50000',
-          'tos'     => 'accepted',
-	  'certify' => 'accepted',
-	]);
+        request()->validate([
+                             'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50000',
+                             'tos'     => 'accepted',
+                             'certify' => 'accepted',
+                             ]);
 
-      $show = $this->showbase
-	->where('id', '=', $id)
-	->first();
-      $imageName = $request->image->store("/images/{$show->date}/{$show->id}", 's3');
+        $show = $this->showbase
+            ->where('id', '=', $id)
+            ->first();
+        $imageName = $request->image->store("/images/{$show->date}/{$show->id}", 's3');
 
-      $image = new ShowImage();
-      $image->user_id = $request->user()->id;
-      $image->show_id = $show->id;
-      $image->caption = $request->photo_caption;
-      $image->photo_credit = $request->photo_credit;
-      $image->published = $request->user()->admin;
-      $image->path = $imageName;
-      $image->url = Storage::disk('s3')->url($imageName);
-      $image->save();
+        $image = new ShowImage();
+        $image->user_id = $request->user()->id;
+        $image->show_id = $show->id;
+        $image->caption = $request->photo_caption;
+        $image->photo_credit = $request->photo_credit;
+        $image->published = $request->user()->admin;
+        $image->path = $imageName;
+        $image->url = Storage::disk('s3')->url($imageName);
+        $image->save();
 
-      Session::flash('flash_message', 'Photo Submitted.  Thank you!');
-      return back()
-        ->withShowId($id)
-	->with('image',$imageName);
+        Session::flash('flash_message', 'Photo Submitted.  Thank you!');
+        return back()
+            ->withShowId($id)
+            ->with('image',$imageName);
     }
 
     /**
@@ -345,10 +345,10 @@ class AbstractShowController extends Controller
     public function show($id, Request $request)
     {
         $show = $this->showbase
-              ->where('id', '=', $id)
-              ->first();
+            ->where('id', '=', $id)
+            ->first();
 
-	$images = ShowImage::where('show_id', '=', $show->id)->get();
+        $images = ShowImage::where('show_id', '=', $show->id)->get();
         $user = $request->user();
 
         if(is_null($show)) {
@@ -356,10 +356,23 @@ class AbstractShowController extends Controller
             return redirect(dirname(url()->current()));
         }
 
+        $prevShow = Show::whereNull('user_id')
+            ->where('date', '<=', $show->date)
+            ->where('id', '!=', $show->id)
+            ->orderBy('date', 'desc')
+            ->first();
+        $nextShow = Show::whereNull('user_id')
+            ->where('date', '>=', $show->date)
+            ->where('id', '!=', $show->id)
+            ->orderBy('date', 'asc')
+            ->first();
+
         return view('show.show')
             ->withShow($show)
+            ->withPrevShow($prevShow)
+            ->withNextShow($nextShow)
             ->withUser($user)
-	    ->withImages($images)
+            ->withImages($images)
             ->withNoteTooltip($this->note_tooltip)
             ->withDisplayComplete($this->display_complete)
             ->withVenueDisplay($this->venue_display)
@@ -375,8 +388,8 @@ class AbstractShowController extends Controller
     public function edit($id, Request $request)
     {
         $show = $this->showbase
-              ->where('id', '=', $id)
-              ->first();
+            ->where('id', '=', $id)
+            ->first();
 
         if(is_null($show)) {
             Session::flash('flash_error','Show not found');
@@ -401,14 +414,14 @@ class AbstractShowController extends Controller
     public function update($id, Request $request)
     {
         # Validate
-        $this->validate($request, [
-            'date'    => 'required',
-            'venue'   => 'required|string|between:10,255',
-            'songs.*' => 'exists:songs,title',
-            'interlude_song' => 'exists:songs,title',
-            'state'   => 'exists:states,name',
-            'complete' => 'boolean',
-        ]);
+            $this->validate($request, [
+                                       'date'    => 'required',
+                                       'venue'   => 'required|string|between:10,255',
+                                       'songs.*' => 'exists:songs,title',
+                                       'interlude_song' => 'exists:songs,title',
+                                       'state'   => 'exists:states,name',
+                                       'complete' => 'boolean',
+                                       ]);
 
         try {
             $date = (new Carbon($request->date))->toDateString();
@@ -418,17 +431,17 @@ class AbstractShowController extends Controller
         }
 
         $show = $this->showbase
-              ->where('id', '=', $id)
-              ->first();
+            ->where('id', '=', $id)
+            ->first();
         $show->venue = $request->input('venue');
         $show->date  = $date;
 
-	if($request->state == '') {
-	    $state_id = null;
-	} else {
-	    $state_id = State::where('name', '=', $request->state)->first()->id;
-	}
-	$show->state_id = $state_id;
+        if($request->state == '') {
+            $state_id = null;
+        } else {
+            $state_id = State::where('name', '=', $request->state)->first()->id;
+        }
+        $show->state_id = $state_id;
 
         if(isset($request->complete)) {
             $show->incomplete_setlist = !$request->complete;
@@ -455,8 +468,8 @@ class AbstractShowController extends Controller
                 }
 
                 $my_item = $items->filter(function($item) use($song_title) {
-                    return $item->song->title === $song_title;
-                })->first();
+                        return $item->song->title === $song_title;
+                    })->first();
 
                 if( $my_item === null ) {
                     // Add new item!
@@ -467,19 +480,19 @@ class AbstractShowController extends Controller
                     $item->creator_id = $request->user()->id;
                     $item->save();
                 } else {
-		    // handle interludes		    
-		    if($my_item->song->title === 'Pretty Girl from Annapolis' && isset($request->interlude_song) && $request->interlude_song) {
- 		      $my_item->interlude_song_id = 
-		        Song::where('title', '=', $request->interlude_song)->first()->id;
-		    } else {
-		      $my_item->interlude_song_id = null;
-		    }
+                    // handle interludes		    
+                    if($my_item->song->title === 'Pretty Girl from Annapolis' && isset($request->interlude_song) && $request->interlude_song) {
+                        $my_item->interlude_song_id = 
+                            Song::where('title', '=', $request->interlude_song)->first()->id;
+                    } else {
+                        $my_item->interlude_song_id = null;
+                    }
 
                     // Update the item order
                     if($my_item->order != $i) {
                         $my_item->order = $i;
                     }
-		    $my_item->save();
+                    $my_item->save();
 
                     // We don't want to delete the "safe" items.
                     $safe[] = $my_item->id;
@@ -487,8 +500,8 @@ class AbstractShowController extends Controller
                 $i++;
             }
             $to_delete = $items->filter(function($item) use($safe) {
-                return !in_array($item->id, $safe);
-            });
+                    return !in_array($item->id, $safe);
+                });
 
             foreach( $to_delete as $item ) {
                 $item->delete();
@@ -553,8 +566,8 @@ class AbstractShowController extends Controller
      */
     public function approvePhoto($show_id, $photo_id, Request $request) {
         $this->validate($request, [
-            'published' => 'required:boolean'
-        ]);
+                                   'published' => 'required:boolean'
+                                   ]);
         $photo = ShowImage::findOrFail($photo_id);
         if( $photo->show->id != $show_id ) {
             Session::flash('flash_error', "Show/Photo mismatch");
@@ -578,8 +591,8 @@ class AbstractShowController extends Controller
      */
     public function approveItemNote($item_id, $note_id, Request $request) {
         $this->validate($request, [
-            'published' => 'required:boolean'
-        ]);
+                                   'published' => 'required:boolean'
+                                   ]);
         $note = SetlistItemNote::findOrFail($note_id);
         if( $note->setlistItem->id != $item_id ) {
             Session::flash('flash_error', "Video/Note mismatch");

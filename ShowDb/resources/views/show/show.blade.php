@@ -20,12 +20,32 @@
 	      @if($displayShowDate)
 	      <div class="form-group">
 	        <label for="show_date">Show Date</label>
-	        <input disabled value="{{ $show->date }}"
-		           type="text"
-		           class="form-control"
-		           id="show_date"
-		           placeholder="YYYY-MM-DD">
-	      </div>
+		    <div class="input-group">
+                <span class="input-group-addon">
+                  @if($prevShow)
+                  <a title="{{ $prevShow->getShowDisplay() }}" href="/shows/{{ $prevShow->id }}">
+                  @endif
+                    <span class="glyphicon glyphicon-step-backward"></span>
+                  @if($prevShow)
+                  </a>
+                  @endif
+                </span>
+	          <input disabled value="{{ $show->date }}"
+		             type="text"
+		             class="form-control"
+		             id="show_date"
+		             placeholder="YYYY-MM-DD">
+                <span class="input-group-addon">
+                  @if($nextShow)
+                  <a title="{{ $nextShow->getShowDisplay() }}" href="/shows/{{ $nextShow->id }}">
+                  @endif
+                  <span class="glyphicon glyphicon-step-forward"></span>
+                  @if($nextShow)              
+                  </a>
+                  @endif
+                </span>
+	        </div>
+          </div>
 	      @else
 	      <input disabled value="{{ $show->date }}"
 		         type="hidden"
