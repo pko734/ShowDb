@@ -68,7 +68,22 @@ Show Editor
         @endif
         <table id="setlisttable" class="table table-striped">
           <tbody>
+            @php($encore_row_missing = true)
             @foreach($show->setlistItems->sortBy('order') as $item)
+              @if($item->encore && $encore_row_missing)
+	          <tr class="item-row">
+		        <td>
+                <span class="ac-song-title">
+                  <input name="songs[]"
+			             value=""
+			             class="form-control typeahead"
+			             type="text"
+			             placeholder="Song Title">
+                </span>
+                </td>
+              </tr>
+              @php($encore_row_missing = false)
+              @endif
             <tr>
               <td>
                 <span class="ac-song-title">

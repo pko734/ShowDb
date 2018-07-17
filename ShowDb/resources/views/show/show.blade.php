@@ -21,23 +21,48 @@
 	      <div class="form-group">
 	        <label for="show_date">Show Date</label>
 		    <div class="input-group">
+	          <input disabled value="{{ $show->date }}"
+		             type="text"
+		             class="form-control"
+		             id="show_date"
+		             placeholder="YYYY-MM-DD">
+		        @if($user && $show->users->contains($user->id))
+                <span class="input-group-addon">
+		          <a data-toggle="tooltip"
+		             data-placement="bottom"
+		             class="remove-show-link"
+		             data-show-id="{{ $show->id }}"
+		             title="Remove from my shows" href="">
+		            <i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i></a>
+                </span>
+		          @elseif($user)
+                <span class="input-group-addon">
+		          <a data-toggle="tooltip"
+		             data-placement="bottom"
+		             class="add-show-link"
+		             data-show-id="{{ $show->id }}"
+		             title="Add to my shows" href="">
+		            <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
+                </span>
+                @endif
                 <span class="input-group-addon">
                   @if($prevShow)
-                  <a title="{{ $prevShow->getShowDisplay() }}" href="/shows/{{ $prevShow->id }}">
+                    <a title="Previous Show" 
+                       href="/shows/{{ $prevShow->id }}"
+                       data-placement="bottom"
+                       data-toggle="tooltip">
                   @endif
                     <span class="glyphicon glyphicon-step-backward"></span>
                   @if($prevShow)
                   </a>
                   @endif
                 </span>
-	          <input disabled value="{{ $show->date }}"
-		             type="text"
-		             class="form-control"
-		             id="show_date"
-		             placeholder="YYYY-MM-DD">
                 <span class="input-group-addon">
                   @if($nextShow)
-                  <a title="{{ $nextShow->getShowDisplay() }}" href="/shows/{{ $nextShow->id }}">
+                  <a title="Next Show" 
+                     href="/shows/{{ $nextShow->id }}"
+                     data-placement="bottom"
+                     data-toggle="tooltip">
                   @endif
                   <span class="glyphicon glyphicon-step-forward"></span>
                   @if($nextShow)              
@@ -116,7 +141,14 @@
 	      @endif
 	      <table class="table table">
 	        <tbody>
+              @php($encore_row_missing = true)
 	          @foreach($show->setlistItems->sortBy('order') as $item)
+              @if($item->encore && $encore_row_missing)
+	          <tr class="item-row">
+		        <td colspan="3"><i>Encore</i></td>
+              </tr>
+              @php($encore_row_missing = false)
+              @endif
 	          <tr class="item-row">
 		        <td>{{ $item->order }}.
 		          <a href="/songs/{{ $item->song->id }}">{{ $item->song->title }}</a>
@@ -220,4 +252,12 @@
   </div>
 
 </div>
+<form method="POST" id="user-add-show-form" action="">
+  {{ csrf_field() }}
+</form>
+<form method="POST" id="user-remove-show-form" action="">
+  {{ method_field('DELETE') }}
+  {{ csrf_field() }}
+</form>
+
 @endsection

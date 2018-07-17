@@ -357,13 +357,14 @@ class AbstractShowController extends Controller
         }
 
         $prevShow = Show::whereNull('user_id')
-            ->where('date', '<=', $show->date)
+            ->where('date', '<', $show->date)
             ->where('id', '!=', $show->id)
             ->orderBy('date', 'desc')
             ->first();
         $nextShow = Show::whereNull('user_id')
-            ->where('date', '>=', $show->date)
+            ->where('date', '>', $show->date)
             ->where('id', '!=', $show->id)
+            ->where('id', '!=', $prevShow->id)
             ->orderBy('date', 'asc')
             ->first();
 
@@ -461,9 +462,11 @@ class AbstractShowController extends Controller
         // * If not found, add the new item with correct play order
         // * Keep track of which items are "good"
         // * Delete any left over (removed) setlist items.
+        $encore = 0;
         if(is_array($request->songs)) {
             foreach($request->songs as $song_title) {
                 if( trim($song_title) === '' ) {
+                    $encore = 1;
                     continue;
                 }
 
@@ -477,6 +480,7 @@ class AbstractShowController extends Controller
                     $item->show_id = $id;
                     $item->song_id = Song::where('title', '=', $song_title)->first()->id;
                     $item->order   = $i;
+                    $item->encore  = $encore;
                     $item->creator_id = $request->user()->id;
                     $item->save();
                 } else {
@@ -492,6 +496,7 @@ class AbstractShowController extends Controller
                     if($my_item->order != $i) {
                         $my_item->order = $i;
                     }
+                    $my_item->encore = $encore;
                     $my_item->save();
 
                     // We don't want to delete the "safe" items.

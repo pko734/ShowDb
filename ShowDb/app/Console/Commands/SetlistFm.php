@@ -72,7 +72,13 @@ class SetlistFm extends Command
                             echo "Encore count mismatch: $song->name, $date\n";
                             continue;
                         }
-                        echo "                   Want to set '{$song->name} on '{$date}' to ENCORE!\n";
+                        $year = substr($date, 0, 4);
+                        if($year == 2018 || $year == 2017 || $year == 2016 || $year == 2015) {
+                            $item->encore = 1;
+                            $item->save();
+                        } else {
+                            echo "                   Want to set '{$song->name} on '{$date}' to ENCORE!\n";
+                        }
                     }
                 }
                 echo "\n";
