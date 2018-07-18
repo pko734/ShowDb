@@ -47,7 +47,7 @@
 		          <i data-toggle="tooltip"
 		             data-placement="left"
 		             title="{{ $item->notes->get(0)->note }}"
-		             class="fa fa-files-o" aria-hidden="true"></i>
+		             class="far fa-file" aria-hidden="true"></i>
 		          @endif
 		        </td>
 		        <td>

@@ -38,7 +38,7 @@ Songs ({{ $user->username }})
 	    <tr>
 	      <td>
 		@if($song->notes_count > 0)
-		<i class="fa fa-files-o"
+		<i class="far fa-file"
 		   data-toggle="tooltip"
 		   data-placement="right"
 		   title="{{ $song->notes_count }} notes"

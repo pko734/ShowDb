@@ -38,6 +38,24 @@ class SetlistFm extends Command
      */
     public function handle()
     {
+        $shows = Show::whereNull('user_id')
+            ->orderBy('date', 'asc')->get();
+
+        foreach($shows as $show) {
+            $encore = 0;
+            foreach($show->setlistItems->sortBy('order') as $item) {
+                if($item->encore) {
+                    $encore = 1;
+                }
+                if(! $item->encore && $encore) {
+                    echo "found untagged encore: {$show->date} {$item->song->title}\n";
+                    $item->encore = 1;
+                    $item->save();
+                }
+            }
+        }
+
+        /*
         foreach (glob("/var/www/html/ShowDb/ShowDb/tmp/*.txt") as $filename) {
             $json = json_decode(file_get_contents($filename));
 
@@ -84,6 +102,7 @@ class SetlistFm extends Command
                 echo "\n";
             }
         }
+        */
     }
 
     private function _songConvert1($title)

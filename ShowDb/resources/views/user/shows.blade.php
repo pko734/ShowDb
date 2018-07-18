@@ -43,7 +43,7 @@ Shows ({{ $user->username }})
 		   aria-hidden="true"></i>
 		@endif
 		@if($show->notes_count > 0)
-		<i class="fa fa-files-o"
+		<i class="far fa-file"
 		   data-toggle="tooltip"
 		   data-placement="right"
 		   title="{{ $show->notes_count }} notes"

@@ -33,7 +33,7 @@
 		             class="remove-show-link"
 		             data-show-id="{{ $show->id }}"
 		             title="Remove from my shows" href="">
-		            <i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i></a>
+		            <i style="color: green;" class="far fa-check-square" aria-hidden="true"></i></a>
                 </span>
 		          @elseif($user)
                 <span class="input-group-addon">
@@ -42,7 +42,7 @@
 		             class="add-show-link"
 		             data-show-id="{{ $show->id }}"
 		             title="Add to my shows" href="">
-		            <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
+		            <i style="color: green;" class="far fa-square" aria-hidden="true"></i></a>
                 </span>
                 @endif
                 <span class="input-group-addon">
@@ -117,7 +117,7 @@
 	            @endif
 	            '
 	            >
-	            <i class="fa fa-image fa-lg
+	            <i class="far fa-image fa-lg
 			              @if($img->published)
 			              text-primary
 			              @else 
@@ -165,7 +165,7 @@
 		             href="{{ $item->notes->get(0)->note }}"
 		             type="text/html"
 		             >
-		            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+		            <i class="fab fa-youtube" aria-hidden="true"></i>
 		          </a>
 		          @endif
 		        </td>
@@ -213,6 +213,13 @@
     {{ csrf_field() }}
   </form>
   <div class="col-md-6">
+    @if(count($show->setlistItems) > 0)
+    <div class="panel panel-default">
+      <div class="panel-body">
+            <div id="chart_div1" style="height: 300px">Chart loading</div>
+      </div>
+    </div>
+    @endif
     <form id="show-note-form" method="POST" action="{{ url()->current() }}/notes">
       {{ csrf_field() }}
       <div class="form-group">
@@ -259,5 +266,51 @@
   {{ method_field('DELETE') }}
   {{ csrf_field() }}
 </form>
+<script language="javascript">
+    function drawCharts(data1, max1, data2, max2, data3, max3, data4) {
+    	if(data1.length > 1) {
+	        drawChart1( data1, max1 );	    
+	    }
+    }
+  function drawChart1(data, max) {
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('string', 'Album');
+    dataTable.addColumn('number', 'Songs');
+    dataTable.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
+    dataTable.addRows(data);
+    //var data = google.visualization.arrayToDataTable(data);
+
+    //data.setColumnProperty(2, 'role', 'tooltip');
+    //data.setColumnProperty(2, 'html', true);
+
+   	var options = {
+        title: 'Setlist Breakdown by Album',
+   	    //titlePosition: 'none',
+   	    //legend:{position:'none'},
+        //legend: 'none',
+        tooltip: {isHtml: true},
+        pieSliceText: 'value-and-percentage',
+   	    height: 300,
+   	    width: '100%',
+   	    chartArea: {'width': '90%', 'height': '85%'},
+   	    tooltip: { trigger: 'selection', isHtml: true },
+    };
+   
+    if(document.getElementById('chart_div1')) {
+     	var chart = new google.visualization.PieChart(
+     	    document.getElementById('chart_div1')
+   	    );
+      	chart.draw(dataTable, options);
+    }
+  }
+
+  function drawChartsLocal() {
+  
+    var data1 = <?php echo json_encode($albumChartData) ?>;
+    drawCharts(data1);
+    window.onresize = drawChartsLocal;
+  }
+
+</script>
 
 @endsection

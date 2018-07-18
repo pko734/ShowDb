@@ -82,7 +82,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	       @endif
 	       '
 	       >
-	       <i class="fa fa-image fa-lg
+	       <i class="far fa-image fa-lg
 			 @if($img->published)
 			 text-primary
 			 @else 

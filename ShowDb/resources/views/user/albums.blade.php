@@ -58,7 +58,7 @@ Albums ({{ $user->username }})
 	      <tr>
 		<td>
 		  @if($song->notes_count > 0)
-		  <i class="fa fa-files-o"
+		  <i class="far fa-file"
 		     data-toggle="tooltip"
 		     data-placement="right"
 		     title="{{ $song->notes_count }} notes"
@@ -69,7 +69,7 @@ Albums ({{ $user->username }})
 		  @if(!$songCounts[$song->id])
 		  <i class="fa"></i>
 		  @else
-		  <i class="fa fa-check" style="color:green;"></i>
+		  <i class="fas fa-check" style="color:green;"></i>
 		  @endif
 		  <a href="/songs/{{ $song->id }}">
 		    {{ $song->title }}

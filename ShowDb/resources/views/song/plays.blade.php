@@ -75,7 +75,7 @@ Plays: {{ $song->title }}
 		     aria-hidden="true"></i>
 		  @endif
 		  @if($show->notes_count > 0)
-		  <i class="fa fa-files-o"
+		  <i class="far fa-file"
 		     data-toggle="tooltip"
 		     data-placement="right"
 		     title="{{ $show->notes_count }} notes"
@@ -87,10 +87,10 @@ Plays: {{ $song->title }}
 	      <td>
 		@if($user && $show->users->contains($user->id))
 		<a class="remove-show-link" data-show-id="{{ $show->id }}" title="Remove from my shows" href="">
-		  <i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i></a>
+		  <i style="color: green;" class="far fa-check-square" aria-hidden="true"></i></a>
 		@elseif($user)
 		<a class="add-show-link" data-show-id="{{ $show->id }}" title="Add to my shows" href="">
-		  <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
+		  <i style="color: green;" class="far fa-square" aria-hidden="true"></i></a>
 		@endif
 		<a href="/shows/{{ $show->id }}">{{ $show->venue }}</a>
 	      </td>

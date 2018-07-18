@@ -10,7 +10,7 @@ Show Finder
       <h1>Shows</h1>
       <p><em>A listing of past and future The Avett Brothers shows</em></p>
       @if($user)
-      <p><b><em><i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i> Check the shows you've seen to add them to your stats.</em></b></p>
+      <p><b><em><i style="color: green;" class="far fa-check-square" aria-hidden="true"></i> Check the shows you've seen to add them to your stats.</em></b></p>
       @endif
     </div>
     <div class="col-lg-6 col-md-6" style="margin-top: 20px">
@@ -83,14 +83,14 @@ Show Finder
 		   class="remove-show-link"
 		   data-show-id="{{ $show->id }}"
 		   title="Remove from my shows" href="">
-		  <i style="color: green;" class="fa fa-check-square-o" aria-hidden="true"></i></a>
+		  <i style="color: green;" class="far fa-check-square" aria-hidden="true"></i></a>
 		@elseif($user)
 		<a data-toggle="tooltip"
 		   data-placement="left"
 		   class="add-show-link"
 		   data-show-id="{{ $show->id }}"
 		   title="Add to my shows" href="">
-		  <i style="color: green;" class="fa fa-square-o" aria-hidden="true"></i></a>
+		  <i style="color: green;" class="far fa-square" aria-hidden="true"></i></a>
 		@endif
 		@endif
 		<a href="{{ url()->current() }}/{{ $show->id }}">
@@ -98,7 +98,7 @@ Show Finder
 		</a>
 	      </td>
 	      <td>
-		<span style="white-space:nowrap;">
+		<span class="table-icons" style="white-space:nowrap;">
 		  @if($displayComplete && $show->incomplete_setlist && $show->date < date('Y-m-d'))
 		  <i style="color: orange"
 		     class="fa fa-exclamation"
@@ -112,35 +112,35 @@ Show Finder
 		     aria-hidden="true"></i>
 		  @endif
 		  @if($show->notes_count > 0)
-		  <i class="fa fa-files-o"
+		  <i class="far fa-file"
 		     data-toggle="tooltip"
 		     data-placement="right"
 		     title="{{ $show->notes_count }} notes"
 		     aria-hidden="true"></i>
 		  @else
-		  <i class="icon-hidden fa fa-files-o"
+		  <i class="icon-hidden far fa-file"
 		     data-placement="right"
 		     aria-hidden="true"></i>
 		  @endif
 		  @if($show->setlist_items_notes_count > 0)
-		  <i class="fa fa-youtube-play"
+		  <i class="fab fa-youtube"
 		     data-toggle="tooltip"
 		     data-placement="right"
 		     title="{{ $show->setlist_items_notes_count }} videos"
 		     aria-hidden="true"></i>
 		  @else
-		  <i class="icon-hidden fa fa-youtube-play"
+		  <i class="icon-hidden fab fa-youtube"
 		     data-placement="right"
 		     aria-hidden="true"></i>
 		  @endif
 		  @if($show->images_count > 0)
-		  <i class="fa fa-image"
+		  <i class="far fa-image"
 		     data-toggle="tooltip"
 		     data-placement="right"
 		     title="{{ $show->images_count }} photos"
 		     aria-hidden="true"></i>
 		  @else
-		  <i class="icon-hidden fa fa-image"
+		  <i class="icon-hidden far fa-image"
 		     data-placement="right"
 		     aria-hidden="true"></i>
 		  @endif

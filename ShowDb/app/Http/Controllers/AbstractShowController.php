@@ -10,6 +10,8 @@ use ShowDb\ShowNote;
 use ShowDb\SetlistItemNote;
 use ShowDb\ShowImage;
 use ShowDb\State;
+use ShowDb\Album;
+use ShowDb\AlbumItem;
 use Session;
 use Redirect;
 use Auth;
@@ -356,6 +358,49 @@ class AbstractShowController extends Controller
             return redirect(dirname(url()->current()));
         }
 
+        $album_info = [];
+        foreach($show->setlistItems->sortBy('order') as $item) {
+            $albumItem = AlbumItem::where('song_id', '=', $item->song->id)
+                ->whereHas('album', function($q) {
+                        $q->where('type', '=', 'studio');
+                })->first();
+            if($albumItem) {
+                $album = Album::find($albumItem->album_id);
+                if(!isset($album_info[$album->title])) {
+                    $album_info[$album->title] = ['count' => 0, 'songs' => []];
+                }
+                $album_info[$album->title]['count'] += 1;
+                $album_info[$album->title]['songs'][] = $item->song->title;
+            } else {
+                if(stripos($item->song->title, 'cover') !== 0) {
+                    if(!isset($album_info['Covers'])) {
+                        $album_info['Covers'] = ['count' => 0, 'songs' => []];
+                    }
+                    $album_info['Covers']['count'] += 1;
+                    $album_info['Covers']['songs'][] = $item->song->title;
+                } else {
+                    if(!isset($album_info['N/A'])) {
+                        $album_info['N/A'] = ['count' => 0, 'songs' => []];
+                    }
+                    $album_info['N/A']['count'] += 1;
+                    $album_info['N/A']['songs'][] = $item->song->title;
+                }
+            }
+        }
+
+        uasort($album_info, function ($a, $b) {
+                return ($a['count'] < $b['count']) ? 1 : -1;
+            });
+        $album_chart_data = [];
+        foreach($album_info as $album_name => $data) {
+            $album_chart_data[] = [$album_name, 
+                                   $data['count'],
+                                   '<div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 1em">' .
+                                   "<b>({$data['count']}) {$album_name}</b><br/>" .
+                                   implode("<br/>", $data['songs']) . 
+                                   '</div>'];
+        }
+
         $prevShow = Show::whereNull('user_id')
             ->where('date', '<', $show->date)
             ->where('id', '!=', $show->id)
@@ -374,6 +419,7 @@ class AbstractShowController extends Controller
             ->withNextShow($nextShow)
             ->withUser($user)
             ->withImages($images)
+            ->withAlbumChartData($album_chart_data)
             ->withNoteTooltip($this->note_tooltip)
             ->withDisplayComplete($this->display_complete)
             ->withVenueDisplay($this->venue_display)

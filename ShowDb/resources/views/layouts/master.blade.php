@@ -49,7 +49,7 @@
       <a class="close">×</a>
       <a class="play-pause"></a>
       <a class="delete text-danger" title="Delete Photo"><i class="fa fa-trash fa-lg text-danger"></i></a>
-      <a class="approve text-danger" title="Approve Photo"><i class="fa fa-check fa-lg text-success"></i></a>
+      <a class="approve text-danger" title="Approve Photo"><i class="fas fa-check fa-lg text-success"></i></a>
       <ol class="indicator"></ol>
     </div>
     <script>
