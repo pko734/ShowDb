@@ -49,7 +49,16 @@
 	      </div>
           @endif
           <div>
-            <div id="chart_div1"></div>
+            <div id="chart_div1">
+              <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+                <div style="height: 100%; opacity: 0.5; padding: 100px">
+                  <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+                  <p>
+                    <i>Don't Push Me Out</i>
+                  </p>
+                </div>
+              </div>              
+            </div>
           </div>
 	      @if($user && $user->admin)
 	      <button type="submit" class="pull-left btn btn-primary">Edit Song</button>&nbsp;
@@ -111,22 +120,30 @@
    		},
    	    },
    	    vAxis: {
-   		title: 'Times Performed',
-   		titleTextStyle: {
-   		    fontName: 'Lato',           
-   		},
-   		gridlines: {count: -1},
-   		viewWindow:{
-   		    max: Math.ceil(max/5)*5,
-   		    min:0
-   		}          
+   		  title: 'Times Performed',
+   	  	  titleTextStyle: {
+   		      fontName: 'Lato',           
+   		  },
+   		  gridlines: {count: -1},
+   		  viewWindow:{
+   		      max: Math.ceil(max/5)*5,
+   		      min:0
+   		  }
    	    }
    	};
+
+    if(window.animateChart) {
+      options.animation = {
+          duration: 1200,
+          easing: 'out',
+          startup: true
+      };
+    }
    
    	var chart = new google.visualization.ColumnChart(
    	    document.getElementById('chart_div1')
    	);
-/*
+/* 
    	chart.setAction({
    	    id: 'shows',
    	    text: 'See Shows',
@@ -142,10 +159,14 @@
   }
 
   function drawChartsLocal() {
-  
-    var data1 = JSON.parse('<?php echo json_encode($songStats) ?>');
+    var data1 = <?php echo json_encode($songStats) ?>;
+    
+    window.animateChart = true;
     drawCharts(data1);
-    window.onresize = drawChartsLocal;
+    window.onresize = function() {
+      window.animateChart = false;
+      drawCharts(data1);
+    };
   }
 
 </script>

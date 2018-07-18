@@ -175,20 +175,56 @@ Avett Brothers Stats: ({{ $user->username }})
 	  <h1>Location Breakdown</h1>
 	  <p><em>It's not the chase that I love, it's me following you...</em></p>
           <p>US States</p>
-          <div id="chart_div4"></div>
+          <div id="chart_div4" style="height: 300px;">
+            <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+              <div style="height: 100%; opacity: 0.5; padding: 100px">
+                <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+                <p>
+                  <i>I am a Breathing Time Machine</i>
+                </p>
+              </div>
+            </div>
+          </div>
 	</div>
 
 	<div class="yearly">
 	  <h1>Yearly Breakdown</h1>
 	  <p><em>A comparison of shows and songs across years.</em></p>
           <p>Shows by Year</p>
-          <div id="chart_div1"></div>
+          <div id="chart_div1" style="height: 300px;">
+          <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+            <div style="height: 100%; opacity: 0.5; padding: 100px">
+              <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+              <p>
+                <i>I'll Take You All For a Ride</i>
+              </p>
+            </div>
+          </div>
+          </div>
           <p><br/></p>
           <p>Unique Songs by Year</p>
-          <div id="chart_div2"></div>
+          <div id="chart_div2" style="height: 300px;">
+          <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+            <div style="height: 100%; opacity: 0.5; padding: 100px">
+              <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+              <p>
+                <i>Break This Tired Old Routine</i>
+              </p>
+            </div>
+          </div>
+          </div>
           <p><br/></p>
           <p>Songs Performances by Year</p>
-          <div id="chart_div3"></div>
+          <div id="chart_div3" style="height: 300px;">
+          <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+            <div style="height: 100%; opacity: 0.5; padding: 100px">
+              <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+              <p>
+                <i>And This Time Don't Make Me Leave</i>
+              </p>
+            </div>
+          </div>
+          </div>
           <p><br/></p>
 	</div> <!-- yearly breakdown section -->
 
@@ -242,6 +278,14 @@ Avett Brothers Stats: ({{ $user->username }})
 	    }
 	};
 
+    if(window.animateChart) {
+      options.animation = {
+          duration: 1200,
+          easing: 'out',
+          startup: true
+      };
+    }
+
 	var chart = new google.visualization.ColumnChart(
 	    document.getElementById('chart_div1')
 	);
@@ -286,6 +330,14 @@ Avett Brothers Stats: ({{ $user->username }})
 		}          
 	    }
 	};
+
+    if(window.animateChart) {
+      options.animation = {
+          duration: 1200,
+          easing: 'out',
+          startup: true
+      };
+    }
 
 	var chart = new google.visualization.ColumnChart(
 	    document.getElementById('chart_div2'));
@@ -332,6 +384,14 @@ Avett Brothers Stats: ({{ $user->username }})
 	    }
 	};
 
+    if(window.animateChart) {
+      options.animation = {
+          duration: 1200,
+          easing: 'out',
+          startup: true
+      };
+    }
+
 	var chart = new google.visualization.ColumnChart(
 	    document.getElementById('chart_div3'));
 
@@ -365,8 +425,12 @@ Avett Brothers Stats: ({{ $user->username }})
     var max2  = {{ $maxUnique }};
     var max3  = {{ $maxSongs }};
 
+    window.animateChart = true;
     drawCharts(data1, max1, data2, max2, data3, max3, data4);
-    window.onresize = drawChartsLocal;
+    window.onresize = function() {
+      window.animateChart = false;
+      drawCharts(data1, max1, data2, max2, data3, max3, data4);
+    };
   }
 
 </script>

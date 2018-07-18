@@ -216,7 +216,16 @@
     @if(count($show->setlistItems) > 0)
     <div class="panel panel-default">
       <div class="panel-body">
-            <div id="chart_div1" style="height: 300px">Chart loading</div>
+        <div id="chart_div1" style="height: 300px;">
+          <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+            <div style="height: 100%; opacity: 0.5; padding: 100px">
+              <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+              <p>
+                <i>I am a Breathing Time Machine</i>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     @endif
