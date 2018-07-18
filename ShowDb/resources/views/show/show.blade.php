@@ -277,7 +277,7 @@
 </form>
 <script language="javascript">
     function drawCharts(data1, max1, data2, max2, data3, max3, data4) {
-    	if(data1.length > 1) {
+    	if(data1.length > 0) {
 	        drawChart1( data1, max1 );	    
 	    }
     }
