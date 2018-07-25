@@ -312,7 +312,7 @@ class AbstractShowController extends Controller
      */
     public function uploadImagePost($id, Request $request) {
         request()->validate([
-                             'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50000',
+                             'image.*'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50000',
                              'tos'     => 'accepted',
                              'certify' => 'accepted',
                              ]);
@@ -320,19 +320,21 @@ class AbstractShowController extends Controller
         $show = $this->showbase
             ->where('id', '=', $id)
             ->first();
-        $imageName = $request->image->store("/images/{$show->date}/{$show->id}", 's3');
+        foreach($request->image as $one_image) {
+            $imageName = $one_image->store("/images/{$show->date}/{$show->id}", 's3');
 
-        $image = new ShowImage();
-        $image->user_id = $request->user()->id;
-        $image->show_id = $show->id;
-        $image->caption = $request->photo_caption;
-        $image->photo_credit = $request->photo_credit;
-        $image->published = $request->user()->admin;
-        $image->path = $imageName;
-        $image->url = Storage::disk('s3')->url($imageName);
-        $image->save();
+            $image = new ShowImage();
+            $image->user_id = $request->user()->id;
+            $image->show_id = $show->id;
+            $image->caption = $request->photo_caption;
+            $image->photo_credit = $request->photo_credit;
+            $image->published = $request->user()->admin;
+            $image->path = $imageName;
+            $image->url = Storage::disk('s3')->url($imageName);
+            $image->save();
+        }
 
-        Session::flash('flash_message', 'Photo Submitted.  Thank you!');
+        Session::flash('flash_message', 'Photo(s) Submitted.  Thank you!');
         return back()
             ->withShowId($id)
             ->with('image',$imageName);

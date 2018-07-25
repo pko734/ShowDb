@@ -124,7 +124,7 @@ $(document).ready(function() {
 	    "<input name='_token' type='hidden' value='" + window.Laravel.csrfToken + "'>" + 
             "<div class='row'>" + 
             "<div class='col-md-6'>" + 
-	    "<input id='fupload' class='form-control' name='image' type='file' required>" + 
+	    "<input id='fupload' class='form-control' name='image[]' type='file' required multiple>" + 
             "</div>" +
             "<div class='col-md-6'>" + 
             "</div>" +
