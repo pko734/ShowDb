@@ -765,6 +765,7 @@ class UserController extends Controller
     }
 
     public function settings(Request $request) {
+        //        var_export($request->user());
         return view('user.settings')
             ->withUser($request->user());
     }
@@ -779,6 +780,9 @@ class UserController extends Controller
                 'alphanum',
                 Rule::unique('users')->ignore($request->user()->id),
             ],
+            'email' => ['required', Rule::unique('users')->ignore($request->user()->id)],
+            'name' => ['required', 'min:3'],
+            'share' => ['boolean'],
         ]);
         if($v->fails()) {
             return Redirect::back()
@@ -786,8 +790,13 @@ class UserController extends Controller
         }
 
         $request->user()->username = $request->username;
+        $request->user()->email = $request->email;
+        $request->user()->name = $request->name;
+        if($request->share == '0' || $request->share == '1') {
+            $request->user()->share = $request->share;
+        }
         $request->user()->save();
         Session::flash('flash_message', 'Username saved.  Thanks!');
-        return redirect('/');
+        return redirect('/settings');
     }
 }

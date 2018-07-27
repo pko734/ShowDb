@@ -103,6 +103,9 @@
             @if(Auth::user() && Auth::user()->admin)
             <li class="{{ isActiveUrl('/timeline')  }}"><a href="/timeline">Timeline</a></li>
             @endif
+            @if(Auth::user() && Auth::user()->admin)
+            <li class="{{ isActiveUrl('/users')  }}"><a href="/users">Users</a></li>
+            @endif
             <li class="{{ isActiveUrl('/about') }}">
               <a href="/about">About</a>
             </li>
