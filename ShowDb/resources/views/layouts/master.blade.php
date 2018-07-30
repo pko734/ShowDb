@@ -103,7 +103,7 @@
             @if(Auth::user() && Auth::user()->admin)
             <li class="{{ isActiveUrl('/timeline')  }}"><a href="/timeline">Timeline</a></li>
             @endif
-            @if(Auth::user() && Auth::user()->admin)
+            @if(Auth::user())
             <li class="{{ isActiveUrl('/users')  }}"><a href="/users">Users</a></li>
             @endif
             <li class="{{ isActiveUrl('/about') }}">
@@ -130,7 +130,7 @@
             <li><a href="{{ url('/login') }}">Login</a></li>
             <li><a href="{{ url('/register') }}">Register</a></li>
             @else
-            <li class="dropdown">
+            <li class="dropdown {{ isActiveRoute('settings.*') }}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 @if(\Gravatar::exists(Auth::user()->email))
                 {!! \Gravatar::image(Auth::user()->email, 'test', ['width'=>25,'height'=>25]) !!}

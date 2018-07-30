@@ -74,6 +74,21 @@
 	      </div>
 	    </div>
 
+	        <div class="form-group">
+	          <label for="share" class="col-md-4 control-label">Publish My Username and Stats</label>
+	          <div class="col-md-6">
+                <button class="btn btn-lg btn-toggle" 
+                        data-toggle="button" 
+                        aria-pressed="false" 
+                        autocomplete="off"
+                        onClick="$('#share_input_id').attr('value', ($(this).hasClass('active')) ? 0 : 1)"
+                        >
+                  <div class="handle"></div>
+                </button>
+                <input type="hidden" name="share" value="0" id="share_input_id">
+		      </div>
+	        </div>
+
 	    <div class="form-group">
 	      <div class="col-md-6 col-md-offset-4">
 		<button type="submit" class="btn btn-primary">

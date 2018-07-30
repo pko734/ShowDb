@@ -36,14 +36,14 @@ $(document).ready(function() {
 
     $('.add-show-link').on('click', function(e) {
 	e.preventDefault();
-	$('#user-add-show-form').attr('action', '/users/shows/' + $(this).attr('data-show-id'));
+	$('#user-add-show-form').attr('action', '/user/shows/' + $(this).attr('data-show-id'));
 	$('#user-add-show-form').submit();
 	return false;
     });
 
     $('.remove-show-link').on('click', function(e) {
 	e.preventDefault();
-	$('#user-remove-show-form').attr('action', '/users/shows/' + $(this).attr('data-show-id'));
+	$('#user-remove-show-form').attr('action', '/user/shows/' + $(this).attr('data-show-id'));
 	$('#user-remove-show-form').submit();
 	return false;
     });

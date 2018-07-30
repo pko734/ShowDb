@@ -52,9 +52,9 @@
 	          </div>
 	        </div>
 
-            @if($user && $user->admin)
+            @if($user)
 	        <div class="form-group">
-	          <label for="share" class="col-md-4 control-label">Make My Stats Public</label>
+	          <label for="share" class="col-md-4 control-label">Publish My Username and Stats</label>
 	          <div class="col-md-6">
                 <button class="btn btn-lg btn-toggle @if($user->share) active @endif" 
                         data-toggle="button" 

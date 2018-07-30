@@ -44,8 +44,8 @@ Route::put(     'shows/{show}/notes/{note}',         'ShowController@updateNote'
 Route::post(    'setlistitems/{item}/video',         'ShowController@storeItemNote')->name('show.itemnote.store');
 Route::delete(  'setlistitems/{item}/video/{video}', 'ShowController@destroyItemNote')->name('show.itemnote.destroy');
 Route::put(     'setlistitems/{item}/video/{video}', 'ShowController@approveItemNote')->name('show.itemnote.approve');
-Route::post(    'users/shows/{show_id}',             'UserController@storeShow')->name('user.show.store');
-Route::delete(  'users/shows/{show_id}',             'UserController@destroyShow')->name('user.show.destroy');
+Route::post(    'user/shows/{show_id}',              'UserController@storeShow')->name('user.show.store');
+Route::delete(  'user/shows/{show_id}',              'UserController@destroyShow')->name('user.show.destroy');
 
 Route::post('shows/{show}/upload', 'ShowController@uploadImagePost')->name('show.image.upload');
 Route::delete('shows/{show}/photos/{photo}', 'ShowController@deleteImagePost')->name('show.image.delete');
@@ -69,6 +69,9 @@ Route::get('stats/{username}',                    'UserController@userstats')->n
 Route::get('stats/{username}/shows',              'UserController@shows')->name('user.shows');
 Route::get('stats/{username}/songs',              'UserController@songs')->name('user.songs');
 Route::get('stats/{username}/albums',             'UserController@albums')->name('user.albums');
+
+// users
+Route::get('users', 'UsersController@index')->name('users.index');
 
 // admin
 Route::get('admin',       'AdminController@index')->name('admin.index');
