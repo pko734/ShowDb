@@ -25,7 +25,7 @@ class AdminTimelineController extends Controller
     {
         $slides = TimelineSlide::orderBy('start_date', 'asc')
             ->orderBy('start_time', 'asc')
-            ->paginate(15);
+            ->paginate(100);
 
         return view('admin.timeline.index')
             ->withUser($request->user())

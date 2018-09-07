@@ -14,9 +14,9 @@ class UsersController extends Controller
 
     public function index(Request $request) {
         $this->validate($request, [
-                                   'o' => 'in:username-asc,username-desc,shows_count-asc,shows_count-desc',
-                                   'q' => 'string|min:3'
-                                   ]);
+          'o' => 'in:username-asc,username-desc,shows_count-asc,shows_count-desc,random-asc',
+          'q' => 'string|min:3'
+        ]);
 
         $q = $request->get('q');
 
@@ -31,28 +31,36 @@ class UsersController extends Controller
             $users = $users->where('username', 'LIKE', "%{$q}%");
         }
 
-        $users = $users->orderBy($sort_order[0], $sort_order[1])
-            ->paginate(20)
+        if($sort_order[0] === 'random') {
+            $users = $users->inRandomOrder();
+        } else {
+            $users = $users->orderBy($sort_order[0], $sort_order[1]);
+        }
+        $users = $users->paginate(20)
             ->setPath('')
             ->appends( [
-                        'q' => $request->get('q'),
-                        'o' => $request->get('o'),
-                        ]);
-
+                 'q' => $request->get('q'),
+                 'o' => $request->get('o'),
+            ]);
+        
         $user_order = 'username-asc';
         if( $o === $user_order ) {
             $user_order = 'username-desc';
         }
 
-        $show_order = 'shows_count-asc';
+        $show_order = 'shows_count-desc';
         if( $o === $show_order ) {
-            $show_order = 'shows_count-desc';
+            $show_order = 'shows_count-asc';
         }
+
+        $random_order = 'random-asc';
 
         return view('users.index')
             ->withUser($request->user())
             ->withUsers($users)
+            ->withOrder($sort_order[0])
             ->withUserOrder($user_order)
-            ->withShowOrder($show_order);
+            ->withShowOrder($show_order)
+            ->withRandomOrder($random_order);
     }
 }

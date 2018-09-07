@@ -198,6 +198,45 @@ class UserController extends Controller
             ->withUser($request->user());
     }
 
+    /**
+     * Display the shows where a given song was played.
+     *
+     * @param integer                    $song_id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showPlaysAll($song_id, Request $request)
+    {
+        $this->validate($request, [
+            'd' => 'in:asc,desc',
+        ]);
+        $song = Song::findOrFail($song_id);
+        $o = $request->get('o') ?: 'date';
+        $d = $request->get('d') ?: 'desc';
+
+        $shows = Show::whereHas('setlistItems', function($query) use($song_id) {
+            $query->where('song_id', '=', $song_id)
+	    ->orWhere('interlude_song_id', '=', $song_id);
+        })
+               ->whereNull('user_id')
+               ->withCount('setlistItems')
+               ->withCount('notes')
+               ->orderBy($o, $d)
+               ->orderBy('date','desc')
+               ->paginate(15)
+               ->setPath('');
+
+        $pagination = $shows->appends( [
+            'd' => $d,
+        ]);
+
+        return view('song.plays')
+            ->withSong($song)
+            ->withShows($shows)
+            ->withOrderBy($o)
+            ->withUserRestriction((object)['username' => 'all', 'id' => 0])
+            ->withUser((object)['username' => 'all', 'id' => 0]);
+    }
 
     public function userstats($username, Request $request) {
         $v = Validator::make(['username' => $username], [
@@ -761,6 +800,44 @@ class UserController extends Controller
         return view('user.songs')
             ->withSongs($paginate)
             ->withUser($user)
+            ->withQ($q);
+    }
+
+    public function songsAll(Request $request) {
+        $this->validate($request, [
+            'o' => 'in:date-asc,date-desc,setlist_items_count-asc,setlist_items_count-desc',
+            'q' => 'string|min:3',
+        ]);
+
+        $q = $request->q;
+
+        $results = DB::select(DB::raw(
+            "SELECT COUNT(title) AS setlist_items_count,
+                    COUNT(*)     AS total_count,
+                    (SELECT count(*) FROM song_notes WHERE song_notes.song_id = s.id) AS notes_count,
+                    s.id,
+                    s.title
+             FROM songs s
+             JOIN setlist_items si ON s.id = si.song_id
+             JOIN shows sh         ON si.show_id = sh.id
+             WHERE sh.date LIKE '%{$q}%'
+             GROUP BY s.title, s.id
+             ORDER BY setlist_items_count DESC, title asc"));
+ 
+        $page = $request->page ?: 1; // Get the ?page=1 from the url
+        $perPage = 15; // Number of items per page
+        $offset = ($page * $perPage) - $perPage;
+        $songs = new Collection($results);
+        $paginate = new LengthAwarePaginator(
+            array_slice($songs->toArray(), $offset, $perPage, true),
+            count($songs), // Total items
+            $perPage, // Items per page
+            $page, // Current page
+            ['path' => $request->url(), 'query' => $request->query()]
+        );
+        return view('user.songs')
+            ->withSongs($paginate)
+            ->withUser((object)['username' => 'all'])
             ->withQ($q);
     }
 

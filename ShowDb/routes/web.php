@@ -64,6 +64,8 @@ Route::put(     'albumitems/{item}/note/{note}',   'AlbumController@approveItemN
 
 // stats
 Route::get('stats',                               'UserController@allstats')->name('user.index');
+Route::get('stats/all/songs',                     'UserController@songsAll')->name('songs.all');
+Route::get('stats/all/songs/{song}/plays',        'UserController@showPlaysAll')->name('users.songs.plays.all.show');
 Route::get('stats/{username}/songs/{song}/plays', 'UserController@showPlays')->name('users.songs.plays.show');
 Route::get('stats/{username}',                    'UserController@userstats')->name('user.stats');
 Route::get('stats/{username}/shows',              'UserController@shows')->name('user.shows');

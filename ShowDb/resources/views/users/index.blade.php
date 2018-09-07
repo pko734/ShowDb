@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Show Finder
+User Finder
 @endsection
 @section('content')
 
@@ -39,13 +39,24 @@ Show Finder
           <thead>
             <tr>
 	          <th>
-		        <a href="{{ Request::fullUrlWithQuery(['o' => $userOrder]) }}">
+		        <a href="{{ Request::fullUrlWithQuery(['o' => $userOrder, 'page' => 1]) }}">
+		          @if($order == "username")<u>@endif
 		          Username
+  	              @if($order == "username")</u>@endif
 		        </a>
 	          </th>
 	          <th>
-		        <a href="{{ Request::fullUrlWithQuery(['o' => $showOrder]) }}">
-		          Shows
+		        <a href="{{ Request::fullUrlWithQuery(['o' => $showOrder, 'page' => 1]) }}">
+		          @if($order == "shows_count")<u>@endif
+                    Shows
+  	              @if($order == "shows_count")</u>@endif
+		        </a>
+	          </th>
+	          <th width="1px">
+		        <a href="{{ Request::fullUrlWithQuery(['o' => $randomOrder, 'page' => 1]) }}">
+		          @if($order == "random")<u>@endif
+		          Randomize
+  	              @if($order == "random")</u>@endif
 		        </a>
 	          </th>
             </tr>
@@ -58,7 +69,7 @@ Show Finder
 		          {{ $u->username }}
 		        </a>
 	          </td>
-	          <td>
+	          <td colspan="2">
 		        @if ($u->shows_count === 0)
 		        -
 		        @else
@@ -87,7 +98,11 @@ Show Finder
 
   <div class="panel-footer row">
     <div class="pull-right">
+      @if($order != "random")
       {!! $users->render() !!}
+      @else
+      <i>Cannot paginate random order!</i>
+      @endif
     </div>
     <div style="clear:both;"></div>
   </div>

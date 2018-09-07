@@ -6,7 +6,7 @@ Admin
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3>Users</h3>
+      <h3>Users ({{ $userCount }} total)</h3>
     </div>
     <table id="audittable" class="table table-striped">
       <tbody>

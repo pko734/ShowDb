@@ -117,7 +117,7 @@
                 <li class="{{ isActiveUrl('/admin')}}"><a href="/admin">Notes</a></li>
                 <li class="{{ isActiveUrl('/admin/users')}}"><a href="/admin/users">Users</a></li>
                 <li class="{{ isActiveUrl('/admin/timeline')}}"><a href="/admin/timeline">Timeline</a></li>
-                <li class="{{ isActiveUrl('/admin/audit')}}"><a href="/admin/audit">Audit</a></li>
+                <!--<li class="{{ isActiveUrl('/admin/audit')}}"><a href="/admin/audit">Audit</a></li>-->
               </ul>
             </li>
             @endif
