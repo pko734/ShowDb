@@ -40,7 +40,7 @@ class SongController extends Controller
              FROM shows sh
              JOIN setlist_items si ON si.show_id = sh.id
              WHERE sh.user_id IS NULL
-             AND si.song_id = {$song_id}
+             AND (si.song_id = {$song_id} OR si.interlude_song_id = {$song_id})
              GROUP BY year
              ORDER BY year ASC"
         ));

@@ -25,7 +25,10 @@ class Song extends Model
 
     public function shows() {
         return Show::join('setlist_items', 'shows.id', '=', 'setlist_items.show_id')
-            ->where('setlist_items.song_id', $this->id)
+            ->where(function($query) {
+                $query->where('setlist_items.song_id', $this->id)
+                      ->orWhere('setlist_items.interlude_song_id', $this->id);
+                    })
             ->whereNull('shows.user_id');
     }
 
