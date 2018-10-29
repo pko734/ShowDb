@@ -5,7 +5,7 @@
       @yield('title', 'November Blue Database')
     </title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta property="og:type"          content="website" />
