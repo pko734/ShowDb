@@ -374,10 +374,11 @@ class AbstractShowController extends Controller
                 $album_info[$album->title]['count'] += 1;
                 $album_info[$album->title]['songs'][] = $item->song->title;
             } else {
-                if(stripos($item->song->title, 'cover') !== 0) {
+                if(stripos($item->song->title, 'cover') !== false) {
                     if(!isset($album_info['Covers'])) {
                         $album_info['Covers'] = ['count' => 0, 'songs' => []];
                     }
+                    
                     $album_info['Covers']['count'] += 1;
                     $album_info['Covers']['songs'][] = $item->song->title;
                 } else {
