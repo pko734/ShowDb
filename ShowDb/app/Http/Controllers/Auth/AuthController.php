@@ -60,7 +60,7 @@ class AuthController extends Controller
             'name' =>  $user->name,
             'email' => $user->email,
             'fb_id' => $user->id,
-            'username' => '',
+            'username' => null,
             'password' => '',
             'admin'    => 0,
             'avatar'   => $user->avatar,
