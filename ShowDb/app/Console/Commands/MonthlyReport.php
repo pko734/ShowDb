@@ -43,8 +43,8 @@ class MonthlyReport extends Command
      */
     public function handle()
     {
-        $start = date('2018-08-01');
-        $end = date('2018-09-01');
+        $start = date('2018-10-01');
+        $end = date('2018-11-01');
 
         $newshows = Show::whereDate('created_at', '>=', $start)
             ->whereDate('created_at', '<', $end);
