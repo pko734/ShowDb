@@ -14,6 +14,7 @@ User Finder
       @else
       <p>Your stats are currently shared!  This is configurable under the <em>Settings</em> menu.</p>
       @endif
+      <p><em>An asterisk(*) indicates the user has the <a href="https://www.patreon.com/avettdb">donor badge</a></em></p>
     </div>
     <div class="col-lg-6 col-md-6" style="margin-top: 20px">
       <form action="{{ url()->current() }}" method="GET" role="search">
@@ -39,6 +40,13 @@ User Finder
           <thead>
             <tr>
 	          <th>
+		        <a href="/users">
+		          @if($order == "shows_count" && $donorsFirst)<u>@endif
+		          *
+		          @if($order == "shows_count" && $donorsFirst)<u>@endif
+		        </a>
+	          </th>
+	          <th>
 		        <a href="{{ Request::fullUrlWithQuery(['o' => $userOrder, 'page' => 1]) }}">
 		          @if($order == "username")<u>@endif
 		          Username
@@ -47,9 +55,9 @@ User Finder
 	          </th>
 	          <th>
 		        <a href="{{ Request::fullUrlWithQuery(['o' => $showOrder, 'page' => 1]) }}">
-		          @if($order == "shows_count")<u>@endif
+		          @if($order == "shows_count" && !$donorsFirst)<u>@endif
                     Shows
-  	              @if($order == "shows_count")</u>@endif
+  	              @if($order == "shows_count" && !$donorsFirst)</u>@endif
 		        </a>
 	          </th>
 	          <th width="1px">
@@ -64,6 +72,9 @@ User Finder
           <tbody>
             @forelse($users as $u)
             <tr>
+	          <td width="1px">
+                @if ($u->donor)* @endif
+	          </td>
 	          <td>
 		        <a href="/stats/{{ $u->username }}">
 		          {{ $u->username }}

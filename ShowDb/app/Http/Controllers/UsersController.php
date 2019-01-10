@@ -20,7 +20,7 @@ class UsersController extends Controller
 
         $q = $request->get('q');
 
-        $o = $request->get('o') ?: 'shows_count-desc';
+        $o = $request->get('o') ?: 'shows_count-desc-donorfirst';
         $sort_order = explode('-', $o);
 
         $users = User::where('share', '=', '1')
@@ -34,6 +34,12 @@ class UsersController extends Controller
         if($sort_order[0] === 'random') {
             $users = $users->inRandomOrder();
         } else {
+            if(isset($sort_order[2])) {
+                if($sort_order[2] === 'donorfirst') {
+                    $users = $users->orderBy('donor', 'desc');
+                    
+                }
+            }
             $users = $users->orderBy($sort_order[0], $sort_order[1]);
         }
         $users = $users->paginate(20)
@@ -59,6 +65,7 @@ class UsersController extends Controller
             ->withUser($request->user())
             ->withUsers($users)
             ->withOrder($sort_order[0])
+            ->withDonorsFirst(@$sort_order[2] === 'donorfirst')
             ->withUserOrder($user_order)
             ->withShowOrder($show_order)
             ->withRandomOrder($random_order);

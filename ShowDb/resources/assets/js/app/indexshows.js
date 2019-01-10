@@ -3,7 +3,7 @@ $(document).ready(function() {
     var date_type = $('#addbutton').attr('data-show-date') ? "text" : "hidden";
 
     $('#addbutton').click(function() {
-	$('#showtable tbody').append('<tr><td><input name="dates[]" class="form-control" type="' + date_type + '" placeholder="YYYY-MM-DD" value="' + $('#user-add-show-form').attr('data-default-date') + '"></td><td></td><td><input name="venues[]" value="" class="form-control" type="text" placeholder="Venue - City, State"></td><td><span class="ac-show-state"><input name="states[]" value="" class="form-control typeahead" type="text" placeholder="State Name"></span></td></tr>');
+	$('#showtable tbody').append('<tr><td><input name="dates[]" class="form-control" type="' + date_type + '" placeholder="YYYY-MM-DD" value="' + $('#user-add-show-form').attr('data-default-date') + '"></td><td></td><td><input name="venues[]" value="" class="form-control" type="text" placeholder="Venue - City, State"></td><td><span class="ac-show-state"><input name="states[]" value="" class="form-control typeahead new" type="text" placeholder="State Name"></span></td></tr>');
 
 	(function() {
 	    var states = new Bloodhound({
@@ -12,14 +12,15 @@ $(document).ready(function() {
 		prefetch: '/data/states'
 	    });
 
-	    $('.ac-show-state .typeahead').typeahead({
+	    $('.ac-show-state .typeahead .new').typeahead({
 		highlight: true,
 		cache: false
 	    }, {
 		name: 'states',
 		limit: 10,
 		source: states
-	    })
+	    });
+        $('.ac-show-state .typeahead .new').removeClass('new');
 	})();
 
 

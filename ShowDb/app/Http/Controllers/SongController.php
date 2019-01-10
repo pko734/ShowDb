@@ -256,6 +256,7 @@ class SongController extends Controller
         $song = Song::find($id);
         $song->title = $request->title;
         $song->spotify_link = $request->spotify_link ?? null;
+        $song->lyrics = $request->lyrics ?? null;
         $song->save();
 
         Session::flash('flash_message', 'Changes saved');

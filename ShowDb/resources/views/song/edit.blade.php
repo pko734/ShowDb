@@ -41,6 +41,15 @@ Song Editor
 		         id="spotify_link"
 		         placeholder="Spotify Link">
 	    </div>
+	    <div class="form-group">
+	      <label for="lyrics">Lyrics</label>
+	      <textarea 
+             rows="20"
+		     name="lyrics"
+		     class="form-control"
+		     id="lyrics"
+		     placeholder="Lyrics">{{ $song->lyrics }}</textarea>
+	    </div>
 	    <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
