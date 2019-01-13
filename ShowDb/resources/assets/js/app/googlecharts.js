@@ -6,7 +6,12 @@ $(document).ready(function() {
         //    'packages': ['geochart'],
         //    'mapsApiKey': 'AIzaSyC94p4NDgSVwh34FPRCDvaUDnNMA1V-sSU'
         //});
-        GoogleCharts.load(drawChartsLocal, ['corechart']);
+        //GoogleCharts.load(drawChartsLocal, ['corechart']);
+        google.charts.load('current', {
+            'packages':['corechart','geochart','bar'],
+            'mapsApiKey':'AIzaSyCgjVRSXyc1OL6ajWTucQyIsyEJEa6ZfZc'
+        });
+        google.charts.setOnLoadCallback(drawChartsLocal);
     }
 
 });

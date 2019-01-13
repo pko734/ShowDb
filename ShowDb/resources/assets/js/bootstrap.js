@@ -20,7 +20,7 @@ require('imports?define=>false!../../../node_modules/blueimp-gallery/js/jquery.b
 require('imports?define=>false!../../../node_modules/bootstrap-validator/dist/validator.js');
 require('imports?define=>false!../../../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js');
 window.Bloodhound = require('imports?define=>false!../../../node_modules/typeahead.js/dist/bloodhound.js');
-window.GoogleCharts = require('google-charts').GoogleCharts;
+//window.GoogleCharts = require('google-charts').GoogleCharts;
 window.Clipboard = require('imports?define=>false!clipboard');
 window.getVideoId = require('imports?define=>false!../../../node_modules/get-video-id/index.js');
 

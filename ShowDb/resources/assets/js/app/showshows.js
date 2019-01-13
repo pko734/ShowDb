@@ -199,7 +199,7 @@ $(document).ready(function() {
 
     $('#blueimp-gallery').on('open', function(e) {
 	$('#blueimp-gallery').data('gallery').options.continuous = false;
-	$('#blueimp-gallery').data('gallery').options.fullScreen = true;
+	$('#blueimp-gallery').data('gallery').options.fullScreen = false;
     });
 
     $('#blueimp-gallery').on('slide', function(e, index, slide) {

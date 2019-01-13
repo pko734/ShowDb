@@ -46,6 +46,11 @@ Avett Brothers Stats: ({{ $user->username }})
 	      {{ $totalSongs }}
 	    </p>
 	    <hr>
+	    <p>
+	      Number of Covers You've Seen<br>
+	      <a href="{{ url()->current() }}/songs?q=covers">{{ $covers }}</a>
+	    </p>
+	    <hr>
 	    @if(count($incompleteSetlistShows) > 0)
 	    <p>
 	      Shows with incomplete setlist data<br>

@@ -297,12 +297,29 @@ class UserController extends Controller
         }
     }
 
+    private function _getMyCovers($user) {
+        return count(DB::select(DB::raw(
+            "SELECT COUNT(title) AS setlist_items_count,
+                    s.id,
+                    s.title
+             FROM songs s
+             JOIN setlist_items si ON s.id = si.song_id
+             JOIN show_user su     ON su.show_id = si.show_id
+             JOIN shows sh         ON si.show_id = sh.id
+             WHERE su.user_id = {$user->id}
+             AND s.title LIKE '%cover)%'
+             GROUP BY s.title, s.id
+             ORDER BY setlist_items_count DESC, title asc")));
+
+    }
+
     private function _showUserStats($user) {
         $songs = $this->_getMySongs($user);
         $total_songs = $this->_getMyTotalSongs($user);
         $shows_by_year = $this->_getMyShowsByYear($user);
         $songs_by_year = $this->_getMySongsByYear($user);
         $unique_songs_by_year = $this->_getMyUniqueSongsByYear($user);
+        $covers = $this->_getMyCovers($user);
 
         $yearly_graph_data = [
           'shows'        => [['Year', 'Shows', (object)['role' => 'style']]],
@@ -413,6 +430,7 @@ class UserController extends Controller
             ->withMaxSongs($max_songs)
             ->withMaxShows($max_shows)
             ->withSongs($songs)
+            ->withCovers($covers)
             ->withPhotos($photos);
     }
 
@@ -771,6 +789,10 @@ class UserController extends Controller
         $user = User::where('username', '=', $username)->first();
         $q = $request->q;
 
+        if($q == 'covers') {
+            $q = 'cover)';
+        }
+
         $results = DB::select(DB::raw(
             "SELECT COUNT(title) AS setlist_items_count,
                     COUNT(*)     AS total_count,
@@ -782,7 +804,7 @@ class UserController extends Controller
              JOIN show_user su     ON su.show_id = si.show_id
              JOIN shows sh         ON si.show_id = sh.id
              WHERE su.user_id = {$user->id}
-             AND sh.date LIKE '%{$q}%'
+             AND (sh.date LIKE '%{$q}%' OR s.title LIKE '%{$q}%')
              GROUP BY s.title, s.id
              ORDER BY setlist_items_count DESC, title asc"));
 
@@ -797,6 +819,11 @@ class UserController extends Controller
             $page, // Current page
             ['path' => $request->url(), 'query' => $request->query()]
         );
+
+        if($q == 'cover)') {
+            $q = 'covers';
+        }
+
         return view('user.songs')
             ->withSongs($paginate)
             ->withUser($user)
