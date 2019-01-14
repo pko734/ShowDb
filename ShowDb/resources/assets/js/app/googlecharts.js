@@ -9,7 +9,7 @@ $(document).ready(function() {
         //GoogleCharts.load(drawChartsLocal, ['corechart']);
         google.charts.load('current', {
             'packages':['corechart','geochart','bar'],
-            'mapsApiKey':'AIzaSyCgjVRSXyc1OL6ajWTucQyIsyEJEa6ZfZc'
+            'mapsApiKey':mapsApiKey
         });
         google.charts.setOnLoadCallback(drawChartsLocal);
     }

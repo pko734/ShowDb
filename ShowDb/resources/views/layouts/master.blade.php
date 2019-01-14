@@ -193,6 +193,9 @@
     <div id="asd-container">
       @yield('content')
     </div>
+    <script>
+    mapsApiKey="{{ env('GOOGLE_MAPS_API_KEY')}}";
+    </script>
 <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
