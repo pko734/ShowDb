@@ -1,5 +1,5 @@
 #!/bin/sh
-
+youtube-dl -U
 s3fs images.db.nov.blue /mnt/s3 -o use_path_request_style -o dbglevel=info -o url=https://s3-us-east-2.amazonaws.com -o curldbg
 cd /mnt/s3/videos/archive
 echo

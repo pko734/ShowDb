@@ -12,7 +12,7 @@ $(document).ready(function() {
 		prefetch: '/data/states'
 	    });
 
-	    $('.ac-show-state .typeahead .new').typeahead({
+	    $('.ac-show-state .typeahead.new').typeahead({
 		highlight: true,
 		cache: false
 	    }, {
@@ -20,7 +20,8 @@ $(document).ready(function() {
 		limit: 10,
 		source: states
 	    });
-        $('.ac-show-state .typeahead .new').removeClass('new');
+        console.log('here');
+        $('.ac-show-state .typeahead.new').removeClass('new');
 	})();
 
 
