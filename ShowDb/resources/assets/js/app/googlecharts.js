@@ -8,7 +8,7 @@ $(document).ready(function() {
         //});
         //GoogleCharts.load(drawChartsLocal, ['corechart']);
         google.charts.load('current', {
-            'packages':['corechart','geochart','bar'],
+            'packages':['corechart','geochart','bar','controls'],
             'mapsApiKey':mapsApiKey
         });
         google.charts.setOnLoadCallback(drawChartsLocal);

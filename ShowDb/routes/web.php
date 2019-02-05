@@ -13,8 +13,12 @@
 
 Auth::routes();
 
-Route::get('/', function() {
-    return view('index');
+Route::get('/', function(Request $request) {
+        if(Auth::user()) {
+            return redirect("stats/" . Auth::user()->username);
+        } else {
+            return redirect("register");
+        }
 });
 
 Route::get('auth/facebook',          'Auth\AuthController@redirectToProvider')->name('fb.auth');
@@ -85,6 +89,9 @@ Route::resource('admin/timeline', 'AdminTimelineController');
 
 // timeline
 Route::get('timeline', 'TimelineController@index')->name('timeline.index');
+
+// what's new
+Route::get('new', 'WhatsNewController@index')->name('new.index');
 
 // settings
 Route::get('settings',        'UserController@settings')->name('user.settings');

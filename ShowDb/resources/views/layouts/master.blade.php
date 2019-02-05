@@ -41,7 +41,7 @@
     @yield('head')
   </head>
   <body>
-    <div id="blueimp-gallery" class="blueimp-gallery">
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
       <div class="slides"></div>
       <h3 class="title"></h3>
       <a class="prev">‹</a>
@@ -92,10 +92,15 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Left Side Of Navbar -->
           <ul class="nav navbar-nav">
+            <!--
             @if(Auth::user())
             <li class="{{ isActiveUrl('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
-	    @else
+	        @else
             <li class="{{ isActiveUrl('/register') }}"><a href="/register">My Stats</a></li>
+            @endif
+            -->
+            @if(Auth::user())
+            <li class="{{ isActiveUrl('/new') }}"><a href="/new">What's New</a></li>
             @endif
             <li class="{{ isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
             <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
