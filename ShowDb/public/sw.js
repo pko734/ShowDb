@@ -1,4 +1,4 @@
-importScripts("/service-worker/precache-manifest.cd2cb0c3477a1f3ba329dc59019f4c18.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/service-worker/precache-manifest.94852f744e2ad550ae521344ef1ed64b.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 workbox.routing.registerRoute(
   // Cache CSS files

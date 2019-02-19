@@ -896,6 +896,11 @@ fieldset[disabled] {
     margin:0;
   }
 }
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+  max-height: none;
+}
+
 .navbar-brand{
   padding-top:10px;
   font-size:12px;
@@ -1005,7 +1010,7 @@ fieldset[disabled] {
   }
 }
 #asd-container{
-  padding-top:80px;
+  padding-top:60px;
 }
 #asd-navbar{
   background:rgba(0,0,0,.5);
@@ -1032,6 +1037,11 @@ fieldset[disabled] {
     }
     .dropdown-menu{
       border:none;
+      background-color:#000;
+      color: #FFF;
+    }
+    .dropdown-menu>li>a:hover {
+      background-color:#000;
     }
   }
 }
