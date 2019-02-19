@@ -26,6 +26,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link href='{{ elixir('css/app.css') }}' type='text/css' rel='stylesheet'>
+    <link rel="dns-prefetch" href="//maps.googleapis.com">
     <style>
 
 .blueimp-gallery > .delete {

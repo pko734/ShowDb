@@ -19,8 +19,6 @@ $(document).ready(function() {
 	$('.ac-song-title-new')
 	    .removeClass('ac-song-title-new')
 	    .addClass('ac-song-title');
-
-	$('html, body').scrollTop( $(document).height() );
     });
 
     var songs = new Bloodhound({

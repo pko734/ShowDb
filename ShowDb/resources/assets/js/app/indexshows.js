@@ -20,10 +20,9 @@ $(document).ready(function() {
 		limit: 10,
 		source: states
 	    });
-        console.log('here');
+
         $('.ac-show-state .typeahead.new').removeClass('new');
 	})();
-
 
 	if(!datbutton) {
 	    $('#showtable').prepend('<button id="addbutton" type="submit" class="btn btn-primary">Submit</button>');
