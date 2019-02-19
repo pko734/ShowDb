@@ -5,4 +5,9 @@
  * application frontend using useful Laravel and JavaScript libraries.
  */
 
+// app.js
+ 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+}
 require('./bootstrap');

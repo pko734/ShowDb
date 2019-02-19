@@ -17,12 +17,22 @@ Show Finder
       <form action="{{ url()->current() }}" method="GET" role="search">
 	<div class="input-group">
 	  <input type="text" class="form-control" name="q"
-		 placeholder="Search Shows" value="{{ $query or '' }}">
+		 placeholder="Search Shows" value="{{ $query ?? '' }}">
 	  <span class="input-group-btn" style="vertical-align:top;">
 	    <button type="submit" class="btn btn-default">
 	      <span class="glyphicon glyphicon-search"></span>
 	    </button>
 	  </span>
+	  @if($user && ($user->admin || $userCanAddShow))
+	  <span class="input-group-btn" style="vertical-align:top;">
+	    <button id="addbutton" type="button" class="btn btn-default" data-show-date="text">
+	      <span class="glyphicon glyphicon-plus"
+		title="{{ $showAddTooltip }}"
+		data-toggle="tooltip"
+		data-placement="right">
+	    </button>
+	  </span>
+	  @endif
 	</div>
       </form>
     </div>
@@ -168,21 +178,6 @@ Show Finder
 
 
   <div class="panel-footer row">
-    @if($user && ($user->admin || $userCanAddShow))
-    <ul class="pagination">
-      <li>
-        <button id="addbutton"
-		type="button"
-		class="pull-left btn btn-default"
-		data-show-date="{{ $displayShowDate }}">
-          <span class="glyphicon glyphicon-plus"
-		title="{{ $showAddTooltip }}"
-		data-toggle="tooltip"
-		data-placement="right"></span>
-        </button>
-      </li>
-    </ul>
-    @endif
     <div class="pull-right">
       {!! $shows->render() !!}
     </div>

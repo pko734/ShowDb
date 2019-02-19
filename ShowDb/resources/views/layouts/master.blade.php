@@ -14,6 +14,7 @@
     <meta property="og:description"   content="Explore and record Avett Brothers show data!" />
     <meta property="og:image"         content="{{ url('/') }}/img/avett.jpg" />
     <meta property="fb:app_id"        content="{{ env('FACEBOOK_APP_ID') }}" />
+    <link rel="manifest" href="/manifest.json">
 
     <!-- Latest compiled and minified CSS -->
     <link href='{{ elixir('css/app.css') }}' type='text/css' rel='stylesheet'>
@@ -63,6 +64,7 @@
       ga('send', 'pageview');
     </script>
 
+<!--
     <div id="fb-root"></div>
     <script>
       (function(d, s, id) {
@@ -73,6 +75,7 @@
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
+-->
 
     <nav id="asd-navbar" class="navbar navbar-default navbar-fixed-top">
       <div class="container">

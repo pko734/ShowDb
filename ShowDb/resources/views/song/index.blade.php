@@ -13,7 +13,7 @@ Song Finder
 	<form action="{{ url()->current() }}" method="GET" role="search">
 	  <div class="input-group">
 	    <input type="text" class="form-control" name="q"
-		   placeholder="Search Songs" value="{{ $query or '' }}">
+		   placeholder="Search Songs" value="{{ $query ?? '' }}">
 	    <span class="input-group-btn" style="vertical-align:top;">
 	      <button type="submit" class="btn btn-default">
 		<span class="glyphicon glyphicon-search"></span>

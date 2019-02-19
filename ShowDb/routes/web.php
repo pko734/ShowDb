@@ -13,10 +13,15 @@
 
 Auth::routes();
 
+
+Route::view('offline', 'offline');
+
 Route::get('/', function(Request $request) {
         if(Auth::user()) {
+	    return view('redirect')->withTo("stats/" . Auth::user()->username);
             return redirect("stats/" . Auth::user()->username);
         } else {
+	    return view('redirect')->withTo('register');
             return redirect("register");
         }
 });
