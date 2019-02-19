@@ -6,30 +6,31 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.5.*",
-        "laravel/socialite": "~3.0",
-        "barryvdh/laravel-debugbar": "^2.3",
-        "owen-it/laravel-auditing": "^5.0",
-        "orangehill/iseed": "^2.2",
-        "backup-manager/laravel": "^1.1",
-        "thomaswelton/laravel-gravatar": "^1.1",
-        "cornford/googlitics": "^2.2",
-        "laravelista/ekko": "^1.3",
-        "doctrine/dbal": "^2.5",
-        "masih/youtubedownloader" : "~2.8",
-        "srmklive/flysystem-dropbox-v2": "^1.0",
-        "backup-manager/backup-manager": "1.0.x-dev",
-        "league/flysystem-aws-s3-v3": "^1.0",
-        "antennaio/laravel-clyde": "~0.0.1",
-        "illuminate/html": "^5.0",
-        "laravelcollective/html": "^5.5",
-        "intervention/image": "^2.4",
-        "adrianmejias/laravel-states": "^1.2"         
+        "laravel/framework": "5.7.*",
+        "laravel/socialite": "*",
+        "barryvdh/laravel-debugbar": "*",
+        "owen-it/laravel-auditing": "*",
+        "orangehill/iseed": "*",
+        "backup-manager/laravel": "^1.3",
+        "thomaswelton/laravel-gravatar": "*",
+        "cornford/googlitics": "*",
+        "laravelista/ekko": "*",
+        "doctrine/dbal": "*",
+        "masih/youtubedownloader" : "*",
+        "srmklive/flysystem-dropbox-v2": "1.0.6",
+        "backup-manager/backup-manager": "^1.3",
+        "league/flysystem-aws-s3-v3": "*",
+        "antennaio/laravel-clyde": "*",
+        "illuminate/html": "*",
+        "laravelcollective/html": "*",
+        "intervention/image": "*",
+        "adrianmejias/laravel-states": "*",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0",
+        "phpunit/phpunit": "^7.0",
         "symfony/css-selector": "3.1.*",
         "filp/whoops": "~2.0"
     },
@@ -54,12 +55,10 @@
             "php artisan key:generate"
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

@@ -19,7 +19,6 @@ Shows ({{ $user->username }})
       <table id="showtable" class="table table-striped">
 	<thead>
 	  <tr>
-	    <th width="1px"></th>
 	    <th>
 	      Date
 	    </th>
@@ -27,31 +26,13 @@ Shows ({{ $user->username }})
 	      Songs
 	    </th>
 	    <th>Venue</th>
+	    <th width="1px"></th>
 	  </tr>
 	</thead>
 	<tbody>
 	  @forelse($shows as $show)
 	  <tr>
-	    <td>
-	      <span style="white-space:nowrap;">
-		@if($show->incomplete_setlist)
-		<i style="color: orange"
-		   class="fa fa-exclamation"
-		   data-toggle="tooltip"
-		   data-placement="right"
-		   title="Partial or incomplete setlist"
-		   aria-hidden="true"></i>
-		@endif
-		@if($show->notes_count > 0)
-		<i class="far fa-file"
-		   data-toggle="tooltip"
-		   data-placement="right"
-		   title="{{ $show->notes_count }} notes"
-		   aria-hidden="true"></i>
-		@endif
-	      </span>
-	    </td>
-	    <td>{{ $show->date }}</td>
+	    <td style="white-space:nowrap">{{ $show->date }}</td>
 	    <td>
 	      @if ($show->setlist_items_count === 0)
 	      -
@@ -64,6 +45,57 @@ Shows ({{ $user->username }})
 		{{ $show->venue }}
 	      </a>
 	    </td>
+	      <td>
+		<span class="table-icons" style="white-space:nowrap;">
+		  @if($displayComplete && $show->incomplete_setlist && $show->date < date('Y-m-d'))
+		  <i style="color: orange"
+		     class="fa fa-exclamation"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="Partial or incomplete setlist"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden fa fa-exclamation"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+		  @if($show->notes_count > 0)
+		  <i class="far fa-file"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="{{ $show->notes_count }} notes"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden far fa-file"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+		  @if($show->setlist_items_notes_count > 0)
+		  <i class="fab fa-youtube"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="{{ $show->setlist_items_notes_count }} videos"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden fab fa-youtube"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+		  @if($show->images_count > 0)
+		  <i class="far fa-image"
+		     data-toggle="tooltip"
+		     data-placement="right"
+		     title="{{ $show->images_count }} photos"
+		     aria-hidden="true"></i>
+		  @else
+		  <i class="icon-hidden far fa-image"
+		     data-placement="right"
+		     aria-hidden="true"></i>
+		  @endif
+
+		</span>
+ 	      </td>
+
 	  </tr>
 	  @empty
 	  <tr>

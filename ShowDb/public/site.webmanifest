@@ -1,0 +1,20 @@
+{
+    "name": "Avett Database",
+    "short_name": "db.nov.blue",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e1ebf4",
+    "background_color": "#e1ebf4",
+    "start_url": "/",
+    "display": "standalone"
+}

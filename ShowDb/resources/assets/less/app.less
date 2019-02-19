@@ -1,9 +1,10 @@
 
-@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
+@import (css) url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+//@import (css) url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css);
 @import "/trumbowyg/ui/trumbowyg.min.css";
-@import "https://use.fontawesome.com/releases/v5.1.0/css/all.css";
-@import "https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i";
-@import "https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css";
+@import (css) url(https://use.fontawesome.com/releases/v5.1.0/css/all.css);
+@import (css) url(https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i);
+@import (css) url(https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css);
 @import "//blueimp.github.io/Gallery/css/blueimp-gallery.min.css";
 @import "//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css";
 @import "/css/font-awesome-animation.min.css";
@@ -896,15 +897,14 @@ fieldset[disabled] {
     margin:0;
   }
 }
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+  max-height: none;
+}
+
 .navbar-brand{
-  padding-top:10px;
-  font-size:12px;
+  padding-top: 5px;
   display:inline-block;
-  width:100px;
-  text-transform: uppercase;
-  color:#FCC!important;
-  text-align: right;
-  line-height:11px;
 }
 /* ====================================== */
 /*               Misc Stuff               */
@@ -1005,7 +1005,7 @@ fieldset[disabled] {
   }
 }
 #asd-container{
-  padding-top:80px;
+  padding-top:60px;
 }
 #asd-navbar{
   background:rgba(0,0,0,.5);
@@ -1032,6 +1032,10 @@ fieldset[disabled] {
     }
     .dropdown-menu{
       border:none;
+      background-color:#333;
+    }
+    .dropdown-menu>li>a:hover {
+      background-color:#444;
     }
   }
 }
@@ -1075,6 +1079,20 @@ fieldset[disabled] {
     display:none;
   }
   .col-md-6{
+    padding-right:0;
+    padding-left:0;
+  }
+/*
+  .col-md-7{
+    padding-right:0;
+    padding-left:0;
+  }
+*/
+  .container .col-md-7 {
+    padding-right:0;
+    padding-left:0;
+  }
+  .container .col-md-5 {
     padding-right:0;
     padding-left:0;
   }

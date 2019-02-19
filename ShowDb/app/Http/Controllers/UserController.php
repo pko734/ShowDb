@@ -734,6 +734,7 @@ class UserController extends Controller
         return view('user.shows')
             ->withShows($shows)
             ->withUser($user)
+  	    ->withDisplayComplete(true)
             ->withQ($q);
 
     }

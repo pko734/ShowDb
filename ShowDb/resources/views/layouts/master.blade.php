@@ -15,6 +15,15 @@
     <meta property="og:image"         content="{{ url('/') }}/img/avett.jpg" />
     <meta property="fb:app_id"        content="{{ env('FACEBOOK_APP_ID') }}" />
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#e1ebf4">
+    <meta name="theme-color" content="#e1ebf4">
+    <meta name="apple-mobile-web-app-title" content="Avett Database">
+
     <!-- Latest compiled and minified CSS -->
     <link href='{{ elixir('css/app.css') }}' type='text/css' rel='stylesheet'>
     <style>
@@ -63,6 +72,7 @@
       ga('send', 'pageview');
     </script>
 
+<!--
     <div id="fb-root"></div>
     <script>
       (function(d, s, id) {
@@ -73,6 +83,7 @@
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
+-->
 
     <nav id="asd-navbar" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -85,8 +96,8 @@
             <span class="icon-bar"></span>
           </button>
           <!-- Branding Image -->
-          <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+          <a class="navbar-brand" href="@if(Auth::user())/stats/{{Auth::user()->username}}@else/@endif">
+            <img src="/images/dblogo-white-48x48.png">
           </a>
         </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">

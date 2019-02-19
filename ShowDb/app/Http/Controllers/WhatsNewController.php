@@ -22,7 +22,7 @@ class WhatsNewController extends Controller
     }
 
     public function index(Request $request) {
-        DB::statement('SET GLOBAL group_concat_max_len = 1000000');
+        //DB::statement('SET GLOBAL group_concat_max_len = 1000000');
         $shows = Show::select(DB::raw(
             'GROUP_CONCAT(CONCAT(\'{"id":"\', id, \'"}\')) as data'), 
             DB::raw('Date(created_at) as create_date'))
