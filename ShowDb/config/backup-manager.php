@@ -30,7 +30,7 @@ return [
         'root' => '',
     ],
     'dropbox' => [
-        'type' => 'Dropbox',
+        'type' => 'DropboxV2',
         'token' => env('DROPBOX_TOKEN'),
         'key' => env('DROPBOX_APP_KEY'),
         'secret' => env('DROPBOX_SECRET'),

@@ -59,6 +59,35 @@
 		</a>
 	      </div>
 	    </div>
+
+	    <div class="form-group">
+	      <div class="col-md-6 col-md-offset-4">
+		or
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      <div class="col-md-6 col-md-offset-4">
+		<button type="button" class="btn btn-primary" onclick="location.href='/auth/facebook'">
+		  Login with Facebook
+		</button>
+	      </div>
+	    </div>
+
+ 	    <div class="form-group">
+	      <div class="col-md-6 col-md-offset-4">
+		or
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      <div class="col-md-6 col-md-offset-4">
+		<button type="button" class="btn btn-primary" onclick="location.href='/register'">
+		  Register Now
+		</button>
+	      </div>
+	    </div>
+
 	  </form>
 	</div>
       </div>

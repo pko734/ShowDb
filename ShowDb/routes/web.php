@@ -21,7 +21,7 @@ Route::get('/', function(Request $request) {
 	    return view('redirect')->withTo("stats/" . Auth::user()->username);
             return redirect("stats/" . Auth::user()->username);
         } else {
-	    return view('redirect')->withTo('register');
+	    return view('redirect')->withTo('login');
             return redirect("register");
         }
 });

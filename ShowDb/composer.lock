@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e79caff66d4f4d4115dfa56fa4c6568",
+    "content-hash": "271911878fe9e762d984a0522f87688c",
     "packages": [
         {
             "name": "adrianmejias/laravel-states",
@@ -3477,16 +3477,16 @@
         },
         {
             "name": "srmklive/flysystem-dropbox-v2",
-            "version": "v1.0.7",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/srmklive/flysystem-dropbox-v2.git",
-                "reference": "26d893a0ccb01f5406cc814485f6715bad4426c0"
+                "reference": "4d46205ec09247e936656724102bc5ba27c95587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/srmklive/flysystem-dropbox-v2/zipball/26d893a0ccb01f5406cc814485f6715bad4426c0",
-                "reference": "26d893a0ccb01f5406cc814485f6715bad4426c0",
+                "url": "https://api.github.com/repos/srmklive/flysystem-dropbox-v2/zipball/4d46205ec09247e936656724102bc5ba27c95587",
+                "reference": "4d46205ec09247e936656724102bc5ba27c95587",
                 "shasum": ""
             },
             "require": {
@@ -3495,7 +3495,7 @@
                 "php": ">=5.5.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8|^5.7|^6.0|^7.0"
+                "phpunit/phpunit": "^4.8|^5.7|^6.0"
             },
             "type": "library",
             "autoload": {
@@ -3522,7 +3522,7 @@
                 "srmklive",
                 "v2"
             ],
-            "time": "2018-05-19T19:08:49+00:00"
+            "time": "2017-10-20T15:24:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

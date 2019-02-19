@@ -20,6 +20,13 @@ Album Finder
 	      <span class="glyphicon glyphicon-search"></span>
 	    </button>
 	  </span>
+	  @if($user && $user->admin)
+	  <span class="input-group-btn" style="vertical-align:top;">
+	    <button id="albumaddbutton" type="button" class="btn btn-default">
+	      <span class="glyphicon glyphicon-plus"></span>
+	    </button>
+	  </span>
+	  @endif
 	</div>
       </form>
     </div>
@@ -91,15 +98,6 @@ Album Finder
   </div><!--/.is-table-->
 
   <div class="panel-footer row">
-    @if($user && $user->admin)
-    <ul class="pagination">
-      <li>
-	<button id="albumaddbutton" type="button" class="pull-left btn btn-default">
-	  <span class="glyphicon glyphicon-plus"></span>
-	</button>
-      </li>
-    </ul>
-    @endif
     {!! $albums->render() !!}
   </div><!--/.panel-footer-->
 </div><!--/.panel-->

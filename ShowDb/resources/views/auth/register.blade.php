@@ -109,6 +109,21 @@
 		</button>
 	      </div>
 	    </div>
+
+ 	    <div class="form-group">
+	      <div class="col-md-6 col-md-offset-4">
+		or
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      <div class="col-md-6 col-md-offset-4">
+		<button type="button" class="btn btn-primary" onclick="location.href='/login'">
+		  Login with Email
+		</button>
+	      </div>
+	    </div>
+
 	  </form>
 	</div>
       </div>

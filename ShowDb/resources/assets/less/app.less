@@ -1,5 +1,6 @@
 
 @import (css) url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+//@import (css) url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css);
 @import "/trumbowyg/ui/trumbowyg.min.css";
 @import (css) url(https://use.fontawesome.com/releases/v5.1.0/css/all.css);
 @import (css) url(https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i);
@@ -902,14 +903,8 @@ fieldset[disabled] {
 }
 
 .navbar-brand{
-  padding-top:10px;
-  font-size:12px;
+  padding-top: 5px;
   display:inline-block;
-  width:100px;
-  text-transform: uppercase;
-  color:#FCC!important;
-  text-align: right;
-  line-height:11px;
 }
 /* ====================================== */
 /*               Misc Stuff               */
@@ -1037,11 +1032,10 @@ fieldset[disabled] {
     }
     .dropdown-menu{
       border:none;
-      background-color:#000;
-      color: #FFF;
+      background-color:#333;
     }
     .dropdown-menu>li>a:hover {
-      background-color:#000;
+      background-color:#444;
     }
   }
 }
@@ -1085,6 +1079,20 @@ fieldset[disabled] {
     display:none;
   }
   .col-md-6{
+    padding-right:0;
+    padding-left:0;
+  }
+/*
+  .col-md-7{
+    padding-right:0;
+    padding-left:0;
+  }
+*/
+  .container .col-md-7 {
+    padding-right:0;
+    padding-left:0;
+  }
+  .container .col-md-5 {
     padding-right:0;
     padding-left:0;
   }

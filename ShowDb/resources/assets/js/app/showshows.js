@@ -2,6 +2,8 @@ $(document).ready(function() {
     $('.video_link').attr('data-youtube', function() { return getVideoId(this.href).id }); 
 
     $('#delete-show-btn').on('click', function() {
+//	$("#mi-modal").modal('show');
+	console.log('test');
 	bootbox.confirm('Are you sure you want to delete this show?', function(result) {
 	    if(result) {
 		    $('#delete-show-form').submit();

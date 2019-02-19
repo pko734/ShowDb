@@ -1,3 +1,5 @@
+workbox.googleAnalytics.initialize();
+
 workbox.routing.registerRoute(
   // Cache CSS files
   /\.(?:js|css)$/,
