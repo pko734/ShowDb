@@ -14,6 +14,7 @@
     <meta property="og:description"   content="Explore and record Avett Brothers show data!" />
     <meta property="og:image"         content="{{ url('/') }}/img/avett.jpg" />
     <meta property="fb:app_id"        content="{{ env('FACEBOOK_APP_ID') }}" />
+    <meta name="theme-color" content="#000" />
     <link rel="manifest" href="/manifest.json">
 
     <!-- Latest compiled and minified CSS -->

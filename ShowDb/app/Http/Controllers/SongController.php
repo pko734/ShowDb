@@ -71,8 +71,12 @@ class SongController extends Controller
         ]);
         $q = $request->get('q');
         $o = $request->get('o') ?: 'setlist_items_count-desc';
+	$p = $request->get('page');
         $sort_order = explode('-', $o);
-        $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
+
+	$songs = \Cache::get("songs-index-$q-$o-$p");
+	if($songs === null) {
+	  $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
             ->withCount('notes')
             ->where( 'title', 'LIKE', '%' . $q . '%' )
             ->orWhereHas('notes', function($query) use ($q) {
@@ -83,6 +87,9 @@ class SongController extends Controller
             ->orderBy('title')
             ->paginate(15)
             ->setPath( '' );
+
+	  \Cache::put("songs-index-$q-$o-$p", $songs, 60*24);
+	}
         $pagination = $songs->appends( [
             'q' => $q,
             'o' => $o,
@@ -97,6 +104,8 @@ class SongController extends Controller
         if( $o === $title_order ) {
             $title_order = 'title-desc';
         }
+
+	
 
         return view('song.index')
             ->withSongs($songs)

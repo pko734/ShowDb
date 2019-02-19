@@ -33,7 +33,6 @@ $(document).ready(function() {
 	    datbutton = true;
 	}
 
-	$('html, body').scrollTop( $(document).height() );
     });
 
     $('.add-show-link').on('click', function(e) {

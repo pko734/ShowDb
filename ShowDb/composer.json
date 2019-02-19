@@ -24,7 +24,8 @@
         "illuminate/html": "*",
         "laravelcollective/html": "*",
         "intervention/image": "*",
-        "adrianmejias/laravel-states": "*"
+        "adrianmejias/laravel-states": "*",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
