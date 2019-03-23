@@ -21,6 +21,16 @@ About
       </div><!--/.panel-->
       <div class="panel panel-default">
         <div class="panel-heading">
+          <h3>Where did this site come from?</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            This Avett Setlist Database and Website were conceived and created in December 2016 by <a href="https://twitter.com/11x0000FF">Paul Oehler</a>.
+          </p>
+        </div>
+      </div><!--/.panel-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
           <h3>Where did this data come from?</h3>
         </div>
         <div class="panel-body">
@@ -36,16 +46,6 @@ About
         <div class="panel-body">
           <p>
             Data is spotty for the early shows.  If you can help fill in the gaps, contact one of the administrators!
-          </p>
-        </div>
-      </div><!--/.panel-->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3>Where did this site come from?</h3>
-        </div>
-        <div class="panel-body">
-          <p>
-            This Avett Setlist Database and Website were conceived and created in December 2016 by <a href="https://twitter.com/11x0000FF">Paul Oehler</a>.
           </p>
         </div>
       </div><!--/.panel-->

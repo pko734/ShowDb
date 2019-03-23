@@ -23,6 +23,7 @@ class WhatsNewController extends Controller
 
     public function index(Request $request) {
         //DB::statement('SET GLOBAL group_concat_max_len = 1000000');
+
         $shows = Show::select(DB::raw(
             'GROUP_CONCAT(CONCAT(\'{"id":"\', id, \'"}\')) as data'), 
             DB::raw('Date(created_at) as create_date'))
@@ -31,7 +32,6 @@ class WhatsNewController extends Controller
             ->groupBy(DB::raw('Date(created_at)'))
             ->orderBy('created_at', 'DESC')->get();
 
-        $stuff = [];
         foreach($shows->toArray() as $data) {
             foreach(json_decode('[' . $data['data'] . ']') as $d) {
                 $stuff[$data['create_date']]['shows'][] = $d->id;

@@ -321,6 +321,40 @@ class AbstractShowController extends Controller
             ->where('id', '=', $id)
             ->first();
         foreach($request->image as $one_image) {
+            $exif = exif_read_data($one_image->path());
+            if($one_image->clientExtension() == "jpg" || $one_image->clientExtension() == "jpeg"){
+                $image = imagecreatefromjpeg($one_image->path());
+            }
+            if($one_image->clientExtension() == "gif"){
+                $image = imagecreatefromgif($one_image->path());
+            }
+            if($one_image->clientExtension() == "png"){
+                $image = imagecreatefrompng($one_image->path());
+            }
+            if(!empty($exif['Orientation'])) {
+                switch($exif['Orientation']) {
+                case 8:
+                    $image = imagerotate($image,90,0);
+                    break;
+                case 3:
+                    $image = imagerotate($image,180,0);
+                    break;
+                case 6:
+                    $image = imagerotate($image,-90,0);
+                    break;
+                }
+            }
+            if($one_image->clientExtension() == "jpg" || $one_image->clientExtension() == "jpeg"){
+                imagejpeg($image, $one_image->path(),100);
+            }
+            if($one_image->clientExtension() == "gif"){
+                imagegif($image, $one_image->path());
+            }
+            if($one_image->clientExtension() == "png"){
+                imagepng($image, $one_image->path(),9);
+            }
+            imagedestroy($image);
+
             $imageName = $one_image->store("/images/{$show->date}/{$show->id}", 's3');
 
             $image = new ShowImage();

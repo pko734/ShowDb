@@ -50,7 +50,7 @@ class ArchiveVideos extends Command
 	    unlink($tmp_dir);
 	    mkdir($tmp_dir);
 	    chdir($tmp_dir);
-	    $cmd = "youtube-dl '{$Note->note}'";
+	    $cmd = "LC_ALL=en_US.UTF-8 youtube-dl '{$Note->note}'";
 	    exec($cmd, $result, $retval);
 	    if($retval !== 0) {
 	      echo "\n{$Note->note}\n{$Note->setlistItem->show->date}\n";

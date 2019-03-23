@@ -46,15 +46,15 @@ class VideoUpdateCommand extends Command
         $apikey =    env('YOUTUBE_API_KEY');
 
         $page = '';
-	$search = 'q=' . urlencode('') . '&';
+        $search = 'q=' . urlencode('') . '&';
         while(true) {
- 	    $url = "https://www.googleapis.com/youtube/v3/search?{$search}{$page}key={$apikey}&channelId={$channelId}&order=date&part=snippet&maxResults=50";
-	    $x = json_decode( file_get_contents($url));
+            $url = "https://www.googleapis.com/youtube/v3/search?{$search}{$page}key={$apikey}&channelId={$channelId}&order=date&part=snippet&maxResults=50";
+            $x = json_decode( file_get_contents($url));
             $this->findVideos($x);
             if(isset($x->nextPageToken)) {
                 $page = "pageToken={$x->nextPageToken}&";
             } else {
-	        break;
+                break;
             }
         }
     }
@@ -70,18 +70,22 @@ class VideoUpdateCommand extends Command
 
             $title = $item->snippet->title;
 
-	    if( stristr( $title, 'avett' ) === false ) {
-	      continue;
-	    }
+            if( stristr( $title, 'avett' ) === false ) {
+                continue;
+            }
 
-	    if( $item->id->kind !== 'youtube#video' ) {
-	      continue;
-	    }
-	    if( SetlistItemNote::where("note", 'LIKE', "%watch?v={$item->id->videoId}%")->count() > 0 ) {
-	      continue;
-	    }
+            if( $item->id->kind !== 'youtube#video' ) {
+                continue;
+            }
+            if( SetlistItemNote::where("note", 'LIKE', "%watch?v={$item->id->videoId}%")->count() > 0 ) {
+                continue;
+            }
 
-	    $matches = [];
+            $title = str_replace('&quot;', '"', $title);
+            $title = str_replace('&#39;', '\'', $title);
+            $title = str_replace('Yard Sale', 'Yardsale', $title);
+
+            $matches = [];
             preg_match('/[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{2}/', $title, $matches);
             if(isset($matches[0])) {
                 // dcrangerfan messed up the date of these videos.
@@ -90,48 +94,58 @@ class VideoUpdateCommand extends Command
                 }
                 $date = DateTime::createFromFormat('m.d.y', $matches[0]);
             } else {
-	        $this->error("Could not find date in: $title\nhttps://youtube.com/watch?v={$item->id->videoId}");
+                $this->error("Could not find date in: $title\nhttps://youtube.com/watch?v={$item->id->videoId}");
                 continue;
             }
-	    $matches = [];
-            preg_match('/"(.*)"/', $title, $matches);
+            $matches = [];
+            preg_match('/"(.*)"/i', $title, $matches);
             if(isset($matches[1])) {
                 $song_name = $matches[1];
             } else {
                 $this->error("Could not a song name in: $title\nhttps://youtube.com/watch?v={$item->id->videoId}");
                 continue;
             }
-
+        
             $show = Show::where('date',  '=', $date->format('Y-m-d'))
                   ->orderBy('id', 'desc')
                   ->first();
             $song = Song::where('title', 'LIKE', '%' . 
-				str_replace( '...', '', str_replace('The ', '', trim($song_name))) . '%')->first();
-
+                                str_replace( '...', '', str_replace('The ', '', trim($song_name))) . '%')->first();
+        
             if(!$show) {
                 $this->error( "Could not find show for: $title\nhttps://youtube.com/watch?v={$item->id->videoId}");
                 continue;
             }
-
-	    if(!$song) {
-              $song = Song::where(\DB::raw('replace(replace(title,"\'", "" ), ",", "") LIKE \'' .  
-					  str_replace( ",", '', str_replace( "'", '', str_replace( '...', '', str_replace('The ', '', trim($song_name))))) . '%\''))->first();
-
-	    }
+        
+            if(!$song) {
+                $song = Song::where(\DB::raw('replace(replace(title,"\'", "" ), ",", "") LIKE \'' .  
+                                             str_replace( ",", '', str_replace( "'", '', str_replace( '...', '', str_replace('The ', '', trim($song_name))))) . '%\''))->first();
+            
+            }
             if(!$song) {
                 $this->error( "Could not find song for: $title\nhttps://youtube.com/watch?v={$item->id->videoId}");
-                continue;
+                echo "help? ";
+                $song_name = readline();
+                if(trim($song_name) == "") {
+                    continue;
+                }
+                $song = Song::where('title', 'LIKE', '%' . 
+                                    str_replace( '...', '', str_replace('The ', '', trim($song_name))) . '%')->first();
+                
+                if(!$song) {
+                    continue;
+                }
             }
-
+        
             $setlist_item = SetlistItem::where('show_id', '=', $show->id)
-                ->where('song_id', '=', $song->id)
-                ->first();
-
+                          ->where('song_id', '=', $song->id)
+                          ->first();
+        
             if(!$setlist_item) {
                 $this->error( "Could not setlist item for: $title '$song_name' '{$date->format('Y-m-d')}'\nhttps://youtube.com/watch?v={$item->id->videoId}");
                 continue;
             }
-
+        
             if( !SetlistItemNote::where('setlist_item_id', '=', $setlist_item->id)->first()) {
                 $note = new SetlistItemNote();
                 $note->note = "https://youtube.com/watch?v={$item->id->videoId}";
