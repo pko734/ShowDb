@@ -9,6 +9,16 @@
 @import "//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css";
 @import "/css/font-awesome-animation.min.css";
 
+
+// pwa-back
+#pwa-back {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 5000;
+  display: none;
+}
+
 // Colors
 @brand-primary: #29b5a8;
 @brand-secondary: #ff8300;
@@ -761,7 +771,6 @@ select[multiple].input-group.input-group-lg {
 }
 .twitter-typeahead {
     width: 100%;
-    float: left;
     .tt-hint {
 	color: @color_9;
     }
@@ -1071,7 +1080,16 @@ fieldset[disabled] {
 	}
     }
 }
+
+@media (max-width: 992px) {
+  #pwa-back {
+    display: block;
+  }
+}
 @media (max-width: 650px) {
+  #pwa-back {
+    display: block;
+  }
   .is-table-col{
     width:100%;
   }

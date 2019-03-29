@@ -3,6 +3,11 @@
 Avett Brothers Stats: ({{ $user->username }})
 @endsection
 @section('content')
+@if(!$backButton)
+<style>
+  #pwa-back { display: none; }
+</style>
+@endif
 <div class="wrap">
 
   <div class="container-fluid">

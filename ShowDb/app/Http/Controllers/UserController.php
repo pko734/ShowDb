@@ -402,6 +402,11 @@ class UserController extends Controller
 
         $this->_generateBadges($user, $album_info, $total_songs, count($songs), count($past_shows), count($photos));
 
+        if(\Auth::user()->id == $user->id) {
+            $back_button = false;
+        } else {
+            $back_button = true;
+        }
         return view('user.index')
             ->withPastShows($past_shows)
             ->withUpcomingShows($user
@@ -431,7 +436,8 @@ class UserController extends Controller
             ->withMaxShows($max_shows)
             ->withSongs($songs)
             ->withCovers($covers)
-            ->withPhotos($photos);
+            ->withPhotos($photos)
+            ->withBackButton($back_button);
     }
 
     private function _generateBadges($user, $album_info, $songs, $unique, $shows, $photos) {

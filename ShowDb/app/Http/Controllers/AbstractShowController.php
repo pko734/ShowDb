@@ -505,6 +505,7 @@ class AbstractShowController extends Controller
                                        'interlude_song' => 'exists:songs,title',
                                        'state'   => 'exists:states,name',
                                        'complete' => 'boolean',
+                                       'openers'  => 'string|between:2,255'
                                        ]);
 
         try {
@@ -526,6 +527,13 @@ class AbstractShowController extends Controller
             $state_id = State::where('name', '=', $request->state)->first()->id;
         }
         $show->state_id = $state_id;
+
+        if($request->openers == '') {
+            $openers = null;
+        } else {
+            $openers = $request->openers;
+        }
+        $show->openers = $openers;
 
         if(isset($request->complete)) {
             $show->incomplete_setlist = !$request->complete;

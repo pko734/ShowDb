@@ -25,7 +25,7 @@
     <meta name="apple-mobile-web-app-title" content="Avett Database">
 
     <!-- Latest compiled and minified CSS -->
-    <link href='{{ elixir('css/app.css') }}' type='text/css' rel='stylesheet'>
+    <link href='{{ elixir('css/app.css') }}?update4' type='text/css' rel='stylesheet'>
     <link rel="dns-prefetch" href="//maps.googleapis.com">
     <style>
 
@@ -51,6 +51,10 @@
     @yield('head')
   </head>
   <body>
+    <a href="javascript:window.history.back();" id="pwa-back" class="fa-stack fa-2x">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-arrow-left fa-stack-1x fa-inverse"></i>
+    </a>    
     <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
       <div class="slides"></div>
       <h3 class="title"></h3>

@@ -21,6 +21,9 @@ What's New
     @if(isset($data['shows']))
     <p><b>{{ count($data['shows']) }} new {{ str_plural('show', count($data['shows'])) }}</b>
       <br>
+      @php
+      sort($data['shows']);
+      @endphp
       @foreach($data['shows'] as $show_id)
       @php
       $show = \ShowDb\Show::find($show_id);

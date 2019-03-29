@@ -1,6 +1,6 @@
 importScripts("/service-worker/precache-manifest.5d55c6b15a2c7064201065f688e7e1fd.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
-workbox.googleAnalytics.initialize();
+//workbox.googleAnalytics.initialize();
 
 workbox.routing.registerRoute(
   // Cache CSS files
