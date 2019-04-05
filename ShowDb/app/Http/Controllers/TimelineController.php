@@ -31,7 +31,7 @@ class TimelineController extends Controller
             $ta['title']['media']['credit'] = $ts->media_credit;
         }
         if($ts->media_thumbnail_url) {
-            $ta['title']['media']['url'] = $ts->media_thumbnail_url;
+            $ta['title']['media']['thumbnail_url'] = $ts->media_thumbnail_url;
         }
         if($ts->media_link) {
             $ta['title']['media']['link'] = $ts->media_link;
@@ -78,7 +78,7 @@ class TimelineController extends Controller
                 $event['media']['credit'] = $e->media_credit;
             }
             if($e->media_thumbnail_url) {
-                $event['media']['url'] = $e->media_thumbnail_url;
+                $event['media']['thumbnail_url'] = $e->media_thumbnail_url;
             }
             if($e->background) {
                 $event['background'] = ['url' => $e->background];

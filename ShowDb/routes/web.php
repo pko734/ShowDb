@@ -80,6 +80,7 @@ Route::get('stats/{username}',                    'UserController@userstats')->n
 Route::get('stats/{username}/shows',              'UserController@shows')->name('user.shows');
 Route::get('stats/{username}/songs',              'UserController@songs')->name('user.songs');
 Route::get('stats/{username}/albums',             'UserController@albums')->name('user.albums');
+Route::get('stats/{username}/timeline',           'UserController@timeline')->name('user.timeline');
 
 // users
 Route::get('users', 'UsersController@index')->name('users.index');

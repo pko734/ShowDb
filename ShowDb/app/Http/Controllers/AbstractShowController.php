@@ -321,7 +321,7 @@ class AbstractShowController extends Controller
             ->where('id', '=', $id)
             ->first();
         foreach($request->image as $one_image) {
-            $exif = exif_read_data($one_image->path());
+            $exif = @exif_read_data($one_image->path());
             if($one_image->clientExtension() == "jpg" || $one_image->clientExtension() == "jpeg"){
                 $image = imagecreatefromjpeg($one_image->path());
             }

@@ -20,7 +20,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	  <div class="col-lg-6 col-md-6 space-above">
 	    <p>
 	      <img src="/img/calendar-past.png" alt="Past Shows icon"><a href="{{ url()->current() }}/shows"><span class="number">{{ count($pastShows) }}</span></a><br>
-	      Past Shows
+	      Past Shows <a href="{{ url()->current() }}/timeline">(Timeline)</a>
 	    </p>
 	    <hr>
 	    <p>

@@ -25,7 +25,7 @@
     <meta name="apple-mobile-web-app-title" content="Avett Database">
 
     <!-- Latest compiled and minified CSS -->
-    <link href='{{ elixir('css/app.css') }}?update4' type='text/css' rel='stylesheet'>
+    <link href='{{ elixir('css/app.css') }}?update5' type='text/css' rel='stylesheet'>
     <link rel="dns-prefetch" href="//maps.googleapis.com">
     <style>
 
