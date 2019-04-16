@@ -86,9 +86,13 @@ Route::get('stats/{username}/timeline',           'UserController@timeline')->na
 Route::get('users', 'UsersController@index')->name('users.index');
 
 // admin
-Route::get('admin',       'AdminController@index')->name('admin.index');
-Route::get('admin/audit', 'AdminController@audit')->name('admin.audit');
-Route::get('admin/users', 'AdminController@users')->name('admin.users');
+Route::get('admin',        'AdminController@index')->name('admin.index');
+Route::get('admin/audit',  'AdminController@audit')->name('admin.audit');
+Route::get('admin/users',  'AdminController@users')->name('admin.users');
+
+// trivia admin
+Route::resource('admin/trivia', 'AdminTriviaController');
+Route::get('data/trivia', 'DataController@trivia')->name('data.trivia');
 
 // timeline admin
 Route::resource('admin/timeline', 'AdminTimelineController');

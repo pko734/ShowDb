@@ -1,4 +1,4 @@
-importScripts("/service-worker/precache-manifest.5d55c6b15a2c7064201065f688e7e1fd.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/service-worker/precache-manifest.871e04054b89723f1aa86b4b4d224a15.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 //workbox.googleAnalytics.initialize();
 

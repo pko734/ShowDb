@@ -5,7 +5,7 @@ namespace ShowDb\Http\Controllers;
 use Illuminate\Http\Request;
 use ShowDb\Song;
 use ShowDb\State;
-
+use ShowDb\TriviaQuestion;
 
 class DataController extends Controller
 {
@@ -22,4 +22,55 @@ class DataController extends Controller
      public function states() {
          return State::all()->pluck('name')->toJson();
      }
+
+    public function trivia() {
+        $questions = TriviaQuestion::all()->random(5);
+
+        $result = [];
+        foreach($questions as $q) {
+            $result[] = (object)[
+                'question' => $q->question,
+                'choices' => [
+                    (object)[
+                        'key' => 'blueSheet',
+                        'text' => $q->choice1,
+                        'pressed' => false,
+                        'setScale' => (object)['x' => 3, 'y' => 2],
+                        'frame' => 'blue_button00.png',
+                        'correct' => $q->correct == 1
+                    ],
+                    (object)[
+                        'key' => 'blueSheet',
+                        'text' => $q->choice2,
+                        'pressed' => false,
+                        'setScale' => (object)['x' => 3, 'y' => 2],
+                        'frame' => 'blue_button00.png',
+                        'correct' => $q->correct == 2                    
+                    ],
+                    (object)[
+                        'key' => 'blueSheet',
+                        'text' => $q->choice3,
+                        'pressed' => false,
+                        'setScale' => (object)['x' => 3, 'y' => 2],
+                        'frame' => 'blue_button00.png',
+                        'correct' => $q->correct == 3
+                    ],
+                    (object)[
+                        'key' => 'blueSheet',
+                        'text' => $q->choice4,
+                        'pressed' => false,
+                        'setScale' => (object)['x' => 3, 'y' => 2],
+                        'frame' => 'blue_button00.png',
+                        'correct' => $q->correct == 4
+                    ]
+                ]
+            ];
+        }
+        foreach($result as $r) {
+            shuffle($r->choices);
+        }
+        shuffle($result);
+
+        echo json_encode($result);
+    }
 }

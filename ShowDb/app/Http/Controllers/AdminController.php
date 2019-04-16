@@ -40,18 +40,18 @@ class AdminController extends Controller
                 ->where('published', '=', 0)
                 ->paginate(5);
 
-	$shows = Show::has('images')
-	  ->whereHas('images', function ($query) {
-	      $query->where('published', '=', '0');
-	    })->get();
-	
+        $shows = Show::has('images')
+               ->whereHas('images', function ($query) {
+                   $query->where('published', '=', '0');
+               })->get();
+        
         return view('admin.index')
             ->withUser($request->user())
             ->withShowNotes($show_notes)
             ->withSongNotes($song_notes)
             ->withAlbumNotes($album_notes)
             ->withVideos($videos)
-	    ->withPhotoShows($shows);
+            ->withPhotoShows($shows);
     }
 
     public function audit() {
