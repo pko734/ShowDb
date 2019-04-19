@@ -7,21 +7,41 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-	<form method="POST" action="{{ dirname(url()->current()) }}">
+	<form method="POST" action="{{ dirname(url()->current()) }}" autocomplete="off">
           {{ method_field('PUT') }}
           {{ csrf_field() }}
 	  <div class="form-group">
 	    <label for="trivia_question">Trivia Question</label>
 	    <input value="{{ $trivia->question }}"
 		   name="question"
+		   autocomplete="off"
 		   type="text"
 		   class="form-control"
 		   id="trivia_question">
 	  </div>
 	  <div class="form-group">
+	    <label class="radio-inline" for="trivia_published_yes">
+	      <input value="1"
+		     name="published"
+		     autocomplete="off"
+		     type="radio"
+		     @if($trivia->published) checked @endif
+ 	             id="trivia_published_yes">Published
+	    </label>
+	    <label class="radio-inline" for="trivia_published_no">
+	      <input value="0"
+		     name="published"
+		     autocomplete="off"
+		     type="radio"
+		     @if(!$trivia->published) checked @endif
+	             id="trivia_published_no">Unpublished
+	    </label>
+	  </div>
+	  <div class="form-group">
 	    <label for="trivia_choice1">Choice 1</label>
 	    <input value="{{ $trivia->choice1 }}"
 		   name="choice1"
+		   autocomplete="off"
 		   type="text"
 		   class="form-control"
 		   id="trivia_choice1">
@@ -30,6 +50,7 @@
 	    <label for="trivia_choice2">Choice 2</label>
 	    <input value="{{ $trivia->choice2 }}"
 		   name="choice2"
+		   autocomplete="off"
 		   type="text"
 		   class="form-control"
 		   id="trivia_choice2">
@@ -38,6 +59,7 @@
 	    <label for="trivia_choice3">Choice 3</label>
 	    <input value="{{ $trivia->choice3 }}"
 		   name="choice3"
+		   autocomplete="off"
 		   type="text"
 		   class="form-control"
 		   id="trivia_choice3">
@@ -46,6 +68,7 @@
 	    <label for="trivia_choice4">Choice 4</label>
 	    <input value="{{ $trivia->choice4 }}"
 		   name="choice4"
+		   autocomplete="off"
 		   type="text"
 		   class="form-control"
 		   id="trivia_choice4">

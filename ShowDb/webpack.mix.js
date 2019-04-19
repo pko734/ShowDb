@@ -18,3 +18,4 @@ mix.less('resources/assets/less/app.less', 'public/css/')
 
 mix.js('resources/assets/js/app.js', 'public/js/');
 
+mix.js('resources/assets/js/trivia.js', 'public/js/')

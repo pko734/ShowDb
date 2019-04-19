@@ -7,12 +7,11 @@ use Session;
 use Redirect;
 use Auth;
 use ShowDb\TriviaQuestion;
-use ShowDb\Song;
 
-class AdminTriviaController extends Controller
+class TriviaController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin');
+        $this->middleware('auth');
     }
 
     /**
@@ -22,12 +21,7 @@ class AdminTriviaController extends Controller
      */
     public function index(Request $request)
     {
-        $questions = TriviaQuestion::orderBy('updated_at', 'desc')
-            ->paginate(100);
-
-        return view('admin.trivia.index')
-            ->withUser($request->user())
-            ->withQuestions($questions);
+        return redirect('/trivia/create');
     }
 
     /**
@@ -37,10 +31,8 @@ class AdminTriviaController extends Controller
      */
     public function create(Request $request)
     {
-        $songs = Song::whereNotNull('snipUrl')->orderBy('title')->get();
         return view('admin.trivia.create')
-            ->withUser($request->user())
-            ->withSongs($songs);
+            ->withUser($request->user());
     }
 
     /**
@@ -56,7 +48,7 @@ class AdminTriviaController extends Controller
             'choice1' => 'required',
             'choice2' => 'required',
             'choice3' => 'required',
-            'correct' => 'required|in:1,2,3,4',
+            'correct' => 'required|in:1,2,3,4'
         ]);
 
         $trivia = new TriviaQuestion();
@@ -66,16 +58,11 @@ class AdminTriviaController extends Controller
         $trivia->choice3 = $request->choice3;
         $trivia->choice4 = $request->choice4;
         $trivia->correct = $request->correct;
-        $trivia->published = 1;
+        $trivia->published = 0;
         $trivia->user_id = $request->user()->id;
-
-        if($request->song_snip) {
-            $trivia->audioUrl = Song::find($request->song_snip)->snipUrl;
-        }
-
         $trivia->save();
-        Session::flash('flash_message', 'Question Added');
-        return redirect(url()->current());
+        Session::flash('flash_message', 'Question added.  Thank you.  Add another!');
+        return redirect('/trivia/create');
     }
 
     /**
@@ -86,7 +73,7 @@ class AdminTriviaController extends Controller
      */
     public function show($id)
     {
-        return Redirect("/admin/trivia/$id/edit");
+        return redirect('/trivia/create');
     }
 
     /**
@@ -97,16 +84,7 @@ class AdminTriviaController extends Controller
      */
     public function edit($id)
     {
-        $trivia = TriviaQuestion::where('id', '=', $id)
-            ->first();
-
-        if(is_null($trivia)) {
-            Session::flash('flash_error','Question not found');
-            return redirect(dirname(url()->current()));
-        }
-
-        return view('admin.trivia.edit')
-            ->withTrivia($trivia);
+        return redirect('/trivia/create');
     }
 
     /**
@@ -118,26 +96,7 @@ class AdminTriviaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'question' => 'required',
-            'choice1' => 'required',
-            'choice2' => 'required',
-            'choice3' => 'required',
-            'correct' => 'required|in:1,2,3,4'
-        ]);
-
-        $trivia = TriviaQuestion::find($id);
-        $trivia->question = $request->question;
-        $trivia->choice1 = $request->choice1;
-        $trivia->choice2 = $request->choice2;
-        $trivia->choice3 = $request->choice3;
-        $trivia->choice4 = $request->choice4;
-        $trivia->correct = $request->correct;
-        $trivia->published = $request->published;
-        $trivia->user_id = $request->user()->id;
-        $trivia->save();
-        Session::flash('flash_message', 'Question Edited');
-        return redirect('/admin/trivia');
+        return redirect('/trivia/create');
     }
 
     /**
@@ -148,10 +107,6 @@ class AdminTriviaController extends Controller
      */
     public function destroy($id)
     {
-        TriviaQuestion::where('id', '=', $id)
-            ->first()
-            ->delete();
-        Session::flash('flash_message', 'Question Deleted');
-        return redirect('/admin/trivia');
+        return redirect('/trivia/create');
     }
 }

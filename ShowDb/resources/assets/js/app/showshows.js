@@ -136,7 +136,7 @@ $(document).ready(function() {
 	    "<br />" +
 	    "<span style='margin-left:5px !important;' id='fileList'></span>" +
 	    "</div><div class='clearfix'></div>";
-	console.log('hi');
+
 	bootbox.dialog({
 	    message: uploadHtml,
 	    title: "Image Upload",

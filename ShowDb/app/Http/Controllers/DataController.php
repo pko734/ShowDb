@@ -24,12 +24,14 @@ class DataController extends Controller
      }
 
     public function trivia() {
-        $questions = TriviaQuestion::all()->random(5);
+        header("Access-Control-Allow-Origin: *");
+        $questions = TriviaQuestion::all()->random(8);
 
         $result = [];
         foreach($questions as $q) {
             $result[] = (object)[
                 'question' => $q->question,
+                'audio' => $q->audioUrl,
                 'choices' => [
                     (object)[
                         'key' => 'blueSheet',
@@ -72,5 +74,6 @@ class DataController extends Controller
         shuffle($result);
 
         echo json_encode($result);
+        exit;
     }
 }

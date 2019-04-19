@@ -10,6 +10,7 @@ use Redirect;
 use Auth;
 use ShowDb\Show;
 use DB;
+use \Storage;
 
 class SongController extends Controller
 {
@@ -259,10 +260,16 @@ class SongController extends Controller
     {
         # Validate
         $this->validate($request, [
-            'title' => 'required|between:1,255',
+            'title' => 'required|between:1,255'
         ]);
 
         $song = Song::find($id);
+        if($request->snip) {
+            $snip = $request->snip;
+            $snipName = $snip->storeAs("/audio", "{$snip->hashName()}.mp3", 's3');
+            $song->snipUrl = storage::disk('s3')->url($snipName);
+        }
+
         $song->title = $request->title;
         $song->spotify_link = $request->spotify_link ?? null;
         $song->lyrics = $request->lyrics ?? null;

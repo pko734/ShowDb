@@ -94,6 +94,9 @@ Route::get('admin/users',  'AdminController@users')->name('admin.users');
 Route::resource('admin/trivia', 'AdminTriviaController');
 Route::get('data/trivia', 'DataController@trivia')->name('data.trivia');
 
+// trivia
+Route::resource('trivia', 'TriviaController');
+
 // timeline admin
 Route::resource('admin/timeline', 'AdminTimelineController');
 

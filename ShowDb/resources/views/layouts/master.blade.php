@@ -191,13 +191,13 @@
       @if(Session::get('flash_message') != null)
       <div class="alert alert-success alert-dismissible" style="margin-top: -20px;">
         <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
-        <strong>{{ Session::get('flash_message') }}</strong>
+        {{ Session::get('flash_message') }}
       </div>
       @endif
       @if(Session::get('flash_error') != null)
       <div class="alert alert-danger alert-dismissible" style="margin-top: -20px;">
         <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
-        <strong>{{ Session::get('flash_error') }}</strong>
+        {{ Session::get('flash_error') }}
       </div>
       @endif
       @if (count($errors) > 0)
