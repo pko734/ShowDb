@@ -25,7 +25,7 @@ class DataController extends Controller
 
     public function trivia() {
         header("Access-Control-Allow-Origin: *");
-        $questions = TriviaQuestion::all()->random(8);
+        $questions = TriviaQuestion::all()->random(10);
 
         $result = [];
         foreach($questions as $q) {

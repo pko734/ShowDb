@@ -134,7 +134,7 @@ class AdminTriviaController extends Controller
         $trivia->choice4 = $request->choice4;
         $trivia->correct = $request->correct;
         $trivia->published = $request->published;
-        $trivia->user_id = $request->user()->id;
+        #$trivia->user_id = $request->user()->id;
         $trivia->save();
         Session::flash('flash_message', 'Question Edited');
         return redirect('/admin/trivia');
