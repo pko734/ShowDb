@@ -7,7 +7,7 @@ Trivia Admin
   <div class="panel-heading row">
     <div class="col-lg-6 col-md-6">
       <h1>Trivia Questions</h1>
-      <p><em>Trivia Questions</em></p>
+      <p><em>Trivia Questions ({{ count($questions) }})</em></p>
     </div>
     <div class="col-lg-6 col-md-6" style="margin-top: 20px">
       <form action="{{ url()->current() }}" method="GET" role="search">
@@ -25,7 +25,6 @@ Trivia Admin
   </div>
   
   <div class="is-table panel-body">
-
     <div class="is-table-col col-xs-12">
       <form action="/admin/trivia" method="POST">
 	{{ csrf_field() }}
@@ -60,6 +59,10 @@ Trivia Admin
 		  <source src="{{ $question->audioUrl }}" type="audio/mpeg">
 		    Your browser doesn't support the audio tag
 		</audio>
+		@endif
+		@if($question->imageUrl)
+		<br/>
+		<img src="{{ $question->imageUrl }}" width="100" height="100">
 		@endif
 	      </td>
 	      <td><a href="/stats/{{ $question->creator->username }}">{{ $question->creator->username }}</a></td>

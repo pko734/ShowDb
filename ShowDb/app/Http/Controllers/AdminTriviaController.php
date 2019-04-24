@@ -8,6 +8,7 @@ use Redirect;
 use Auth;
 use ShowDb\TriviaQuestion;
 use ShowDb\Song;
+use \Storage;
 
 class AdminTriviaController extends Controller
 {
@@ -72,6 +73,12 @@ class AdminTriviaController extends Controller
         if($request->song_snip) {
             $trivia->audioUrl = Song::find($request->song_snip)->snipUrl;
         }
+        if($request->image) {
+            $image = $request->image;
+            var_export($image);
+            $imageName = $image->store("/images/trivia", 's3');
+            $trivia->imageUrl = storage::disk('s3')->url($imageName);
+        }
 
         $trivia->save();
         Session::flash('flash_message', 'Question Added');
@@ -95,8 +102,9 @@ class AdminTriviaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
+        $songs = Song::whereNotNull('snipUrl')->orderBy('title')->get();
         $trivia = TriviaQuestion::where('id', '=', $id)
             ->first();
 
@@ -106,7 +114,9 @@ class AdminTriviaController extends Controller
         }
 
         return view('admin.trivia.edit')
-            ->withTrivia($trivia);
+            ->withTrivia($trivia)
+            ->withUser($request->user())
+            ->withSongs($songs);
     }
 
     /**
@@ -135,6 +145,12 @@ class AdminTriviaController extends Controller
         $trivia->correct = $request->correct;
         $trivia->published = $request->published;
         #$trivia->user_id = $request->user()->id;
+        if($request->image) {
+            $image = $request->image;
+            var_export($image);
+            $imageName = $image->store("/images/trivia", 's3');
+            $trivia->imageUrl = storage::disk('s3')->url($imageName);
+        }
         $trivia->save();
         Session::flash('flash_message', 'Question Edited');
         return redirect('/admin/trivia');

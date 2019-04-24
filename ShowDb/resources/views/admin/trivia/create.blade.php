@@ -7,7 +7,7 @@ Add Trivia Question
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-	<form method="POST" action="{{ dirname(Request::url()) }}" autocomplete="off">
+	<form method="POST" action="{{ dirname(Request::url()) }}" autocomplete="off" enctype="multipart/form-data">
           {{ csrf_field() }}
 	  <div class="form-group">
 	    <label for="trivia_question">Trivia Question</label>
@@ -33,6 +33,12 @@ Add Trivia Question
 	    </audio>	  
 
 	  </div>	  
+	  @endif
+	  @if($user->admin)
+	  <div class="form-group">
+	    <label for="fupload">Include Image (if applicable) - Use square dimensions to avoid image distortion</label>
+	    <input id="fupload" class="form-control" name="image" type="file">
+	  </div>
 	  @endif
 	  <div class="form-group">
 	    <label for="trivia_choice1">Choice 1</label>

@@ -37,6 +37,9 @@ var GameScene = new Phaser.Class({
     nextQuestion: function() {
         if(this.rectContainer) {
             this.rectContainer.destroy();
+            if(this.game.textures.exists('question' + this.activeQ + '_image')) {
+                this.game.textures.remove('question' + this.activeQ + '_image');
+            }
         }
         this.activeQ = (this.activeQ + 1);        
         if(this.activeQ > this.questions.length - 1) {
@@ -210,17 +213,30 @@ var GameScene = new Phaser.Class({
         let question = this.add.text(0, 0, this.questions[this.activeQ].question, {
             fill: '#000',
             align: 'center',
+            backgroundColor: 'rgba(255,255,255,0.5)',
             font: '64px Open Sans',
             wordWrap: { width: questionRect.displayWidth, useAdvancedWrap: true}            
         });
+        let parts = [];
+        let yOffset = 0;
+        if(this.questions[this.activeQ].image) {
+            let img = this.add.image(0, 0, 'question' + this.activeQ + '_image');
+            img.displayHeight = questionRect.displayHeight;
+            img.displayWidth = questionRect.displayHeight;
+            yOffset = questionRect.displayHeight - question.displayHeight;
+            parts = [questionRect, img, question];
+            question.setScale(0.7);
+        } else {
+            parts = [questionRect, question];
+        }
         this.rectContainer = this.add.container(
             375, 
             500, 
-            [questionRect, question]
+            parts
         );
         question.setOrigin(0.5)
             .setX(this.rectContainer.width / 2)
-            .setY(this.rectContainer.height / 2);
+            .setY(this.rectContainer.height + yOffset / 2);
     },
 
     createChoices: function() {
@@ -322,7 +338,7 @@ var GameScene = new Phaser.Class({
         this.stopPlayingAudio();
         this.sound.play('wrongAudio');
         this.time.addEvent({
-            delay: 2000,
+            delay: 1000,
             callbackScope: this,
             callback: function() {
                 this.flyAway();
@@ -336,7 +352,7 @@ var GameScene = new Phaser.Class({
             this.playingAudio.stop();
             this.playingAudio.destroy();
             this.playingAudio = null;
-            this.cache.audio.remove('question' + this.activeQ + '_audio')            
+            this.cache.audio.remove('question' + this.activeQ + '_audio');
         }
     },
 

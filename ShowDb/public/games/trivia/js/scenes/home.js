@@ -29,6 +29,9 @@ var HomeScene = new Phaser.Class({
                     ]
                 );
             }
+            if(questions[q].image) {
+                this.load.image('question' + q + '_image', questions[q].image);
+            }
         }
         this.load.start();
     },

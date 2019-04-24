@@ -7,7 +7,7 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-	<form method="POST" action="{{ dirname(url()->current()) }}" autocomplete="off">
+	<form method="POST" action="{{ dirname(url()->current()) }}" autocomplete="off" enctype="multipart/form-data">
           {{ method_field('PUT') }}
           {{ csrf_field() }}
 	  <div class="form-group">
@@ -37,7 +37,30 @@
 	             id="trivia_published_no">Unpublished
 	    </label>
 	  </div>
+	  @if($user->admin && isset($songs))
 	  <div class="form-group">
+	    <label for="song_snip">Include Song Snip</label>
+	    <select id="song_snip" name="song_snip" class="form-control" onChange="javascript:$('#audio_player').attr('src', $(this[this.selectedIndex]).attr('data-audioUrl')); document.getElementById('audio').load();">
+	      <option data-audioUrl="" value="">Choose a song snippet if applicable</option>
+	      @foreach($songs as $song)
+	      <option data-audioUrl="{{ $song->snipUrl }}" value="{{ $song->id }}" @if($song->snipUrl == $trivia->audioUrl) SELECTED @endif>{{ $song->title }}</option>
+	      @endforeach
+	    </select>
+	    <audio id="audio" controls>
+	      <source id="audio_player" src="" type="audio/mpeg">
+		Your browser doesn't support the audio tag
+	    </audio>	  
+	  </div>
+	  @endif
+	  @if($user->admin)
+	  <div class="form-group">
+	    <label for="fupload">Include Image (if applicable) - Use square dimensions to avoid image distortion</label>
+	    <input id="fupload" class="form-control" name="image" type="file">
+	    @if($trivia->imageUrl)
+	    <img src="{{ $trivia->imageUrl }}">
+	    @endif
+	  </div>
+	  @endif	  <div class="form-group">
 	    <label for="trivia_choice1">Choice 1</label>
 	    <input value="{{ $trivia->choice1 }}"
 		   name="choice1"
