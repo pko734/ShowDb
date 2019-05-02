@@ -122,7 +122,8 @@
             <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
             <li class="{{ isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
             @if(Auth::user() && Auth::user()->admin)
-            <li class="{{ isActiveUrl('/timeline')  }}"><a href="/timeline">Timeline</a></li>
+            <!-- <li class="{{ isActiveUrl('/timeline')  }}"><a href="/timeline">Timeline</a></li> -->
+            <li class="{{ isActiveUrl('/game')  }}"><a href="/game">Games</a></li>
             @endif
             @if(Auth::user())
             <li class="{{ isActiveUrl('/users')  }}"><a href="/users">Users</a></li>

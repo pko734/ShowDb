@@ -46,8 +46,15 @@ var LoadingScene = new Phaser.Class({
         this.load.image('lose5', 'assets/images/gameover/lose/5.png');
         this.load.image('lose6', 'assets/images/gameover/lose/6.png');
 
+        for(let i = 1; i <=20; i++) {
+            this.load.image('bg' + i, 'assets/images/bg' + i + '.jpg');
+        }
+
+        this.load.image('dblogo', 'assets/images/dblogo-dropshadow.png');
+        this.load.image('dblogo-large', 'assets/images/dblogo-dropshadow-larger.png');
         this.load.audio('correctAudio', 'assets/audio/positive.mp3');
         this.load.audio('wrongAudio', 'assets/audio/negative.mp3');
+        this.load.audio('creditsAudio', 'assets/audio/alive.mp3');
         this.load.json('questions', 'https://db.nov.blue/data/trivia');
 
         /*
@@ -60,7 +67,7 @@ var LoadingScene = new Phaser.Class({
     },
 
     create: function() {
-        this.scene.start('homeScene');
+        this.scene.start('homeScene', {round: 1, roundLength: 5} );
     }
 });
 

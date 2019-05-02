@@ -94,6 +94,9 @@ Route::get('admin/users',  'AdminController@users')->name('admin.users');
 Route::resource('admin/trivia', 'AdminTriviaController');
 Route::get('data/trivia', 'DataController@trivia')->name('data.trivia');
 
+// games
+Route::get('game', 'GameController@index')->name('game.index');
+
 // trivia
 Route::resource('trivia', 'TriviaController');
 

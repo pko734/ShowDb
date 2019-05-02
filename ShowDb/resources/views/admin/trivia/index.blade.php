@@ -28,7 +28,7 @@ Trivia Admin
     <div class="is-table-col col-xs-12">
       <form action="/admin/trivia" method="POST">
 	{{ csrf_field() }}
-	<table id="triviatable" class="table table-striped">
+	<table id="triviatable" class="table table-striped" style="table-layout: fixed">
 	  <thead>
 	    <tr>
 	      <th>
