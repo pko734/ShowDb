@@ -501,6 +501,16 @@ var GameScene = new Phaser.Class({
         } else {
             parts = [questionRect, question];
         }
+
+        questionRect.setInteractive();
+        questionRect.on('pointerup', function() {
+            if(this.cache.audio.get('question' + this.activeQ + '_audio')) {
+                if(this.playingAudio.isPlaying === false) {
+                    this.playingAudio.play();
+                }
+            }
+        }, this);
+
         this.rectContainer = this.add.container(
             375, 
             400, 
@@ -637,7 +647,7 @@ var GameScene = new Phaser.Class({
             this.sound.play('correctAudio');
             this.numCorrect++;
             this.score += 100;
-            this.timeBonus += parseFloat(this.clockText.text) / 2;
+            this.timeBonus += parseFloat(this.clockText.text) / 1.8;
         } else {
             item.setTexture('redSheet', 'red_button11.png');
             this.sound.play('wrongAudio');

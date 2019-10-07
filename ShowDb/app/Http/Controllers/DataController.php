@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use ShowDb\Song;
 use ShowDb\State;
 use ShowDb\TriviaQuestion;
+use Auth;
 
 class DataController extends Controller
 {
@@ -23,13 +24,26 @@ class DataController extends Controller
          return State::all()->pluck('name')->toJson();
      }
 
+    public function triviaAuth() {
+        if(Auth::user()) {
+            return $this->trivia();
+        } else {
+            header("Access-Control-Allow-Origin: *");
+            echo json_encode('');
+            exit;
+        }
+    }
+
     public function trivia() {
         header("Access-Control-Allow-Origin: *");
         //$questions = TriviaQuestion::all()->random(10);
         //$questions = TriviaQuestion::inRandomOrder()->where('published', '=', 1)->whereNotNull('imageUrl')->get();
         //$questions = TriviaQuestion::whereNotNull('imageUrl')->get();
         //$questions = TriviaQuestion::orderBy('created_at', 'desc')->get();
-        $questions = TriviaQuestion::inRandomOrder()->where('published', '=', 1)->get();
+        $questions = TriviaQuestion::inRandomOrder()
+                   ->where('published', '=', 1)
+                   ->where('groupname', '=', 'game1')
+                   ->get();
         $result = [];
         foreach($questions as $q) {
             $result[] = (object)[

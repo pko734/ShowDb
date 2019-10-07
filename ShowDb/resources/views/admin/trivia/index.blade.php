@@ -8,6 +8,15 @@ Trivia Admin
     <div class="col-lg-6 col-md-6">
       <h1>Trivia Questions</h1>
       <p><em>Trivia Questions ({{ count($questions) }})</em></p>
+      <p>
+	<form action="/admin/trivia" method="GET" id="group_chooser_form">
+	  <select name="groupname" onchange="javascript:document.getElementById('group_chooser_form').submit()">
+	    @foreach($groups as $group)
+	    <option value="{{ $group }}" @if($currentGroup == $group) SELECTED @endif >{{ $group }}</option>
+	    @endforeach
+	  </select>
+	</form>
+      </p>
     </div>
     <div class="col-lg-6 col-md-6" style="margin-top: 20px">
       <form action="{{ url()->current() }}" method="GET" role="search">
@@ -19,6 +28,12 @@ Trivia Admin
 	      <span class="glyphicon glyphicon-search"></span>
 	    </button>
 	  </span>
+	<a href="/admin/trivia/create?groupname={{ $currentGroup }}"
+           id="timeline_add_button" 
+           type="button" 
+           class="pull-left btn btn-default">
+	  <span class="glyphicon glyphicon-plus"></span>
+	</a>	
 	</div>
       </form>
     </div>
@@ -62,7 +77,7 @@ Trivia Admin
 		@endif
 		@if($question->imageUrl)
 		<br/>
-		<img src="{{ $question->imageUrl }}" width="100" height="100">
+		<img src="/games/trivia/{{ $question->imageUrl }}" width="100" height="100">
 		@endif
 	      </td>
 	      <td><a href="/stats/{{ $question->creator->username }}">{{ $question->creator->username }}</a></td>
@@ -82,7 +97,7 @@ Trivia Admin
   <div class="panel-footer row">
     <ul class="pagination">
       <li>
-	<a href="/admin/trivia/create"
+	<a href="/admin/trivia/create?groupname={{ $currentGroup }}"
            id="timeline_add_button" 
            type="button" 
            class="pull-left btn btn-default">

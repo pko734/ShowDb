@@ -23,11 +23,17 @@ class AdminTriviaController extends Controller
      */
     public function index(Request $request)
     {
+        $group = $request->groupname ?? 'game1';
         $questions = TriviaQuestion::orderBy('updated_at', 'desc')
-            ->paginate(100);
+                   ->where('groupname', '=', $group)
+                   ->paginate(100);
+
+        $groups = TriviaQuestion::select('groupname')->distinct()->pluck('groupname');
 
         return view('admin.trivia.index')
             ->withUser($request->user())
+            ->withGroups($groups)
+            ->withCurrentGroup($group)
             ->withQuestions($questions);
     }
 
@@ -39,8 +45,11 @@ class AdminTriviaController extends Controller
     public function create(Request $request)
     {
         $songs = Song::whereNotNull('snipUrl')->orderBy('title')->get();
+        $groups = TriviaQuestion::select('groupname')->distinct()->pluck('groupname');
         return view('admin.trivia.create')
+            ->withCurrentGroup($request->groupname)
             ->withUser($request->user())
+            ->withGroups($groups)
             ->withSongs($songs);
     }
 
@@ -60,6 +69,16 @@ class AdminTriviaController extends Controller
             'correct' => 'required|in:1,2,3,4',
         ]);
 
+        if($request->newgroupname) {
+            $groupname = $request->newgroupname;
+        } else {
+            $groupname = $request->groupname;
+            if($groupname == "newgroup") {
+                Session::flash('flash_error','Must choose an existing group or add a new one');
+                return redirect(dirname(url()->current()));
+            }
+        }
+
         $trivia = new TriviaQuestion();
         $trivia->question = $request->question;
         $trivia->choice1 = $request->choice1;
@@ -67,7 +86,8 @@ class AdminTriviaController extends Controller
         $trivia->choice3 = $request->choice3;
         $trivia->choice4 = $request->choice4;
         $trivia->correct = $request->correct;
-        $trivia->published = 1;
+        $trivia->groupname = $groupname;
+        $trivia->published = $request->published;
         $trivia->user_id = $request->user()->id;
 
         if($request->song_snip) {
@@ -75,7 +95,6 @@ class AdminTriviaController extends Controller
         }
         if($request->image) {
             $image = $request->image;
-            var_export($image);
             $imageName = $image->store("/images/trivia", 's3');
             $trivia->imageUrl = storage::disk('s3')->url($imageName);
         }
@@ -112,10 +131,12 @@ class AdminTriviaController extends Controller
             Session::flash('flash_error','Question not found');
             return redirect(dirname(url()->current()));
         }
+        $groups = TriviaQuestion::select('groupname')->distinct()->pluck('groupname');
 
         return view('admin.trivia.edit')
             ->withTrivia($trivia)
             ->withUser($request->user())
+            ->withGroups($groups)
             ->withSongs($songs);
     }
 

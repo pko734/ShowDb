@@ -18,6 +18,37 @@ Add Trivia Question
 		   class="form-control"
 		   id="trivia_question">
 	  </div>
+	  <div class="form-group">
+	    <label for="trivia_question_group">Group Name</label>
+	    <select class="form-control" name="groupname">
+	      <option value="newgroup">Create a new group</option>
+	      @foreach($groups as $group)
+	      <option value="{{ $group }}" @if($currentGroup == $group) SELECTED @endif >{{ $group }}</option>
+	      @endforeach
+	    </select>
+	    <input value=""
+		   name="newgroupname"
+		   type="text"
+		   class="form-control"
+		   placeholder="If creating a new group, put the name here">
+	  </div>
+	  <div class="form-group">
+	    <label class="radio-inline" for="trivia_published_yes">
+	      <input value="1"
+		     name="published"
+		     autocomplete="off"
+		     type="radio"		    
+ 	             id="trivia_published_yes">Published
+	    </label>
+	    <label class="radio-inline" for="trivia_published_no">
+	      <input value="0"
+		     name="published"
+		     autocomplete="off"
+		     type="radio"
+		     checked
+	             id="trivia_published_no">Unpublished
+	    </label>
+	  </div>
 	  @if($user->admin && isset($songs))
 	  <div class="form-group">
 	    <label for="song_snip">Include Song Snip</label>

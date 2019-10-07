@@ -110,37 +110,37 @@
           <ul class="nav navbar-nav">
             <!--
             @if(Auth::user())
-            <li class="{{ isActiveUrl('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
+            <li class="{{ Ekko::isActiveURL('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
 	        @else
-            <li class="{{ isActiveUrl('/register') }}"><a href="/register">My Stats</a></li>
+            <li class="{{ Ekko::isActiveURL('/register') }}"><a href="/register">My Stats</a></li>
             @endif
             -->
             @if(Auth::user())
-            <li class="{{ isActiveUrl('/new') }}"><a href="/new">What's New</a></li>
+            <li class="{{ Ekko::isActiveURL('/new') }}"><a href="/new">What's New</a></li>
             @endif
-            <li class="{{ isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
-            <li class="{{ isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
-            <li class="{{ isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
+            <li class="{{ Ekko::isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
+            <li class="{{ Ekko::isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
+            <li class="{{ Ekko::isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
             @if(Auth::user() && Auth::user()->admin)
-            <!-- <li class="{{ isActiveUrl('/timeline')  }}"><a href="/timeline">Timeline</a></li> -->
-            <li class="{{ isActiveUrl('/game')  }}"><a href="/game">Games</a></li>
+            <!-- <li class="{{ Ekko::isActiveURL('/timeline')  }}"><a href="/timeline">Timeline</a></li> -->
             @endif
             @if(Auth::user())
-            <li class="{{ isActiveUrl('/users')  }}"><a href="/users">Users</a></li>
+            <li class="{{ Ekko::isActiveURL('/game')  }}"><a href="/game">Games</a></li>
+            <li class="{{ Ekko::isActiveURL('/users')  }}"><a href="/users">Users</a></li>
             @endif
-            <li class="{{ isActiveUrl('/about') }}">
+            <li class="{{ Ekko::isActiveURL('/about') }}">
               <a href="/about">About</a>
             </li>
             @if(Auth::user() && Auth::user()->admin)
-            <li class="dropdown {{ isActiveRoute('admin.*') }}">
+            <li class="dropdown {{ Ekko::isActiveRoute('admin.*') }}">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
                 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li class="{{ isActiveUrl('/admin') }}"><a href="/admin">Notes</a></li>
-                <li class="{{ isActiveUrl('/admin/users') }}"><a href="/admin/users">Users</a></li>
-                <li class="{{ isActiveUrl('/admin/timeline') }}"><a href="/admin/timeline">Timeline</a></li>
-		<li class="{{ isActiveUrl('/admin/trivia') }}"><a href="/admin/trivia">Trivia</a></li>
-                <!--<li class="{{ isActiveUrl('/admin/audit')}}"><a href="/admin/audit">Audit</a></li>-->
+                <li class="{{ Ekko::isActiveURL('/admin') }}"><a href="/admin">Notes</a></li>
+                <li class="{{ Ekko::isActiveURL('/admin/users') }}"><a href="/admin/users">Users</a></li>
+                <li class="{{ Ekko::isActiveURL('/admin/timeline') }}"><a href="/admin/timeline">Timeline</a></li>
+		<li class="{{ Ekko::isActiveURL('/admin/trivia') }}"><a href="/admin/trivia">Trivia</a></li>
+                <!--<li class="{{ Ekko::isActiveURL('/admin/audit')}}"><a href="/admin/audit">Audit</a></li>-->
               </ul>
             </li>
             @endif
@@ -153,7 +153,7 @@
             <li><a href="{{ url('/login') }}">Login</a></li>
             <li><a href="{{ url('/register') }}">Register</a></li>
             @else
-            <li class="dropdown {{ isActiveRoute('settings.*') }}">
+            <li class="dropdown {{ Ekko::isActiveRoute('settings.*') }}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 @if(\Gravatar::exists(Auth::user()->email))
                 {!! \Gravatar::image(Auth::user()->email, 'test', ['width'=>25,'height'=>25]) !!}
@@ -167,7 +167,7 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li class="{{ isActiveUrl('/settings') }}">
+                <li class="{{ Ekko::isActiveURL('/settings') }}">
                   <a href="/settings">Settings</a>
                 </li>
                 <li>

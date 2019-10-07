@@ -49,7 +49,9 @@ class VideoUpdateCommand extends Command
         $search = 'q=' . urlencode('') . '&';
         while(true) {
             $url = "https://www.googleapis.com/youtube/v3/search?{$search}{$page}key={$apikey}&channelId={$channelId}&order=date&part=snippet&maxResults=50";
+            #echo "\n", $url, "\n";
             $x = json_decode( file_get_contents($url));
+            #var_export($x);
             $this->findVideos($x);
             if(isset($x->nextPageToken)) {
                 $page = "pageToken={$x->nextPageToken}&";
@@ -71,13 +73,16 @@ class VideoUpdateCommand extends Command
             $title = $item->snippet->title;
 
             if( stristr( $title, 'avett' ) === false ) {
+                //echo $title, "\n";
                 continue;
             }
 
             if( $item->id->kind !== 'youtube#video' ) {
+                //echo $item->id->kind, "\n";
                 continue;
             }
             if( SetlistItemNote::where("note", 'LIKE', "%watch?v={$item->id->videoId}%")->count() > 0 ) {
+                echo $item->id->videoId, "\n";
                 continue;
             }
 

@@ -20,6 +20,14 @@
 		   id="trivia_question">
 	  </div>
 	  <div class="form-group">
+	    <label for="trivia_question_group">Group Name</label>
+	    <select name="groupname">
+	      @foreach($groups as $group)
+	      <option value="{{ $group }}" @if($trivia->groupname == $group) SELECTED @endif>{{ $group }}</option>
+	      @endforeach
+	    </select>
+	  </div>
+	  <div class="form-group">
 	    <label class="radio-inline" for="trivia_published_yes">
 	      <input value="1"
 		     name="published"
@@ -57,10 +65,11 @@
 	    <label for="fupload">Include Image (if applicable) - Use square dimensions to avoid image distortion</label>
 	    <input id="fupload" class="form-control" name="image" type="file">
 	    @if($trivia->imageUrl)
-	    <img src="{{ $trivia->imageUrl }}">
+	    <img src="/games/trivia/{{ $trivia->imageUrl }}">
 	    @endif
 	  </div>
-	  @endif	  <div class="form-group">
+	  @endif	  
+	  <div class="form-group">
 	    <label for="trivia_choice1">Choice 1</label>
 	    <input value="{{ $trivia->choice1 }}"
 		   name="choice1"
