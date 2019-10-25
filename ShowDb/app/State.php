@@ -8,6 +8,6 @@ class State extends Model
 {
     public function show()
     {
-        return $this->hasMany('ShowDb\Show');
+        return $this->hasMany(\ShowDb\Show::class);
     }
 }

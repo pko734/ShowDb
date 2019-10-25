@@ -10,21 +10,21 @@ class AlbumItem extends Model
 
     public function album()
     {
-        return $this->belongsTo('ShowDb\Album');
+        return $this->belongsTo(\ShowDb\Album::class);
     }
 
     public function song()
     {
-        return $this->belongsTo('ShowDb\Song');
+        return $this->belongsTo(\ShowDb\Song::class);
     }
 
     public function creator()
     {
-        return $this->belongsTo('ShowDb\User');
+        return $this->belongsTo(\ShowDb\User::class);
     }
 
     public function notes()
     {
-        return $this->hasMany('ShowDb\AlbumItemNote');
+        return $this->hasMany(\ShowDb\AlbumItemNote::class);
     }
 }

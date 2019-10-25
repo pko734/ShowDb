@@ -8,6 +8,6 @@ class TriviaQuestion extends Model
 {
     public function creator()
     {
-        return $this->belongsTo('ShowDb\User', 'user_id');
+        return $this->belongsTo(\ShowDb\User::class, 'user_id');
     }
 }

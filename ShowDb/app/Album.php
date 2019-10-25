@@ -8,11 +8,11 @@ class Album extends Model
 {
     public function albumItems()
     {
-        return $this->hasMany('ShowDb\AlbumItem');
+        return $this->hasMany(\ShowDb\AlbumItem::class);
     }
 
     public function notes()
     {
-        return $this->hasMany('ShowDb\AlbumNote');
+        return $this->hasMany(\ShowDb\AlbumNote::class);
     }
 }

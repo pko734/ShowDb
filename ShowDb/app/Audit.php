@@ -8,6 +8,6 @@ class Audit extends Model
 {
     public function user()
     {
-        return $this->belongsTo('ShowDb\User');
+        return $this->belongsTo(\ShowDb\User::class);
     }
 }

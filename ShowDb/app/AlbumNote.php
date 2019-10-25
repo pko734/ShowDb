@@ -8,11 +8,11 @@ class AlbumNote extends Model
 {
     public function album()
     {
-        return $this->belongsTo('ShowDb\Album');
+        return $this->belongsTo(\ShowDb\Album::class);
     }
 
     public function creator()
     {
-        return $this->belongsTo('ShowDb\User');
+        return $this->belongsTo(\ShowDb\User::class);
     }
 }

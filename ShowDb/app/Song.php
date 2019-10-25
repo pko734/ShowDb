@@ -8,22 +8,22 @@ class Song extends Model
 {
     public function creator()
     {
-        return $this->belongsTo('ShowDb\User');
+        return $this->belongsTo(\ShowDb\User::class);
     }
 
     public function setlistItems()
     {
-        return $this->hasMany('ShowDb\SetlistItem');
+        return $this->hasMany(\ShowDb\SetlistItem::class);
     }
 
     public function albumItems()
     {
-        return $this->hasMany('ShowDb\AlbumItem');
+        return $this->hasMany(\ShowDb\AlbumItem::class);
     }
 
     public function notes()
     {
-        return $this->hasMany('ShowDb\SongNote');
+        return $this->hasMany(\ShowDb\SongNote::class);
     }
 
     public function shows()

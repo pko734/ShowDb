@@ -38,16 +38,16 @@ class User extends Authenticatable
 
     public function shows()
     {
-        return $this->belongsToMany('ShowDb\Show');
+        return $this->belongsToMany(\ShowDb\Show::class);
     }
 
     public function images()
     {
-        return $this->hasMany('ShowDb\ShowImage');
+        return $this->hasMany(\ShowDb\ShowImage::class);
     }
 
     public function badges()
     {
-        return $this->belongsToMany('ShowDb\Badge');
+        return $this->belongsToMany(\ShowDb\Badge::class);
     }
 }

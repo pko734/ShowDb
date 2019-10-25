@@ -8,11 +8,11 @@ class ShowImage extends Model
 {
     public function show()
     {
-        return $this->belongsTo('ShowDb\Show');
+        return $this->belongsTo(\ShowDb\Show::class);
     }
 
     public function user()
     {
-        return $this->belongsTo('ShowDb\User');
+        return $this->belongsTo(\ShowDb\User::class);
     }
 }
