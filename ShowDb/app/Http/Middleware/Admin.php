@@ -2,8 +2,8 @@
 
 namespace ShowDb\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
 
 class Admin
 {
@@ -16,12 +16,10 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-
-        if ( Auth::check() && Auth::user()->isAdmin() )
-        {
+        if (Auth::check() && Auth::user()->isAdmin()) {
             return $next($request);
         }
 
         return redirect('/');
-     }
+    }
 }

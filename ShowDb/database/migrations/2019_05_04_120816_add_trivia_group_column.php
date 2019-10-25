@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddTriviaGroupColumn extends Migration
 {
@@ -13,9 +13,9 @@ class AddTriviaGroupColumn extends Migration
      */
     public function up()
     {
-        Schema::table('trivia_questions', function($table) {
+        Schema::table('trivia_questions', function ($table) {
             $table->string('groupname')->default('game1');
-    });
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class AddTriviaGroupColumn extends Migration
     {
         Schema::table('trivia_questions', function ($table) {
             $table->dropColumn('groupname');
-    });
+        });
     }
 }

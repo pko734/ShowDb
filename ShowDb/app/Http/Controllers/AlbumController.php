@@ -2,21 +2,19 @@
 
 namespace ShowDb\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use ShowDb\Album;
-use ShowDb\AlbumItem;
-use ShowDb\Song;
-use ShowDb\AlbumNote;
-use ShowDb\AlbumItemNote;
-use Session;
-use Redirect;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Redirect;
+use Session;
+use ShowDb\Album;
+use ShowDb\AlbumItem;
+use ShowDb\AlbumItemNote;
+use ShowDb\AlbumNote;
+use ShowDb\Song;
 
 class AlbumController extends Controller
 {
-
     /**
      * Constructor.
      */
@@ -56,39 +54,38 @@ class AlbumController extends Controller
         $sort_order = explode('-', $o);
         $search = Album::withCount('albumItems')
                 ->withCount('notes');
-        foreach(preg_split('/\s+/', trim($q)) as $p) {
+        foreach (preg_split('/\s+/', trim($q)) as $p) {
             $search = $search
-                    ->where(function($q1) use ($p) {
-                        $q1->where( 'release_date',   'LIKE', "%{$p}%" )
+                    ->where(function ($q1) use ($p) {
+                        $q1->where('release_date', 'LIKE', "%{$p}%")
                             ->orWhere('title', 'LIKE', "%{$p}%")
-                            ->orWhereHas('albumItems', function($query) use ($p) {
-                                $query->whereHas('song', function($query) use ($p) {
+                            ->orWhereHas('albumItems', function ($query) use ($p) {
+                                $query->whereHas('song', function ($query) use ($p) {
                                     $query->where('songs.title', 'LIKE', "%{$p}%");
                                 });
                             })
-                            ->orWhereHas('notes', function($query) use ($p) {
+                            ->orWhereHas('notes', function ($query) use ($p) {
                                 $query->where('note', 'LIKE', "%{$p}%")
                                       ->where('note', 'NOT LIKE', '%<img src="data:%');
                             });
                     });
-
         }
         $search = $search->orderBy($sort_order[0], $sort_order[1])
                ->orderBy('release_date', 'desc')
                ->paginate(15)
-               ->setPath( '' )
-                ->appends( [
+               ->setPath('')
+                ->appends([
                     'q' => $request->get('q'),
                     'o' => $request->get('o'),
                 ]);
 
         $item_order = 'album_items_count-asc';
-        if( $o === $item_order ) {
+        if ($o === $item_order) {
             $item_order = 'album_items_count-desc';
         }
 
         $date_order = 'release_date-asc';
-        if( $o === $date_order ) {
+        if ($o === $date_order) {
             $date_order = 'release_date-desc';
         }
 
@@ -113,18 +110,19 @@ class AlbumController extends Controller
 
     /**
      * Store a show note.
-     * @param integer                    $show_id
+     * @param int                    $show_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeNote($album_id, Request $request) {
+    public function storeNote($album_id, Request $request)
+    {
         $this->validate($request, [
             'notes.*' => 'string|between:5,2000000',
         ]);
 
         $cnt = 0;
-        foreach( $request->notes as $note ) {
-            if( trim($note) === '') {
+        foreach ($request->notes as $note) {
+            if (trim($note) === '') {
                 continue;
             }
             $albumnote = new AlbumNote();
@@ -138,57 +136,61 @@ class AlbumController extends Controller
             $cnt++;
         }
 
-        if($cnt) {
+        if ($cnt) {
             Session::flash('flash_message', 'Album Note(s) added');
         } else {
             Session::flash('flash_error', 'Album Note(s) were empty');
         }
-        return Redirect::back();
 
+        return Redirect::back();
     }
 
     /**
      * Update an album note.
      *
-     * @param integer                    $show_id
-     * @param integer                    $note_id
+     * @param int                    $show_id
+     * @param int                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function updateNote($album_id, $note_id, Request $request) {
+    public function updateNote($album_id, $note_id, Request $request)
+    {
         $this->validate($request, [
             'note'      => 'string|between:5,2000000',
             'published' => 'boolean',
         ]);
 
         $note = AlbumNote::findOrFail($note_id);
-        if( $note->album->id != $album_id ) {
-            Session::flash('flash_error', "Album/Note mismatch");
+        if ($note->album->id != $album_id) {
+            Session::flash('flash_error', 'Album/Note mismatch');
+
             return Redirect::back();
         }
 
-        if($request->has('published')) {
+        if ($request->has('published')) {
             $note->published = $request->published;
         } else {
             $note->published = 0;
         }
 
-        if($request->has('note')) {
+        if ($request->has('note')) {
             $note->note = $request->note;
         }
         $note->save();
         Session::flash('flash_message', 'Album Note Edited');
+
         return Redirect::back();
     }
 
     /**
      * Store a setlist item video link.
      *
-     * @param  integer                   $setlist_item_id
+     * @param  int                   $setlist_item_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeItemNote($album_item_id, Request $request) {
+    public function storeItemNote($album_item_id, Request $request)
+    {
         $this->validate($request, [
             'item_note' => 'required',
         ]);
@@ -201,6 +203,7 @@ class AlbumController extends Controller
         $note->order = 1;
         $note->save();
         Session::flash('flash_message', 'Album Item Note saved');
+
         return Redirect::back();
     }
 
@@ -217,27 +220,30 @@ class AlbumController extends Controller
             'titles.*' => 'required|string|between:3,255',
         ]);
 
-        if(count($request->titles) !== count($request->dates) ) {
+        if (count($request->titles) !== count($request->dates)) {
             Session::flash('flash_error', 'Data size mismatch :(');
+
             return redirect('/albums');
         }
 
         $album_count = count($request->dates);
-        for( $i=0; $i < $album_count; $i++ ) {
+        for ($i = 0; $i < $album_count; $i++) {
             try {
                 $date = (new Carbon($request->dates[$i]))->toDateString();
-            } catch(\Exception $e) {
-                Session::flash('flash_error', 'Failed to parse date: ' . $request->dates[$i]);
+            } catch (\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: '.$request->dates[$i]);
+
                 return Redirect::back();
             }
             $album = new Album();
-            $album->release_date  = $date;
+            $album->release_date = $date;
             $album->title = $request->titles[$i];
-            $album->asin  = '';
+            $album->asin = '';
             $album->save();
         }
 
         Session::flash('flash_message', 'Album(s) Added');
+
         return redirect('/albums');
     }
 
@@ -252,8 +258,9 @@ class AlbumController extends Controller
         $user = $request->user();
         $album = Album::find($id);
 
-        if(is_null($album)) {
-            Session::flash('flash_error','Album not found');
+        if (is_null($album)) {
+            Session::flash('flash_error', 'Album not found');
+
             return redirect('/songs');
         }
 
@@ -272,8 +279,9 @@ class AlbumController extends Controller
     {
         $album = Album::find($id);
 
-        if(is_null($album)) {
-            Session::flash('flash_error','Album not found');
+        if (is_null($album)) {
+            Session::flash('flash_error', 'Album not found');
+
             return redirect('/album');
         }
 
@@ -284,12 +292,12 @@ class AlbumController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        # Validate
+        // Validate
         $this->validate($request, [
             'date'    => 'required',
             'title'   => 'required|string|between:3,255',
@@ -298,8 +306,9 @@ class AlbumController extends Controller
 
         try {
             $date = (new Carbon($request->date))->toDateString();
-        } catch(\Exception $e) {
-            Session::flash('flash_error', 'Failed to parse date: ' . $request->date);
+        } catch (\Exception $e) {
+            Session::flash('flash_error', 'Failed to parse date: '.$request->date);
+
             return Redirect::back();
         }
 
@@ -321,38 +330,37 @@ class AlbumController extends Controller
         // * If not found, add the new item with correct play order
         // * Keep track of which items are "good"
         // * Delete any left over (removed) setlist items.
-        if(is_array($request->songs)) {
-
-	    $tracker = [];
-            foreach($request->songs as $song_title) {
-                if( trim($song_title) === '' ) {
+        if (is_array($request->songs)) {
+            $tracker = [];
+            foreach ($request->songs as $song_title) {
+                if (trim($song_title) === '') {
                     continue;
                 }
-		if( !isset($tracker[$song_title]) ) {
-		    $tracker[$song_title] = 0;
-		}
-                $my_items = $items->filter(function($item) use($song_title) {
+                if (! isset($tracker[$song_title])) {
+                    $tracker[$song_title] = 0;
+                }
+                $my_items = $items->filter(function ($item) use ($song_title) {
                     return $item->song->title === $song_title;
                 });
 
-		if( count($my_items) <= 1 ) {
-		    $my_item = $my_items->first();
+                if (count($my_items) <= 1) {
+                    $my_item = $my_items->first();
                 } else {
-		    $my_item = $my_items->get($tracker[$song_title]);
-		    $tracker[$song_title] += 1;
-		}
+                    $my_item = $my_items->get($tracker[$song_title]);
+                    $tracker[$song_title] += 1;
+                }
 
-                if( $my_item === null ) {
+                if ($my_item === null) {
                     // Add new item!
                     $item = new AlbumItem();
                     $item->album_id = $id;
                     $item->song_id = Song::where('title', '=', $song_title)->first()->id;
-                    $item->order   = $i;
+                    $item->order = $i;
                     $item->creator_id = $request->user()->id;
                     $item->save();
                 } else {
                     // Update the item order
-                    if($my_item->order != $i) {
+                    if ($my_item->order != $i) {
                         $my_item->order = $i;
                         $my_item->save();
                     }
@@ -361,76 +369,82 @@ class AlbumController extends Controller
                 }
                 $i++;
             }
-            $to_delete = $items->filter(function($item) use($safe) {
-                return !in_array($item->id, $safe);
+            $to_delete = $items->filter(function ($item) use ($safe) {
+                return ! in_array($item->id, $safe);
             });
 
-            foreach( $to_delete as $item ) {
+            foreach ($to_delete as $item) {
                 $item->delete();
             }
         }
         $album->save();
 
         Session::flash('flash_message', 'Changes saved');
-        return redirect('/albums/' . $album->id);
+
+        return redirect('/albums/'.$album->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         Album::find($id)->delete();
         Session::flash('flash_message', 'Album Deleted');
-        return redirect('/albums');
 
+        return redirect('/albums');
     }
 
     /**
      * Delete a show note.
      *
-     * @param integer                    $album_id
-     * @param integer                    $note_id
+     * @param int                    $album_id
+     * @param int                    $note_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyNote($album_id, $note_id) {
+    public function destroyNote($album_id, $note_id)
+    {
         $note = AlbumNote::findOrFail($note_id);
-        if( $note->album->id != $album_id ) {
-            Session::flash('flash_error', "boo");
+        if ($note->album->id != $album_id) {
+            Session::flash('flash_error', 'boo');
+
             return Redirect::back();
         }
 
-        if( !Auth::user()->admin ) {
-            if( $note->user_id != Auth::user()->id ) {
+        if (! Auth::user()->admin) {
+            if ($note->user_id != Auth::user()->id) {
                 Session::flash('flash_error', 'Sorry, you can only delete notes you have created');
+
                 return Redirect::back();
             }
         }
 
         $note->delete();
         Session::flash('flash_message', 'Note Deleted');
+
         return Redirect::back();
     }
-
 
     /**
      * Approve a setlist item note.
      *
-     * @param integer                    $item_id
-     * @param integer                    $note_id
+     * @param int                    $item_id
+     * @param int                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function approveItemNote($item_id, $note_id, Request $request) {
+    public function approveItemNote($item_id, $note_id, Request $request)
+    {
         $this->validate($request, [
-            'published' => 'required:boolean'
+            'published' => 'required:boolean',
         ]);
         $note = AlbumItemNote::findOrFail($note_id);
-        if( $note->albumItem->id != $item_id ) {
-            Session::flash('flash_error', "Album/Note mismatch");
+        if ($note->albumItem->id != $item_id) {
+            Session::flash('flash_error', 'Album/Note mismatch');
+
             return Redirect::back();
         }
 
@@ -438,32 +452,37 @@ class AlbumController extends Controller
         $note->save();
 
         Session::flash('flash_message', 'Note Approved');
+
         return Redirect::back();
     }
 
     /**
      * Delete a setlist item note.
      *
-     * @param integer                    $item_id
-     * @param integer                    $note_id
+     * @param int                    $item_id
+     * @param int                    $note_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyItemNote($item_id, $note_id) {
+    public function destroyItemNote($item_id, $note_id)
+    {
         $note = AlbumItemNote::findOrFail($note_id);
-        if( $note->albumItem->id != $item_id ) {
-            Session::flash('flash_error', "Wrong item_id/note_id");
+        if ($note->albumItem->id != $item_id) {
+            Session::flash('flash_error', 'Wrong item_id/note_id');
+
             return Redirect::back();
         }
 
-        if( !Auth::user()->admin ) {
-            if( $note->user_id != Auth::user()->id ) {
+        if (! Auth::user()->admin) {
+            if ($note->user_id != Auth::user()->id) {
                 Session::flash('flash_error', 'Sorry, you can only delete notes you have created');
+
                 return Redirect::back();
             }
         }
 
         $note->delete();
         Session::flash('flash_message', 'Note Deleted');
+
         return Redirect::back();
     }
 }

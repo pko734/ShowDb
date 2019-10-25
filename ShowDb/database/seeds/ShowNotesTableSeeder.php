@@ -4,21 +4,17 @@ use Illuminate\Database\Seeder;
 
 class ShowNotesTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
+     * Auto generated seed file.
      *
      * @return void
      */
     public function run()
     {
-
-
         \DB::table('show_notes')->delete();
 
-        \DB::table('show_notes')->insert(array (
-            0 =>
-            array (
+        \DB::table('show_notes')->insert([
+            0 => [
                 'id' => 1,
                 'show_id' => 1486,
                 'user_id' => 1,
@@ -29,9 +25,8 @@ class ShowNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
-            ),
-            1 =>
-            array (
+            ],
+            1 => [
                 'id' => 2,
                 'show_id' => 1472,
                 'user_id' => 1,
@@ -42,9 +37,8 @@ class ShowNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
-            ),
-            2 =>
-            array (
+            ],
+            2 => [
                 'id' => 3,
                 'show_id' => 1472,
                 'user_id' => 1,
@@ -55,9 +49,8 @@ class ShowNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
-            ),
-            3 =>
-            array (
+            ],
+            3 => [
                 'id' => 4,
                 'show_id' => 1472,
                 'user_id' => 1,
@@ -68,9 +61,7 @@ class ShowNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 0,
-            ),
-        ));
-
-
+            ],
+        ]);
     }
 }

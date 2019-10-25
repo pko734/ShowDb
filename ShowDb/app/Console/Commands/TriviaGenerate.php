@@ -2,13 +2,13 @@
 
 namespace ShowDb\Console\Commands;
 
+use DB;
 use Illuminate\Console\Command;
-use ShowDb\User;
+use ShowDb\SetlistItemNote;
+use ShowDb\Show;
 use ShowDb\ShowImage;
 use ShowDb\ShowNote;
-use ShowDb\Show;
-use ShowDb\SetlistItemNote;
-use DB;
+use ShowDb\User;
 
 class TriviaGenerate extends Command
 {

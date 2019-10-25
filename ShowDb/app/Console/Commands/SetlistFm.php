@@ -41,13 +41,13 @@ class SetlistFm extends Command
         $shows = Show::whereNull('user_id')
             ->orderBy('date', 'asc')->get();
 
-        foreach($shows as $show) {
+        foreach ($shows as $show) {
             $encore = 0;
-            foreach($show->setlistItems->sortBy('order') as $item) {
-                if($item->encore) {
+            foreach ($show->setlistItems->sortBy('order') as $item) {
+                if ($item->encore) {
                     $encore = 1;
                 }
-                if(! $item->encore && $encore) {
+                if (! $item->encore && $encore) {
                     echo "found untagged encore: {$show->date} {$item->song->title}\n";
                     $item->encore = 1;
                     $item->save();
@@ -107,14 +107,25 @@ class SetlistFm extends Command
 
     private function _songConvert1($title)
     {
-        if($title == 'Paranoia in Bb Major') $title = 'Paranoia in B-Flat Major';
-        if($title == 'Pretty Girl From Here') $title = 'Pretty Girl From (Instrumental)';
-        if($title == 'Froggy Went A Courtin\'') $title = 'Frog Went A-Courting';
-        if($title == 'Old Joe Clark (Traditional Cover)') $title = 'Old Joe Clark';
-        if($title == 'How Sweet It Is (To Be Loved By You) (Holland-Dozier-Holland Cover)') return strtolower('How Sweet It Is (To Be Loved by You)');
+        if ($title == 'Paranoia in Bb Major') {
+            $title = 'Paranoia in B-Flat Major';
+        }
+        if ($title == 'Pretty Girl From Here') {
+            $title = 'Pretty Girl From (Instrumental)';
+        }
+        if ($title == 'Froggy Went A Courtin\'') {
+            $title = 'Frog Went A-Courting';
+        }
+        if ($title == 'Old Joe Clark (Traditional Cover)') {
+            $title = 'Old Joe Clark';
+        }
+        if ($title == 'How Sweet It Is (To Be Loved By You) (Holland-Dozier-Holland Cover)') {
+            return strtolower('How Sweet It Is (To Be Loved by You)');
+        }
         $title = strtolower($title);
         $title = preg_replace('/\(.*cover.*\)/i', '', $title);
         echo $title, "\n";
+
         return trim($title);
     }
 }

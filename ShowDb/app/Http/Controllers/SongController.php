@@ -2,19 +2,18 @@
 
 namespace ShowDb\Http\Controllers;
 
+use Auth;
+use DB;
 use Illuminate\Http\Request;
+use Redirect;
+use Session;
+use ShowDb\Show;
 use ShowDb\Song;
 use ShowDb\SongNote;
-use Session;
-use Redirect;
-use Auth;
-use ShowDb\Show;
-use DB;
-use \Storage;
+use Storage;
 
 class SongController extends Controller
 {
-
     /**
      * Constructor.
      */
@@ -46,15 +45,16 @@ class SongController extends Controller
              ORDER BY year ASC"
         ));
 
-        $graph_data = [['Year', 'Plays', (object)['role' => 'style']]];
+        $graph_data = [['Year', 'Plays', (object) ['role' => 'style']]];
         $last_year = 0;
-        foreach($plays_by_year as $info) {
-            while($last_year > 0 && $last_year < $info->year - 1) {
+        foreach ($plays_by_year as $info) {
+            while ($last_year > 0 && $last_year < $info->year - 1) {
                 $graph_data[] = [++$last_year, 0, '#377bb5'];
             }
             $graph_data[] = [$info->year, $info->song_count, '#377bb5'];
             $last_year = $info->year;
         }
+
         return $graph_data;
     }
 
@@ -72,41 +72,39 @@ class SongController extends Controller
         ]);
         $q = $request->get('q');
         $o = $request->get('o') ?: 'setlist_items_count-desc';
-	$p = $request->get('page');
+        $p = $request->get('page');
         $sort_order = explode('-', $o);
 
-	$songs = \Cache::get("songs-index-$q-$o-$p");
-	if($songs === null) {
-	  $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
+        $songs = \Cache::get("songs-index-$q-$o-$p");
+        if ($songs === null) {
+            $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
             ->withCount('notes')
-            ->where( 'title', 'LIKE', '%' . $q . '%' )
-            ->orWhereHas('notes', function($query) use ($q) {
-                    $query->where('note', 'LIKE', "%{$q}%")
+            ->where('title', 'LIKE', '%'.$q.'%')
+            ->orWhereHas('notes', function ($query) use ($q) {
+                $query->where('note', 'LIKE', "%{$q}%")
                     ->where('note', 'NOT LIKE', '%<img src="data:%');
-                })
+            })
             ->orderBy($sort_order[0], $sort_order[1])
             ->orderBy('title')
             ->paginate(15)
-            ->setPath( '' );
+            ->setPath('');
 
-	  \Cache::put("songs-index-$q-$o-$p", $songs, 60*24);
-	}
-        $pagination = $songs->appends( [
+            \Cache::put("songs-index-$q-$o-$p", $songs, 60 * 24);
+        }
+        $pagination = $songs->appends([
             'q' => $q,
             'o' => $o,
         ]);
 
         $setlist_order = 'setlist_items_count-asc';
-        if( $o === $setlist_order ) {
+        if ($o === $setlist_order) {
             $setlist_order = 'setlist_items_count-desc';
         }
 
         $title_order = 'title-asc';
-        if( $o === $title_order ) {
+        if ($o === $title_order) {
             $title_order = 'title-desc';
         }
-
-	
 
         return view('song.index')
             ->withSongs($songs)
@@ -122,8 +120,8 @@ class SongController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function findPlays( Request $request ) {
-
+    public function findPlays(Request $request)
+    {
         $this->validate($request, [
             'title' => 'exists:songs',
             'username' => 'exists:users',
@@ -131,16 +129,17 @@ class SongController extends Controller
 
         $song_id = Song::where('title', '=', $request->title)->first()->id;
         $prefix = '';
-        if($request->username) {
-            $prefix = '/stats/' . $request->username;
+        if ($request->username) {
+            $prefix = '/stats/'.$request->username;
         }
-        return redirect($prefix . '/songs/' . $song_id . '/plays' );
+
+        return redirect($prefix.'/songs/'.$song_id.'/plays');
     }
 
     /**
      * Display the shows where a given song was played.
      *
-     * @param integer                    $song_id
+     * @param int                    $song_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -153,18 +152,18 @@ class SongController extends Controller
         $o = $request->get('o') ?: 'date';
         $d = $request->get('d') ?: 'desc';
 
-        $shows = Show::whereHas('setlistItems', function($query) use($song_id) {
+        $shows = Show::whereHas('setlistItems', function ($query) use ($song_id) {
             $query->where('song_id', '=', $song_id)
-	    ->orWhere('interlude_song_id', '=', $song_id);
+        ->orWhere('interlude_song_id', '=', $song_id);
         })->whereNull('user_id')
                ->withCount('setlistItems')
                ->withCount('notes')
                ->orderBy($o, $d)
-               ->orderBy('date','desc')
+               ->orderBy('date', 'desc')
                ->paginate(15)
                ->setPath('');
 
-        $pagination = $shows->appends( [
+        $pagination = $shows->appends([
             'd' => $d,
         ]);
 
@@ -198,13 +197,14 @@ class SongController extends Controller
             'songs.*' => 'required|unique:songs,title|max:255',
         ]);
 
-        foreach( $request->songs as $title ) {
+        foreach ($request->songs as $title) {
             $song = new Song();
             $song->title = $title;
             $song->creator_id = $request->user()->id;
             $song->save();
         }
         Session::flash('flash_message', 'Changes saved');
+
         return redirect('/songs');
     }
 
@@ -220,8 +220,9 @@ class SongController extends Controller
         $user = $request->user();
         $song = Song::find($id);
 
-        if(is_null($song)) {
-            Session::flash('message','Song not found');
+        if (is_null($song)) {
+            Session::flash('message', 'Song not found');
+
             return redirect('/songs');
         }
 
@@ -241,8 +242,9 @@ class SongController extends Controller
     {
         $song = Song::find($id);
 
-        if(is_null($song)) {
-            Session::flash('message','Book not found');
+        if (is_null($song)) {
+            Session::flash('message', 'Book not found');
+
             return redirect('/songs');
         }
 
@@ -253,20 +255,20 @@ class SongController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        # Validate
+        // Validate
         $this->validate($request, [
-            'title' => 'required|between:1,255'
+            'title' => 'required|between:1,255',
         ]);
 
         $song = Song::find($id);
-        if($request->snip) {
+        if ($request->snip) {
             $snip = $request->snip;
-            $snipName = $snip->storeAs("/audio", "{$snip->hashName()}.mp3", 's3');
+            $snipName = $snip->storeAs('/audio', "{$snip->hashName()}.mp3", 's3');
             $song->snipUrl = storage::disk('s3')->url($snipName);
         }
 
@@ -276,71 +278,77 @@ class SongController extends Controller
         $song->save();
 
         Session::flash('flash_message', 'Changes saved');
-        return redirect('/songs/' . $song->id);
+
+        return redirect('/songs/'.$song->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         Song::find($id)->delete();
         Session::flash('flash_message', 'Song Deleted');
+
         return redirect('/songs');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer                  $song_id
-     * @param  integer                  $note_id
+     * @param  int                  $song_id
+     * @param  int                  $note_id
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function updateNote($song_id, $note_id, Request $request) {
+    public function updateNote($song_id, $note_id, Request $request)
+    {
         $this->validate($request, [
             'note' => 'string|between:5,2000000',
             'published' => 'boolean',
         ]);
         $note = SongNote::findOrFail($note_id);
-        if( $note->song->id != $song_id ) {
-            Session::flash('flash_message', "Song/Note mismatch");
+        if ($note->song->id != $song_id) {
+            Session::flash('flash_message', 'Song/Note mismatch');
+
             return Redirect::back();
         }
 
-        if($request->has('published')) {
+        if ($request->has('published')) {
             $note->published = $request->published;
         } else {
             $note->published = 0;
         }
 
-        if($request->has('note')) {
+        if ($request->has('note')) {
             $note->note = $request->note;
         }
 
         $note->save();
 
         Session::flash('flash_message', 'Song Note Edited');
+
         return Redirect::back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function storeNote($id, Request $request) {
+    public function storeNote($id, Request $request)
+    {
         $this->validate($request, [
-            'notes.*' => 'string|between:5,2000000'
+            'notes.*' => 'string|between:5,2000000',
         ]);
 
         $cnt = 0;
-        foreach( $request->notes as $note ) {
-            if(trim($note) === '') {
+        foreach ($request->notes as $note) {
+            if (trim($note) === '') {
                 continue;
             }
             $songnote = new SongNote();
@@ -355,38 +363,42 @@ class SongController extends Controller
             $cnt++;
         }
 
-        if($cnt) {
+        if ($cnt) {
             Session::flash('flash_message', 'Song Note(s) added');
         } else {
             Session::flash('flash_message', 'Song Note(s) were empty');
         }
-        return Redirect::back();
 
+        return Redirect::back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer $song_id
-     * @param  integer $note_id
+     * @param  int $song_id
+     * @param  int $note_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyNote($song_id, $note_id) {
+    public function destroyNote($song_id, $note_id)
+    {
         $note = SongNote::findOrFail($note_id);
-        if( $note->song->id != $song_id ) {
-            Session::flash('flash_message', "boo");
+        if ($note->song->id != $song_id) {
+            Session::flash('flash_message', 'boo');
+
             return Redirect::back();
         }
 
-        if( !Auth::user()->admin ) {
-            if( $note->user_id != Auth::user()->id ) {
+        if (! Auth::user()->admin) {
+            if ($note->user_id != Auth::user()->id) {
                 Session::flash('flash_message', 'Sorry, you can only delete notes you have created');
+
                 return Redirect::back();
             }
         }
 
         $note->delete();
         Session::flash('flash_message', 'Note Deleted');
+
         return Redirect::back();
-   }
+    }
 }

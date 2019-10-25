@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class MakeAuditRouteText extends Migration
 {
@@ -13,7 +13,7 @@ class MakeAuditRouteText extends Migration
      */
     public function up()
     {
-        Schema::table('audits', function($table) {
+        Schema::table('audits', function ($table) {
             $table->text('route')->nullable()->change();
         });
     }
@@ -25,7 +25,7 @@ class MakeAuditRouteText extends Migration
      */
     public function down()
     {
-        Schema::table('audits', function($table) {
+        Schema::table('audits', function ($table) {
             $table->string('route')->nullable()->change();
         });
     }

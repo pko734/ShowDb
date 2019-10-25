@@ -38,27 +38,27 @@ class ImageMigrateCommand extends Command
      */
     public function handle()
     {
-	$notes = ShowNote::all();
-	foreach( $notes as $note ) {
-            if(strpos($note->note, '<img src="http://') !== false) {
-	      preg_match_all('/<img src="(.*?)"/', $note->note, $matches);
-	      $old = $matches[1][0];
-	      if(strpos($old, 'asmylifeturns')) {
-	        continue;
-              }
-	      $new = "/images/{$note->id}." . pathinfo(parse_url($old, PHP_URL_PATH), PATHINFO_EXTENSION);
-	      $cmd = "wget $old -O " . public_path() . $new;
+        $notes = ShowNote::all();
+        foreach ($notes as $note) {
+            if (strpos($note->note, '<img src="http://') !== false) {
+                preg_match_all('/<img src="(.*?)"/', $note->note, $matches);
+                $old = $matches[1][0];
+                if (strpos($old, 'asmylifeturns')) {
+                    continue;
+                }
+                $new = "/images/{$note->id}.".pathinfo(parse_url($old, PHP_URL_PATH), PATHINFO_EXTENSION);
+                $cmd = "wget $old -O ".public_path().$new;
 
-	      exec($cmd);
+                exec($cmd);
 
-	      $replaced = str_replace($old, $new, $note->note);
-	      echo $replaced . "\n";
-	      #$note->note = $replaced;
-	      #$note->save();
+                $replaced = str_replace($old, $new, $note->note);
+                echo $replaced."\n";
+                //$note->note = $replaced;
+          //$note->save();
 
-	      #echo "\n";
-              #var_export($matches[1][0]); echo "\n";
-	    }
-	}
+          //echo "\n";
+              //var_export($matches[1][0]); echo "\n";
+            }
+        }
     }
 }

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    public function show() {
-        return $this->hasMany('ShowDb\Show');
+    public function show()
+    {
+        return $this->hasMany(\ShowDb\Show::class);
     }
 }

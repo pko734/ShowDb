@@ -2,17 +2,17 @@
 
 namespace ShowDb\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use Session;
-use Redirect;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Redirect;
+use Session;
 use ShowDb\TimelineSlide;
 
 class AdminTimelineController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('admin');
     }
 
@@ -54,22 +54,24 @@ class AdminTimelineController extends Controller
         $this->validate($request, [
                                    'headline' => 'required',
                                    'type' => 'required',
-                                   'start_date' => 'required'
+                                   'start_date' => 'required',
         ]);
 
-        if( $request->start_date ) {
+        if ($request->start_date) {
             try {
                 $start_date = (new Carbon($request->start_date))->toDateString();
-            } catch(\Exception $e) {
-                Session::flash('flash_error', 'Failed to parse date: ' . $request->start_date);
+            } catch (\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: '.$request->start_date);
+
                 return Redirect::back();
             }
         }
-        if( $request->end_date ) {
+        if ($request->end_date) {
             try {
                 $end_date = (new Carbon($request->end_date))->toDateString();
-            } catch(\Exception $e) {
-                Session::flash('flash_error', 'Failed to parse date: ' . $request->end_date);
+            } catch (\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: '.$request->end_date);
+
                 return Redirect::back();
             }
         }
@@ -91,7 +93,8 @@ class AdminTimelineController extends Controller
         $slide->save();
 
         Session::flash('flash_message', 'Changes saved');
-        return redirect(url()->current());        
+
+        return redirect(url()->current());
     }
 
     /**
@@ -105,15 +108,15 @@ class AdminTimelineController extends Controller
         $user = $request->user();
         $slide = TimelineSlide::find($id);
 
-        if(is_null($slide)) {
-            Session::flash('message','Slide not found');
+        if (is_null($slide)) {
+            Session::flash('message', 'Slide not found');
+
             return redirect('/admin/timeline');
         }
 
         return view('admin.timeline.show')
             ->withSlide($slide)
             ->withUser($user);
-
     }
 
     /**
@@ -127,8 +130,9 @@ class AdminTimelineController extends Controller
         $slide = TimelineSlide::where('id', '=', $id)
             ->first();
 
-        if(is_null($slide)) {
-            Session::flash('flash_error','Slide not found');
+        if (is_null($slide)) {
+            Session::flash('flash_error', 'Slide not found');
+
             return redirect(dirname(url()->current()));
         }
 
@@ -148,26 +152,28 @@ class AdminTimelineController extends Controller
         $this->validate($request, [
                                    'headline' => 'required',
                                    'type' => 'required',
-                                   'start_date' => 'required'
+                                   'start_date' => 'required',
         ]);
 
-        if( $request->start_date ) {
+        if ($request->start_date) {
             try {
                 $start_date = (new Carbon($request->start_date))->toDateString();
-            } catch(\Exception $e) {
-                Session::flash('flash_error', 'Failed to parse date: ' . $request->start_date);
+            } catch (\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: '.$request->start_date);
+
                 return Redirect::back();
             }
         }
-        if( $request->end_date ) {
+        if ($request->end_date) {
             try {
                 $end_date = (new Carbon($request->end_date))->toDateString();
-            } catch(\Exception $e) {
-                Session::flash('flash_error', 'Failed to parse date: ' . $request->end_date);
+            } catch (\Exception $e) {
+                Session::flash('flash_error', 'Failed to parse date: '.$request->end_date);
+
                 return Redirect::back();
             }
         }
-        #        var_export($id); exit;
+        //        var_export($id); exit;
         \DB::connection()->enableQueryLog();
         $slide = TimelineSlide::find($id);
         $slide->type = ($request->type === 'normal') ? null : $request->type;
@@ -185,9 +191,10 @@ class AdminTimelineController extends Controller
         $slide->save();
 
         Session::flash('flash_message', 'Changes saved');
+
         return redirect(url()->current());
     }
-  
+
     /**
      * Remove the specified resource from storage.
      *
@@ -200,7 +207,7 @@ class AdminTimelineController extends Controller
             ->first()
             ->delete();
         Session::flash('flash_message', 'Slide Deleted');
-        return redirect(dirname(url()->current()));
 
+        return redirect(dirname(url()->current()));
     }
 }

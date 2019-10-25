@@ -2,8 +2,8 @@
 
 namespace ShowDb\Http\Controllers\Auth;
 
-use ShowDb\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use ShowDb\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {

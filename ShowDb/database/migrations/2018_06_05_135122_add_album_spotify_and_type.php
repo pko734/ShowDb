@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddAlbumSpotifyAndType extends Migration
 {
@@ -13,7 +13,7 @@ class AddAlbumSpotifyAndType extends Migration
      */
     public function up()
     {
-        Schema::table('albums', function($table) {
+        Schema::table('albums', function ($table) {
             $table->string('spotify_link')->nullable();
             $table->enum('type', ['studio', 'live'])->default('studio');
         });

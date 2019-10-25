@@ -16,10 +16,10 @@ What's New
   @foreach($stuff as $date => $data)
     <h2>{{ date('F jS Y', strtotime($date)) }}</h2>
     @if(isset($data['users']))
-    <p><b>{{ count($data['users']) }} new {{ str_plural('user', count($data['users'])) }}</b></p>
+    <p><b>{{ count($data['users']) }} new {{ Str::plural('user', count($data['users'])) }}</b></p>
     @endif
     @if(isset($data['shows']))
-    <p><b>{{ count($data['shows']) }} new {{ str_plural('show', count($data['shows'])) }}</b>
+    <p><b>{{ count($data['shows']) }} new {{ Str::plural('show', count($data['shows'])) }}</b>
       <br>
       @php
       sort($data['shows']);
@@ -34,7 +34,7 @@ What's New
     @endif
 
     @if(isset($data['songs']))
-    <p><b>{{ count($data['songs']) }} new {{ str_plural('song', count($data['songs'])) }}</b>
+    <p><b>{{ count($data['songs']) }} new {{ Str::plural('song', count($data['songs'])) }}</b>
       <br>
       @foreach($data['songs'] as $song_id)
       @php
@@ -47,7 +47,7 @@ What's New
     @endif
 
     @if(isset($data['notes']))
-    <p><b>{{ count($data['notes']) }} new show {{ str_plural('note', count($data['notes'])) }}</b>
+    <p><b>{{ count($data['notes']) }} new show {{ Str::plural('note', count($data['notes'])) }}</b>
       <br>
       @foreach($data['notes'] as $note_id)
       @php
@@ -59,7 +59,7 @@ What's New
     @endif
 
     @if(isset($data['photos']))
-    <p><b>{{ count($data['photos']) }} new {{ str_plural('photo', count($data['photos'])) }}</b>
+    <p><b>{{ count($data['photos']) }} new {{ Str::plural('photo', count($data['photos'])) }}</b>
       <br>
       @foreach($data['photos'] as $photo_id)    
       @php
@@ -93,7 +93,7 @@ What's New
     @endif
      
     @if(isset($data['videos']))
-    <p><b>{{ count($data['videos']) }} new {{ str_plural('video', count($data['videos'])) }}</b>
+    <p><b>{{ count($data['videos']) }} new {{ Str::plural('video', count($data['videos'])) }}</b>
       <br>
       @foreach($data['videos'] as $video_id)
       @php

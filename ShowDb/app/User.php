@@ -2,9 +2,9 @@
 
 namespace ShowDb;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -17,10 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-      'name', 'email', 'password', 'admin', 'avatar', 'fb_id', 'username', 'share'
+      'name', 'email', 'password', 'admin', 'avatar', 'fb_id', 'username', 'share',
     ];
-
-    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,19 +29,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return $this->admin;
     }
 
-    public function shows() {
-        return $this->belongsToMany('ShowDb\Show');
+    public function shows()
+    {
+        return $this->belongsToMany(\ShowDb\Show::class);
     }
 
-    public function images() {
-        return $this->hasMany('ShowDb\ShowImage');
+    public function images()
+    {
+        return $this->hasMany(\ShowDb\ShowImage::class);
     }
 
-    public function badges() {
-        return $this->belongsToMany('ShowDb\Badge');
+    public function badges()
+    {
+        return $this->belongsToMany(\ShowDb\Badge::class);
     }
 }

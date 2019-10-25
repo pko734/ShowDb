@@ -2,8 +2,8 @@
 
 namespace ShowDb\Http\Controllers\Auth;
 
-use ShowDb\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use ShowDb\Http\Controllers\Controller;
 
 class ForgotPasswordController extends Controller
 {

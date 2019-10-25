@@ -4,21 +4,17 @@ use Illuminate\Database\Seeder;
 
 class SongNotesTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
+     * Auto generated seed file.
      *
      * @return void
      */
     public function run()
     {
-        
-
         \DB::table('song_notes')->delete();
-        
-        \DB::table('song_notes')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('song_notes')->insert([
+            0 => [
                 'id' => 2,
                 'song_id' => 153,
                 'user_id' => 1,
@@ -29,9 +25,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:42:53',
                 'updated_at' => '2016-12-12 18:42:53',
                 'order' => 0,
-            ),
-            1 => 
-            array (
+            ],
+            1 => [
                 'id' => 5,
                 'song_id' => 155,
                 'user_id' => 1,
@@ -42,9 +37,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:44:27',
                 'updated_at' => '2016-12-12 18:44:27',
                 'order' => 0,
-            ),
-            2 => 
-            array (
+            ],
+            2 => [
                 'id' => 7,
                 'song_id' => 159,
                 'user_id' => 1,
@@ -55,9 +49,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:45:02',
                 'updated_at' => '2016-12-12 18:45:02',
                 'order' => 0,
-            ),
-            3 => 
-            array (
+            ],
+            3 => [
                 'id' => 8,
                 'song_id' => 34,
                 'user_id' => 1,
@@ -68,9 +61,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:45:22',
                 'updated_at' => '2016-12-12 18:45:22',
                 'order' => 0,
-            ),
-            4 => 
-            array (
+            ],
+            4 => [
                 'id' => 10,
                 'song_id' => 160,
                 'user_id' => 1,
@@ -81,9 +73,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:46:00',
                 'updated_at' => '2016-12-12 18:46:00',
                 'order' => 0,
-            ),
-            5 => 
-            array (
+            ],
+            5 => [
                 'id' => 11,
                 'song_id' => 227,
                 'user_id' => 1,
@@ -94,9 +85,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:46:26',
                 'updated_at' => '2016-12-12 18:46:26',
                 'order' => 0,
-            ),
-            6 => 
-            array (
+            ],
+            6 => [
                 'id' => 12,
                 'song_id' => 283,
                 'user_id' => 1,
@@ -107,9 +97,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:47:16',
                 'updated_at' => '2016-12-12 18:47:16',
                 'order' => 0,
-            ),
-            7 => 
-            array (
+            ],
+            7 => [
                 'id' => 13,
                 'song_id' => 310,
                 'user_id' => 1,
@@ -120,9 +109,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:49:10',
                 'updated_at' => '2016-12-12 18:49:10',
                 'order' => 0,
-            ),
-            8 => 
-            array (
+            ],
+            8 => [
                 'id' => 14,
                 'song_id' => 311,
                 'user_id' => 1,
@@ -133,9 +121,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:49:25',
                 'updated_at' => '2016-12-12 18:49:25',
                 'order' => 0,
-            ),
-            9 => 
-            array (
+            ],
+            9 => [
                 'id' => 15,
                 'song_id' => 161,
                 'user_id' => 1,
@@ -146,9 +133,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:50:04',
                 'updated_at' => '2016-12-12 18:50:04',
                 'order' => 0,
-            ),
-            10 => 
-            array (
+            ],
+            10 => [
                 'id' => 16,
                 'song_id' => 241,
                 'user_id' => 1,
@@ -159,9 +145,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:50:21',
                 'updated_at' => '2016-12-12 18:50:21',
                 'order' => 0,
-            ),
-            11 => 
-            array (
+            ],
+            11 => [
                 'id' => 17,
                 'song_id' => 230,
                 'user_id' => 1,
@@ -172,9 +157,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:50:54',
                 'updated_at' => '2016-12-12 18:50:54',
                 'order' => 0,
-            ),
-            12 => 
-            array (
+            ],
+            12 => [
                 'id' => 18,
                 'song_id' => 219,
                 'user_id' => 1,
@@ -185,9 +169,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:51:10',
                 'updated_at' => '2016-12-12 18:51:10',
                 'order' => 0,
-            ),
-            13 => 
-            array (
+            ],
+            13 => [
                 'id' => 19,
                 'song_id' => 263,
                 'user_id' => 1,
@@ -198,9 +181,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:51:30',
                 'updated_at' => '2016-12-12 18:51:30',
                 'order' => 0,
-            ),
-            14 => 
-            array (
+            ],
+            14 => [
                 'id' => 20,
                 'song_id' => 251,
                 'user_id' => 1,
@@ -211,9 +193,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:51:40',
                 'updated_at' => '2016-12-12 18:51:40',
                 'order' => 0,
-            ),
-            15 => 
-            array (
+            ],
+            15 => [
                 'id' => 21,
                 'song_id' => 199,
                 'user_id' => 1,
@@ -224,9 +205,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:52:01',
                 'updated_at' => '2016-12-12 18:52:01',
                 'order' => 0,
-            ),
-            16 => 
-            array (
+            ],
+            16 => [
                 'id' => 22,
                 'song_id' => 262,
                 'user_id' => 1,
@@ -237,9 +217,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:52:16',
                 'updated_at' => '2016-12-12 18:52:16',
                 'order' => 0,
-            ),
-            17 => 
-            array (
+            ],
+            17 => [
                 'id' => 23,
                 'song_id' => 274,
                 'user_id' => 1,
@@ -250,9 +229,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:52:32',
                 'updated_at' => '2016-12-12 18:52:32',
                 'order' => 0,
-            ),
-            18 => 
-            array (
+            ],
+            18 => [
                 'id' => 24,
                 'song_id' => 195,
                 'user_id' => 1,
@@ -263,9 +241,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:52:55',
                 'updated_at' => '2016-12-12 18:52:55',
                 'order' => 0,
-            ),
-            19 => 
-            array (
+            ],
+            19 => [
                 'id' => 25,
                 'song_id' => 188,
                 'user_id' => 1,
@@ -276,9 +253,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:58:39',
                 'updated_at' => '2016-12-12 18:58:39',
                 'order' => 0,
-            ),
-            20 => 
-            array (
+            ],
+            20 => [
                 'id' => 26,
                 'song_id' => 239,
                 'user_id' => 1,
@@ -289,9 +265,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:59:01',
                 'updated_at' => '2016-12-12 18:59:01',
                 'order' => 0,
-            ),
-            21 => 
-            array (
+            ],
+            21 => [
                 'id' => 27,
                 'song_id' => 284,
                 'user_id' => 1,
@@ -302,9 +277,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:59:21',
                 'updated_at' => '2016-12-12 18:59:21',
                 'order' => 0,
-            ),
-            22 => 
-            array (
+            ],
+            22 => [
                 'id' => 28,
                 'song_id' => 216,
                 'user_id' => 1,
@@ -315,9 +289,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:59:33',
                 'updated_at' => '2016-12-12 18:59:33',
                 'order' => 0,
-            ),
-            23 => 
-            array (
+            ],
+            23 => [
                 'id' => 29,
                 'song_id' => 276,
                 'user_id' => 1,
@@ -328,9 +301,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 18:59:55',
                 'updated_at' => '2016-12-12 18:59:55',
                 'order' => 0,
-            ),
-            24 => 
-            array (
+            ],
+            24 => [
                 'id' => 30,
                 'song_id' => 203,
                 'user_id' => 1,
@@ -341,9 +313,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:00:19',
                 'updated_at' => '2016-12-12 19:00:19',
                 'order' => 0,
-            ),
-            25 => 
-            array (
+            ],
+            25 => [
                 'id' => 31,
                 'song_id' => 265,
                 'user_id' => 1,
@@ -354,9 +325,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:00:37',
                 'updated_at' => '2016-12-12 19:00:37',
                 'order' => 0,
-            ),
-            26 => 
-            array (
+            ],
+            26 => [
                 'id' => 32,
                 'song_id' => 266,
                 'user_id' => 1,
@@ -367,9 +337,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:00:51',
                 'updated_at' => '2016-12-12 19:00:51',
                 'order' => 0,
-            ),
-            27 => 
-            array (
+            ],
+            27 => [
                 'id' => 33,
                 'song_id' => 268,
                 'user_id' => 1,
@@ -380,9 +349,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:01:06',
                 'updated_at' => '2016-12-12 19:01:06',
                 'order' => 0,
-            ),
-            28 => 
-            array (
+            ],
+            28 => [
                 'id' => 34,
                 'song_id' => 317,
                 'user_id' => 1,
@@ -393,9 +361,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:38:18',
                 'updated_at' => '2016-12-12 19:38:18',
                 'order' => 0,
-            ),
-            29 => 
-            array (
+            ],
+            29 => [
                 'id' => 35,
                 'song_id' => 235,
                 'user_id' => 1,
@@ -406,9 +373,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:38:40',
                 'updated_at' => '2016-12-12 19:38:40',
                 'order' => 0,
-            ),
-            30 => 
-            array (
+            ],
+            30 => [
                 'id' => 37,
                 'song_id' => 192,
                 'user_id' => 1,
@@ -419,9 +385,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:40:41',
                 'updated_at' => '2016-12-12 19:40:41',
                 'order' => 0,
-            ),
-            31 => 
-            array (
+            ],
+            31 => [
                 'id' => 38,
                 'song_id' => 256,
                 'user_id' => 1,
@@ -432,9 +397,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:41:03',
                 'updated_at' => '2016-12-12 19:41:03',
                 'order' => 0,
-            ),
-            32 => 
-            array (
+            ],
+            32 => [
                 'id' => 39,
                 'song_id' => 333,
                 'user_id' => 1,
@@ -445,9 +409,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:41:30',
                 'updated_at' => '2016-12-12 19:41:30',
                 'order' => 0,
-            ),
-            33 => 
-            array (
+            ],
+            33 => [
                 'id' => 40,
                 'song_id' => 242,
                 'user_id' => 1,
@@ -458,9 +421,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:41:55',
                 'updated_at' => '2016-12-12 19:41:55',
                 'order' => 0,
-            ),
-            34 => 
-            array (
+            ],
+            34 => [
                 'id' => 41,
                 'song_id' => 282,
                 'user_id' => 1,
@@ -471,9 +433,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:42:56',
                 'updated_at' => '2016-12-12 19:42:56',
                 'order' => 0,
-            ),
-            35 => 
-            array (
+            ],
+            35 => [
                 'id' => 42,
                 'song_id' => 202,
                 'user_id' => 1,
@@ -484,9 +445,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:43:40',
                 'updated_at' => '2016-12-12 19:43:40',
                 'order' => 0,
-            ),
-            36 => 
-            array (
+            ],
+            36 => [
                 'id' => 43,
                 'song_id' => 295,
                 'user_id' => 1,
@@ -497,9 +457,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:45:30',
                 'updated_at' => '2016-12-12 19:45:30',
                 'order' => 0,
-            ),
-            37 => 
-            array (
+            ],
+            37 => [
                 'id' => 44,
                 'song_id' => 228,
                 'user_id' => 1,
@@ -510,9 +469,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:47:25',
                 'updated_at' => '2016-12-12 19:47:25',
                 'order' => 0,
-            ),
-            38 => 
-            array (
+            ],
+            38 => [
                 'id' => 45,
                 'song_id' => 214,
                 'user_id' => 1,
@@ -523,9 +481,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:49:18',
                 'updated_at' => '2016-12-12 19:49:18',
                 'order' => 0,
-            ),
-            39 => 
-            array (
+            ],
+            39 => [
                 'id' => 46,
                 'song_id' => 309,
                 'user_id' => 1,
@@ -536,9 +493,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:49:58',
                 'updated_at' => '2016-12-12 19:49:58',
                 'order' => 0,
-            ),
-            40 => 
-            array (
+            ],
+            40 => [
                 'id' => 47,
                 'song_id' => 277,
                 'user_id' => 1,
@@ -549,9 +505,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:50:26',
                 'updated_at' => '2016-12-12 19:50:26',
                 'order' => 0,
-            ),
-            41 => 
-            array (
+            ],
+            41 => [
                 'id' => 48,
                 'song_id' => 177,
                 'user_id' => 1,
@@ -562,9 +517,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:50:52',
                 'updated_at' => '2016-12-12 19:50:52',
                 'order' => 0,
-            ),
-            42 => 
-            array (
+            ],
+            42 => [
                 'id' => 49,
                 'song_id' => 207,
                 'user_id' => 1,
@@ -575,9 +529,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:51:13',
                 'updated_at' => '2016-12-12 19:51:13',
                 'order' => 0,
-            ),
-            43 => 
-            array (
+            ],
+            43 => [
                 'id' => 50,
                 'song_id' => 349,
                 'user_id' => 1,
@@ -588,9 +541,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:51:50',
                 'updated_at' => '2016-12-12 19:51:50',
                 'order' => 0,
-            ),
-            44 => 
-            array (
+            ],
+            44 => [
                 'id' => 51,
                 'song_id' => 293,
                 'user_id' => 1,
@@ -601,9 +553,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:52:33',
                 'updated_at' => '2016-12-12 19:52:33',
                 'order' => 0,
-            ),
-            45 => 
-            array (
+            ],
+            45 => [
                 'id' => 52,
                 'song_id' => 307,
                 'user_id' => 1,
@@ -614,9 +565,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:52:56',
                 'updated_at' => '2016-12-12 19:52:56',
                 'order' => 0,
-            ),
-            46 => 
-            array (
+            ],
+            46 => [
                 'id' => 53,
                 'song_id' => 226,
                 'user_id' => 1,
@@ -627,9 +577,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:53:22',
                 'updated_at' => '2016-12-12 19:53:22',
                 'order' => 0,
-            ),
-            47 => 
-            array (
+            ],
+            47 => [
                 'id' => 54,
                 'song_id' => 55,
                 'user_id' => 1,
@@ -640,9 +589,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:53:46',
                 'updated_at' => '2016-12-12 19:53:46',
                 'order' => 0,
-            ),
-            48 => 
-            array (
+            ],
+            48 => [
                 'id' => 55,
                 'song_id' => 322,
                 'user_id' => 1,
@@ -653,9 +601,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:54:28',
                 'updated_at' => '2016-12-12 19:54:28',
                 'order' => 0,
-            ),
-            49 => 
-            array (
+            ],
+            49 => [
                 'id' => 56,
                 'song_id' => 197,
                 'user_id' => 1,
@@ -666,9 +613,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:54:49',
                 'updated_at' => '2016-12-12 19:54:49',
                 'order' => 0,
-            ),
-            50 => 
-            array (
+            ],
+            50 => [
                 'id' => 57,
                 'song_id' => 320,
                 'user_id' => 1,
@@ -679,9 +625,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:55:41',
                 'updated_at' => '2016-12-12 19:55:41',
                 'order' => 0,
-            ),
-            51 => 
-            array (
+            ],
+            51 => [
                 'id' => 58,
                 'song_id' => 206,
                 'user_id' => 1,
@@ -692,9 +637,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:56:30',
                 'updated_at' => '2016-12-12 19:56:30',
                 'order' => 0,
-            ),
-            52 => 
-            array (
+            ],
+            52 => [
                 'id' => 59,
                 'song_id' => 258,
                 'user_id' => 1,
@@ -705,9 +649,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:57:08',
                 'updated_at' => '2016-12-12 19:57:08',
                 'order' => 0,
-            ),
-            53 => 
-            array (
+            ],
+            53 => [
                 'id' => 60,
                 'song_id' => 319,
                 'user_id' => 1,
@@ -718,9 +661,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:57:58',
                 'updated_at' => '2016-12-12 19:57:58',
                 'order' => 0,
-            ),
-            54 => 
-            array (
+            ],
+            54 => [
                 'id' => 61,
                 'song_id' => 158,
                 'user_id' => 1,
@@ -731,9 +673,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:58:44',
                 'updated_at' => '2016-12-12 19:58:44',
                 'order' => 0,
-            ),
-            55 => 
-            array (
+            ],
+            55 => [
                 'id' => 62,
                 'song_id' => 179,
                 'user_id' => 1,
@@ -744,9 +685,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:59:07',
                 'updated_at' => '2016-12-12 19:59:07',
                 'order' => 0,
-            ),
-            56 => 
-            array (
+            ],
+            56 => [
                 'id' => 63,
                 'song_id' => 270,
                 'user_id' => 1,
@@ -757,9 +697,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:59:21',
                 'updated_at' => '2016-12-12 19:59:21',
                 'order' => 0,
-            ),
-            57 => 
-            array (
+            ],
+            57 => [
                 'id' => 64,
                 'song_id' => 313,
                 'user_id' => 1,
@@ -770,9 +709,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 19:59:48',
                 'updated_at' => '2016-12-12 19:59:48',
                 'order' => 0,
-            ),
-            58 => 
-            array (
+            ],
+            58 => [
                 'id' => 65,
                 'song_id' => 156,
                 'user_id' => 1,
@@ -783,9 +721,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:00:18',
                 'updated_at' => '2016-12-12 20:00:18',
                 'order' => 0,
-            ),
-            59 => 
-            array (
+            ],
+            59 => [
                 'id' => 66,
                 'song_id' => 301,
                 'user_id' => 1,
@@ -796,9 +733,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:01:13',
                 'updated_at' => '2016-12-12 20:01:13',
                 'order' => 0,
-            ),
-            60 => 
-            array (
+            ],
+            60 => [
                 'id' => 67,
                 'song_id' => 267,
                 'user_id' => 1,
@@ -809,9 +745,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:01:31',
                 'updated_at' => '2016-12-12 20:01:31',
                 'order' => 0,
-            ),
-            61 => 
-            array (
+            ],
+            61 => [
                 'id' => 68,
                 'song_id' => 243,
                 'user_id' => 1,
@@ -822,9 +757,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:02:02',
                 'updated_at' => '2016-12-12 20:02:02',
                 'order' => 0,
-            ),
-            62 => 
-            array (
+            ],
+            62 => [
                 'id' => 69,
                 'song_id' => 172,
                 'user_id' => 1,
@@ -835,9 +769,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:03:12',
                 'updated_at' => '2016-12-12 20:03:12',
                 'order' => 0,
-            ),
-            63 => 
-            array (
+            ],
+            63 => [
                 'id' => 70,
                 'song_id' => 209,
                 'user_id' => 1,
@@ -848,9 +781,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:03:57',
                 'updated_at' => '2016-12-12 20:03:57',
                 'order' => 0,
-            ),
-            64 => 
-            array (
+            ],
+            64 => [
                 'id' => 71,
                 'song_id' => 189,
                 'user_id' => 1,
@@ -861,9 +793,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:04:21',
                 'updated_at' => '2016-12-12 20:04:21',
                 'order' => 0,
-            ),
-            65 => 
-            array (
+            ],
+            65 => [
                 'id' => 72,
                 'song_id' => 238,
                 'user_id' => 1,
@@ -874,9 +805,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:04:59',
                 'updated_at' => '2016-12-12 20:04:59',
                 'order' => 0,
-            ),
-            66 => 
-            array (
+            ],
+            66 => [
                 'id' => 73,
                 'song_id' => 244,
                 'user_id' => 1,
@@ -887,9 +817,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:23:57',
                 'updated_at' => '2016-12-12 20:23:57',
                 'order' => 0,
-            ),
-            67 => 
-            array (
+            ],
+            67 => [
                 'id' => 74,
                 'song_id' => 250,
                 'user_id' => 1,
@@ -900,9 +829,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:24:45',
                 'updated_at' => '2016-12-12 20:24:45',
                 'order' => 0,
-            ),
-            68 => 
-            array (
+            ],
+            68 => [
                 'id' => 75,
                 'song_id' => 280,
                 'user_id' => 1,
@@ -913,9 +841,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:25:34',
                 'updated_at' => '2016-12-12 20:25:34',
                 'order' => 0,
-            ),
-            69 => 
-            array (
+            ],
+            69 => [
                 'id' => 76,
                 'song_id' => 316,
                 'user_id' => 1,
@@ -926,9 +853,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:25:55',
                 'updated_at' => '2016-12-12 20:25:55',
                 'order' => 0,
-            ),
-            70 => 
-            array (
+            ],
+            70 => [
                 'id' => 77,
                 'song_id' => 237,
                 'user_id' => 1,
@@ -939,9 +865,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:26:12',
                 'updated_at' => '2016-12-12 20:26:12',
                 'order' => 0,
-            ),
-            71 => 
-            array (
+            ],
+            71 => [
                 'id' => 78,
                 'song_id' => 285,
                 'user_id' => 1,
@@ -952,9 +877,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:26:36',
                 'updated_at' => '2016-12-12 20:26:36',
                 'order' => 0,
-            ),
-            72 => 
-            array (
+            ],
+            72 => [
                 'id' => 79,
                 'song_id' => 254,
                 'user_id' => 1,
@@ -965,9 +889,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:26:52',
                 'updated_at' => '2016-12-12 20:26:52',
                 'order' => 0,
-            ),
-            73 => 
-            array (
+            ],
+            73 => [
                 'id' => 80,
                 'song_id' => 257,
                 'user_id' => 1,
@@ -978,9 +901,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:27:16',
                 'updated_at' => '2016-12-12 20:27:16',
                 'order' => 0,
-            ),
-            74 => 
-            array (
+            ],
+            74 => [
                 'id' => 81,
                 'song_id' => 303,
                 'user_id' => 1,
@@ -991,9 +913,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:27:32',
                 'updated_at' => '2016-12-12 20:27:32',
                 'order' => 0,
-            ),
-            75 => 
-            array (
+            ],
+            75 => [
                 'id' => 82,
                 'song_id' => 231,
                 'user_id' => 1,
@@ -1004,9 +925,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:27:54',
                 'updated_at' => '2016-12-12 20:27:54',
                 'order' => 0,
-            ),
-            76 => 
-            array (
+            ],
+            76 => [
                 'id' => 83,
                 'song_id' => 211,
                 'user_id' => 1,
@@ -1017,9 +937,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:28:16',
                 'updated_at' => '2016-12-12 20:28:16',
                 'order' => 0,
-            ),
-            77 => 
-            array (
+            ],
+            77 => [
                 'id' => 84,
                 'song_id' => 286,
                 'user_id' => 1,
@@ -1030,9 +949,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:28:35',
                 'updated_at' => '2016-12-12 20:28:35',
                 'order' => 0,
-            ),
-            78 => 
-            array (
+            ],
+            78 => [
                 'id' => 85,
                 'song_id' => 294,
                 'user_id' => 1,
@@ -1043,9 +961,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:29:09',
                 'updated_at' => '2016-12-12 20:29:09',
                 'order' => 0,
-            ),
-            79 => 
-            array (
+            ],
+            79 => [
                 'id' => 86,
                 'song_id' => 174,
                 'user_id' => 1,
@@ -1056,9 +973,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:29:37',
                 'updated_at' => '2016-12-12 20:29:37',
                 'order' => 0,
-            ),
-            80 => 
-            array (
+            ],
+            80 => [
                 'id' => 87,
                 'song_id' => 232,
                 'user_id' => 1,
@@ -1069,9 +985,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:29:51',
                 'updated_at' => '2016-12-12 20:29:51',
                 'order' => 0,
-            ),
-            81 => 
-            array (
+            ],
+            81 => [
                 'id' => 88,
                 'song_id' => 298,
                 'user_id' => 1,
@@ -1082,9 +997,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:30:18',
                 'updated_at' => '2016-12-12 20:30:18',
                 'order' => 0,
-            ),
-            82 => 
-            array (
+            ],
+            82 => [
                 'id' => 89,
                 'song_id' => 208,
                 'user_id' => 1,
@@ -1095,9 +1009,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:32:24',
                 'updated_at' => '2016-12-12 20:32:24',
                 'order' => 0,
-            ),
-            83 => 
-            array (
+            ],
+            83 => [
                 'id' => 90,
                 'song_id' => 248,
                 'user_id' => 1,
@@ -1108,9 +1021,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:34:34',
                 'updated_at' => '2016-12-12 20:34:34',
                 'order' => 0,
-            ),
-            84 => 
-            array (
+            ],
+            84 => [
                 'id' => 91,
                 'song_id' => 281,
                 'user_id' => 1,
@@ -1121,9 +1033,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:34:56',
                 'updated_at' => '2016-12-12 20:34:56',
                 'order' => 0,
-            ),
-            85 => 
-            array (
+            ],
+            85 => [
                 'id' => 92,
                 'song_id' => 246,
                 'user_id' => 1,
@@ -1134,9 +1045,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:35:30',
                 'updated_at' => '2016-12-12 20:35:30',
                 'order' => 0,
-            ),
-            86 => 
-            array (
+            ],
+            86 => [
                 'id' => 93,
                 'song_id' => 220,
                 'user_id' => 1,
@@ -1147,9 +1057,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:36:04',
                 'updated_at' => '2016-12-12 20:36:04',
                 'order' => 0,
-            ),
-            87 => 
-            array (
+            ],
+            87 => [
                 'id' => 94,
                 'song_id' => 185,
                 'user_id' => 1,
@@ -1160,9 +1069,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:36:23',
                 'updated_at' => '2016-12-12 20:36:23',
                 'order' => 0,
-            ),
-            88 => 
-            array (
+            ],
+            88 => [
                 'id' => 95,
                 'song_id' => 224,
                 'user_id' => 1,
@@ -1173,9 +1081,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:36:58',
                 'updated_at' => '2016-12-12 20:36:58',
                 'order' => 0,
-            ),
-            89 => 
-            array (
+            ],
+            89 => [
                 'id' => 97,
                 'song_id' => 324,
                 'user_id' => 1,
@@ -1186,9 +1093,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:37:49',
                 'updated_at' => '2016-12-12 20:37:49',
                 'order' => 0,
-            ),
-            90 => 
-            array (
+            ],
+            90 => [
                 'id' => 98,
                 'song_id' => 249,
                 'user_id' => 1,
@@ -1199,9 +1105,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:38:11',
                 'updated_at' => '2016-12-12 20:38:11',
                 'order' => 0,
-            ),
-            91 => 
-            array (
+            ],
+            91 => [
                 'id' => 99,
                 'song_id' => 272,
                 'user_id' => 1,
@@ -1212,9 +1117,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:38:42',
                 'updated_at' => '2016-12-12 20:38:42',
                 'order' => 0,
-            ),
-            92 => 
-            array (
+            ],
+            92 => [
                 'id' => 100,
                 'song_id' => 166,
                 'user_id' => 1,
@@ -1225,9 +1129,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:39:01',
                 'updated_at' => '2016-12-12 20:39:01',
                 'order' => 0,
-            ),
-            93 => 
-            array (
+            ],
+            93 => [
                 'id' => 101,
                 'song_id' => 259,
                 'user_id' => 1,
@@ -1238,9 +1141,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:39:22',
                 'updated_at' => '2016-12-12 20:39:22',
                 'order' => 0,
-            ),
-            94 => 
-            array (
+            ],
+            94 => [
                 'id' => 102,
                 'song_id' => 323,
                 'user_id' => 1,
@@ -1251,9 +1153,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:39:40',
                 'updated_at' => '2016-12-12 20:39:40',
                 'order' => 0,
-            ),
-            95 => 
-            array (
+            ],
+            95 => [
                 'id' => 103,
                 'song_id' => 204,
                 'user_id' => 1,
@@ -1264,9 +1165,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:40:00',
                 'updated_at' => '2016-12-12 20:40:00',
                 'order' => 0,
-            ),
-            96 => 
-            array (
+            ],
+            96 => [
                 'id' => 104,
                 'song_id' => 213,
                 'user_id' => 1,
@@ -1277,9 +1177,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:40:16',
                 'updated_at' => '2016-12-12 20:40:16',
                 'order' => 0,
-            ),
-            97 => 
-            array (
+            ],
+            97 => [
                 'id' => 105,
                 'song_id' => 275,
                 'user_id' => 1,
@@ -1290,9 +1189,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:40:48',
                 'updated_at' => '2016-12-12 20:40:48',
                 'order' => 0,
-            ),
-            98 => 
-            array (
+            ],
+            98 => [
                 'id' => 106,
                 'song_id' => 201,
                 'user_id' => 1,
@@ -1303,9 +1201,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:41:14',
                 'updated_at' => '2016-12-12 20:41:14',
                 'order' => 0,
-            ),
-            99 => 
-            array (
+            ],
+            99 => [
                 'id' => 107,
                 'song_id' => 264,
                 'user_id' => 1,
@@ -1316,9 +1213,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:41:28',
                 'updated_at' => '2016-12-12 20:41:28',
                 'order' => 0,
-            ),
-            100 => 
-            array (
+            ],
+            100 => [
                 'id' => 108,
                 'song_id' => 205,
                 'user_id' => 1,
@@ -1329,9 +1225,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:41:44',
                 'updated_at' => '2016-12-12 20:41:44',
                 'order' => 0,
-            ),
-            101 => 
-            array (
+            ],
+            101 => [
                 'id' => 109,
                 'song_id' => 261,
                 'user_id' => 1,
@@ -1342,9 +1237,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:42:08',
                 'updated_at' => '2016-12-12 20:42:08',
                 'order' => 0,
-            ),
-            102 => 
-            array (
+            ],
+            102 => [
                 'id' => 110,
                 'song_id' => 218,
                 'user_id' => 1,
@@ -1355,9 +1249,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:42:45',
                 'updated_at' => '2016-12-12 20:42:45',
                 'order' => 0,
-            ),
-            103 => 
-            array (
+            ],
+            103 => [
                 'id' => 111,
                 'song_id' => 296,
                 'user_id' => 1,
@@ -1368,9 +1261,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:42:58',
                 'updated_at' => '2016-12-12 20:42:58',
                 'order' => 0,
-            ),
-            104 => 
-            array (
+            ],
+            104 => [
                 'id' => 112,
                 'song_id' => 225,
                 'user_id' => 1,
@@ -1381,9 +1273,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:43:19',
                 'updated_at' => '2016-12-12 20:43:19',
                 'order' => 0,
-            ),
-            105 => 
-            array (
+            ],
+            105 => [
                 'id' => 113,
                 'song_id' => 236,
                 'user_id' => 1,
@@ -1394,9 +1285,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:43:36',
                 'updated_at' => '2016-12-12 20:43:36',
                 'order' => 0,
-            ),
-            106 => 
-            array (
+            ],
+            106 => [
                 'id' => 114,
                 'song_id' => 222,
                 'user_id' => 1,
@@ -1407,9 +1297,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:44:30',
                 'updated_at' => '2016-12-12 20:44:30',
                 'order' => 0,
-            ),
-            107 => 
-            array (
+            ],
+            107 => [
                 'id' => 115,
                 'song_id' => 234,
                 'user_id' => 1,
@@ -1420,9 +1309,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:44:50',
                 'updated_at' => '2016-12-12 20:44:50',
                 'order' => 0,
-            ),
-            108 => 
-            array (
+            ],
+            108 => [
                 'id' => 116,
                 'song_id' => 245,
                 'user_id' => 1,
@@ -1433,9 +1321,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:45:20',
                 'updated_at' => '2016-12-12 20:45:20',
                 'order' => 0,
-            ),
-            109 => 
-            array (
+            ],
+            109 => [
                 'id' => 117,
                 'song_id' => 229,
                 'user_id' => 1,
@@ -1446,9 +1333,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:45:37',
                 'updated_at' => '2016-12-12 20:45:37',
                 'order' => 0,
-            ),
-            110 => 
-            array (
+            ],
+            110 => [
                 'id' => 118,
                 'song_id' => 269,
                 'user_id' => 1,
@@ -1459,9 +1345,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:46:01',
                 'updated_at' => '2016-12-12 20:46:01',
                 'order' => 0,
-            ),
-            111 => 
-            array (
+            ],
+            111 => [
                 'id' => 119,
                 'song_id' => 186,
                 'user_id' => 1,
@@ -1472,9 +1357,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:46:30',
                 'updated_at' => '2016-12-12 20:46:30',
                 'order' => 0,
-            ),
-            112 => 
-            array (
+            ],
+            112 => [
                 'id' => 120,
                 'song_id' => 252,
                 'user_id' => 1,
@@ -1485,9 +1369,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:46:52',
                 'updated_at' => '2016-12-12 20:46:52',
                 'order' => 0,
-            ),
-            113 => 
-            array (
+            ],
+            113 => [
                 'id' => 121,
                 'song_id' => 223,
                 'user_id' => 1,
@@ -1498,9 +1381,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:47:35',
                 'updated_at' => '2016-12-12 20:47:35',
                 'order' => 0,
-            ),
-            114 => 
-            array (
+            ],
+            114 => [
                 'id' => 122,
                 'song_id' => 288,
                 'user_id' => 1,
@@ -1511,9 +1393,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:47:57',
                 'updated_at' => '2016-12-12 20:47:57',
                 'order' => 0,
-            ),
-            115 => 
-            array (
+            ],
+            115 => [
                 'id' => 123,
                 'song_id' => 342,
                 'user_id' => 1,
@@ -1524,9 +1405,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:48:31',
                 'updated_at' => '2016-12-12 20:48:31',
                 'order' => 0,
-            ),
-            116 => 
-            array (
+            ],
+            116 => [
                 'id' => 124,
                 'song_id' => 312,
                 'user_id' => 1,
@@ -1537,9 +1417,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:50:03',
                 'updated_at' => '2016-12-12 20:50:03',
                 'order' => 0,
-            ),
-            117 => 
-            array (
+            ],
+            117 => [
                 'id' => 125,
                 'song_id' => 178,
                 'user_id' => 1,
@@ -1550,9 +1429,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:50:15',
                 'updated_at' => '2016-12-12 20:50:15',
                 'order' => 0,
-            ),
-            118 => 
-            array (
+            ],
+            118 => [
                 'id' => 126,
                 'song_id' => 215,
                 'user_id' => 1,
@@ -1563,9 +1441,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:50:54',
                 'updated_at' => '2016-12-12 20:50:54',
                 'order' => 0,
-            ),
-            119 => 
-            array (
+            ],
+            119 => [
                 'id' => 127,
                 'song_id' => 173,
                 'user_id' => 1,
@@ -1576,9 +1453,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:51:17',
                 'updated_at' => '2016-12-12 20:51:17',
                 'order' => 0,
-            ),
-            120 => 
-            array (
+            ],
+            120 => [
                 'id' => 128,
                 'song_id' => 321,
                 'user_id' => 1,
@@ -1589,9 +1465,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:51:30',
                 'updated_at' => '2016-12-12 20:51:30',
                 'order' => 0,
-            ),
-            121 => 
-            array (
+            ],
+            121 => [
                 'id' => 129,
                 'song_id' => 196,
                 'user_id' => 1,
@@ -1602,9 +1477,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:51:44',
                 'updated_at' => '2016-12-12 20:51:44',
                 'order' => 0,
-            ),
-            122 => 
-            array (
+            ],
+            122 => [
                 'id' => 130,
                 'song_id' => 300,
                 'user_id' => 1,
@@ -1615,9 +1489,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:52:06',
                 'updated_at' => '2016-12-12 20:52:06',
                 'order' => 0,
-            ),
-            123 => 
-            array (
+            ],
+            123 => [
                 'id' => 131,
                 'song_id' => 306,
                 'user_id' => 1,
@@ -1628,9 +1501,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:52:27',
                 'updated_at' => '2016-12-12 20:52:27',
                 'order' => 0,
-            ),
-            124 => 
-            array (
+            ],
+            124 => [
                 'id' => 132,
                 'song_id' => 198,
                 'user_id' => 1,
@@ -1641,9 +1513,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:53:17',
                 'updated_at' => '2016-12-12 20:53:17',
                 'order' => 0,
-            ),
-            125 => 
-            array (
+            ],
+            125 => [
                 'id' => 133,
                 'song_id' => 157,
                 'user_id' => 1,
@@ -1654,9 +1525,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:53:31',
                 'updated_at' => '2016-12-12 20:53:31',
                 'order' => 0,
-            ),
-            126 => 
-            array (
+            ],
+            126 => [
                 'id' => 134,
                 'song_id' => 168,
                 'user_id' => 1,
@@ -1667,9 +1537,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:53:53',
                 'updated_at' => '2016-12-12 20:53:53',
                 'order' => 0,
-            ),
-            127 => 
-            array (
+            ],
+            127 => [
                 'id' => 135,
                 'song_id' => 165,
                 'user_id' => 1,
@@ -1680,9 +1549,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:54:30',
                 'updated_at' => '2016-12-12 20:54:30',
                 'order' => 0,
-            ),
-            128 => 
-            array (
+            ],
+            128 => [
                 'id' => 136,
                 'song_id' => 240,
                 'user_id' => 1,
@@ -1693,9 +1561,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:54:51',
                 'updated_at' => '2016-12-12 20:54:51',
                 'order' => 0,
-            ),
-            129 => 
-            array (
+            ],
+            129 => [
                 'id' => 137,
                 'song_id' => 217,
                 'user_id' => 1,
@@ -1706,9 +1573,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:55:05',
                 'updated_at' => '2016-12-12 20:55:05',
                 'order' => 0,
-            ),
-            130 => 
-            array (
+            ],
+            130 => [
                 'id' => 138,
                 'song_id' => 221,
                 'user_id' => 1,
@@ -1719,9 +1585,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:55:18',
                 'updated_at' => '2016-12-12 20:55:18',
                 'order' => 0,
-            ),
-            131 => 
-            array (
+            ],
+            131 => [
                 'id' => 139,
                 'song_id' => 190,
                 'user_id' => 1,
@@ -1732,9 +1597,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:55:37',
                 'updated_at' => '2016-12-12 20:55:37',
                 'order' => 0,
-            ),
-            132 => 
-            array (
+            ],
+            132 => [
                 'id' => 140,
                 'song_id' => 273,
                 'user_id' => 1,
@@ -1745,9 +1609,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:56:06',
                 'updated_at' => '2016-12-12 20:56:06',
                 'order' => 0,
-            ),
-            133 => 
-            array (
+            ],
+            133 => [
                 'id' => 141,
                 'song_id' => 154,
                 'user_id' => 1,
@@ -1758,9 +1621,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:56:25',
                 'updated_at' => '2016-12-12 20:56:25',
                 'order' => 0,
-            ),
-            134 => 
-            array (
+            ],
+            134 => [
                 'id' => 142,
                 'song_id' => 271,
                 'user_id' => 1,
@@ -1771,9 +1633,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:56:49',
                 'updated_at' => '2016-12-12 20:56:49',
                 'order' => 0,
-            ),
-            135 => 
-            array (
+            ],
+            135 => [
                 'id' => 143,
                 'song_id' => 210,
                 'user_id' => 1,
@@ -1784,9 +1645,8 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:57:29',
                 'updated_at' => '2016-12-12 20:57:29',
                 'order' => 0,
-            ),
-            136 => 
-            array (
+            ],
+            136 => [
                 'id' => 144,
                 'song_id' => 279,
                 'user_id' => 1,
@@ -1797,9 +1657,7 @@ class SongNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-12 20:57:49',
                 'updated_at' => '2016-12-12 20:57:49',
                 'order' => 0,
-            ),
-        ));
-        
-        
+            ],
+        ]);
     }
 }

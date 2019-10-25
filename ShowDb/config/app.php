@@ -189,8 +189,8 @@ return [
         Cornford\Googlitics\AnalyticsServiceProvider::class,
         //Laravelista\Ekko\EkkoServiceProvider::class,
         Laravelista\Ekko\Frameworks\Laravel\ServiceProvider::class,
-	Intervention\Image\ImageServiceProvider::class,
-	AdrianMejias\States\StatesServiceProvider::class,
+    Intervention\Image\ImageServiceProvider::class,
+    AdrianMejias\States\StatesServiceProvider::class,
     ],
 
     /*
@@ -207,6 +207,7 @@ return [
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
+        'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
@@ -235,6 +236,7 @@ return [
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+        'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
@@ -244,8 +246,8 @@ return [
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
         'Ekko' => Laravelista\Ekko\Frameworks\Laravel\Facade::class,
-	'Image' => Intervention\Image\Facades\Image::class,
-	'States' => AdrianMejias\States\StatesFacade::class,
+    'Image' => Intervention\Image\Facades\Image::class,
+    'States' => AdrianMejias\States\StatesFacade::class,
     ],
 
 ];

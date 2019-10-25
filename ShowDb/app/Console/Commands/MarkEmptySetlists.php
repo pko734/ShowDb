@@ -39,11 +39,11 @@ class MarkEmptySetlists extends Command
     public function handle()
     {
         $shows = Show::has('setlistItems', '=', 0)->get();
-	foreach($shows as $show) {
-	    if(strpos($show->date, '2017') !== false ) {
-	        $show->incomplete_setlist = false;
-		$show->save();
-	    }
-	}
+        foreach ($shows as $show) {
+            if (strpos($show->date, '2017') !== false) {
+                $show->incomplete_setlist = false;
+                $show->save();
+            }
+        }
     }
 }

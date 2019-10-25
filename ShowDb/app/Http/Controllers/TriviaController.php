@@ -2,15 +2,16 @@
 
 namespace ShowDb\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Session;
-use Redirect;
 use Auth;
+use Illuminate\Http\Request;
+use Redirect;
+use Session;
 use ShowDb\TriviaQuestion;
 
 class TriviaController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -48,7 +49,7 @@ class TriviaController extends Controller
             'choice1' => 'required',
             'choice2' => 'required',
             'choice3' => 'required',
-            'correct' => 'required|in:1,2,3,4'
+            'correct' => 'required|in:1,2,3,4',
         ]);
 
         $trivia = new TriviaQuestion();
@@ -62,6 +63,7 @@ class TriviaController extends Controller
         $trivia->user_id = $request->user()->id;
         $trivia->save();
         Session::flash('flash_message', 'Question added.  Thank you.  Add another!');
+
         return redirect('/trivia/create');
     }
 
