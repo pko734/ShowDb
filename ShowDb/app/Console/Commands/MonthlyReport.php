@@ -2,13 +2,13 @@
 
 namespace ShowDb\Console\Commands;
 
+use DB;
 use Illuminate\Console\Command;
-use ShowDb\User;
+use ShowDb\SetlistItemNote;
+use ShowDb\Show;
 use ShowDb\ShowImage;
 use ShowDb\ShowNote;
-use ShowDb\Show;
-use ShowDb\SetlistItemNote;
-use DB;
+use ShowDb\User;
 
 class MonthlyReport extends Command
 {
@@ -65,8 +65,5 @@ class MonthlyReport extends Command
         $newvideos = SetlistItemNote::whereDate('created_at', '>=', $start)
             ->whereDate('created_at', '<', $end);
         echo "New Videos: {$newvideos->count()}\n";
-
-
- 
-   }
+    }
 }

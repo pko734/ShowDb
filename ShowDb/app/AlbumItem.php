@@ -8,19 +8,23 @@ class AlbumItem extends Model
 {
     public $timestamps = false;
 
-    public function album() {
+    public function album()
+    {
         return $this->belongsTo('ShowDb\Album');
     }
 
-    public function song() {
+    public function song()
+    {
         return $this->belongsTo('ShowDb\Song');
     }
 
-    public function creator() {
+    public function creator()
+    {
         return $this->belongsTo('ShowDb\User');
     }
 
-    public function notes() {
+    public function notes()
+    {
         return $this->hasMany('ShowDb\AlbumItemNote');
     }
 }

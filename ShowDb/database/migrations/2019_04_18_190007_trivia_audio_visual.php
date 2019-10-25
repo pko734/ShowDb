@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class TriviaAudioVisual extends Migration
 {
@@ -13,7 +13,7 @@ class TriviaAudioVisual extends Migration
      */
     public function up()
     {
-        Schema::table('trivia_questions', function($table) {
+        Schema::table('trivia_questions', function ($table) {
             $table->string('audioUrl')->nullable();
             $table->string('imageUrl')->nullable();
         });

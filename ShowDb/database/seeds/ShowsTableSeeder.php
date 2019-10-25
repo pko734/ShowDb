@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Symfony\Component\DomCrawler\Crawler;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 use ShowDb\Show;
+use Symfony\Component\DomCrawler\Crawler;
 
 class ShowsTableSeeder extends Seeder
 {
@@ -14,15 +14,14 @@ class ShowsTableSeeder extends Seeder
      */
     public function run()
     {
-        $shows = array_map('str_getcsv', file( __DIR__ . '/../../resources/seeds/shows.csv' ) );
-        foreach( $shows as $show ) {
+        $shows = array_map('str_getcsv', file(__DIR__.'/../../resources/seeds/shows.csv'));
+        foreach ($shows as $show) {
             $venue = $show[1];
-            $date  = $show[2];
-            if( DB::table('shows')
+            $date = $show[2];
+            if (DB::table('shows')
                 ->where('venue', '=', $venue)
-                ->where('date',  '=', $date)
-                ->exists() === false ) {
-
+                ->where('date', '=', $date)
+                ->exists() === false) {
                 echo "Seeding: {$date} - {$venue}\n";
                 DB::table('shows')->insert([
                     'venue' => $venue,
@@ -33,7 +32,7 @@ class ShowsTableSeeder extends Seeder
                 ]);
             }
         }
-#$csv = array_map('str_getcsv', file('data.csv'));
+        //$csv = array_map('str_getcsv', file('data.csv'));
 //       $to_scrape = [
 //           'http://www.asmylifeturnstoasong.com/tour-2/2002-2',
 //           'http://www.asmylifeturnstoasong.com/tour-2/2003-2',
@@ -57,41 +56,40 @@ class ShowsTableSeeder extends Seeder
 //       }
     }
 
-    private function scrape( $url ) {
+    private function scrape($url)
+    {
         $crawler = Goutte::request('GET', $url);
         $data = [];
         $j = 0;
         $elements = $crawler->filter('.entry-content td');
-        while( strpos( $elements->getNode(0)->textContent, '/' ) === false ) {
+        while (strpos($elements->getNode(0)->textContent, '/') === false) {
             $elements = $elements->slice(1);
         }
 
-        for( $i = 0; $i < count($elements); $i++ ) {
-            $el = $elements->getNode( $i );
-            if( $i % 3 === 0 ) {
-                if( strpos( $el->textContent, '/' ) === false ) {
+        for ($i = 0; $i < count($elements); $i++) {
+            $el = $elements->getNode($i);
+            if ($i % 3 === 0) {
+                if (strpos($el->textContent, '/') === false) {
                     $i += 2;
                     continue;
                 }
                 $data[$j] = [];
-                $data[$j] = array_merge( $data[$j], ['date' => $this->fix_date($el->textContent)] );
+                $data[$j] = array_merge($data[$j], ['date' => $this->fix_date($el->textContent)]);
             }
-            if( $i % 3 === 1 ) {
-                $data[$j] = array_merge( $data[$j], ['venue' => trim($el->textContent)] );
+            if ($i % 3 === 1) {
+                $data[$j] = array_merge($data[$j], ['venue' => trim($el->textContent)]);
             }
-            if( $i % 3 === 2 ) {
-                $data[$j] = array_merge( $data[$j], ['venue' => trim($el->textContent) . ' - ' . $data[$j]['venue'] ] );
+            if ($i % 3 === 2) {
+                $data[$j] = array_merge($data[$j], ['venue' => trim($el->textContent).' - '.$data[$j]['venue']]);
                 $j++;
             }
         }
 
-        foreach( $data as $show ) {
-
-            if( DB::table('shows')
+        foreach ($data as $show) {
+            if (DB::table('shows')
                 ->where('venue', '=', $show['venue'])
-                ->where('date',  '=', $show['date'])
-                ->exists() === false ) {
-
+                ->where('date', '=', $show['date'])
+                ->exists() === false) {
                 echo "Seeding: {$show['date']} - {$show['venue']}\n";
 
                 DB::table('shows')->insert([
@@ -103,24 +101,25 @@ class ShowsTableSeeder extends Seeder
                 ]);
             }
         }
-
     }
 
-    private function fix_date( $date_str ) {
-        $result = str_replace( '//', '/', $date_str );
-        $result = str_replace( '.', '', $result );
-        $result = str_replace( '/?/', '/', $result );
+    private function fix_date($date_str)
+    {
+        $result = str_replace('//', '/', $date_str);
+        $result = str_replace('.', '', $result);
+        $result = str_replace('/?/', '/', $result);
 
         try {
-            if(substr_count($result, '/' ) === 1 ) {
-                $result = Carbon::createFromFormat( 'm/y', $result )->format('Y-m-00');
+            if (substr_count($result, '/') === 1) {
+                $result = Carbon::createFromFormat('m/y', $result)->format('Y-m-00');
             } else {
-                $result = Carbon::createFromFormat( 'm/d/y', $result )->format('Y-m-d');
+                $result = Carbon::createFromFormat('m/d/y', $result)->format('Y-m-d');
             }
-        } catch( Exception $e ) {
+        } catch (Exception $e) {
             echo "Invalid date: {$result}\n";
             throw $e;
         }
+
         return $result;
     }
 }

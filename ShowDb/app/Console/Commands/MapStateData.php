@@ -3,8 +3,8 @@
 namespace ShowDb\Console\Commands;
 
 use Illuminate\Console\Command;
-use ShowDb\State;
 use ShowDb\Show;
+use ShowDb\State;
 
 class MapStateData extends Command
 {
@@ -40,21 +40,20 @@ class MapStateData extends Command
     public function handle()
     {
         $shows = Show::whereNull('state_id')->whereNull('user_id')->get();
-	foreach($shows as $Show) {
-
-	   if( preg_match('/, ([A-Z][A-Z])[\s]*$/', $Show->venue, $matches) !== 0) {
-#	       echo $Show->venue, " [{$matches[1]}]", "\n";
-               $State = State::where('iso_3166_2', '=', $matches[1])->first();
-	       if( $State !== null ) {
-                   echo $Show->venue, " [", $State->name, "]\n";
-		   $Show->state_id = $State->id;
-		   $Show->save();
-               } else {
-                   echo "COULD NOT FIND STATE: {$Show->venue}", "\n";
-               }
-	   } else {
-	       echo $Show->venue, " [UNKNOWN] {$Show->id}", "\n";
-           }
-	}
+        foreach ($shows as $Show) {
+            if (preg_match('/, ([A-Z][A-Z])[\s]*$/', $Show->venue, $matches) !== 0) {
+                //	       echo $Show->venue, " [{$matches[1]}]", "\n";
+                $State = State::where('iso_3166_2', '=', $matches[1])->first();
+                if ($State !== null) {
+                    echo $Show->venue, ' [', $State->name, "]\n";
+                    $Show->state_id = $State->id;
+                    $Show->save();
+                } else {
+                    echo "COULD NOT FIND STATE: {$Show->venue}", "\n";
+                }
+            } else {
+                echo $Show->venue, " [UNKNOWN] {$Show->id}", "\n";
+            }
+        }
     }
 }

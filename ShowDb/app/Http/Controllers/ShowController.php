@@ -2,20 +2,19 @@
 
 namespace ShowDb\Http\Controllers;
 
-use Illuminate\Http\Request;
-use ShowDb\Show;
-use ShowDb\SetlistItem;
-use ShowDb\Song;
-use ShowDb\ShowNote;
-use ShowDb\SetlistItemNote;
-use Session;
-use Redirect;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Redirect;
+use Session;
+use ShowDb\SetlistItem;
+use ShowDb\SetlistItemNote;
+use ShowDb\Show;
+use ShowDb\ShowNote;
+use ShowDb\Song;
 
 class ShowController extends AbstractShowController
 {
-
     /**
      * Constructor.
      */
@@ -30,13 +29,13 @@ class ShowController extends AbstractShowController
             'updateNote',
             'storeItemNote',
             'updateItemNote',
-	    'deleteImagePost',
-	    'approveImage',
+        'deleteImagePost',
+        'approveImage',
         ]);
         $this->middleware('auth')->only([
             'storeNote',
             'destroyNote',
-	    'uploadImagePost',
+        'uploadImagePost',
         ]);
     }
 
@@ -49,6 +48,7 @@ class ShowController extends AbstractShowController
     public function index(Request $request)
     {
         $this->showbase = Show::whereNull('user_id');
+
         return parent::index($request);
     }
 
@@ -64,7 +64,7 @@ class ShowController extends AbstractShowController
 
     /**
      * Store a show note.
-     * @param integer                    $show_id
+     * @param int                    $show_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -73,21 +73,25 @@ class ShowController extends AbstractShowController
         return parent::storeNote($show_id, $request);
     }
 
-    public function uploadImagePost($id, Request $request) {
+    public function uploadImagePost($id, Request $request)
+    {
         $this->showbase = Show::whereNull('user_id');
+
         return parent::uploadImagePost($id, $request);
     }
 
-    public function deleteImagePost($id, $photo_id, Request $request) {
+    public function deleteImagePost($id, $photo_id, Request $request)
+    {
         $this->showbase = Show::whereNull('user_id');
+
         return parent::deleteImagePost($id, $photo_id, $request);
     }
 
     /**
      * Update a show note.
      *
-     * @param integer                    $show_id
-     * @param integer                    $note_id
+     * @param int                    $show_id
+     * @param int                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -99,7 +103,7 @@ class ShowController extends AbstractShowController
     /**
      * Store a setlist item item-note link.
      *
-     * @param  integer                   $setlist_item_id
+     * @param  int                   $setlist_item_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -142,6 +146,7 @@ class ShowController extends AbstractShowController
     public function edit($id, Request $request)
     {
         $this->showbase = Show::whereNull('user_id');
+
         return parent::edit($id, $request);
     }
 
@@ -149,58 +154,63 @@ class ShowController extends AbstractShowController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request)
     {
         $this->showbase = Show::whereNull('user_id');
+
         return parent::update($id, $request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id, Request $request)
     {
         $this->showbase = Show::whereNull('user_id');
+
         return parent::destroy($id, $request);
     }
 
     /**
      * Delete a show note.
      *
-     * @param integer                    $note_id
-     * @param integer                    $show_id
+     * @param int                    $note_id
+     * @param int                    $show_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyNote($show_id, $note_id, Request $request) {
+    public function destroyNote($show_id, $note_id, Request $request)
+    {
         return parent::destroyNote($show_id, $note_id, $request);
     }
 
     /**
      * Approve a setlist item item-note.
      *
-     * @param integer                    $item_id
-     * @param integer                    $note_id
+     * @param int                    $item_id
+     * @param int                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function approveItemNote($item_id, $note_id, Request $request) {
+    public function approveItemNote($item_id, $note_id, Request $request)
+    {
         return parent::approveItemNote($item_id, $note_id, $request);
     }
 
     /**
      * Delete a setlist item item-note.
      *
-     * @param integer                    $item_id
-     * @param integer                    $note_id
+     * @param int                    $item_id
+     * @param int                    $note_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyItemNote($item_id, $note_id, Request $request) {
+    public function destroyItemNote($item_id, $note_id, Request $request)
+    {
         return parent::destroyItemNote($item_id, $note_id, $request);
     }
 }

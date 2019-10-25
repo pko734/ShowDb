@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateSetlistItemNotesTable extends Migration
 {
@@ -19,7 +19,7 @@ class CreateSetlistItemNotesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->text('note');
             $table->boolean('published');
-            $table->enum('type', ['public','private']);
+            $table->enum('type', ['public', 'private']);
             $table->integer('creator_id')->unsigned();
             $table->timestamps();
             $table->integer('order')->unsigned();
@@ -37,7 +37,6 @@ class CreateSetlistItemNotesTable extends Migration
             $table->foreign('creator_id')
                 ->references('id')
                 ->on('users');
-
         });
     }
 

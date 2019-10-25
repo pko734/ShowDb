@@ -16,10 +16,10 @@ class UsernameExists
      */
     public function handle($request, Closure $next)
     {
-        if( Auth::check() && Auth::user()->username != '' )
-        {
+        if (Auth::check() && Auth::user()->username != '') {
             return $next($request);
         }
+
         return redirect('/settings');
     }
 }

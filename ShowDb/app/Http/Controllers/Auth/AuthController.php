@@ -2,12 +2,12 @@
 
 namespace ShowDb\Http\Controllers\Auth;
 
-use ShowDb\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use ShowDb\User;
 use Auth;
-use Socialize;
+use Illuminate\Http\Request;
 use Redirect;
+use ShowDb\Http\Controllers\Controller;
+use ShowDb\User;
+use Socialize;
 
 class AuthController extends Controller
 {
@@ -34,14 +34,15 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
-        if($authUser->username == '') {
+        if ($authUser->username == '') {
             return redirect('/settings');
         }
+
         return Redirect::intended('/');
     }
 
     /**
-     * Return user if exists; create and return if doesn't
+     * Return user if exists; create and return if doesn't.
      *
      * @param $user
      * @return User
@@ -50,9 +51,10 @@ class AuthController extends Controller
     {
         if ($authUser = User::where('fb_id', $user->id)->orWhere('email', $user->email)->first()) {
             $authUser->avatar = $user->avatar;
-            $authUser->email  = $user->email;
-            $authUser->fb_id  = $user->id;
+            $authUser->email = $user->email;
+            $authUser->fb_id = $user->id;
             $authUser->save();
+
             return $authUser;
         }
 

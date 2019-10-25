@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddTimelineDisplayDateColumn extends Migration
 {
@@ -13,7 +13,7 @@ class AddTimelineDisplayDateColumn extends Migration
      */
     public function up()
     {
-        Schema::table('timeline_slides', function($table) {
+        Schema::table('timeline_slides', function ($table) {
             $table->string('display_date')->nullable();
         });
     }

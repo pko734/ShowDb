@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddEncoreInfo extends Migration
 {
@@ -14,7 +14,7 @@ class AddEncoreInfo extends Migration
     public function up()
     {
         Schema::table('setlist_items', function (Blueprint $table) {
-                $table->boolean('encore')->default(false);
+            $table->boolean('encore')->default(false);
         });
     }
 
@@ -26,7 +26,7 @@ class AddEncoreInfo extends Migration
     public function down()
     {
         Schema::table('setlist_items', function (Blueprint $table) {
-                $table->dropColumn('encore');
+            $table->dropColumn('encore');
         });
     }
 }

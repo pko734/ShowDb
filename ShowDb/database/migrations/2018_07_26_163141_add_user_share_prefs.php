@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddUserSharePrefs extends Migration
 {
@@ -13,9 +13,9 @@ class AddUserSharePrefs extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table) {
+        Schema::table('users', function ($table) {
             $table->boolean('share')->default(0);
-    });
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class AddUserSharePrefs extends Migration
     {
         Schema::table('users', function ($table) {
             $table->dropColumn('share');
-    });
+        });
     }
 }

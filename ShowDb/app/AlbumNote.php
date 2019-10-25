@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class AlbumNote extends Model
 {
-    public function album() {
+    public function album()
+    {
         return $this->belongsTo('ShowDb\Album');
     }
 
-    public function creator() {
+    public function creator()
+    {
         return $this->belongsTo('ShowDb\User');
     }
-
 }

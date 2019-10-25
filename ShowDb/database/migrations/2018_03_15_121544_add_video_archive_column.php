@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddVideoArchiveColumn extends Migration
 {
@@ -13,9 +13,9 @@ class AddVideoArchiveColumn extends Migration
      */
     public function up()
     {
-        Schema::table('setlist_item_notes', function($table) {
-	    $table->boolean('archived')->default(0);
-	});
+        Schema::table('setlist_item_notes', function ($table) {
+            $table->boolean('archived')->default(0);
+        });
     }
 
     /**
@@ -25,8 +25,8 @@ class AddVideoArchiveColumn extends Migration
      */
     public function down()
     {
-      Schema::table('setlist_item_notes', function($table) {
-	  $table->dropColumn('archived');
-      });
+        Schema::table('setlist_item_notes', function ($table) {
+            $table->dropColumn('archived');
+        });
     }
 }

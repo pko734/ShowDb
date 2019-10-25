@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAlbumItemNotesTable extends Migration
 {
@@ -18,7 +18,7 @@ class CreateAlbumItemNotesTable extends Migration
             $table->integer('album_item_id')->unsigned();
             $table->mediumText('note');
             $table->boolean('published');
-            $table->enum('type', ['public','private']);
+            $table->enum('type', ['public', 'private']);
             $table->integer('creator_id')->unsigned();
             $table->timestamps();
             $table->integer('order')->unsigned();
@@ -32,7 +32,6 @@ class CreateAlbumItemNotesTable extends Migration
             $table->foreign('creator_id')
                 ->references('id')
                 ->on('users');
-
         });
     }
 

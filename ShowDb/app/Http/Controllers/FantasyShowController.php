@@ -2,20 +2,19 @@
 
 namespace ShowDb\Http\Controllers;
 
-use Illuminate\Http\Request;
-use ShowDb\Show;
-use ShowDb\SetlistItem;
-use ShowDb\Song;
-use ShowDb\ShowNote;
-use ShowDb\SetlistItemNote;
-use Session;
-use Redirect;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Redirect;
+use Session;
+use ShowDb\SetlistItem;
+use ShowDb\SetlistItemNote;
+use ShowDb\Show;
+use ShowDb\ShowNote;
+use ShowDb\Song;
 
 class FantasyShowController extends AbstractShowController
 {
-
     /**
      * Constructor.
      */
@@ -46,9 +45,8 @@ class FantasyShowController extends AbstractShowController
         $this->display_search_examples = false;
         $this->display_creator_notice = 1;
         $this->venue_display = 'Description';
-	$this->default_sort_column = 'created_at';
+        $this->default_sort_column = 'created_at';
     }
-
 
     /**
      * Display a listing of the resource.
@@ -62,6 +60,7 @@ class FantasyShowController extends AbstractShowController
         $this->default_date = date('Y-m-d');
         $this->user_can_add_show = true;
         $this->show_add_tooltip = 'Click here to add a fantasy show!';
+
         return parent::index($request);
     }
 
@@ -77,7 +76,7 @@ class FantasyShowController extends AbstractShowController
 
     /**
      * Store a show note.
-     * @param integer                    $show_id
+     * @param int                    $show_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -89,8 +88,8 @@ class FantasyShowController extends AbstractShowController
     /**
      * Update a show note.
      *
-     * @param integer                    $show_id
-     * @param integer                    $note_id
+     * @param int                    $show_id
+     * @param int                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -102,7 +101,7 @@ class FantasyShowController extends AbstractShowController
     /**
      * Store a setlist item item-note link.
      *
-     * @param  integer                   $setlist_item_id
+     * @param  int                   $setlist_item_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -120,6 +119,7 @@ class FantasyShowController extends AbstractShowController
     public function store(Request $request)
     {
         $this->show_user_id = $request->user()->id;
+
         return parent::store($request);
     }
 
@@ -133,6 +133,7 @@ class FantasyShowController extends AbstractShowController
     {
         $this->showbase = Show::whereNotNull('user_id');
         $this->note_tooltip = 'Add any special notes here!';
+
         return parent::show($id, $request);
     }
 
@@ -144,13 +145,14 @@ class FantasyShowController extends AbstractShowController
      */
     public function edit($id, Request $request)
     {
-        if($request->user()->isAdmin()) {
+        if ($request->user()->isAdmin()) {
             $this->showbase = Show::whereNotNull('user_id');
         } else {
             $this->showbase = Show::where('user_id', '=', $request->user()->id);
         }
 
         $this->setlist_item_add_tooltip = 'Click here to add songs!';
+
         return parent::edit($id, $request);
     }
 
@@ -158,12 +160,12 @@ class FantasyShowController extends AbstractShowController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request)
     {
-        if($request->user()->isAdmin()) {
+        if ($request->user()->isAdmin()) {
             $this->showbase = Show::whereNotNull('user_id');
         } else {
             $this->showbase = Show::where('user_id', '=', $request->user()->id);
@@ -175,12 +177,12 @@ class FantasyShowController extends AbstractShowController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  integer                   $id
+     * @param  int                   $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id, Request $request)
     {
-        if($request->user()->isAdmin()) {
+        if ($request->user()->isAdmin()) {
             $this->showbase = Show::whereNotNull('user_id');
         } else {
             $this->showbase = Show::where('user_id', '=', $request->user()->id);
@@ -192,34 +194,37 @@ class FantasyShowController extends AbstractShowController
     /**
      * Delete a show note.
      *
-     * @param integer                    $note_id
-     * @param integer                    $show_id
+     * @param int                    $note_id
+     * @param int                    $show_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyNote($show_id, $note_id, Request $request) {
+    public function destroyNote($show_id, $note_id, Request $request)
+    {
         return parent::destroyNote($show_id, $note_id, $request);
     }
 
     /**
      * Approve a setlist item item-note.
      *
-     * @param integer                    $item_id
-     * @param integer                    $note_id
+     * @param int                    $item_id
+     * @param int                    $note_id
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function approveItemNote($item_id, $note_id, Request $request) {
+    public function approveItemNote($item_id, $note_id, Request $request)
+    {
         return parent::approveItemNote($item_id, $note_id, $request);
     }
 
     /**
      * Delete a setlist item item-note.
      *
-     * @param integer                    $item_id
-     * @param integer                    $note_id
+     * @param int                    $item_id
+     * @param int                    $note_id
      * @return \Illuminate\Http\Response
      */
-    public function destroyItemNote($item_id, $note_id, Request $request) {
+    public function destroyItemNote($item_id, $note_id, Request $request)
+    {
         return parent::destroyItemNote($item_id, $note_id, $request);
     }
 }

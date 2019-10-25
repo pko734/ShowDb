@@ -2,10 +2,10 @@
 
 namespace ShowDb\Http\Controllers\Auth;
 
+use Illuminate\Foundation\Auth\RegistersUsers;
+use ShowDb\Http\Controllers\Controller;
 use ShowDb\User;
 use Validator;
-use ShowDb\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {

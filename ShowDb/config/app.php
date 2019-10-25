@@ -189,8 +189,8 @@ return [
         Cornford\Googlitics\AnalyticsServiceProvider::class,
         //Laravelista\Ekko\EkkoServiceProvider::class,
         Laravelista\Ekko\Frameworks\Laravel\ServiceProvider::class,
-	Intervention\Image\ImageServiceProvider::class,
-	AdrianMejias\States\StatesServiceProvider::class,
+    Intervention\Image\ImageServiceProvider::class,
+    AdrianMejias\States\StatesServiceProvider::class,
     ],
 
     /*
@@ -244,8 +244,8 @@ return [
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
         'Ekko' => Laravelista\Ekko\Frameworks\Laravel\Facade::class,
-	'Image' => Intervention\Image\Facades\Image::class,
-	'States' => AdrianMejias\States\StatesFacade::class,
+    'Image' => Intervention\Image\Facades\Image::class,
+    'States' => AdrianMejias\States\StatesFacade::class,
     ],
 
 ];

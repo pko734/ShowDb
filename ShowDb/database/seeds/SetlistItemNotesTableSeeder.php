@@ -4,21 +4,17 @@ use Illuminate\Database\Seeder;
 
 class SetlistItemNotesTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
+     * Auto generated seed file.
      *
      * @return void
      */
     public function run()
     {
-        
-
         \DB::table('setlist_item_notes')->delete();
-        
-        \DB::table('setlist_item_notes')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('setlist_item_notes')->insert([
+            0 => [
                 'id' => 1,
                 'setlist_item_id' => 19577,
                 'user_id' => 1,
@@ -29,9 +25,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            1 => 
-            array (
+            ],
+            1 => [
                 'id' => 2,
                 'setlist_item_id' => 19570,
                 'user_id' => 1,
@@ -42,9 +37,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            2 => 
-            array (
+            ],
+            2 => [
                 'id' => 3,
                 'setlist_item_id' => 19566,
                 'user_id' => 1,
@@ -55,9 +49,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            3 => 
-            array (
+            ],
+            3 => [
                 'id' => 4,
                 'setlist_item_id' => 19561,
                 'user_id' => 1,
@@ -68,9 +61,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            4 => 
-            array (
+            ],
+            4 => [
                 'id' => 5,
                 'setlist_item_id' => 19557,
                 'user_id' => 1,
@@ -81,9 +73,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            5 => 
-            array (
+            ],
+            5 => [
                 'id' => 6,
                 'setlist_item_id' => 19281,
                 'user_id' => 1,
@@ -94,9 +85,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            6 => 
-            array (
+            ],
+            6 => [
                 'id' => 7,
                 'setlist_item_id' => 19272,
                 'user_id' => 1,
@@ -107,9 +97,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            7 => 
-            array (
+            ],
+            7 => [
                 'id' => 8,
                 'setlist_item_id' => 19288,
                 'user_id' => 1,
@@ -120,9 +109,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            8 => 
-            array (
+            ],
+            8 => [
                 'id' => 9,
                 'setlist_item_id' => 19286,
                 'user_id' => 1,
@@ -133,9 +121,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            9 => 
-            array (
+            ],
+            9 => [
                 'id' => 10,
                 'setlist_item_id' => 19285,
                 'user_id' => 1,
@@ -146,9 +133,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            10 => 
-            array (
+            ],
+            10 => [
                 'id' => 11,
                 'setlist_item_id' => 19271,
                 'user_id' => 1,
@@ -159,9 +145,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            11 => 
-            array (
+            ],
+            11 => [
                 'id' => 12,
                 'setlist_item_id' => 19274,
                 'user_id' => 1,
@@ -172,9 +157,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            12 => 
-            array (
+            ],
+            12 => [
                 'id' => 13,
                 'setlist_item_id' => 19275,
                 'user_id' => 1,
@@ -185,9 +169,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            13 => 
-            array (
+            ],
+            13 => [
                 'id' => 14,
                 'setlist_item_id' => 19278,
                 'user_id' => 1,
@@ -198,9 +181,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            14 => 
-            array (
+            ],
+            14 => [
                 'id' => 15,
                 'setlist_item_id' => 19192,
                 'user_id' => 1,
@@ -211,9 +193,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            15 => 
-            array (
+            ],
+            15 => [
                 'id' => 16,
                 'setlist_item_id' => 19195,
                 'user_id' => 1,
@@ -224,9 +205,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            16 => 
-            array (
+            ],
+            16 => [
                 'id' => 17,
                 'setlist_item_id' => 19193,
                 'user_id' => 1,
@@ -237,9 +217,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            17 => 
-            array (
+            ],
+            17 => [
                 'id' => 18,
                 'setlist_item_id' => 19191,
                 'user_id' => 1,
@@ -250,9 +229,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            18 => 
-            array (
+            ],
+            18 => [
                 'id' => 19,
                 'setlist_item_id' => 19190,
                 'user_id' => 1,
@@ -263,9 +241,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            19 => 
-            array (
+            ],
+            19 => [
                 'id' => 20,
                 'setlist_item_id' => 19189,
                 'user_id' => 1,
@@ -276,9 +253,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            20 => 
-            array (
+            ],
+            20 => [
                 'id' => 21,
                 'setlist_item_id' => 19188,
                 'user_id' => 1,
@@ -289,9 +265,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            21 => 
-            array (
+            ],
+            21 => [
                 'id' => 22,
                 'setlist_item_id' => 19187,
                 'user_id' => 1,
@@ -302,9 +277,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            22 => 
-            array (
+            ],
+            22 => [
                 'id' => 23,
                 'setlist_item_id' => 19186,
                 'user_id' => 1,
@@ -315,9 +289,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            23 => 
-            array (
+            ],
+            23 => [
                 'id' => 24,
                 'setlist_item_id' => 19185,
                 'user_id' => 1,
@@ -328,9 +301,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            24 => 
-            array (
+            ],
+            24 => [
                 'id' => 25,
                 'setlist_item_id' => 19184,
                 'user_id' => 1,
@@ -341,9 +313,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            25 => 
-            array (
+            ],
+            25 => [
                 'id' => 26,
                 'setlist_item_id' => 19183,
                 'user_id' => 1,
@@ -354,9 +325,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            26 => 
-            array (
+            ],
+            26 => [
                 'id' => 27,
                 'setlist_item_id' => 18959,
                 'user_id' => 1,
@@ -367,9 +337,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            27 => 
-            array (
+            ],
+            27 => [
                 'id' => 28,
                 'setlist_item_id' => 18958,
                 'user_id' => 1,
@@ -380,9 +349,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            28 => 
-            array (
+            ],
+            28 => [
                 'id' => 29,
                 'setlist_item_id' => 18950,
                 'user_id' => 1,
@@ -393,9 +361,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            29 => 
-            array (
+            ],
+            29 => [
                 'id' => 30,
                 'setlist_item_id' => 18949,
                 'user_id' => 1,
@@ -406,9 +373,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            30 => 
-            array (
+            ],
+            30 => [
                 'id' => 31,
                 'setlist_item_id' => 18940,
                 'user_id' => 1,
@@ -419,9 +385,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'order' => 1,
-            ),
-            31 => 
-            array (
+            ],
+            31 => [
                 'id' => 32,
                 'setlist_item_id' => 18944,
                 'user_id' => 1,
@@ -432,9 +397,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            32 => 
-            array (
+            ],
+            32 => [
                 'id' => 33,
                 'setlist_item_id' => 18714,
                 'user_id' => 1,
@@ -445,9 +409,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            33 => 
-            array (
+            ],
+            33 => [
                 'id' => 34,
                 'setlist_item_id' => 18712,
                 'user_id' => 1,
@@ -458,9 +421,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            34 => 
-            array (
+            ],
+            34 => [
                 'id' => 35,
                 'setlist_item_id' => 18630,
                 'user_id' => 1,
@@ -471,9 +433,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            35 => 
-            array (
+            ],
+            35 => [
                 'id' => 36,
                 'setlist_item_id' => 18634,
                 'user_id' => 1,
@@ -484,9 +445,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            36 => 
-            array (
+            ],
+            36 => [
                 'id' => 37,
                 'setlist_item_id' => 18632,
                 'user_id' => 1,
@@ -497,9 +457,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            37 => 
-            array (
+            ],
+            37 => [
                 'id' => 38,
                 'setlist_item_id' => 18658,
                 'user_id' => 1,
@@ -510,9 +469,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            38 => 
-            array (
+            ],
+            38 => [
                 'id' => 39,
                 'setlist_item_id' => 18655,
                 'user_id' => 1,
@@ -523,9 +481,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            39 => 
-            array (
+            ],
+            39 => [
                 'id' => 40,
                 'setlist_item_id' => 18651,
                 'user_id' => 1,
@@ -536,9 +493,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            40 => 
-            array (
+            ],
+            40 => [
                 'id' => 41,
                 'setlist_item_id' => 18649,
                 'user_id' => 1,
@@ -549,9 +505,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            41 => 
-            array (
+            ],
+            41 => [
                 'id' => 42,
                 'setlist_item_id' => 18640,
                 'user_id' => 1,
@@ -562,9 +517,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            42 => 
-            array (
+            ],
+            42 => [
                 'id' => 43,
                 'setlist_item_id' => 18641,
                 'user_id' => 1,
@@ -575,9 +529,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            43 => 
-            array (
+            ],
+            43 => [
                 'id' => 44,
                 'setlist_item_id' => 18645,
                 'user_id' => 1,
@@ -588,9 +541,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            44 => 
-            array (
+            ],
+            44 => [
                 'id' => 45,
                 'setlist_item_id' => 18647,
                 'user_id' => 1,
@@ -601,9 +553,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            45 => 
-            array (
+            ],
+            45 => [
                 'id' => 46,
                 'setlist_item_id' => 18617,
                 'user_id' => 1,
@@ -614,9 +565,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            46 => 
-            array (
+            ],
+            46 => [
                 'id' => 47,
                 'setlist_item_id' => 18616,
                 'user_id' => 1,
@@ -627,9 +577,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            47 => 
-            array (
+            ],
+            47 => [
                 'id' => 48,
                 'setlist_item_id' => 18612,
                 'user_id' => 1,
@@ -640,9 +589,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            48 => 
-            array (
+            ],
+            48 => [
                 'id' => 49,
                 'setlist_item_id' => 18608,
                 'user_id' => 1,
@@ -653,9 +601,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            49 => 
-            array (
+            ],
+            49 => [
                 'id' => 50,
                 'setlist_item_id' => 18606,
                 'user_id' => 1,
@@ -666,9 +613,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            50 => 
-            array (
+            ],
+            50 => [
                 'id' => 51,
                 'setlist_item_id' => 18601,
                 'user_id' => 1,
@@ -679,9 +625,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            51 => 
-            array (
+            ],
+            51 => [
                 'id' => 52,
                 'setlist_item_id' => 18598,
                 'user_id' => 1,
@@ -692,9 +637,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            52 => 
-            array (
+            ],
+            52 => [
                 'id' => 53,
                 'setlist_item_id' => 18595,
                 'user_id' => 1,
@@ -705,9 +649,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            53 => 
-            array (
+            ],
+            53 => [
                 'id' => 54,
                 'setlist_item_id' => 18594,
                 'user_id' => 1,
@@ -718,9 +661,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            54 => 
-            array (
+            ],
+            54 => [
                 'id' => 55,
                 'setlist_item_id' => 18592,
                 'user_id' => 1,
@@ -731,9 +673,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            55 => 
-            array (
+            ],
+            55 => [
                 'id' => 56,
                 'setlist_item_id' => 18587,
                 'user_id' => 1,
@@ -744,9 +685,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            56 => 
-            array (
+            ],
+            56 => [
                 'id' => 57,
                 'setlist_item_id' => 18584,
                 'user_id' => 1,
@@ -757,9 +697,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            57 => 
-            array (
+            ],
+            57 => [
                 'id' => 58,
                 'setlist_item_id' => 18581,
                 'user_id' => 1,
@@ -770,9 +709,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            58 => 
-            array (
+            ],
+            58 => [
                 'id' => 59,
                 'setlist_item_id' => 18585,
                 'user_id' => 1,
@@ -783,9 +721,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            59 => 
-            array (
+            ],
+            59 => [
                 'id' => 60,
                 'setlist_item_id' => 18590,
                 'user_id' => 1,
@@ -796,9 +733,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            60 => 
-            array (
+            ],
+            60 => [
                 'id' => 61,
                 'setlist_item_id' => 18367,
                 'user_id' => 1,
@@ -809,9 +745,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            61 => 
-            array (
+            ],
+            61 => [
                 'id' => 62,
                 'setlist_item_id' => 18365,
                 'user_id' => 1,
@@ -822,9 +757,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            62 => 
-            array (
+            ],
+            62 => [
                 'id' => 63,
                 'setlist_item_id' => 18364,
                 'user_id' => 1,
@@ -835,9 +769,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            63 => 
-            array (
+            ],
+            63 => [
                 'id' => 64,
                 'setlist_item_id' => 18362,
                 'user_id' => 1,
@@ -848,9 +781,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            64 => 
-            array (
+            ],
+            64 => [
                 'id' => 65,
                 'setlist_item_id' => 18361,
                 'user_id' => 1,
@@ -861,9 +793,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            65 => 
-            array (
+            ],
+            65 => [
                 'id' => 66,
                 'setlist_item_id' => 18360,
                 'user_id' => 1,
@@ -874,9 +805,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            66 => 
-            array (
+            ],
+            66 => [
                 'id' => 67,
                 'setlist_item_id' => 18374,
                 'user_id' => 1,
@@ -887,9 +817,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            67 => 
-            array (
+            ],
+            67 => [
                 'id' => 68,
                 'setlist_item_id' => 18077,
                 'user_id' => 1,
@@ -900,9 +829,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            68 => 
-            array (
+            ],
+            68 => [
                 'id' => 69,
                 'setlist_item_id' => 18075,
                 'user_id' => 1,
@@ -913,9 +841,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            69 => 
-            array (
+            ],
+            69 => [
                 'id' => 70,
                 'setlist_item_id' => 18074,
                 'user_id' => 1,
@@ -926,9 +853,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            70 => 
-            array (
+            ],
+            70 => [
                 'id' => 71,
                 'setlist_item_id' => 18069,
                 'user_id' => 1,
@@ -939,9 +865,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            71 => 
-            array (
+            ],
+            71 => [
                 'id' => 72,
                 'setlist_item_id' => 18030,
                 'user_id' => 1,
@@ -952,9 +877,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            72 => 
-            array (
+            ],
+            72 => [
                 'id' => 73,
                 'setlist_item_id' => 18029,
                 'user_id' => 1,
@@ -965,9 +889,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            73 => 
-            array (
+            ],
+            73 => [
                 'id' => 74,
                 'setlist_item_id' => 18025,
                 'user_id' => 1,
@@ -978,9 +901,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            74 => 
-            array (
+            ],
+            74 => [
                 'id' => 75,
                 'setlist_item_id' => 18021,
                 'user_id' => 1,
@@ -991,9 +913,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            75 => 
-            array (
+            ],
+            75 => [
                 'id' => 76,
                 'setlist_item_id' => 18020,
                 'user_id' => 1,
@@ -1004,9 +925,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            76 => 
-            array (
+            ],
+            76 => [
                 'id' => 77,
                 'setlist_item_id' => 18018,
                 'user_id' => 1,
@@ -1017,9 +937,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            77 => 
-            array (
+            ],
+            77 => [
                 'id' => 78,
                 'setlist_item_id' => 18012,
                 'user_id' => 1,
@@ -1030,9 +949,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            78 => 
-            array (
+            ],
+            78 => [
                 'id' => 79,
                 'setlist_item_id' => 17996,
                 'user_id' => 1,
@@ -1043,9 +961,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            79 => 
-            array (
+            ],
+            79 => [
                 'id' => 80,
                 'setlist_item_id' => 18003,
                 'user_id' => 1,
@@ -1056,9 +973,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            80 => 
-            array (
+            ],
+            80 => [
                 'id' => 81,
                 'setlist_item_id' => 17991,
                 'user_id' => 1,
@@ -1069,9 +985,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            81 => 
-            array (
+            ],
+            81 => [
                 'id' => 82,
                 'setlist_item_id' => 17839,
                 'user_id' => 1,
@@ -1082,9 +997,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            82 => 
-            array (
+            ],
+            82 => [
                 'id' => 83,
                 'setlist_item_id' => 17832,
                 'user_id' => 1,
@@ -1095,9 +1009,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            83 => 
-            array (
+            ],
+            83 => [
                 'id' => 84,
                 'setlist_item_id' => 17830,
                 'user_id' => 1,
@@ -1108,9 +1021,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            84 => 
-            array (
+            ],
+            84 => [
                 'id' => 85,
                 'setlist_item_id' => 17829,
                 'user_id' => 1,
@@ -1121,9 +1033,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            85 => 
-            array (
+            ],
+            85 => [
                 'id' => 86,
                 'setlist_item_id' => 17823,
                 'user_id' => 1,
@@ -1134,9 +1045,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            86 => 
-            array (
+            ],
+            86 => [
                 'id' => 87,
                 'setlist_item_id' => 17811,
                 'user_id' => 1,
@@ -1147,9 +1057,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            87 => 
-            array (
+            ],
+            87 => [
                 'id' => 88,
                 'setlist_item_id' => 17810,
                 'user_id' => 1,
@@ -1160,9 +1069,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            88 => 
-            array (
+            ],
+            88 => [
                 'id' => 89,
                 'setlist_item_id' => 17809,
                 'user_id' => 1,
@@ -1173,9 +1081,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            89 => 
-            array (
+            ],
+            89 => [
                 'id' => 90,
                 'setlist_item_id' => 17792,
                 'user_id' => 1,
@@ -1186,9 +1093,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:30',
                 'updated_at' => '2016-12-13 02:46:30',
                 'order' => 1,
-            ),
-            90 => 
-            array (
+            ],
+            90 => [
                 'id' => 91,
                 'setlist_item_id' => 17767,
                 'user_id' => 1,
@@ -1199,9 +1105,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            91 => 
-            array (
+            ],
+            91 => [
                 'id' => 92,
                 'setlist_item_id' => 17778,
                 'user_id' => 1,
@@ -1212,9 +1117,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            92 => 
-            array (
+            ],
+            92 => [
                 'id' => 93,
                 'setlist_item_id' => 17780,
                 'user_id' => 1,
@@ -1225,9 +1129,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            93 => 
-            array (
+            ],
+            93 => [
                 'id' => 94,
                 'setlist_item_id' => 17698,
                 'user_id' => 1,
@@ -1238,9 +1141,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            94 => 
-            array (
+            ],
+            94 => [
                 'id' => 95,
                 'setlist_item_id' => 17670,
                 'user_id' => 1,
@@ -1251,9 +1153,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            95 => 
-            array (
+            ],
+            95 => [
                 'id' => 96,
                 'setlist_item_id' => 17673,
                 'user_id' => 1,
@@ -1264,9 +1165,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            96 => 
-            array (
+            ],
+            96 => [
                 'id' => 97,
                 'setlist_item_id' => 17668,
                 'user_id' => 1,
@@ -1277,9 +1177,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            97 => 
-            array (
+            ],
+            97 => [
                 'id' => 98,
                 'setlist_item_id' => 17599,
                 'user_id' => 1,
@@ -1290,9 +1189,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            98 => 
-            array (
+            ],
+            98 => [
                 'id' => 99,
                 'setlist_item_id' => 17595,
                 'user_id' => 1,
@@ -1303,9 +1201,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            99 => 
-            array (
+            ],
+            99 => [
                 'id' => 100,
                 'setlist_item_id' => 17594,
                 'user_id' => 1,
@@ -1316,9 +1213,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            100 => 
-            array (
+            ],
+            100 => [
                 'id' => 101,
                 'setlist_item_id' => 17601,
                 'user_id' => 1,
@@ -1329,9 +1225,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            101 => 
-            array (
+            ],
+            101 => [
                 'id' => 102,
                 'setlist_item_id' => 17584,
                 'user_id' => 1,
@@ -1342,9 +1237,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            102 => 
-            array (
+            ],
+            102 => [
                 'id' => 103,
                 'setlist_item_id' => 17537,
                 'user_id' => 1,
@@ -1355,9 +1249,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            103 => 
-            array (
+            ],
+            103 => [
                 'id' => 104,
                 'setlist_item_id' => 17539,
                 'user_id' => 1,
@@ -1368,9 +1261,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            104 => 
-            array (
+            ],
+            104 => [
                 'id' => 105,
                 'setlist_item_id' => 17538,
                 'user_id' => 1,
@@ -1381,9 +1273,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            105 => 
-            array (
+            ],
+            105 => [
                 'id' => 106,
                 'setlist_item_id' => 17498,
                 'user_id' => 1,
@@ -1394,9 +1285,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            106 => 
-            array (
+            ],
+            106 => [
                 'id' => 107,
                 'setlist_item_id' => 17515,
                 'user_id' => 1,
@@ -1407,9 +1297,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            107 => 
-            array (
+            ],
+            107 => [
                 'id' => 108,
                 'setlist_item_id' => 17508,
                 'user_id' => 1,
@@ -1420,9 +1309,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            108 => 
-            array (
+            ],
+            108 => [
                 'id' => 109,
                 'setlist_item_id' => 17482,
                 'user_id' => 1,
@@ -1433,9 +1321,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            109 => 
-            array (
+            ],
+            109 => [
                 'id' => 110,
                 'setlist_item_id' => 17485,
                 'user_id' => 1,
@@ -1446,9 +1333,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            110 => 
-            array (
+            ],
+            110 => [
                 'id' => 111,
                 'setlist_item_id' => 17237,
                 'user_id' => 1,
@@ -1459,9 +1345,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            111 => 
-            array (
+            ],
+            111 => [
                 'id' => 112,
                 'setlist_item_id' => 17239,
                 'user_id' => 1,
@@ -1472,9 +1357,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            112 => 
-            array (
+            ],
+            112 => [
                 'id' => 113,
                 'setlist_item_id' => 17037,
                 'user_id' => 1,
@@ -1485,9 +1369,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            113 => 
-            array (
+            ],
+            113 => [
                 'id' => 114,
                 'setlist_item_id' => 17029,
                 'user_id' => 1,
@@ -1498,9 +1381,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            114 => 
-            array (
+            ],
+            114 => [
                 'id' => 115,
                 'setlist_item_id' => 17026,
                 'user_id' => 1,
@@ -1511,9 +1393,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            115 => 
-            array (
+            ],
+            115 => [
                 'id' => 116,
                 'setlist_item_id' => 17021,
                 'user_id' => 1,
@@ -1524,9 +1405,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            116 => 
-            array (
+            ],
+            116 => [
                 'id' => 117,
                 'setlist_item_id' => 17041,
                 'user_id' => 1,
@@ -1537,9 +1417,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            117 => 
-            array (
+            ],
+            117 => [
                 'id' => 118,
                 'setlist_item_id' => 17027,
                 'user_id' => 1,
@@ -1550,9 +1429,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            118 => 
-            array (
+            ],
+            118 => [
                 'id' => 119,
                 'setlist_item_id' => 16957,
                 'user_id' => 1,
@@ -1563,9 +1441,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            119 => 
-            array (
+            ],
+            119 => [
                 'id' => 120,
                 'setlist_item_id' => 16843,
                 'user_id' => 1,
@@ -1576,9 +1453,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            120 => 
-            array (
+            ],
+            120 => [
                 'id' => 121,
                 'setlist_item_id' => 16840,
                 'user_id' => 1,
@@ -1589,9 +1465,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            121 => 
-            array (
+            ],
+            121 => [
                 'id' => 122,
                 'setlist_item_id' => 16836,
                 'user_id' => 1,
@@ -1602,9 +1477,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            122 => 
-            array (
+            ],
+            122 => [
                 'id' => 123,
                 'setlist_item_id' => 16835,
                 'user_id' => 1,
@@ -1615,9 +1489,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            123 => 
-            array (
+            ],
+            123 => [
                 'id' => 124,
                 'setlist_item_id' => 16806,
                 'user_id' => 1,
@@ -1628,9 +1501,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            124 => 
-            array (
+            ],
+            124 => [
                 'id' => 125,
                 'setlist_item_id' => 16755,
                 'user_id' => 1,
@@ -1641,9 +1513,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            125 => 
-            array (
+            ],
+            125 => [
                 'id' => 126,
                 'setlist_item_id' => 16762,
                 'user_id' => 1,
@@ -1654,9 +1525,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            126 => 
-            array (
+            ],
+            126 => [
                 'id' => 127,
                 'setlist_item_id' => 16612,
                 'user_id' => 1,
@@ -1667,9 +1537,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            127 => 
-            array (
+            ],
+            127 => [
                 'id' => 128,
                 'setlist_item_id' => 16610,
                 'user_id' => 1,
@@ -1680,9 +1549,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:31',
                 'updated_at' => '2016-12-13 02:46:31',
                 'order' => 1,
-            ),
-            128 => 
-            array (
+            ],
+            128 => [
                 'id' => 129,
                 'setlist_item_id' => 16603,
                 'user_id' => 1,
@@ -1693,9 +1561,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            129 => 
-            array (
+            ],
+            129 => [
                 'id' => 130,
                 'setlist_item_id' => 16555,
                 'user_id' => 1,
@@ -1706,9 +1573,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            130 => 
-            array (
+            ],
+            130 => [
                 'id' => 131,
                 'setlist_item_id' => 16552,
                 'user_id' => 1,
@@ -1719,9 +1585,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            131 => 
-            array (
+            ],
+            131 => [
                 'id' => 132,
                 'setlist_item_id' => 16548,
                 'user_id' => 1,
@@ -1732,9 +1597,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            132 => 
-            array (
+            ],
+            132 => [
                 'id' => 133,
                 'setlist_item_id' => 16560,
                 'user_id' => 1,
@@ -1745,9 +1609,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            133 => 
-            array (
+            ],
+            133 => [
                 'id' => 134,
                 'setlist_item_id' => 16554,
                 'user_id' => 1,
@@ -1758,9 +1621,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            134 => 
-            array (
+            ],
+            134 => [
                 'id' => 135,
                 'setlist_item_id' => 16544,
                 'user_id' => 1,
@@ -1771,9 +1633,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            135 => 
-            array (
+            ],
+            135 => [
                 'id' => 136,
                 'setlist_item_id' => 16540,
                 'user_id' => 1,
@@ -1784,9 +1645,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            136 => 
-            array (
+            ],
+            136 => [
                 'id' => 137,
                 'setlist_item_id' => 16536,
                 'user_id' => 1,
@@ -1797,9 +1657,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            137 => 
-            array (
+            ],
+            137 => [
                 'id' => 138,
                 'setlist_item_id' => 16528,
                 'user_id' => 1,
@@ -1810,9 +1669,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            138 => 
-            array (
+            ],
+            138 => [
                 'id' => 139,
                 'setlist_item_id' => 16522,
                 'user_id' => 1,
@@ -1823,9 +1681,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            139 => 
-            array (
+            ],
+            139 => [
                 'id' => 140,
                 'setlist_item_id' => 16521,
                 'user_id' => 1,
@@ -1836,9 +1693,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            140 => 
-            array (
+            ],
+            140 => [
                 'id' => 141,
                 'setlist_item_id' => 16520,
                 'user_id' => 1,
@@ -1849,9 +1705,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            141 => 
-            array (
+            ],
+            141 => [
                 'id' => 142,
                 'setlist_item_id' => 16516,
                 'user_id' => 1,
@@ -1862,9 +1717,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            142 => 
-            array (
+            ],
+            142 => [
                 'id' => 143,
                 'setlist_item_id' => 16513,
                 'user_id' => 1,
@@ -1875,9 +1729,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            143 => 
-            array (
+            ],
+            143 => [
                 'id' => 144,
                 'setlist_item_id' => 16510,
                 'user_id' => 1,
@@ -1888,9 +1741,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            144 => 
-            array (
+            ],
+            144 => [
                 'id' => 145,
                 'setlist_item_id' => 16501,
                 'user_id' => 1,
@@ -1901,9 +1753,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            145 => 
-            array (
+            ],
+            145 => [
                 'id' => 146,
                 'setlist_item_id' => 16419,
                 'user_id' => 1,
@@ -1914,9 +1765,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            146 => 
-            array (
+            ],
+            146 => [
                 'id' => 147,
                 'setlist_item_id' => 16439,
                 'user_id' => 1,
@@ -1927,9 +1777,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            147 => 
-            array (
+            ],
+            147 => [
                 'id' => 148,
                 'setlist_item_id' => 16431,
                 'user_id' => 1,
@@ -1940,9 +1789,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            148 => 
-            array (
+            ],
+            148 => [
                 'id' => 149,
                 'setlist_item_id' => 16406,
                 'user_id' => 1,
@@ -1953,9 +1801,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            149 => 
-            array (
+            ],
+            149 => [
                 'id' => 150,
                 'setlist_item_id' => 16401,
                 'user_id' => 1,
@@ -1966,9 +1813,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            150 => 
-            array (
+            ],
+            150 => [
                 'id' => 151,
                 'setlist_item_id' => 16402,
                 'user_id' => 1,
@@ -1979,9 +1825,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            151 => 
-            array (
+            ],
+            151 => [
                 'id' => 152,
                 'setlist_item_id' => 16397,
                 'user_id' => 1,
@@ -1992,9 +1837,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            152 => 
-            array (
+            ],
+            152 => [
                 'id' => 153,
                 'setlist_item_id' => 16389,
                 'user_id' => 1,
@@ -2005,9 +1849,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            153 => 
-            array (
+            ],
+            153 => [
                 'id' => 154,
                 'setlist_item_id' => 16387,
                 'user_id' => 1,
@@ -2018,9 +1861,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            154 => 
-            array (
+            ],
+            154 => [
                 'id' => 155,
                 'setlist_item_id' => 16372,
                 'user_id' => 1,
@@ -2031,9 +1873,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            155 => 
-            array (
+            ],
+            155 => [
                 'id' => 156,
                 'setlist_item_id' => 16366,
                 'user_id' => 1,
@@ -2044,9 +1885,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            156 => 
-            array (
+            ],
+            156 => [
                 'id' => 157,
                 'setlist_item_id' => 15981,
                 'user_id' => 1,
@@ -2057,9 +1897,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            157 => 
-            array (
+            ],
+            157 => [
                 'id' => 158,
                 'setlist_item_id' => 15984,
                 'user_id' => 1,
@@ -2070,9 +1909,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            158 => 
-            array (
+            ],
+            158 => [
                 'id' => 159,
                 'setlist_item_id' => 15959,
                 'user_id' => 1,
@@ -2083,9 +1921,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            159 => 
-            array (
+            ],
+            159 => [
                 'id' => 160,
                 'setlist_item_id' => 15966,
                 'user_id' => 1,
@@ -2096,9 +1933,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            160 => 
-            array (
+            ],
+            160 => [
                 'id' => 161,
                 'setlist_item_id' => 15967,
                 'user_id' => 1,
@@ -2109,9 +1945,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            161 => 
-            array (
+            ],
+            161 => [
                 'id' => 162,
                 'setlist_item_id' => 15945,
                 'user_id' => 1,
@@ -2122,9 +1957,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            162 => 
-            array (
+            ],
+            162 => [
                 'id' => 163,
                 'setlist_item_id' => 15949,
                 'user_id' => 1,
@@ -2135,9 +1969,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            163 => 
-            array (
+            ],
+            163 => [
                 'id' => 164,
                 'setlist_item_id' => 15914,
                 'user_id' => 1,
@@ -2148,9 +1981,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            164 => 
-            array (
+            ],
+            164 => [
                 'id' => 165,
                 'setlist_item_id' => 15924,
                 'user_id' => 1,
@@ -2161,9 +1993,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            165 => 
-            array (
+            ],
+            165 => [
                 'id' => 166,
                 'setlist_item_id' => 15923,
                 'user_id' => 1,
@@ -2174,9 +2005,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            166 => 
-            array (
+            ],
+            166 => [
                 'id' => 167,
                 'setlist_item_id' => 15895,
                 'user_id' => 1,
@@ -2187,9 +2017,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            167 => 
-            array (
+            ],
+            167 => [
                 'id' => 168,
                 'setlist_item_id' => 15892,
                 'user_id' => 1,
@@ -2200,9 +2029,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            168 => 
-            array (
+            ],
+            168 => [
                 'id' => 169,
                 'setlist_item_id' => 15891,
                 'user_id' => 1,
@@ -2213,9 +2041,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            169 => 
-            array (
+            ],
+            169 => [
                 'id' => 170,
                 'setlist_item_id' => 15889,
                 'user_id' => 1,
@@ -2226,9 +2053,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            170 => 
-            array (
+            ],
+            170 => [
                 'id' => 171,
                 'setlist_item_id' => 15886,
                 'user_id' => 1,
@@ -2239,9 +2065,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            171 => 
-            array (
+            ],
+            171 => [
                 'id' => 172,
                 'setlist_item_id' => 15848,
                 'user_id' => 1,
@@ -2252,9 +2077,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            172 => 
-            array (
+            ],
+            172 => [
                 'id' => 173,
                 'setlist_item_id' => 15845,
                 'user_id' => 1,
@@ -2265,9 +2089,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            173 => 
-            array (
+            ],
+            173 => [
                 'id' => 174,
                 'setlist_item_id' => 15849,
                 'user_id' => 1,
@@ -2278,9 +2101,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            174 => 
-            array (
+            ],
+            174 => [
                 'id' => 175,
                 'setlist_item_id' => 15819,
                 'user_id' => 1,
@@ -2291,9 +2113,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            175 => 
-            array (
+            ],
+            175 => [
                 'id' => 176,
                 'setlist_item_id' => 15814,
                 'user_id' => 1,
@@ -2304,9 +2125,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            176 => 
-            array (
+            ],
+            176 => [
                 'id' => 177,
                 'setlist_item_id' => 15821,
                 'user_id' => 1,
@@ -2317,9 +2137,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            177 => 
-            array (
+            ],
+            177 => [
                 'id' => 178,
                 'setlist_item_id' => 15810,
                 'user_id' => 1,
@@ -2330,9 +2149,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            178 => 
-            array (
+            ],
+            178 => [
                 'id' => 179,
                 'setlist_item_id' => 15718,
                 'user_id' => 1,
@@ -2343,9 +2161,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            179 => 
-            array (
+            ],
+            179 => [
                 'id' => 180,
                 'setlist_item_id' => 15719,
                 'user_id' => 1,
@@ -2356,9 +2173,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:32',
                 'updated_at' => '2016-12-13 02:46:32',
                 'order' => 1,
-            ),
-            180 => 
-            array (
+            ],
+            180 => [
                 'id' => 181,
                 'setlist_item_id' => 15722,
                 'user_id' => 1,
@@ -2369,9 +2185,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            181 => 
-            array (
+            ],
+            181 => [
                 'id' => 182,
                 'setlist_item_id' => 15697,
                 'user_id' => 1,
@@ -2382,9 +2197,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            182 => 
-            array (
+            ],
+            182 => [
                 'id' => 183,
                 'setlist_item_id' => 15689,
                 'user_id' => 1,
@@ -2395,9 +2209,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            183 => 
-            array (
+            ],
+            183 => [
                 'id' => 184,
                 'setlist_item_id' => 15693,
                 'user_id' => 1,
@@ -2408,9 +2221,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            184 => 
-            array (
+            ],
+            184 => [
                 'id' => 185,
                 'setlist_item_id' => 15695,
                 'user_id' => 1,
@@ -2421,9 +2233,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            185 => 
-            array (
+            ],
+            185 => [
                 'id' => 186,
                 'setlist_item_id' => 15672,
                 'user_id' => 1,
@@ -2434,9 +2245,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            186 => 
-            array (
+            ],
+            186 => [
                 'id' => 187,
                 'setlist_item_id' => 15671,
                 'user_id' => 1,
@@ -2447,9 +2257,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            187 => 
-            array (
+            ],
+            187 => [
                 'id' => 188,
                 'setlist_item_id' => 15656,
                 'user_id' => 1,
@@ -2460,9 +2269,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            188 => 
-            array (
+            ],
+            188 => [
                 'id' => 189,
                 'setlist_item_id' => 15658,
                 'user_id' => 1,
@@ -2473,9 +2281,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            189 => 
-            array (
+            ],
+            189 => [
                 'id' => 190,
                 'setlist_item_id' => 15574,
                 'user_id' => 1,
@@ -2486,9 +2293,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            190 => 
-            array (
+            ],
+            190 => [
                 'id' => 191,
                 'setlist_item_id' => 15528,
                 'user_id' => 1,
@@ -2499,9 +2305,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            191 => 
-            array (
+            ],
+            191 => [
                 'id' => 192,
                 'setlist_item_id' => 15536,
                 'user_id' => 1,
@@ -2512,9 +2317,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            192 => 
-            array (
+            ],
+            192 => [
                 'id' => 193,
                 'setlist_item_id' => 15550,
                 'user_id' => 1,
@@ -2525,9 +2329,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            193 => 
-            array (
+            ],
+            193 => [
                 'id' => 194,
                 'setlist_item_id' => 15541,
                 'user_id' => 1,
@@ -2538,9 +2341,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            194 => 
-            array (
+            ],
+            194 => [
                 'id' => 195,
                 'setlist_item_id' => 15547,
                 'user_id' => 1,
@@ -2551,9 +2353,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            195 => 
-            array (
+            ],
+            195 => [
                 'id' => 196,
                 'setlist_item_id' => 15553,
                 'user_id' => 1,
@@ -2564,9 +2365,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            196 => 
-            array (
+            ],
+            196 => [
                 'id' => 197,
                 'setlist_item_id' => 15557,
                 'user_id' => 1,
@@ -2577,9 +2377,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            197 => 
-            array (
+            ],
+            197 => [
                 'id' => 198,
                 'setlist_item_id' => 15539,
                 'user_id' => 1,
@@ -2590,9 +2389,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            198 => 
-            array (
+            ],
+            198 => [
                 'id' => 199,
                 'setlist_item_id' => 15524,
                 'user_id' => 1,
@@ -2603,9 +2401,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            199 => 
-            array (
+            ],
+            199 => [
                 'id' => 200,
                 'setlist_item_id' => 15501,
                 'user_id' => 1,
@@ -2616,9 +2413,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            200 => 
-            array (
+            ],
+            200 => [
                 'id' => 201,
                 'setlist_item_id' => 15486,
                 'user_id' => 1,
@@ -2629,9 +2425,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            201 => 
-            array (
+            ],
+            201 => [
                 'id' => 202,
                 'setlist_item_id' => 15503,
                 'user_id' => 1,
@@ -2642,9 +2437,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            202 => 
-            array (
+            ],
+            202 => [
                 'id' => 203,
                 'setlist_item_id' => 15474,
                 'user_id' => 1,
@@ -2655,9 +2449,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            203 => 
-            array (
+            ],
+            203 => [
                 'id' => 204,
                 'setlist_item_id' => 15468,
                 'user_id' => 1,
@@ -2668,9 +2461,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            204 => 
-            array (
+            ],
+            204 => [
                 'id' => 205,
                 'setlist_item_id' => 15475,
                 'user_id' => 1,
@@ -2681,9 +2473,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            205 => 
-            array (
+            ],
+            205 => [
                 'id' => 206,
                 'setlist_item_id' => 15461,
                 'user_id' => 1,
@@ -2694,9 +2485,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            206 => 
-            array (
+            ],
+            206 => [
                 'id' => 207,
                 'setlist_item_id' => 15467,
                 'user_id' => 1,
@@ -2707,9 +2497,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            207 => 
-            array (
+            ],
+            207 => [
                 'id' => 208,
                 'setlist_item_id' => 15471,
                 'user_id' => 1,
@@ -2720,9 +2509,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            208 => 
-            array (
+            ],
+            208 => [
                 'id' => 209,
                 'setlist_item_id' => 15445,
                 'user_id' => 1,
@@ -2733,9 +2521,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            209 => 
-            array (
+            ],
+            209 => [
                 'id' => 210,
                 'setlist_item_id' => 15437,
                 'user_id' => 1,
@@ -2746,9 +2533,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            210 => 
-            array (
+            ],
+            210 => [
                 'id' => 211,
                 'setlist_item_id' => 15435,
                 'user_id' => 1,
@@ -2759,9 +2545,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            211 => 
-            array (
+            ],
+            211 => [
                 'id' => 212,
                 'setlist_item_id' => 15433,
                 'user_id' => 1,
@@ -2772,9 +2557,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            212 => 
-            array (
+            ],
+            212 => [
                 'id' => 213,
                 'setlist_item_id' => 15450,
                 'user_id' => 1,
@@ -2785,9 +2569,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            213 => 
-            array (
+            ],
+            213 => [
                 'id' => 214,
                 'setlist_item_id' => 15413,
                 'user_id' => 1,
@@ -2798,9 +2581,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            214 => 
-            array (
+            ],
+            214 => [
                 'id' => 215,
                 'setlist_item_id' => 15422,
                 'user_id' => 1,
@@ -2811,9 +2593,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            215 => 
-            array (
+            ],
+            215 => [
                 'id' => 216,
                 'setlist_item_id' => 15386,
                 'user_id' => 1,
@@ -2824,9 +2605,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            216 => 
-            array (
+            ],
+            216 => [
                 'id' => 217,
                 'setlist_item_id' => 15385,
                 'user_id' => 1,
@@ -2837,9 +2617,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            217 => 
-            array (
+            ],
+            217 => [
                 'id' => 218,
                 'setlist_item_id' => 15395,
                 'user_id' => 1,
@@ -2850,9 +2629,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            218 => 
-            array (
+            ],
+            218 => [
                 'id' => 219,
                 'setlist_item_id' => 15406,
                 'user_id' => 1,
@@ -2863,9 +2641,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:33',
                 'updated_at' => '2016-12-13 02:46:33',
                 'order' => 1,
-            ),
-            219 => 
-            array (
+            ],
+            219 => [
                 'id' => 220,
                 'setlist_item_id' => 15264,
                 'user_id' => 1,
@@ -2876,9 +2653,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            220 => 
-            array (
+            ],
+            220 => [
                 'id' => 221,
                 'setlist_item_id' => 15288,
                 'user_id' => 1,
@@ -2889,9 +2665,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            221 => 
-            array (
+            ],
+            221 => [
                 'id' => 222,
                 'setlist_item_id' => 15283,
                 'user_id' => 1,
@@ -2902,9 +2677,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            222 => 
-            array (
+            ],
+            222 => [
                 'id' => 223,
                 'setlist_item_id' => 15293,
                 'user_id' => 1,
@@ -2915,9 +2689,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            223 => 
-            array (
+            ],
+            223 => [
                 'id' => 224,
                 'setlist_item_id' => 15255,
                 'user_id' => 1,
@@ -2928,9 +2701,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            224 => 
-            array (
+            ],
+            224 => [
                 'id' => 225,
                 'setlist_item_id' => 15256,
                 'user_id' => 1,
@@ -2941,9 +2713,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            225 => 
-            array (
+            ],
+            225 => [
                 'id' => 226,
                 'setlist_item_id' => 15273,
                 'user_id' => 1,
@@ -2954,9 +2725,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            226 => 
-            array (
+            ],
+            226 => [
                 'id' => 227,
                 'setlist_item_id' => 15245,
                 'user_id' => 1,
@@ -2967,9 +2737,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            227 => 
-            array (
+            ],
+            227 => [
                 'id' => 228,
                 'setlist_item_id' => 15236,
                 'user_id' => 1,
@@ -2980,9 +2749,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            228 => 
-            array (
+            ],
+            228 => [
                 'id' => 229,
                 'setlist_item_id' => 15248,
                 'user_id' => 1,
@@ -2993,9 +2761,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            229 => 
-            array (
+            ],
+            229 => [
                 'id' => 230,
                 'setlist_item_id' => 15231,
                 'user_id' => 1,
@@ -3006,9 +2773,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            230 => 
-            array (
+            ],
+            230 => [
                 'id' => 231,
                 'setlist_item_id' => 15109,
                 'user_id' => 1,
@@ -3019,9 +2785,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            231 => 
-            array (
+            ],
+            231 => [
                 'id' => 232,
                 'setlist_item_id' => 15106,
                 'user_id' => 1,
@@ -3032,9 +2797,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            232 => 
-            array (
+            ],
+            232 => [
                 'id' => 233,
                 'setlist_item_id' => 15116,
                 'user_id' => 1,
@@ -3045,9 +2809,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            233 => 
-            array (
+            ],
+            233 => [
                 'id' => 234,
                 'setlist_item_id' => 15128,
                 'user_id' => 1,
@@ -3058,9 +2821,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            234 => 
-            array (
+            ],
+            234 => [
                 'id' => 235,
                 'setlist_item_id' => 15126,
                 'user_id' => 1,
@@ -3071,9 +2833,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            235 => 
-            array (
+            ],
+            235 => [
                 'id' => 236,
                 'setlist_item_id' => 15122,
                 'user_id' => 1,
@@ -3084,9 +2845,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            236 => 
-            array (
+            ],
+            236 => [
                 'id' => 237,
                 'setlist_item_id' => 15081,
                 'user_id' => 1,
@@ -3097,9 +2857,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            237 => 
-            array (
+            ],
+            237 => [
                 'id' => 238,
                 'setlist_item_id' => 15084,
                 'user_id' => 1,
@@ -3110,9 +2869,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            238 => 
-            array (
+            ],
+            238 => [
                 'id' => 239,
                 'setlist_item_id' => 15089,
                 'user_id' => 1,
@@ -3123,9 +2881,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            239 => 
-            array (
+            ],
+            239 => [
                 'id' => 240,
                 'setlist_item_id' => 15091,
                 'user_id' => 1,
@@ -3136,9 +2893,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            240 => 
-            array (
+            ],
+            240 => [
                 'id' => 241,
                 'setlist_item_id' => 15102,
                 'user_id' => 1,
@@ -3149,9 +2905,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            241 => 
-            array (
+            ],
+            241 => [
                 'id' => 242,
                 'setlist_item_id' => 15104,
                 'user_id' => 1,
@@ -3162,9 +2917,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            242 => 
-            array (
+            ],
+            242 => [
                 'id' => 243,
                 'setlist_item_id' => 15068,
                 'user_id' => 1,
@@ -3175,9 +2929,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            243 => 
-            array (
+            ],
+            243 => [
                 'id' => 244,
                 'setlist_item_id' => 15048,
                 'user_id' => 1,
@@ -3188,9 +2941,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            244 => 
-            array (
+            ],
+            244 => [
                 'id' => 245,
                 'setlist_item_id' => 15035,
                 'user_id' => 1,
@@ -3201,9 +2953,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            245 => 
-            array (
+            ],
+            245 => [
                 'id' => 246,
                 'setlist_item_id' => 15018,
                 'user_id' => 1,
@@ -3214,9 +2965,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            246 => 
-            array (
+            ],
+            246 => [
                 'id' => 247,
                 'setlist_item_id' => 14998,
                 'user_id' => 1,
@@ -3227,9 +2977,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            247 => 
-            array (
+            ],
+            247 => [
                 'id' => 248,
                 'setlist_item_id' => 14991,
                 'user_id' => 1,
@@ -3240,9 +2989,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            248 => 
-            array (
+            ],
+            248 => [
                 'id' => 249,
                 'setlist_item_id' => 14992,
                 'user_id' => 1,
@@ -3253,9 +3001,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            249 => 
-            array (
+            ],
+            249 => [
                 'id' => 250,
                 'setlist_item_id' => 14993,
                 'user_id' => 1,
@@ -3266,9 +3013,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            250 => 
-            array (
+            ],
+            250 => [
                 'id' => 251,
                 'setlist_item_id' => 14815,
                 'user_id' => 1,
@@ -3279,9 +3025,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            251 => 
-            array (
+            ],
+            251 => [
                 'id' => 252,
                 'setlist_item_id' => 14838,
                 'user_id' => 1,
@@ -3292,9 +3037,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            252 => 
-            array (
+            ],
+            252 => [
                 'id' => 253,
                 'setlist_item_id' => 14829,
                 'user_id' => 1,
@@ -3305,9 +3049,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            253 => 
-            array (
+            ],
+            253 => [
                 'id' => 254,
                 'setlist_item_id' => 14826,
                 'user_id' => 1,
@@ -3318,9 +3061,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            254 => 
-            array (
+            ],
+            254 => [
                 'id' => 255,
                 'setlist_item_id' => 14718,
                 'user_id' => 1,
@@ -3331,9 +3073,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            255 => 
-            array (
+            ],
+            255 => [
                 'id' => 256,
                 'setlist_item_id' => 14711,
                 'user_id' => 1,
@@ -3344,9 +3085,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            256 => 
-            array (
+            ],
+            256 => [
                 'id' => 257,
                 'setlist_item_id' => 14715,
                 'user_id' => 1,
@@ -3357,9 +3097,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            257 => 
-            array (
+            ],
+            257 => [
                 'id' => 258,
                 'setlist_item_id' => 14717,
                 'user_id' => 1,
@@ -3370,9 +3109,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            258 => 
-            array (
+            ],
+            258 => [
                 'id' => 259,
                 'setlist_item_id' => 14706,
                 'user_id' => 1,
@@ -3383,9 +3121,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            259 => 
-            array (
+            ],
+            259 => [
                 'id' => 260,
                 'setlist_item_id' => 14719,
                 'user_id' => 1,
@@ -3396,9 +3133,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            260 => 
-            array (
+            ],
+            260 => [
                 'id' => 261,
                 'setlist_item_id' => 14723,
                 'user_id' => 1,
@@ -3409,9 +3145,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            261 => 
-            array (
+            ],
+            261 => [
                 'id' => 262,
                 'setlist_item_id' => 14732,
                 'user_id' => 1,
@@ -3422,9 +3157,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            262 => 
-            array (
+            ],
+            262 => [
                 'id' => 263,
                 'setlist_item_id' => 14748,
                 'user_id' => 1,
@@ -3435,9 +3169,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            263 => 
-            array (
+            ],
+            263 => [
                 'id' => 264,
                 'setlist_item_id' => 14739,
                 'user_id' => 1,
@@ -3448,9 +3181,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            264 => 
-            array (
+            ],
+            264 => [
                 'id' => 265,
                 'setlist_item_id' => 14745,
                 'user_id' => 1,
@@ -3461,9 +3193,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            265 => 
-            array (
+            ],
+            265 => [
                 'id' => 266,
                 'setlist_item_id' => 14744,
                 'user_id' => 1,
@@ -3474,9 +3205,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            266 => 
-            array (
+            ],
+            266 => [
                 'id' => 267,
                 'setlist_item_id' => 14762,
                 'user_id' => 1,
@@ -3487,9 +3217,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            267 => 
-            array (
+            ],
+            267 => [
                 'id' => 268,
                 'setlist_item_id' => 14741,
                 'user_id' => 1,
@@ -3500,9 +3229,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            268 => 
-            array (
+            ],
+            268 => [
                 'id' => 269,
                 'setlist_item_id' => 14759,
                 'user_id' => 1,
@@ -3513,9 +3241,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            269 => 
-            array (
+            ],
+            269 => [
                 'id' => 270,
                 'setlist_item_id' => 14751,
                 'user_id' => 1,
@@ -3526,9 +3253,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            270 => 
-            array (
+            ],
+            270 => [
                 'id' => 271,
                 'setlist_item_id' => 14750,
                 'user_id' => 1,
@@ -3539,9 +3265,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            271 => 
-            array (
+            ],
+            271 => [
                 'id' => 272,
                 'setlist_item_id' => 14760,
                 'user_id' => 1,
@@ -3552,9 +3277,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            272 => 
-            array (
+            ],
+            272 => [
                 'id' => 273,
                 'setlist_item_id' => 14702,
                 'user_id' => 1,
@@ -3565,9 +3289,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            273 => 
-            array (
+            ],
+            273 => [
                 'id' => 274,
                 'setlist_item_id' => 14698,
                 'user_id' => 1,
@@ -3578,9 +3301,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            274 => 
-            array (
+            ],
+            274 => [
                 'id' => 275,
                 'setlist_item_id' => 14704,
                 'user_id' => 1,
@@ -3591,9 +3313,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            275 => 
-            array (
+            ],
+            275 => [
                 'id' => 276,
                 'setlist_item_id' => 14681,
                 'user_id' => 1,
@@ -3604,9 +3325,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            276 => 
-            array (
+            ],
+            276 => [
                 'id' => 277,
                 'setlist_item_id' => 14695,
                 'user_id' => 1,
@@ -3617,9 +3337,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            277 => 
-            array (
+            ],
+            277 => [
                 'id' => 278,
                 'setlist_item_id' => 14686,
                 'user_id' => 1,
@@ -3630,9 +3349,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            278 => 
-            array (
+            ],
+            278 => [
                 'id' => 279,
                 'setlist_item_id' => 14690,
                 'user_id' => 1,
@@ -3643,9 +3361,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            279 => 
-            array (
+            ],
+            279 => [
                 'id' => 280,
                 'setlist_item_id' => 14693,
                 'user_id' => 1,
@@ -3656,9 +3373,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            280 => 
-            array (
+            ],
+            280 => [
                 'id' => 281,
                 'setlist_item_id' => 14697,
                 'user_id' => 1,
@@ -3669,9 +3385,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            281 => 
-            array (
+            ],
+            281 => [
                 'id' => 282,
                 'setlist_item_id' => 14703,
                 'user_id' => 1,
@@ -3682,9 +3397,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            282 => 
-            array (
+            ],
+            282 => [
                 'id' => 283,
                 'setlist_item_id' => 14504,
                 'user_id' => 1,
@@ -3695,9 +3409,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:34',
                 'updated_at' => '2016-12-13 02:46:34',
                 'order' => 1,
-            ),
-            283 => 
-            array (
+            ],
+            283 => [
                 'id' => 284,
                 'setlist_item_id' => 14481,
                 'user_id' => 1,
@@ -3708,9 +3421,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            284 => 
-            array (
+            ],
+            284 => [
                 'id' => 285,
                 'setlist_item_id' => 14503,
                 'user_id' => 1,
@@ -3721,9 +3433,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            285 => 
-            array (
+            ],
+            285 => [
                 'id' => 286,
                 'setlist_item_id' => 14490,
                 'user_id' => 1,
@@ -3734,9 +3445,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            286 => 
-            array (
+            ],
+            286 => [
                 'id' => 287,
                 'setlist_item_id' => 14495,
                 'user_id' => 1,
@@ -3747,9 +3457,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            287 => 
-            array (
+            ],
+            287 => [
                 'id' => 288,
                 'setlist_item_id' => 14421,
                 'user_id' => 1,
@@ -3760,9 +3469,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            288 => 
-            array (
+            ],
+            288 => [
                 'id' => 289,
                 'setlist_item_id' => 14432,
                 'user_id' => 1,
@@ -3773,9 +3481,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            289 => 
-            array (
+            ],
+            289 => [
                 'id' => 290,
                 'setlist_item_id' => 14436,
                 'user_id' => 1,
@@ -3786,9 +3493,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            290 => 
-            array (
+            ],
+            290 => [
                 'id' => 291,
                 'setlist_item_id' => 14193,
                 'user_id' => 1,
@@ -3799,9 +3505,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            291 => 
-            array (
+            ],
+            291 => [
                 'id' => 292,
                 'setlist_item_id' => 14152,
                 'user_id' => 1,
@@ -3812,9 +3517,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            292 => 
-            array (
+            ],
+            292 => [
                 'id' => 293,
                 'setlist_item_id' => 14169,
                 'user_id' => 1,
@@ -3825,9 +3529,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            293 => 
-            array (
+            ],
+            293 => [
                 'id' => 294,
                 'setlist_item_id' => 14170,
                 'user_id' => 1,
@@ -3838,9 +3541,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            294 => 
-            array (
+            ],
+            294 => [
                 'id' => 295,
                 'setlist_item_id' => 14017,
                 'user_id' => 1,
@@ -3851,9 +3553,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            295 => 
-            array (
+            ],
+            295 => [
                 'id' => 296,
                 'setlist_item_id' => 14020,
                 'user_id' => 1,
@@ -3864,9 +3565,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            296 => 
-            array (
+            ],
+            296 => [
                 'id' => 297,
                 'setlist_item_id' => 14010,
                 'user_id' => 1,
@@ -3877,9 +3577,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            297 => 
-            array (
+            ],
+            297 => [
                 'id' => 298,
                 'setlist_item_id' => 14006,
                 'user_id' => 1,
@@ -3890,9 +3589,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            298 => 
-            array (
+            ],
+            298 => [
                 'id' => 299,
                 'setlist_item_id' => 14014,
                 'user_id' => 1,
@@ -3903,9 +3601,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            299 => 
-            array (
+            ],
+            299 => [
                 'id' => 300,
                 'setlist_item_id' => 13920,
                 'user_id' => 1,
@@ -3916,9 +3613,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            300 => 
-            array (
+            ],
+            300 => [
                 'id' => 301,
                 'setlist_item_id' => 13923,
                 'user_id' => 1,
@@ -3929,9 +3625,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            301 => 
-            array (
+            ],
+            301 => [
                 'id' => 302,
                 'setlist_item_id' => 13938,
                 'user_id' => 1,
@@ -3942,9 +3637,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            302 => 
-            array (
+            ],
+            302 => [
                 'id' => 303,
                 'setlist_item_id' => 13896,
                 'user_id' => 1,
@@ -3955,9 +3649,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            303 => 
-            array (
+            ],
+            303 => [
                 'id' => 304,
                 'setlist_item_id' => 13903,
                 'user_id' => 1,
@@ -3968,9 +3661,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            304 => 
-            array (
+            ],
+            304 => [
                 'id' => 305,
                 'setlist_item_id' => 13902,
                 'user_id' => 1,
@@ -3981,9 +3673,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            305 => 
-            array (
+            ],
+            305 => [
                 'id' => 306,
                 'setlist_item_id' => 13879,
                 'user_id' => 1,
@@ -3994,9 +3685,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            306 => 
-            array (
+            ],
+            306 => [
                 'id' => 307,
                 'setlist_item_id' => 13874,
                 'user_id' => 1,
@@ -4007,9 +3697,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            307 => 
-            array (
+            ],
+            307 => [
                 'id' => 308,
                 'setlist_item_id' => 13870,
                 'user_id' => 1,
@@ -4020,9 +3709,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            308 => 
-            array (
+            ],
+            308 => [
                 'id' => 309,
                 'setlist_item_id' => 13817,
                 'user_id' => 1,
@@ -4033,9 +3721,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            309 => 
-            array (
+            ],
+            309 => [
                 'id' => 310,
                 'setlist_item_id' => 13811,
                 'user_id' => 1,
@@ -4046,9 +3733,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            310 => 
-            array (
+            ],
+            310 => [
                 'id' => 311,
                 'setlist_item_id' => 13818,
                 'user_id' => 1,
@@ -4059,9 +3745,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            311 => 
-            array (
+            ],
+            311 => [
                 'id' => 312,
                 'setlist_item_id' => 13829,
                 'user_id' => 1,
@@ -4072,9 +3757,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            312 => 
-            array (
+            ],
+            312 => [
                 'id' => 313,
                 'setlist_item_id' => 13834,
                 'user_id' => 1,
@@ -4085,9 +3769,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            313 => 
-            array (
+            ],
+            313 => [
                 'id' => 314,
                 'setlist_item_id' => 13820,
                 'user_id' => 1,
@@ -4098,9 +3781,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:35',
                 'updated_at' => '2016-12-13 02:46:35',
                 'order' => 1,
-            ),
-            314 => 
-            array (
+            ],
+            314 => [
                 'id' => 315,
                 'setlist_item_id' => 13826,
                 'user_id' => 1,
@@ -4111,9 +3793,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            315 => 
-            array (
+            ],
+            315 => [
                 'id' => 316,
                 'setlist_item_id' => 13837,
                 'user_id' => 1,
@@ -4124,9 +3805,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            316 => 
-            array (
+            ],
+            316 => [
                 'id' => 317,
                 'setlist_item_id' => 13781,
                 'user_id' => 1,
@@ -4137,9 +3817,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            317 => 
-            array (
+            ],
+            317 => [
                 'id' => 318,
                 'setlist_item_id' => 13774,
                 'user_id' => 1,
@@ -4150,9 +3829,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            318 => 
-            array (
+            ],
+            318 => [
                 'id' => 319,
                 'setlist_item_id' => 13773,
                 'user_id' => 1,
@@ -4163,9 +3841,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            319 => 
-            array (
+            ],
+            319 => [
                 'id' => 320,
                 'setlist_item_id' => 13776,
                 'user_id' => 1,
@@ -4176,9 +3853,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            320 => 
-            array (
+            ],
+            320 => [
                 'id' => 321,
                 'setlist_item_id' => 13785,
                 'user_id' => 1,
@@ -4189,9 +3865,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            321 => 
-            array (
+            ],
+            321 => [
                 'id' => 322,
                 'setlist_item_id' => 13721,
                 'user_id' => 1,
@@ -4202,9 +3877,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            322 => 
-            array (
+            ],
+            322 => [
                 'id' => 323,
                 'setlist_item_id' => 13722,
                 'user_id' => 1,
@@ -4215,9 +3889,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            323 => 
-            array (
+            ],
+            323 => [
                 'id' => 324,
                 'setlist_item_id' => 13708,
                 'user_id' => 1,
@@ -4228,9 +3901,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            324 => 
-            array (
+            ],
+            324 => [
                 'id' => 325,
                 'setlist_item_id' => 13646,
                 'user_id' => 1,
@@ -4241,9 +3913,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            325 => 
-            array (
+            ],
+            325 => [
                 'id' => 326,
                 'setlist_item_id' => 13474,
                 'user_id' => 1,
@@ -4254,9 +3925,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            326 => 
-            array (
+            ],
+            326 => [
                 'id' => 327,
                 'setlist_item_id' => 13473,
                 'user_id' => 1,
@@ -4267,9 +3937,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            327 => 
-            array (
+            ],
+            327 => [
                 'id' => 328,
                 'setlist_item_id' => 13465,
                 'user_id' => 1,
@@ -4280,9 +3949,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            328 => 
-            array (
+            ],
+            328 => [
                 'id' => 329,
                 'setlist_item_id' => 13447,
                 'user_id' => 1,
@@ -4293,9 +3961,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            329 => 
-            array (
+            ],
+            329 => [
                 'id' => 330,
                 'setlist_item_id' => 13452,
                 'user_id' => 1,
@@ -4306,9 +3973,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            330 => 
-            array (
+            ],
+            330 => [
                 'id' => 331,
                 'setlist_item_id' => 13433,
                 'user_id' => 1,
@@ -4319,9 +3985,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            331 => 
-            array (
+            ],
+            331 => [
                 'id' => 332,
                 'setlist_item_id' => 13397,
                 'user_id' => 1,
@@ -4332,9 +3997,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            332 => 
-            array (
+            ],
+            332 => [
                 'id' => 333,
                 'setlist_item_id' => 13407,
                 'user_id' => 1,
@@ -4345,9 +4009,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            333 => 
-            array (
+            ],
+            333 => [
                 'id' => 334,
                 'setlist_item_id' => 13401,
                 'user_id' => 1,
@@ -4358,9 +4021,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            334 => 
-            array (
+            ],
+            334 => [
                 'id' => 335,
                 'setlist_item_id' => 13400,
                 'user_id' => 1,
@@ -4371,9 +4033,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            335 => 
-            array (
+            ],
+            335 => [
                 'id' => 336,
                 'setlist_item_id' => 13414,
                 'user_id' => 1,
@@ -4384,9 +4045,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            336 => 
-            array (
+            ],
+            336 => [
                 'id' => 337,
                 'setlist_item_id' => 13310,
                 'user_id' => 1,
@@ -4397,9 +4057,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            337 => 
-            array (
+            ],
+            337 => [
                 'id' => 338,
                 'setlist_item_id' => 13319,
                 'user_id' => 1,
@@ -4410,9 +4069,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            338 => 
-            array (
+            ],
+            338 => [
                 'id' => 339,
                 'setlist_item_id' => 13317,
                 'user_id' => 1,
@@ -4423,9 +4081,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 02:46:36',
                 'updated_at' => '2016-12-13 02:46:36',
                 'order' => 1,
-            ),
-            339 => 
-            array (
+            ],
+            339 => [
                 'id' => 340,
                 'setlist_item_id' => 18697,
                 'user_id' => 1,
@@ -4436,9 +4093,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            340 => 
-            array (
+            ],
+            340 => [
                 'id' => 341,
                 'setlist_item_id' => 18700,
                 'user_id' => 1,
@@ -4449,9 +4105,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            341 => 
-            array (
+            ],
+            341 => [
                 'id' => 342,
                 'setlist_item_id' => 18711,
                 'user_id' => 1,
@@ -4462,9 +4117,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            342 => 
-            array (
+            ],
+            342 => [
                 'id' => 343,
                 'setlist_item_id' => 18359,
                 'user_id' => 1,
@@ -4475,9 +4129,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            343 => 
-            array (
+            ],
+            343 => [
                 'id' => 344,
                 'setlist_item_id' => 18071,
                 'user_id' => 1,
@@ -4488,9 +4141,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            344 => 
-            array (
+            ],
+            344 => [
                 'id' => 345,
                 'setlist_item_id' => 18050,
                 'user_id' => 1,
@@ -4501,9 +4153,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            345 => 
-            array (
+            ],
+            345 => [
                 'id' => 346,
                 'setlist_item_id' => 18024,
                 'user_id' => 1,
@@ -4514,9 +4165,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            346 => 
-            array (
+            ],
+            346 => [
                 'id' => 347,
                 'setlist_item_id' => 17999,
                 'user_id' => 1,
@@ -4527,9 +4177,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            347 => 
-            array (
+            ],
+            347 => [
                 'id' => 348,
                 'setlist_item_id' => 17993,
                 'user_id' => 1,
@@ -4540,9 +4189,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            348 => 
-            array (
+            ],
+            348 => [
                 'id' => 349,
                 'setlist_item_id' => 17995,
                 'user_id' => 1,
@@ -4553,9 +4201,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            349 => 
-            array (
+            ],
+            349 => [
                 'id' => 350,
                 'setlist_item_id' => 18007,
                 'user_id' => 1,
@@ -4566,9 +4213,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:23',
                 'updated_at' => '2016-12-13 03:22:23',
                 'order' => 1,
-            ),
-            350 => 
-            array (
+            ],
+            350 => [
                 'id' => 351,
                 'setlist_item_id' => 17695,
                 'user_id' => 1,
@@ -4579,9 +4225,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            351 => 
-            array (
+            ],
+            351 => [
                 'id' => 352,
                 'setlist_item_id' => 17674,
                 'user_id' => 1,
@@ -4592,9 +4237,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            352 => 
-            array (
+            ],
+            352 => [
                 'id' => 353,
                 'setlist_item_id' => 17678,
                 'user_id' => 1,
@@ -4605,9 +4249,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            353 => 
-            array (
+            ],
+            353 => [
                 'id' => 354,
                 'setlist_item_id' => 17031,
                 'user_id' => 1,
@@ -4618,9 +4261,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            354 => 
-            array (
+            ],
+            354 => [
                 'id' => 355,
                 'setlist_item_id' => 17034,
                 'user_id' => 1,
@@ -4631,9 +4273,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            355 => 
-            array (
+            ],
+            355 => [
                 'id' => 356,
                 'setlist_item_id' => 17030,
                 'user_id' => 1,
@@ -4644,9 +4285,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            356 => 
-            array (
+            ],
+            356 => [
                 'id' => 357,
                 'setlist_item_id' => 16799,
                 'user_id' => 1,
@@ -4657,9 +4297,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            357 => 
-            array (
+            ],
+            357 => [
                 'id' => 358,
                 'setlist_item_id' => 16562,
                 'user_id' => 1,
@@ -4670,9 +4309,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            358 => 
-            array (
+            ],
+            358 => [
                 'id' => 359,
                 'setlist_item_id' => 16575,
                 'user_id' => 1,
@@ -4683,9 +4321,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            359 => 
-            array (
+            ],
+            359 => [
                 'id' => 360,
                 'setlist_item_id' => 16567,
                 'user_id' => 1,
@@ -4696,9 +4333,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            360 => 
-            array (
+            ],
+            360 => [
                 'id' => 361,
                 'setlist_item_id' => 16566,
                 'user_id' => 1,
@@ -4709,9 +4345,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            361 => 
-            array (
+            ],
+            361 => [
                 'id' => 362,
                 'setlist_item_id' => 16531,
                 'user_id' => 1,
@@ -4722,9 +4357,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            362 => 
-            array (
+            ],
+            362 => [
                 'id' => 363,
                 'setlist_item_id' => 16530,
                 'user_id' => 1,
@@ -4735,9 +4369,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            363 => 
-            array (
+            ],
+            363 => [
                 'id' => 364,
                 'setlist_item_id' => 16524,
                 'user_id' => 1,
@@ -4748,9 +4381,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:24',
                 'updated_at' => '2016-12-13 03:22:24',
                 'order' => 1,
-            ),
-            364 => 
-            array (
+            ],
+            364 => [
                 'id' => 365,
                 'setlist_item_id' => 16423,
                 'user_id' => 1,
@@ -4761,9 +4393,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            365 => 
-            array (
+            ],
+            365 => [
                 'id' => 366,
                 'setlist_item_id' => 16434,
                 'user_id' => 1,
@@ -4774,9 +4405,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            366 => 
-            array (
+            ],
+            366 => [
                 'id' => 367,
                 'setlist_item_id' => 16165,
                 'user_id' => 1,
@@ -4787,9 +4417,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            367 => 
-            array (
+            ],
+            367 => [
                 'id' => 368,
                 'setlist_item_id' => 15992,
                 'user_id' => 1,
@@ -4800,9 +4429,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            368 => 
-            array (
+            ],
+            368 => [
                 'id' => 369,
                 'setlist_item_id' => 15909,
                 'user_id' => 1,
@@ -4813,9 +4441,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            369 => 
-            array (
+            ],
+            369 => [
                 'id' => 370,
                 'setlist_item_id' => 15911,
                 'user_id' => 1,
@@ -4826,9 +4453,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            370 => 
-            array (
+            ],
+            370 => [
                 'id' => 371,
                 'setlist_item_id' => 15882,
                 'user_id' => 1,
@@ -4839,9 +4465,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            371 => 
-            array (
+            ],
+            371 => [
                 'id' => 372,
                 'setlist_item_id' => 15888,
                 'user_id' => 1,
@@ -4852,9 +4477,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            372 => 
-            array (
+            ],
+            372 => [
                 'id' => 373,
                 'setlist_item_id' => 15840,
                 'user_id' => 1,
@@ -4865,9 +4489,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            373 => 
-            array (
+            ],
+            373 => [
                 'id' => 374,
                 'setlist_item_id' => 15836,
                 'user_id' => 1,
@@ -4878,9 +4501,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            374 => 
-            array (
+            ],
+            374 => [
                 'id' => 375,
                 'setlist_item_id' => 15804,
                 'user_id' => 1,
@@ -4891,9 +4513,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:25',
                 'updated_at' => '2016-12-13 03:22:25',
                 'order' => 1,
-            ),
-            375 => 
-            array (
+            ],
+            375 => [
                 'id' => 376,
                 'setlist_item_id' => 15438,
                 'user_id' => 1,
@@ -4904,9 +4525,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            376 => 
-            array (
+            ],
+            376 => [
                 'id' => 377,
                 'setlist_item_id' => 15436,
                 'user_id' => 1,
@@ -4917,9 +4537,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            377 => 
-            array (
+            ],
+            377 => [
                 'id' => 378,
                 'setlist_item_id' => 15455,
                 'user_id' => 1,
@@ -4930,9 +4549,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            378 => 
-            array (
+            ],
+            378 => [
                 'id' => 379,
                 'setlist_item_id' => 15426,
                 'user_id' => 1,
@@ -4943,9 +4561,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            379 => 
-            array (
+            ],
+            379 => [
                 'id' => 380,
                 'setlist_item_id' => 15411,
                 'user_id' => 1,
@@ -4956,9 +4573,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            380 => 
-            array (
+            ],
+            380 => [
                 'id' => 381,
                 'setlist_item_id' => 15391,
                 'user_id' => 1,
@@ -4969,9 +4585,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            381 => 
-            array (
+            ],
+            381 => [
                 'id' => 382,
                 'setlist_item_id' => 15392,
                 'user_id' => 1,
@@ -4982,9 +4597,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            382 => 
-            array (
+            ],
+            382 => [
                 'id' => 383,
                 'setlist_item_id' => 15294,
                 'user_id' => 1,
@@ -4995,9 +4609,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            383 => 
-            array (
+            ],
+            383 => [
                 'id' => 384,
                 'setlist_item_id' => 15277,
                 'user_id' => 1,
@@ -5008,9 +4621,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            384 => 
-            array (
+            ],
+            384 => [
                 'id' => 385,
                 'setlist_item_id' => 15279,
                 'user_id' => 1,
@@ -5021,9 +4633,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            385 => 
-            array (
+            ],
+            385 => [
                 'id' => 386,
                 'setlist_item_id' => 15287,
                 'user_id' => 1,
@@ -5034,9 +4645,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            386 => 
-            array (
+            ],
+            386 => [
                 'id' => 387,
                 'setlist_item_id' => 15286,
                 'user_id' => 1,
@@ -5047,9 +4657,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            387 => 
-            array (
+            ],
+            387 => [
                 'id' => 388,
                 'setlist_item_id' => 15250,
                 'user_id' => 1,
@@ -5060,9 +4669,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            388 => 
-            array (
+            ],
+            388 => [
                 'id' => 389,
                 'setlist_item_id' => 15228,
                 'user_id' => 1,
@@ -5073,9 +4681,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            389 => 
-            array (
+            ],
+            389 => [
                 'id' => 390,
                 'setlist_item_id' => 15107,
                 'user_id' => 1,
@@ -5086,9 +4693,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            390 => 
-            array (
+            ],
+            390 => [
                 'id' => 391,
                 'setlist_item_id' => 15111,
                 'user_id' => 1,
@@ -5099,9 +4705,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            391 => 
-            array (
+            ],
+            391 => [
                 'id' => 392,
                 'setlist_item_id' => 15113,
                 'user_id' => 1,
@@ -5112,9 +4717,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            392 => 
-            array (
+            ],
+            392 => [
                 'id' => 393,
                 'setlist_item_id' => 15112,
                 'user_id' => 1,
@@ -5125,9 +4729,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            393 => 
-            array (
+            ],
+            393 => [
                 'id' => 394,
                 'setlist_item_id' => 15115,
                 'user_id' => 1,
@@ -5138,9 +4741,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            394 => 
-            array (
+            ],
+            394 => [
                 'id' => 395,
                 'setlist_item_id' => 15082,
                 'user_id' => 1,
@@ -5151,9 +4753,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            395 => 
-            array (
+            ],
+            395 => [
                 'id' => 396,
                 'setlist_item_id' => 15100,
                 'user_id' => 1,
@@ -5164,9 +4765,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            396 => 
-            array (
+            ],
+            396 => [
                 'id' => 397,
                 'setlist_item_id' => 15094,
                 'user_id' => 1,
@@ -5177,9 +4777,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            397 => 
-            array (
+            ],
+            397 => [
                 'id' => 398,
                 'setlist_item_id' => 15063,
                 'user_id' => 1,
@@ -5190,9 +4789,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            398 => 
-            array (
+            ],
+            398 => [
                 'id' => 399,
                 'setlist_item_id' => 15064,
                 'user_id' => 1,
@@ -5203,9 +4801,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            399 => 
-            array (
+            ],
+            399 => [
                 'id' => 400,
                 'setlist_item_id' => 15075,
                 'user_id' => 1,
@@ -5216,9 +4813,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            400 => 
-            array (
+            ],
+            400 => [
                 'id' => 401,
                 'setlist_item_id' => 15008,
                 'user_id' => 1,
@@ -5229,9 +4825,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            401 => 
-            array (
+            ],
+            401 => [
                 'id' => 402,
                 'setlist_item_id' => 15009,
                 'user_id' => 1,
@@ -5242,9 +4837,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            402 => 
-            array (
+            ],
+            402 => [
                 'id' => 403,
                 'setlist_item_id' => 15026,
                 'user_id' => 1,
@@ -5255,9 +4849,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            403 => 
-            array (
+            ],
+            403 => [
                 'id' => 404,
                 'setlist_item_id' => 15023,
                 'user_id' => 1,
@@ -5268,9 +4861,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            404 => 
-            array (
+            ],
+            404 => [
                 'id' => 405,
                 'setlist_item_id' => 15027,
                 'user_id' => 1,
@@ -5281,9 +4873,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            405 => 
-            array (
+            ],
+            405 => [
                 'id' => 406,
                 'setlist_item_id' => 15019,
                 'user_id' => 1,
@@ -5294,9 +4885,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            406 => 
-            array (
+            ],
+            406 => [
                 'id' => 407,
                 'setlist_item_id' => 15025,
                 'user_id' => 1,
@@ -5307,9 +4897,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            407 => 
-            array (
+            ],
+            407 => [
                 'id' => 408,
                 'setlist_item_id' => 15016,
                 'user_id' => 1,
@@ -5320,9 +4909,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            408 => 
-            array (
+            ],
+            408 => [
                 'id' => 409,
                 'setlist_item_id' => 15024,
                 'user_id' => 1,
@@ -5333,9 +4921,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            409 => 
-            array (
+            ],
+            409 => [
                 'id' => 410,
                 'setlist_item_id' => 15017,
                 'user_id' => 1,
@@ -5346,9 +4933,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            410 => 
-            array (
+            ],
+            410 => [
                 'id' => 411,
                 'setlist_item_id' => 15021,
                 'user_id' => 1,
@@ -5359,9 +4945,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            411 => 
-            array (
+            ],
+            411 => [
                 'id' => 412,
                 'setlist_item_id' => 15014,
                 'user_id' => 1,
@@ -5372,9 +4957,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            412 => 
-            array (
+            ],
+            412 => [
                 'id' => 413,
                 'setlist_item_id' => 14989,
                 'user_id' => 1,
@@ -5385,9 +4969,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            413 => 
-            array (
+            ],
+            413 => [
                 'id' => 414,
                 'setlist_item_id' => 15006,
                 'user_id' => 1,
@@ -5398,9 +4981,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            414 => 
-            array (
+            ],
+            414 => [
                 'id' => 415,
                 'setlist_item_id' => 15003,
                 'user_id' => 1,
@@ -5411,9 +4993,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            415 => 
-            array (
+            ],
+            415 => [
                 'id' => 416,
                 'setlist_item_id' => 15001,
                 'user_id' => 1,
@@ -5424,9 +5005,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:26',
                 'updated_at' => '2016-12-13 03:22:26',
                 'order' => 1,
-            ),
-            416 => 
-            array (
+            ],
+            416 => [
                 'id' => 417,
                 'setlist_item_id' => 14836,
                 'user_id' => 1,
@@ -5437,9 +5017,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            417 => 
-            array (
+            ],
+            417 => [
                 'id' => 418,
                 'setlist_item_id' => 14827,
                 'user_id' => 1,
@@ -5450,9 +5029,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            418 => 
-            array (
+            ],
+            418 => [
                 'id' => 419,
                 'setlist_item_id' => 14830,
                 'user_id' => 1,
@@ -5463,9 +5041,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            419 => 
-            array (
+            ],
+            419 => [
                 'id' => 420,
                 'setlist_item_id' => 14837,
                 'user_id' => 1,
@@ -5476,9 +5053,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            420 => 
-            array (
+            ],
+            420 => [
                 'id' => 421,
                 'setlist_item_id' => 14730,
                 'user_id' => 1,
@@ -5489,9 +5065,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            421 => 
-            array (
+            ],
+            421 => [
                 'id' => 422,
                 'setlist_item_id' => 14736,
                 'user_id' => 1,
@@ -5502,9 +5077,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            422 => 
-            array (
+            ],
+            422 => [
                 'id' => 423,
                 'setlist_item_id' => 14687,
                 'user_id' => 1,
@@ -5515,9 +5089,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            423 => 
-            array (
+            ],
+            423 => [
                 'id' => 424,
                 'setlist_item_id' => 14485,
                 'user_id' => 1,
@@ -5528,9 +5101,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:27',
                 'updated_at' => '2016-12-13 03:22:27',
                 'order' => 1,
-            ),
-            424 => 
-            array (
+            ],
+            424 => [
                 'id' => 425,
                 'setlist_item_id' => 15926,
                 'user_id' => 1,
@@ -5541,9 +5113,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            425 => 
-            array (
+            ],
+            425 => [
                 'id' => 426,
                 'setlist_item_id' => 15906,
                 'user_id' => 1,
@@ -5554,9 +5125,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            426 => 
-            array (
+            ],
+            426 => [
                 'id' => 427,
                 'setlist_item_id' => 15912,
                 'user_id' => 1,
@@ -5567,9 +5137,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            427 => 
-            array (
+            ],
+            427 => [
                 'id' => 428,
                 'setlist_item_id' => 15878,
                 'user_id' => 1,
@@ -5580,9 +5149,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            428 => 
-            array (
+            ],
+            428 => [
                 'id' => 429,
                 'setlist_item_id' => 15832,
                 'user_id' => 1,
@@ -5593,9 +5161,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            429 => 
-            array (
+            ],
+            429 => [
                 'id' => 430,
                 'setlist_item_id' => 15827,
                 'user_id' => 1,
@@ -5606,9 +5173,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            430 => 
-            array (
+            ],
+            430 => [
                 'id' => 431,
                 'setlist_item_id' => 15843,
                 'user_id' => 1,
@@ -5619,9 +5185,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            431 => 
-            array (
+            ],
+            431 => [
                 'id' => 432,
                 'setlist_item_id' => 15841,
                 'user_id' => 1,
@@ -5632,9 +5197,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            432 => 
-            array (
+            ],
+            432 => [
                 'id' => 433,
                 'setlist_item_id' => 15806,
                 'user_id' => 1,
@@ -5645,9 +5209,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            433 => 
-            array (
+            ],
+            433 => [
                 'id' => 434,
                 'setlist_item_id' => 13935,
                 'user_id' => 1,
@@ -5658,9 +5221,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            434 => 
-            array (
+            ],
+            434 => [
                 'id' => 435,
                 'setlist_item_id' => 13883,
                 'user_id' => 1,
@@ -5671,9 +5233,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            435 => 
-            array (
+            ],
+            435 => [
                 'id' => 436,
                 'setlist_item_id' => 13821,
                 'user_id' => 1,
@@ -5684,9 +5245,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            436 => 
-            array (
+            ],
+            436 => [
                 'id' => 437,
                 'setlist_item_id' => 13429,
                 'user_id' => 1,
@@ -5697,9 +5257,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            437 => 
-            array (
+            ],
+            437 => [
                 'id' => 438,
                 'setlist_item_id' => 13399,
                 'user_id' => 1,
@@ -5710,9 +5269,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            438 => 
-            array (
+            ],
+            438 => [
                 'id' => 439,
                 'setlist_item_id' => 13322,
                 'user_id' => 1,
@@ -5723,9 +5281,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:28',
                 'updated_at' => '2016-12-13 03:22:28',
                 'order' => 1,
-            ),
-            439 => 
-            array (
+            ],
+            439 => [
                 'id' => 440,
                 'setlist_item_id' => 17771,
                 'user_id' => 1,
@@ -5736,9 +5293,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            440 => 
-            array (
+            ],
+            440 => [
                 'id' => 441,
                 'setlist_item_id' => 17692,
                 'user_id' => 1,
@@ -5749,9 +5305,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            441 => 
-            array (
+            ],
+            441 => [
                 'id' => 442,
                 'setlist_item_id' => 17691,
                 'user_id' => 1,
@@ -5762,9 +5317,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            442 => 
-            array (
+            ],
+            442 => [
                 'id' => 443,
                 'setlist_item_id' => 17690,
                 'user_id' => 1,
@@ -5775,9 +5329,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            443 => 
-            array (
+            ],
+            443 => [
                 'id' => 444,
                 'setlist_item_id' => 17525,
                 'user_id' => 1,
@@ -5788,9 +5341,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            444 => 
-            array (
+            ],
+            444 => [
                 'id' => 445,
                 'setlist_item_id' => 17522,
                 'user_id' => 1,
@@ -5801,9 +5353,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            445 => 
-            array (
+            ],
+            445 => [
                 'id' => 446,
                 'setlist_item_id' => 17507,
                 'user_id' => 1,
@@ -5814,9 +5365,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            446 => 
-            array (
+            ],
+            446 => [
                 'id' => 447,
                 'setlist_item_id' => 17489,
                 'user_id' => 1,
@@ -5827,9 +5377,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:47',
                 'updated_at' => '2016-12-13 03:22:47',
                 'order' => 1,
-            ),
-            447 => 
-            array (
+            ],
+            447 => [
                 'id' => 448,
                 'setlist_item_id' => 16432,
                 'user_id' => 1,
@@ -5840,9 +5389,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:49',
                 'updated_at' => '2016-12-13 03:22:49',
                 'order' => 1,
-            ),
-            448 => 
-            array (
+            ],
+            448 => [
                 'id' => 449,
                 'setlist_item_id' => 16413,
                 'user_id' => 1,
@@ -5853,9 +5401,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            449 => 
-            array (
+            ],
+            449 => [
                 'id' => 450,
                 'setlist_item_id' => 16399,
                 'user_id' => 1,
@@ -5866,9 +5413,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            450 => 
-            array (
+            ],
+            450 => [
                 'id' => 451,
                 'setlist_item_id' => 16394,
                 'user_id' => 1,
@@ -5879,9 +5425,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            451 => 
-            array (
+            ],
+            451 => [
                 'id' => 452,
                 'setlist_item_id' => 16377,
                 'user_id' => 1,
@@ -5892,9 +5437,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            452 => 
-            array (
+            ],
+            452 => [
                 'id' => 453,
                 'setlist_item_id' => 16355,
                 'user_id' => 1,
@@ -5905,9 +5449,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            453 => 
-            array (
+            ],
+            453 => [
                 'id' => 454,
                 'setlist_item_id' => 16348,
                 'user_id' => 1,
@@ -5918,9 +5461,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            454 => 
-            array (
+            ],
+            454 => [
                 'id' => 455,
                 'setlist_item_id' => 16345,
                 'user_id' => 1,
@@ -5931,9 +5473,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            455 => 
-            array (
+            ],
+            455 => [
                 'id' => 456,
                 'setlist_item_id' => 16172,
                 'user_id' => 1,
@@ -5944,9 +5485,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            456 => 
-            array (
+            ],
+            456 => [
                 'id' => 457,
                 'setlist_item_id' => 15970,
                 'user_id' => 1,
@@ -5957,9 +5497,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            457 => 
-            array (
+            ],
+            457 => [
                 'id' => 458,
                 'setlist_item_id' => 15928,
                 'user_id' => 1,
@@ -5970,9 +5509,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:22:50',
                 'updated_at' => '2016-12-13 03:22:50',
                 'order' => 1,
-            ),
-            458 => 
-            array (
+            ],
+            458 => [
                 'id' => 459,
                 'setlist_item_id' => 16550,
                 'user_id' => 1,
@@ -5983,9 +5521,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            459 => 
-            array (
+            ],
+            459 => [
                 'id' => 460,
                 'setlist_item_id' => 16574,
                 'user_id' => 1,
@@ -5996,9 +5533,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            460 => 
-            array (
+            ],
+            460 => [
                 'id' => 461,
                 'setlist_item_id' => 16532,
                 'user_id' => 1,
@@ -6009,9 +5545,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            461 => 
-            array (
+            ],
+            461 => [
                 'id' => 462,
                 'setlist_item_id' => 16425,
                 'user_id' => 1,
@@ -6022,9 +5557,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            462 => 
-            array (
+            ],
+            462 => [
                 'id' => 463,
                 'setlist_item_id' => 16427,
                 'user_id' => 1,
@@ -6035,9 +5569,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            463 => 
-            array (
+            ],
+            463 => [
                 'id' => 464,
                 'setlist_item_id' => 16426,
                 'user_id' => 1,
@@ -6048,9 +5581,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            464 => 
-            array (
+            ],
+            464 => [
                 'id' => 465,
                 'setlist_item_id' => 16438,
                 'user_id' => 1,
@@ -6061,9 +5593,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:05',
                 'updated_at' => '2016-12-13 03:23:05',
                 'order' => 1,
-            ),
-            465 => 
-            array (
+            ],
+            465 => [
                 'id' => 466,
                 'setlist_item_id' => 18047,
                 'user_id' => 1,
@@ -6074,9 +5605,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:46',
                 'updated_at' => '2016-12-13 03:23:46',
                 'order' => 1,
-            ),
-            466 => 
-            array (
+            ],
+            466 => [
                 'id' => 467,
                 'setlist_item_id' => 18036,
                 'user_id' => 1,
@@ -6087,9 +5617,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:46',
                 'updated_at' => '2016-12-13 03:23:46',
                 'order' => 1,
-            ),
-            467 => 
-            array (
+            ],
+            467 => [
                 'id' => 468,
                 'setlist_item_id' => 18034,
                 'user_id' => 1,
@@ -6100,9 +5629,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:46',
                 'updated_at' => '2016-12-13 03:23:46',
                 'order' => 1,
-            ),
-            468 => 
-            array (
+            ],
+            468 => [
                 'id' => 469,
                 'setlist_item_id' => 18027,
                 'user_id' => 1,
@@ -6113,9 +5641,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:46',
                 'updated_at' => '2016-12-13 03:23:46',
                 'order' => 1,
-            ),
-            469 => 
-            array (
+            ],
+            469 => [
                 'id' => 470,
                 'setlist_item_id' => 18014,
                 'user_id' => 1,
@@ -6126,9 +5653,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:47',
                 'updated_at' => '2016-12-13 03:23:47',
                 'order' => 1,
-            ),
-            470 => 
-            array (
+            ],
+            470 => [
                 'id' => 471,
                 'setlist_item_id' => 17994,
                 'user_id' => 1,
@@ -6139,9 +5665,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:47',
                 'updated_at' => '2016-12-13 03:23:47',
                 'order' => 1,
-            ),
-            471 => 
-            array (
+            ],
+            471 => [
                 'id' => 472,
                 'setlist_item_id' => 17794,
                 'user_id' => 1,
@@ -6152,9 +5677,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:47',
                 'updated_at' => '2016-12-13 03:23:47',
                 'order' => 1,
-            ),
-            472 => 
-            array (
+            ],
+            472 => [
                 'id' => 473,
                 'setlist_item_id' => 17790,
                 'user_id' => 1,
@@ -6165,9 +5689,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:47',
                 'updated_at' => '2016-12-13 03:23:47',
                 'order' => 1,
-            ),
-            473 => 
-            array (
+            ],
+            473 => [
                 'id' => 474,
                 'setlist_item_id' => 17230,
                 'user_id' => 1,
@@ -6178,9 +5701,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            474 => 
-            array (
+            ],
+            474 => [
                 'id' => 475,
                 'setlist_item_id' => 17227,
                 'user_id' => 1,
@@ -6191,9 +5713,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            475 => 
-            array (
+            ],
+            475 => [
                 'id' => 476,
                 'setlist_item_id' => 17219,
                 'user_id' => 1,
@@ -6204,9 +5725,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            476 => 
-            array (
+            ],
+            476 => [
                 'id' => 477,
                 'setlist_item_id' => 17182,
                 'user_id' => 1,
@@ -6217,9 +5737,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            477 => 
-            array (
+            ],
+            477 => [
                 'id' => 478,
                 'setlist_item_id' => 17025,
                 'user_id' => 1,
@@ -6230,9 +5749,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            478 => 
-            array (
+            ],
+            478 => [
                 'id' => 479,
                 'setlist_item_id' => 17040,
                 'user_id' => 1,
@@ -6243,9 +5761,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            479 => 
-            array (
+            ],
+            479 => [
                 'id' => 480,
                 'setlist_item_id' => 17042,
                 'user_id' => 1,
@@ -6256,9 +5773,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:23:48',
                 'updated_at' => '2016-12-13 03:23:48',
                 'order' => 1,
-            ),
-            480 => 
-            array (
+            ],
+            480 => [
                 'id' => 481,
                 'setlist_item_id' => 14483,
                 'user_id' => 1,
@@ -6269,9 +5785,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:24:07',
                 'updated_at' => '2016-12-13 03:24:07',
                 'order' => 1,
-            ),
-            481 => 
-            array (
+            ],
+            481 => [
                 'id' => 482,
                 'setlist_item_id' => 14426,
                 'user_id' => 1,
@@ -6282,9 +5797,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:24:07',
                 'updated_at' => '2016-12-13 03:24:07',
                 'order' => 1,
-            ),
-            482 => 
-            array (
+            ],
+            482 => [
                 'id' => 483,
                 'setlist_item_id' => 14434,
                 'user_id' => 1,
@@ -6295,9 +5809,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:24:07',
                 'updated_at' => '2016-12-13 03:24:07',
                 'order' => 1,
-            ),
-            483 => 
-            array (
+            ],
+            483 => [
                 'id' => 484,
                 'setlist_item_id' => 14423,
                 'user_id' => 1,
@@ -6308,9 +5821,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:24:07',
                 'updated_at' => '2016-12-13 03:24:07',
                 'order' => 1,
-            ),
-            484 => 
-            array (
+            ],
+            484 => [
                 'id' => 485,
                 'setlist_item_id' => 14153,
                 'user_id' => 1,
@@ -6321,9 +5833,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:24:07',
                 'updated_at' => '2016-12-13 03:24:07',
                 'order' => 1,
-            ),
-            485 => 
-            array (
+            ],
+            485 => [
                 'id' => 486,
                 'setlist_item_id' => 14149,
                 'user_id' => 1,
@@ -6334,9 +5845,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:24:07',
                 'updated_at' => '2016-12-13 03:24:07',
                 'order' => 1,
-            ),
-            486 => 
-            array (
+            ],
+            486 => [
                 'id' => 487,
                 'setlist_item_id' => 12070,
                 'user_id' => 1,
@@ -6347,9 +5857,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:40',
                 'updated_at' => '2016-12-13 03:33:40',
                 'order' => 1,
-            ),
-            487 => 
-            array (
+            ],
+            487 => [
                 'id' => 488,
                 'setlist_item_id' => 12782,
                 'user_id' => 1,
@@ -6360,9 +5869,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:40',
                 'updated_at' => '2016-12-13 03:33:40',
                 'order' => 1,
-            ),
-            488 => 
-            array (
+            ],
+            488 => [
                 'id' => 489,
                 'setlist_item_id' => 12045,
                 'user_id' => 1,
@@ -6373,9 +5881,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:40',
                 'updated_at' => '2016-12-13 03:33:40',
                 'order' => 1,
-            ),
-            489 => 
-            array (
+            ],
+            489 => [
                 'id' => 490,
                 'setlist_item_id' => 12497,
                 'user_id' => 1,
@@ -6386,9 +5893,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:40',
                 'updated_at' => '2016-12-13 03:33:40',
                 'order' => 1,
-            ),
-            490 => 
-            array (
+            ],
+            490 => [
                 'id' => 491,
                 'setlist_item_id' => 12758,
                 'user_id' => 1,
@@ -6399,9 +5905,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:41',
                 'updated_at' => '2016-12-13 03:33:41',
                 'order' => 1,
-            ),
-            491 => 
-            array (
+            ],
+            491 => [
                 'id' => 492,
                 'setlist_item_id' => 11944,
                 'user_id' => 1,
@@ -6412,9 +5917,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:41',
                 'updated_at' => '2016-12-13 03:33:41',
                 'order' => 1,
-            ),
-            492 => 
-            array (
+            ],
+            492 => [
                 'id' => 493,
                 'setlist_item_id' => 12055,
                 'user_id' => 1,
@@ -6425,9 +5929,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:41',
                 'updated_at' => '2016-12-13 03:33:41',
                 'order' => 1,
-            ),
-            493 => 
-            array (
+            ],
+            493 => [
                 'id' => 494,
                 'setlist_item_id' => 12011,
                 'user_id' => 1,
@@ -6438,9 +5941,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:41',
                 'updated_at' => '2016-12-13 03:33:41',
                 'order' => 1,
-            ),
-            494 => 
-            array (
+            ],
+            494 => [
                 'id' => 495,
                 'setlist_item_id' => 12009,
                 'user_id' => 1,
@@ -6451,9 +5953,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:41',
                 'updated_at' => '2016-12-13 03:33:41',
                 'order' => 1,
-            ),
-            495 => 
-            array (
+            ],
+            495 => [
                 'id' => 496,
                 'setlist_item_id' => 12039,
                 'user_id' => 1,
@@ -6464,9 +5965,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:41',
                 'updated_at' => '2016-12-13 03:33:41',
                 'order' => 1,
-            ),
-            496 => 
-            array (
+            ],
+            496 => [
                 'id' => 497,
                 'setlist_item_id' => 12000,
                 'user_id' => 1,
@@ -6477,9 +5977,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-            497 => 
-            array (
+            ],
+            497 => [
                 'id' => 498,
                 'setlist_item_id' => 12756,
                 'user_id' => 1,
@@ -6490,9 +5989,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-            498 => 
-            array (
+            ],
+            498 => [
                 'id' => 499,
                 'setlist_item_id' => 12049,
                 'user_id' => 1,
@@ -6503,9 +6001,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-            499 => 
-            array (
+            ],
+            499 => [
                 'id' => 500,
                 'setlist_item_id' => 12056,
                 'user_id' => 1,
@@ -6516,11 +6013,10 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-        ));
-        \DB::table('setlist_item_notes')->insert(array (
-            0 => 
-            array (
+            ],
+        ]);
+        \DB::table('setlist_item_notes')->insert([
+            0 => [
                 'id' => 501,
                 'setlist_item_id' => 12142,
                 'user_id' => 1,
@@ -6531,9 +6027,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-            1 => 
-            array (
+            ],
+            1 => [
                 'id' => 502,
                 'setlist_item_id' => 11999,
                 'user_id' => 1,
@@ -6544,9 +6039,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-            2 => 
-            array (
+            ],
+            2 => [
                 'id' => 503,
                 'setlist_item_id' => 12794,
                 'user_id' => 1,
@@ -6557,9 +6051,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:42',
                 'updated_at' => '2016-12-13 03:33:42',
                 'order' => 1,
-            ),
-            3 => 
-            array (
+            ],
+            3 => [
                 'id' => 504,
                 'setlist_item_id' => 12004,
                 'user_id' => 1,
@@ -6570,9 +6063,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:43',
                 'updated_at' => '2016-12-13 03:33:43',
                 'order' => 1,
-            ),
-            4 => 
-            array (
+            ],
+            4 => [
                 'id' => 505,
                 'setlist_item_id' => 12005,
                 'user_id' => 1,
@@ -6583,9 +6075,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:43',
                 'updated_at' => '2016-12-13 03:33:43',
                 'order' => 1,
-            ),
-            5 => 
-            array (
+            ],
+            5 => [
                 'id' => 506,
                 'setlist_item_id' => 12067,
                 'user_id' => 1,
@@ -6596,9 +6087,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:43',
                 'updated_at' => '2016-12-13 03:33:43',
                 'order' => 1,
-            ),
-            6 => 
-            array (
+            ],
+            6 => [
                 'id' => 507,
                 'setlist_item_id' => 12516,
                 'user_id' => 1,
@@ -6609,9 +6099,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:43',
                 'updated_at' => '2016-12-13 03:33:43',
                 'order' => 1,
-            ),
-            7 => 
-            array (
+            ],
+            7 => [
                 'id' => 508,
                 'setlist_item_id' => 11947,
                 'user_id' => 1,
@@ -6622,9 +6111,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:43',
                 'updated_at' => '2016-12-13 03:33:43',
                 'order' => 1,
-            ),
-            8 => 
-            array (
+            ],
+            8 => [
                 'id' => 509,
                 'setlist_item_id' => 11760,
                 'user_id' => 1,
@@ -6635,9 +6123,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:44',
                 'updated_at' => '2016-12-13 03:33:44',
                 'order' => 1,
-            ),
-            9 => 
-            array (
+            ],
+            9 => [
                 'id' => 510,
                 'setlist_item_id' => 12135,
                 'user_id' => 1,
@@ -6648,9 +6135,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:45',
                 'updated_at' => '2016-12-13 03:33:45',
                 'order' => 1,
-            ),
-            10 => 
-            array (
+            ],
+            10 => [
                 'id' => 511,
                 'setlist_item_id' => 12784,
                 'user_id' => 1,
@@ -6661,9 +6147,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:45',
                 'updated_at' => '2016-12-13 03:33:45',
                 'order' => 1,
-            ),
-            11 => 
-            array (
+            ],
+            11 => [
                 'id' => 512,
                 'setlist_item_id' => 12048,
                 'user_id' => 1,
@@ -6674,9 +6159,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:33:46',
                 'updated_at' => '2016-12-13 03:33:46',
                 'order' => 1,
-            ),
-            12 => 
-            array (
+            ],
+            12 => [
                 'id' => 513,
                 'setlist_item_id' => 15651,
                 'user_id' => 1,
@@ -6687,9 +6171,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:35:52',
                 'updated_at' => '2016-12-13 03:35:52',
                 'order' => 1,
-            ),
-            13 => 
-            array (
+            ],
+            13 => [
                 'id' => 514,
                 'setlist_item_id' => 11916,
                 'user_id' => 1,
@@ -6700,9 +6183,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:35:52',
                 'updated_at' => '2016-12-13 03:35:52',
                 'order' => 1,
-            ),
-            14 => 
-            array (
+            ],
+            14 => [
                 'id' => 515,
                 'setlist_item_id' => 12176,
                 'user_id' => 1,
@@ -6713,9 +6195,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:35:52',
                 'updated_at' => '2016-12-13 03:35:52',
                 'order' => 1,
-            ),
-            15 => 
-            array (
+            ],
+            15 => [
                 'id' => 516,
                 'setlist_item_id' => 11906,
                 'user_id' => 1,
@@ -6726,9 +6207,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:35:52',
                 'updated_at' => '2016-12-13 03:35:52',
                 'order' => 1,
-            ),
-            16 => 
-            array (
+            ],
+            16 => [
                 'id' => 517,
                 'setlist_item_id' => 12765,
                 'user_id' => 1,
@@ -6739,9 +6219,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:35:52',
                 'updated_at' => '2016-12-13 03:35:52',
                 'order' => 1,
-            ),
-            17 => 
-            array (
+            ],
+            17 => [
                 'id' => 518,
                 'setlist_item_id' => 12793,
                 'user_id' => 1,
@@ -6752,9 +6231,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:35:52',
                 'updated_at' => '2016-12-13 03:35:52',
                 'order' => 1,
-            ),
-            18 => 
-            array (
+            ],
+            18 => [
                 'id' => 519,
                 'setlist_item_id' => 15121,
                 'user_id' => 1,
@@ -6765,9 +6243,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:20',
                 'updated_at' => '2016-12-13 03:37:20',
                 'order' => 1,
-            ),
-            19 => 
-            array (
+            ],
+            19 => [
                 'id' => 520,
                 'setlist_item_id' => 16746,
                 'user_id' => 1,
@@ -6778,9 +6255,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:20',
                 'updated_at' => '2016-12-13 03:37:20',
                 'order' => 1,
-            ),
-            20 => 
-            array (
+            ],
+            20 => [
                 'id' => 521,
                 'setlist_item_id' => 15235,
                 'user_id' => 1,
@@ -6791,9 +6267,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:20',
                 'updated_at' => '2016-12-13 03:37:20',
                 'order' => 1,
-            ),
-            21 => 
-            array (
+            ],
+            21 => [
                 'id' => 522,
                 'setlist_item_id' => 12185,
                 'user_id' => 1,
@@ -6804,9 +6279,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:41',
                 'updated_at' => '2016-12-13 03:37:41',
                 'order' => 1,
-            ),
-            22 => 
-            array (
+            ],
+            22 => [
                 'id' => 523,
                 'setlist_item_id' => 11943,
                 'user_id' => 1,
@@ -6817,9 +6291,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:41',
                 'updated_at' => '2016-12-13 03:37:41',
                 'order' => 1,
-            ),
-            23 => 
-            array (
+            ],
+            23 => [
                 'id' => 524,
                 'setlist_item_id' => 11971,
                 'user_id' => 1,
@@ -6830,9 +6303,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:42',
                 'updated_at' => '2016-12-13 03:37:42',
                 'order' => 1,
-            ),
-            24 => 
-            array (
+            ],
+            24 => [
                 'id' => 525,
                 'setlist_item_id' => 13940,
                 'user_id' => 1,
@@ -6843,9 +6315,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:42',
                 'updated_at' => '2016-12-13 03:37:42',
                 'order' => 1,
-            ),
-            25 => 
-            array (
+            ],
+            25 => [
                 'id' => 526,
                 'setlist_item_id' => 15549,
                 'user_id' => 1,
@@ -6856,9 +6327,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:42',
                 'updated_at' => '2016-12-13 03:37:42',
                 'order' => 1,
-            ),
-            26 => 
-            array (
+            ],
+            26 => [
                 'id' => 527,
                 'setlist_item_id' => 15473,
                 'user_id' => 1,
@@ -6869,9 +6339,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:42',
                 'updated_at' => '2016-12-13 03:37:42',
                 'order' => 1,
-            ),
-            27 => 
-            array (
+            ],
+            27 => [
                 'id' => 528,
                 'setlist_item_id' => 15087,
                 'user_id' => 1,
@@ -6882,9 +6351,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            28 => 
-            array (
+            ],
+            28 => [
                 'id' => 529,
                 'setlist_item_id' => 11912,
                 'user_id' => 1,
@@ -6895,9 +6363,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            29 => 
-            array (
+            ],
+            29 => [
                 'id' => 530,
                 'setlist_item_id' => 11794,
                 'user_id' => 1,
@@ -6908,9 +6375,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            30 => 
-            array (
+            ],
+            30 => [
                 'id' => 531,
                 'setlist_item_id' => 11919,
                 'user_id' => 1,
@@ -6921,9 +6387,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            31 => 
-            array (
+            ],
+            31 => [
                 'id' => 532,
                 'setlist_item_id' => 15505,
                 'user_id' => 1,
@@ -6934,9 +6399,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            32 => 
-            array (
+            ],
+            32 => [
                 'id' => 533,
                 'setlist_item_id' => 11759,
                 'user_id' => 1,
@@ -6947,9 +6411,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            33 => 
-            array (
+            ],
+            33 => [
                 'id' => 534,
                 'setlist_item_id' => 12141,
                 'user_id' => 1,
@@ -6960,9 +6423,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            34 => 
-            array (
+            ],
+            34 => [
                 'id' => 535,
                 'setlist_item_id' => 16720,
                 'user_id' => 1,
@@ -6973,9 +6435,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            35 => 
-            array (
+            ],
+            35 => [
                 'id' => 536,
                 'setlist_item_id' => 12243,
                 'user_id' => 1,
@@ -6986,9 +6447,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            36 => 
-            array (
+            ],
+            36 => [
                 'id' => 537,
                 'setlist_item_id' => 12136,
                 'user_id' => 1,
@@ -6999,9 +6459,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            37 => 
-            array (
+            ],
+            37 => [
                 'id' => 538,
                 'setlist_item_id' => 15670,
                 'user_id' => 1,
@@ -7012,9 +6471,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:37:47',
                 'updated_at' => '2016-12-13 03:37:47',
                 'order' => 1,
-            ),
-            38 => 
-            array (
+            ],
+            38 => [
                 'id' => 539,
                 'setlist_item_id' => 15749,
                 'user_id' => 1,
@@ -7025,9 +6483,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            39 => 
-            array (
+            ],
+            39 => [
                 'id' => 540,
                 'setlist_item_id' => 13824,
                 'user_id' => 1,
@@ -7038,9 +6495,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            40 => 
-            array (
+            ],
+            40 => [
                 'id' => 541,
                 'setlist_item_id' => 15127,
                 'user_id' => 1,
@@ -7051,9 +6507,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            41 => 
-            array (
+            ],
+            41 => [
                 'id' => 542,
                 'setlist_item_id' => 15493,
                 'user_id' => 1,
@@ -7064,9 +6519,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            42 => 
-            array (
+            ],
+            42 => [
                 'id' => 543,
                 'setlist_item_id' => 15028,
                 'user_id' => 1,
@@ -7077,9 +6531,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            43 => 
-            array (
+            ],
+            43 => [
                 'id' => 544,
                 'setlist_item_id' => 15040,
                 'user_id' => 1,
@@ -7090,9 +6543,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            44 => 
-            array (
+            ],
+            44 => [
                 'id' => 545,
                 'setlist_item_id' => 12779,
                 'user_id' => 1,
@@ -7103,9 +6555,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            45 => 
-            array (
+            ],
+            45 => [
                 'id' => 546,
                 'setlist_item_id' => 12053,
                 'user_id' => 1,
@@ -7116,9 +6567,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            46 => 
-            array (
+            ],
+            46 => [
                 'id' => 547,
                 'setlist_item_id' => 13926,
                 'user_id' => 1,
@@ -7129,9 +6579,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            47 => 
-            array (
+            ],
+            47 => [
                 'id' => 548,
                 'setlist_item_id' => 12768,
                 'user_id' => 1,
@@ -7142,9 +6591,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:39:07',
                 'updated_at' => '2016-12-13 03:39:07',
                 'order' => 1,
-            ),
-            48 => 
-            array (
+            ],
+            48 => [
                 'id' => 549,
                 'setlist_item_id' => 15440,
                 'user_id' => 1,
@@ -7155,9 +6603,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:41:37',
                 'updated_at' => '2016-12-13 03:41:37',
                 'order' => 1,
-            ),
-            49 => 
-            array (
+            ],
+            49 => [
                 'id' => 550,
                 'setlist_item_id' => 15477,
                 'user_id' => 1,
@@ -7168,9 +6615,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:41:37',
                 'updated_at' => '2016-12-13 03:41:37',
                 'order' => 1,
-            ),
-            50 => 
-            array (
+            ],
+            50 => [
                 'id' => 551,
                 'setlist_item_id' => 13996,
                 'user_id' => 1,
@@ -7181,9 +6627,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:41:37',
                 'updated_at' => '2016-12-13 03:41:37',
                 'order' => 1,
-            ),
-            51 => 
-            array (
+            ],
+            51 => [
                 'id' => 552,
                 'setlist_item_id' => 13882,
                 'user_id' => 1,
@@ -7194,9 +6639,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            52 => 
-            array (
+            ],
+            52 => [
                 'id' => 553,
                 'setlist_item_id' => 12247,
                 'user_id' => 1,
@@ -7207,9 +6651,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            53 => 
-            array (
+            ],
+            53 => [
                 'id' => 554,
                 'setlist_item_id' => 12183,
                 'user_id' => 1,
@@ -7220,9 +6663,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            54 => 
-            array (
+            ],
+            54 => [
                 'id' => 555,
                 'setlist_item_id' => 12770,
                 'user_id' => 1,
@@ -7233,9 +6675,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            55 => 
-            array (
+            ],
+            55 => [
                 'id' => 556,
                 'setlist_item_id' => 15402,
                 'user_id' => 1,
@@ -7246,9 +6687,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            56 => 
-            array (
+            ],
+            56 => [
                 'id' => 557,
                 'setlist_item_id' => 12790,
                 'user_id' => 1,
@@ -7259,9 +6699,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            57 => 
-            array (
+            ],
+            57 => [
                 'id' => 558,
                 'setlist_item_id' => 16546,
                 'user_id' => 1,
@@ -7272,9 +6711,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            58 => 
-            array (
+            ],
+            58 => [
                 'id' => 559,
                 'setlist_item_id' => 11776,
                 'user_id' => 1,
@@ -7285,9 +6723,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            59 => 
-            array (
+            ],
+            59 => [
                 'id' => 560,
                 'setlist_item_id' => 12167,
                 'user_id' => 1,
@@ -7298,9 +6735,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            60 => 
-            array (
+            ],
+            60 => [
                 'id' => 561,
                 'setlist_item_id' => 12133,
                 'user_id' => 1,
@@ -7311,9 +6747,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:19',
                 'updated_at' => '2016-12-13 03:43:19',
                 'order' => 1,
-            ),
-            61 => 
-            array (
+            ],
+            61 => [
                 'id' => 562,
                 'setlist_item_id' => 16502,
                 'user_id' => 1,
@@ -7324,9 +6759,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            62 => 
-            array (
+            ],
+            62 => [
                 'id' => 563,
                 'setlist_item_id' => 13478,
                 'user_id' => 1,
@@ -7337,9 +6771,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            63 => 
-            array (
+            ],
+            63 => [
                 'id' => 564,
                 'setlist_item_id' => 15490,
                 'user_id' => 1,
@@ -7350,9 +6783,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            64 => 
-            array (
+            ],
+            64 => [
                 'id' => 565,
                 'setlist_item_id' => 13448,
                 'user_id' => 1,
@@ -7363,9 +6795,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            65 => 
-            array (
+            ],
+            65 => [
                 'id' => 566,
                 'setlist_item_id' => 13411,
                 'user_id' => 1,
@@ -7376,9 +6807,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            66 => 
-            array (
+            ],
+            66 => [
                 'id' => 567,
                 'setlist_item_id' => 15061,
                 'user_id' => 1,
@@ -7389,9 +6819,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            67 => 
-            array (
+            ],
+            67 => [
                 'id' => 568,
                 'setlist_item_id' => 12249,
                 'user_id' => 1,
@@ -7402,9 +6831,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:43:20',
                 'updated_at' => '2016-12-13 03:43:20',
                 'order' => 1,
-            ),
-            68 => 
-            array (
+            ],
+            68 => [
                 'id' => 569,
                 'setlist_item_id' => 15881,
                 'user_id' => 1,
@@ -7415,9 +6843,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:46:13',
                 'updated_at' => '2016-12-13 03:46:13',
                 'order' => 1,
-            ),
-            69 => 
-            array (
+            ],
+            69 => [
                 'id' => 570,
                 'setlist_item_id' => 12178,
                 'user_id' => 1,
@@ -7428,9 +6855,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:46:14',
                 'updated_at' => '2016-12-13 03:46:14',
                 'order' => 1,
-            ),
-            70 => 
-            array (
+            ],
+            70 => [
                 'id' => 571,
                 'setlist_item_id' => 15711,
                 'user_id' => 1,
@@ -7441,9 +6867,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:46:15',
                 'updated_at' => '2016-12-13 03:46:15',
                 'order' => 1,
-            ),
-            71 => 
-            array (
+            ],
+            71 => [
                 'id' => 572,
                 'setlist_item_id' => 12075,
                 'user_id' => 1,
@@ -7454,9 +6879,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:47:31',
                 'updated_at' => '2016-12-13 03:47:31',
                 'order' => 1,
-            ),
-            72 => 
-            array (
+            ],
+            72 => [
                 'id' => 573,
                 'setlist_item_id' => 14825,
                 'user_id' => 1,
@@ -7467,9 +6891,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:47:31',
                 'updated_at' => '2016-12-13 03:47:31',
                 'order' => 1,
-            ),
-            73 => 
-            array (
+            ],
+            73 => [
                 'id' => 574,
                 'setlist_item_id' => 12168,
                 'user_id' => 1,
@@ -7480,9 +6903,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:47:31',
                 'updated_at' => '2016-12-13 03:47:31',
                 'order' => 1,
-            ),
-            74 => 
-            array (
+            ],
+            74 => [
                 'id' => 575,
                 'setlist_item_id' => 11757,
                 'user_id' => 1,
@@ -7493,9 +6915,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:47:31',
                 'updated_at' => '2016-12-13 03:47:31',
                 'order' => 1,
-            ),
-            75 => 
-            array (
+            ],
+            75 => [
                 'id' => 576,
                 'setlist_item_id' => 18706,
                 'user_id' => 1,
@@ -7506,9 +6927,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:42',
                 'updated_at' => '2016-12-13 03:48:42',
                 'order' => 1,
-            ),
-            76 => 
-            array (
+            ],
+            76 => [
                 'id' => 577,
                 'setlist_item_id' => 13892,
                 'user_id' => 1,
@@ -7519,9 +6939,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:43',
                 'updated_at' => '2016-12-13 03:48:43',
                 'order' => 1,
-            ),
-            77 => 
-            array (
+            ],
+            77 => [
                 'id' => 578,
                 'setlist_item_id' => 15534,
                 'user_id' => 1,
@@ -7532,9 +6951,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:43',
                 'updated_at' => '2016-12-13 03:48:43',
                 'order' => 1,
-            ),
-            78 => 
-            array (
+            ],
+            78 => [
                 'id' => 579,
                 'setlist_item_id' => 13412,
                 'user_id' => 1,
@@ -7545,9 +6963,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:43',
                 'updated_at' => '2016-12-13 03:48:43',
                 'order' => 1,
-            ),
-            79 => 
-            array (
+            ],
+            79 => [
                 'id' => 580,
                 'setlist_item_id' => 13417,
                 'user_id' => 1,
@@ -7558,9 +6975,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:44',
                 'updated_at' => '2016-12-13 03:48:44',
                 'order' => 1,
-            ),
-            80 => 
-            array (
+            ],
+            80 => [
                 'id' => 581,
                 'setlist_item_id' => 12788,
                 'user_id' => 1,
@@ -7571,9 +6987,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:44',
                 'updated_at' => '2016-12-13 03:48:44',
                 'order' => 1,
-            ),
-            81 => 
-            array (
+            ],
+            81 => [
                 'id' => 582,
                 'setlist_item_id' => 18688,
                 'user_id' => 1,
@@ -7584,9 +6999,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:45',
                 'updated_at' => '2016-12-13 03:48:45',
                 'order' => 1,
-            ),
-            82 => 
-            array (
+            ],
+            82 => [
                 'id' => 583,
                 'setlist_item_id' => 18696,
                 'user_id' => 1,
@@ -7597,9 +7011,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:45',
                 'updated_at' => '2016-12-13 03:48:45',
                 'order' => 1,
-            ),
-            83 => 
-            array (
+            ],
+            83 => [
                 'id' => 584,
                 'setlist_item_id' => 12071,
                 'user_id' => 1,
@@ -7610,9 +7023,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:46',
                 'updated_at' => '2016-12-13 03:48:46',
                 'order' => 1,
-            ),
-            84 => 
-            array (
+            ],
+            84 => [
                 'id' => 585,
                 'setlist_item_id' => 15117,
                 'user_id' => 1,
@@ -7623,9 +7035,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:47',
                 'updated_at' => '2016-12-13 03:48:47',
                 'order' => 1,
-            ),
-            85 => 
-            array (
+            ],
+            85 => [
                 'id' => 586,
                 'setlist_item_id' => 15105,
                 'user_id' => 1,
@@ -7636,9 +7047,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:47',
                 'updated_at' => '2016-12-13 03:48:47',
                 'order' => 1,
-            ),
-            86 => 
-            array (
+            ],
+            86 => [
                 'id' => 587,
                 'setlist_item_id' => 13901,
                 'user_id' => 1,
@@ -7649,9 +7059,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:47',
                 'updated_at' => '2016-12-13 03:48:47',
                 'order' => 1,
-            ),
-            87 => 
-            array (
+            ],
+            87 => [
                 'id' => 588,
                 'setlist_item_id' => 16829,
                 'user_id' => 1,
@@ -7662,9 +7071,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:47',
                 'updated_at' => '2016-12-13 03:48:47',
                 'order' => 1,
-            ),
-            88 => 
-            array (
+            ],
+            88 => [
                 'id' => 589,
                 'setlist_item_id' => 15723,
                 'user_id' => 1,
@@ -7675,9 +7083,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:47',
                 'updated_at' => '2016-12-13 03:48:47',
                 'order' => 1,
-            ),
-            89 => 
-            array (
+            ],
+            89 => [
                 'id' => 590,
                 'setlist_item_id' => 16960,
                 'user_id' => 1,
@@ -7688,9 +7095,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:48',
                 'updated_at' => '2016-12-13 03:48:48',
                 'order' => 1,
-            ),
-            90 => 
-            array (
+            ],
+            90 => [
                 'id' => 591,
                 'setlist_item_id' => 16597,
                 'user_id' => 1,
@@ -7701,9 +7107,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:48',
                 'updated_at' => '2016-12-13 03:48:48',
                 'order' => 1,
-            ),
-            91 => 
-            array (
+            ],
+            91 => [
                 'id' => 592,
                 'setlist_item_id' => 16805,
                 'user_id' => 1,
@@ -7714,9 +7119,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:48',
                 'updated_at' => '2016-12-13 03:48:48',
                 'order' => 1,
-            ),
-            92 => 
-            array (
+            ],
+            92 => [
                 'id' => 593,
                 'setlist_item_id' => 15545,
                 'user_id' => 1,
@@ -7727,9 +7131,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:48',
                 'updated_at' => '2016-12-13 03:48:48',
                 'order' => 1,
-            ),
-            93 => 
-            array (
+            ],
+            93 => [
                 'id' => 594,
                 'setlist_item_id' => 16625,
                 'user_id' => 1,
@@ -7740,9 +7143,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:48',
                 'updated_at' => '2016-12-13 03:48:48',
                 'order' => 1,
-            ),
-            94 => 
-            array (
+            ],
+            94 => [
                 'id' => 595,
                 'setlist_item_id' => 12785,
                 'user_id' => 1,
@@ -7753,9 +7155,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:49',
                 'updated_at' => '2016-12-13 03:48:49',
                 'order' => 1,
-            ),
-            95 => 
-            array (
+            ],
+            95 => [
                 'id' => 596,
                 'setlist_item_id' => 15129,
                 'user_id' => 1,
@@ -7766,9 +7167,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:49',
                 'updated_at' => '2016-12-13 03:48:49',
                 'order' => 1,
-            ),
-            96 => 
-            array (
+            ],
+            96 => [
                 'id' => 597,
                 'setlist_item_id' => 15103,
                 'user_id' => 1,
@@ -7779,9 +7179,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:49',
                 'updated_at' => '2016-12-13 03:48:49',
                 'order' => 1,
-            ),
-            97 => 
-            array (
+            ],
+            97 => [
                 'id' => 598,
                 'setlist_item_id' => 15532,
                 'user_id' => 1,
@@ -7792,9 +7191,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:50',
                 'updated_at' => '2016-12-13 03:48:50',
                 'order' => 1,
-            ),
-            98 => 
-            array (
+            ],
+            98 => [
                 'id' => 599,
                 'setlist_item_id' => 16722,
                 'user_id' => 1,
@@ -7805,9 +7203,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:50',
                 'updated_at' => '2016-12-13 03:48:50',
                 'order' => 1,
-            ),
-            99 => 
-            array (
+            ],
+            99 => [
                 'id' => 600,
                 'setlist_item_id' => 12493,
                 'user_id' => 1,
@@ -7818,9 +7215,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:50',
                 'updated_at' => '2016-12-13 03:48:50',
                 'order' => 1,
-            ),
-            100 => 
-            array (
+            ],
+            100 => [
                 'id' => 601,
                 'setlist_item_id' => 16817,
                 'user_id' => 1,
@@ -7831,9 +7227,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:51',
                 'updated_at' => '2016-12-13 03:48:51',
                 'order' => 1,
-            ),
-            101 => 
-            array (
+            ],
+            101 => [
                 'id' => 602,
                 'setlist_item_id' => 13475,
                 'user_id' => 1,
@@ -7844,9 +7239,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:51',
                 'updated_at' => '2016-12-13 03:48:51',
                 'order' => 1,
-            ),
-            102 => 
-            array (
+            ],
+            102 => [
                 'id' => 603,
                 'setlist_item_id' => 13890,
                 'user_id' => 1,
@@ -7857,9 +7251,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:51',
                 'updated_at' => '2016-12-13 03:48:51',
                 'order' => 1,
-            ),
-            103 => 
-            array (
+            ],
+            103 => [
                 'id' => 604,
                 'setlist_item_id' => 12494,
                 'user_id' => 1,
@@ -7870,9 +7263,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            104 => 
-            array (
+            ],
+            104 => [
                 'id' => 605,
                 'setlist_item_id' => 11946,
                 'user_id' => 1,
@@ -7883,9 +7275,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            105 => 
-            array (
+            ],
+            105 => [
                 'id' => 606,
                 'setlist_item_id' => 12242,
                 'user_id' => 1,
@@ -7896,9 +7287,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            106 => 
-            array (
+            ],
+            106 => [
                 'id' => 607,
                 'setlist_item_id' => 16717,
                 'user_id' => 1,
@@ -7909,9 +7299,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            107 => 
-            array (
+            ],
+            107 => [
                 'id' => 608,
                 'setlist_item_id' => 12481,
                 'user_id' => 1,
@@ -7922,9 +7311,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            108 => 
-            array (
+            ],
+            108 => [
                 'id' => 609,
                 'setlist_item_id' => 12760,
                 'user_id' => 1,
@@ -7935,9 +7323,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            109 => 
-            array (
+            ],
+            109 => [
                 'id' => 610,
                 'setlist_item_id' => 12248,
                 'user_id' => 1,
@@ -7948,9 +7335,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            110 => 
-            array (
+            ],
+            110 => [
                 'id' => 611,
                 'setlist_item_id' => 13925,
                 'user_id' => 1,
@@ -7961,9 +7347,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            111 => 
-            array (
+            ],
+            111 => [
                 'id' => 612,
                 'setlist_item_id' => 13720,
                 'user_id' => 1,
@@ -7974,9 +7359,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:52',
                 'updated_at' => '2016-12-13 03:48:52',
                 'order' => 1,
-            ),
-            112 => 
-            array (
+            ],
+            112 => [
                 'id' => 613,
                 'setlist_item_id' => 13906,
                 'user_id' => 1,
@@ -7987,9 +7371,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:53',
                 'updated_at' => '2016-12-13 03:48:53',
                 'order' => 1,
-            ),
-            113 => 
-            array (
+            ],
+            113 => [
                 'id' => 614,
                 'setlist_item_id' => 12509,
                 'user_id' => 1,
@@ -8000,9 +7383,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:53',
                 'updated_at' => '2016-12-13 03:48:53',
                 'order' => 1,
-            ),
-            114 => 
-            array (
+            ],
+            114 => [
                 'id' => 615,
                 'setlist_item_id' => 12080,
                 'user_id' => 1,
@@ -8013,9 +7395,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:53',
                 'updated_at' => '2016-12-13 03:48:53',
                 'order' => 1,
-            ),
-            115 => 
-            array (
+            ],
+            115 => [
                 'id' => 616,
                 'setlist_item_id' => 17185,
                 'user_id' => 1,
@@ -8026,9 +7407,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:54',
                 'updated_at' => '2016-12-13 03:48:54',
                 'order' => 1,
-            ),
-            116 => 
-            array (
+            ],
+            116 => [
                 'id' => 617,
                 'setlist_item_id' => 13476,
                 'user_id' => 1,
@@ -8039,9 +7419,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:54',
                 'updated_at' => '2016-12-13 03:48:54',
                 'order' => 1,
-            ),
-            117 => 
-            array (
+            ],
+            117 => [
                 'id' => 618,
                 'setlist_item_id' => 15523,
                 'user_id' => 1,
@@ -8052,9 +7431,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:54',
                 'updated_at' => '2016-12-13 03:48:54',
                 'order' => 1,
-            ),
-            118 => 
-            array (
+            ],
+            118 => [
                 'id' => 619,
                 'setlist_item_id' => 12140,
                 'user_id' => 1,
@@ -8065,9 +7443,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:54',
                 'updated_at' => '2016-12-13 03:48:54',
                 'order' => 1,
-            ),
-            119 => 
-            array (
+            ],
+            119 => [
                 'id' => 620,
                 'setlist_item_id' => 13927,
                 'user_id' => 1,
@@ -8078,9 +7455,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:54',
                 'updated_at' => '2016-12-13 03:48:54',
                 'order' => 1,
-            ),
-            120 => 
-            array (
+            ],
+            120 => [
                 'id' => 621,
                 'setlist_item_id' => 13483,
                 'user_id' => 1,
@@ -8091,9 +7467,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:55',
                 'updated_at' => '2016-12-13 03:48:55',
                 'order' => 1,
-            ),
-            121 => 
-            array (
+            ],
+            121 => [
                 'id' => 622,
                 'setlist_item_id' => 13406,
                 'user_id' => 1,
@@ -8104,9 +7479,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:55',
                 'updated_at' => '2016-12-13 03:48:55',
                 'order' => 1,
-            ),
-            122 => 
-            array (
+            ],
+            122 => [
                 'id' => 623,
                 'setlist_item_id' => 13482,
                 'user_id' => 1,
@@ -8117,9 +7491,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:55',
                 'updated_at' => '2016-12-13 03:48:55',
                 'order' => 1,
-            ),
-            123 => 
-            array (
+            ],
+            123 => [
                 'id' => 624,
                 'setlist_item_id' => 12478,
                 'user_id' => 1,
@@ -8130,9 +7503,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:55',
                 'updated_at' => '2016-12-13 03:48:55',
                 'order' => 1,
-            ),
-            124 => 
-            array (
+            ],
+            124 => [
                 'id' => 625,
                 'setlist_item_id' => 15267,
                 'user_id' => 1,
@@ -8143,9 +7515,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:55',
                 'updated_at' => '2016-12-13 03:48:55',
                 'order' => 1,
-            ),
-            125 => 
-            array (
+            ],
+            125 => [
                 'id' => 626,
                 'setlist_item_id' => 13404,
                 'user_id' => 1,
@@ -8156,9 +7527,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:55',
                 'updated_at' => '2016-12-13 03:48:55',
                 'order' => 1,
-            ),
-            126 => 
-            array (
+            ],
+            126 => [
                 'id' => 627,
                 'setlist_item_id' => 15531,
                 'user_id' => 1,
@@ -8169,9 +7539,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:56',
                 'updated_at' => '2016-12-13 03:48:56',
                 'order' => 1,
-            ),
-            127 => 
-            array (
+            ],
+            127 => [
                 'id' => 628,
                 'setlist_item_id' => 13480,
                 'user_id' => 1,
@@ -8182,9 +7551,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:56',
                 'updated_at' => '2016-12-13 03:48:56',
                 'order' => 1,
-            ),
-            128 => 
-            array (
+            ],
+            128 => [
                 'id' => 629,
                 'setlist_item_id' => 15047,
                 'user_id' => 1,
@@ -8195,9 +7563,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:56',
                 'updated_at' => '2016-12-13 03:48:56',
                 'order' => 1,
-            ),
-            129 => 
-            array (
+            ],
+            129 => [
                 'id' => 630,
                 'setlist_item_id' => 13485,
                 'user_id' => 1,
@@ -8208,9 +7575,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:56',
                 'updated_at' => '2016-12-13 03:48:56',
                 'order' => 1,
-            ),
-            130 => 
-            array (
+            ],
+            130 => [
                 'id' => 631,
                 'setlist_item_id' => 13930,
                 'user_id' => 1,
@@ -8221,9 +7587,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:56',
                 'updated_at' => '2016-12-13 03:48:56',
                 'order' => 1,
-            ),
-            131 => 
-            array (
+            ],
+            131 => [
                 'id' => 632,
                 'setlist_item_id' => 13311,
                 'user_id' => 1,
@@ -8234,9 +7599,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:48:56',
                 'updated_at' => '2016-12-13 03:48:56',
                 'order' => 1,
-            ),
-            132 => 
-            array (
+            ],
+            132 => [
                 'id' => 633,
                 'setlist_item_id' => 14190,
                 'user_id' => 1,
@@ -8247,9 +7611,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:18',
                 'updated_at' => '2016-12-13 03:49:18',
                 'order' => 1,
-            ),
-            133 => 
-            array (
+            ],
+            133 => [
                 'id' => 634,
                 'setlist_item_id' => 13695,
                 'user_id' => 1,
@@ -8260,9 +7623,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:18',
                 'updated_at' => '2016-12-13 03:49:18',
                 'order' => 1,
-            ),
-            134 => 
-            array (
+            ],
+            134 => [
                 'id' => 635,
                 'setlist_item_id' => 14186,
                 'user_id' => 1,
@@ -8273,9 +7635,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:19',
                 'updated_at' => '2016-12-13 03:49:19',
                 'order' => 1,
-            ),
-            135 => 
-            array (
+            ],
+            135 => [
                 'id' => 636,
                 'setlist_item_id' => 14501,
                 'user_id' => 1,
@@ -8286,9 +7647,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:20',
                 'updated_at' => '2016-12-13 03:49:20',
                 'order' => 1,
-            ),
-            136 => 
-            array (
+            ],
+            136 => [
                 'id' => 637,
                 'setlist_item_id' => 14493,
                 'user_id' => 1,
@@ -8299,9 +7659,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:20',
                 'updated_at' => '2016-12-13 03:49:20',
                 'order' => 1,
-            ),
-            137 => 
-            array (
+            ],
+            137 => [
                 'id' => 638,
                 'setlist_item_id' => 16812,
                 'user_id' => 1,
@@ -8312,9 +7671,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:21',
                 'updated_at' => '2016-12-13 03:49:21',
                 'order' => 1,
-            ),
-            138 => 
-            array (
+            ],
+            138 => [
                 'id' => 639,
                 'setlist_item_id' => 14696,
                 'user_id' => 1,
@@ -8325,9 +7683,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:21',
                 'updated_at' => '2016-12-13 03:49:21',
                 'order' => 1,
-            ),
-            139 => 
-            array (
+            ],
+            139 => [
                 'id' => 640,
                 'setlist_item_id' => 15674,
                 'user_id' => 1,
@@ -8338,9 +7695,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:21',
                 'updated_at' => '2016-12-13 03:49:21',
                 'order' => 1,
-            ),
-            140 => 
-            array (
+            ],
+            140 => [
                 'id' => 641,
                 'setlist_item_id' => 12240,
                 'user_id' => 1,
@@ -8351,9 +7707,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:22',
                 'updated_at' => '2016-12-13 03:49:22',
                 'order' => 1,
-            ),
-            141 => 
-            array (
+            ],
+            141 => [
                 'id' => 642,
                 'setlist_item_id' => 13425,
                 'user_id' => 1,
@@ -8364,9 +7719,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:23',
                 'updated_at' => '2016-12-13 03:49:23',
                 'order' => 1,
-            ),
-            142 => 
-            array (
+            ],
+            142 => [
                 'id' => 643,
                 'setlist_item_id' => 12134,
                 'user_id' => 1,
@@ -8377,9 +7731,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:23',
                 'updated_at' => '2016-12-13 03:49:23',
                 'order' => 1,
-            ),
-            143 => 
-            array (
+            ],
+            143 => [
                 'id' => 644,
                 'setlist_item_id' => 11742,
                 'user_id' => 1,
@@ -8390,9 +7743,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:24',
                 'updated_at' => '2016-12-13 03:49:24',
                 'order' => 1,
-            ),
-            144 => 
-            array (
+            ],
+            144 => [
                 'id' => 645,
                 'setlist_item_id' => 14726,
                 'user_id' => 1,
@@ -8403,9 +7755,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:30',
                 'updated_at' => '2016-12-13 03:49:30',
                 'order' => 1,
-            ),
-            145 => 
-            array (
+            ],
+            145 => [
                 'id' => 646,
                 'setlist_item_id' => 11405,
                 'user_id' => 1,
@@ -8416,9 +7767,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:31',
                 'updated_at' => '2016-12-13 03:49:31',
                 'order' => 1,
-            ),
-            146 => 
-            array (
+            ],
+            146 => [
                 'id' => 647,
                 'setlist_item_id' => 12057,
                 'user_id' => 1,
@@ -8429,9 +7779,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:31',
                 'updated_at' => '2016-12-13 03:49:31',
                 'order' => 1,
-            ),
-            147 => 
-            array (
+            ],
+            147 => [
                 'id' => 648,
                 'setlist_item_id' => 12169,
                 'user_id' => 1,
@@ -8442,9 +7791,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:32',
                 'updated_at' => '2016-12-13 03:49:32',
                 'order' => 1,
-            ),
-            148 => 
-            array (
+            ],
+            148 => [
                 'id' => 649,
                 'setlist_item_id' => 12034,
                 'user_id' => 1,
@@ -8455,9 +7803,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:49:33',
                 'updated_at' => '2016-12-13 03:49:33',
                 'order' => 1,
-            ),
-            149 => 
-            array (
+            ],
+            149 => [
                 'id' => 650,
                 'setlist_item_id' => 13472,
                 'user_id' => 1,
@@ -8468,9 +7815,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:01',
                 'updated_at' => '2016-12-13 03:51:01',
                 'order' => 1,
-            ),
-            150 => 
-            array (
+            ],
+            150 => [
                 'id' => 651,
                 'setlist_item_id' => 12138,
                 'user_id' => 1,
@@ -8481,9 +7827,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:04',
                 'updated_at' => '2016-12-13 03:51:04',
                 'order' => 1,
-            ),
-            151 => 
-            array (
+            ],
+            151 => [
                 'id' => 652,
                 'setlist_item_id' => 15039,
                 'user_id' => 1,
@@ -8494,9 +7839,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:05',
                 'updated_at' => '2016-12-13 03:51:05',
                 'order' => 1,
-            ),
-            152 => 
-            array (
+            ],
+            152 => [
                 'id' => 653,
                 'setlist_item_id' => 16795,
                 'user_id' => 1,
@@ -8507,9 +7851,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:10',
                 'updated_at' => '2016-12-13 03:51:10',
                 'order' => 1,
-            ),
-            153 => 
-            array (
+            ],
+            153 => [
                 'id' => 654,
                 'setlist_item_id' => 16809,
                 'user_id' => 1,
@@ -8520,9 +7863,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:10',
                 'updated_at' => '2016-12-13 03:51:10',
                 'order' => 1,
-            ),
-            154 => 
-            array (
+            ],
+            154 => [
                 'id' => 655,
                 'setlist_item_id' => 15029,
                 'user_id' => 1,
@@ -8533,9 +7875,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:11',
                 'updated_at' => '2016-12-13 03:51:11',
                 'order' => 1,
-            ),
-            155 => 
-            array (
+            ],
+            155 => [
                 'id' => 656,
                 'setlist_item_id' => 15051,
                 'user_id' => 1,
@@ -8546,9 +7887,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:14',
                 'updated_at' => '2016-12-13 03:51:14',
                 'order' => 1,
-            ),
-            156 => 
-            array (
+            ],
+            156 => [
                 'id' => 657,
                 'setlist_item_id' => 13895,
                 'user_id' => 1,
@@ -8559,9 +7899,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:14',
                 'updated_at' => '2016-12-13 03:51:14',
                 'order' => 1,
-            ),
-            157 => 
-            array (
+            ],
+            157 => [
                 'id' => 658,
                 'setlist_item_id' => 12482,
                 'user_id' => 1,
@@ -8572,9 +7911,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:15',
                 'updated_at' => '2016-12-13 03:51:15',
                 'order' => 1,
-            ),
-            158 => 
-            array (
+            ],
+            158 => [
                 'id' => 659,
                 'setlist_item_id' => 11751,
                 'user_id' => 1,
@@ -8585,9 +7923,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:16',
                 'updated_at' => '2016-12-13 03:51:16',
                 'order' => 1,
-            ),
-            159 => 
-            array (
+            ],
+            159 => [
                 'id' => 660,
                 'setlist_item_id' => 12489,
                 'user_id' => 1,
@@ -8598,9 +7935,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:51:56',
                 'updated_at' => '2016-12-13 03:51:56',
                 'order' => 1,
-            ),
-            160 => 
-            array (
+            ],
+            160 => [
                 'id' => 661,
                 'setlist_item_id' => 12490,
                 'user_id' => 1,
@@ -8611,9 +7947,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:06',
                 'updated_at' => '2016-12-13 03:52:06',
                 'order' => 1,
-            ),
-            161 => 
-            array (
+            ],
+            161 => [
                 'id' => 662,
                 'setlist_item_id' => 13468,
                 'user_id' => 1,
@@ -8624,9 +7959,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:06',
                 'updated_at' => '2016-12-13 03:52:06',
                 'order' => 1,
-            ),
-            162 => 
-            array (
+            ],
+            162 => [
                 'id' => 663,
                 'setlist_item_id' => 13893,
                 'user_id' => 1,
@@ -8637,9 +7971,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:06',
                 'updated_at' => '2016-12-13 03:52:06',
                 'order' => 1,
-            ),
-            163 => 
-            array (
+            ],
+            163 => [
                 'id' => 664,
                 'setlist_item_id' => 12748,
                 'user_id' => 1,
@@ -8650,9 +7983,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:07',
                 'updated_at' => '2016-12-13 03:52:07',
                 'order' => 1,
-            ),
-            164 => 
-            array (
+            ],
+            164 => [
                 'id' => 665,
                 'setlist_item_id' => 13900,
                 'user_id' => 1,
@@ -8663,9 +7995,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:07',
                 'updated_at' => '2016-12-13 03:52:07',
                 'order' => 1,
-            ),
-            165 => 
-            array (
+            ],
+            165 => [
                 'id' => 666,
                 'setlist_item_id' => 13908,
                 'user_id' => 1,
@@ -8676,9 +8007,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:07',
                 'updated_at' => '2016-12-13 03:52:07',
                 'order' => 1,
-            ),
-            166 => 
-            array (
+            ],
+            166 => [
                 'id' => 667,
                 'setlist_item_id' => 14498,
                 'user_id' => 1,
@@ -8689,9 +8019,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:07',
                 'updated_at' => '2016-12-13 03:52:07',
                 'order' => 1,
-            ),
-            167 => 
-            array (
+            ],
+            167 => [
                 'id' => 668,
                 'setlist_item_id' => 12474,
                 'user_id' => 1,
@@ -8702,9 +8031,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:52:07',
                 'updated_at' => '2016-12-13 03:52:07',
                 'order' => 1,
-            ),
-            168 => 
-            array (
+            ],
+            168 => [
                 'id' => 669,
                 'setlist_item_id' => 15428,
                 'user_id' => 1,
@@ -8715,9 +8043,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:39',
                 'updated_at' => '2016-12-13 03:53:39',
                 'order' => 1,
-            ),
-            169 => 
-            array (
+            ],
+            169 => [
                 'id' => 670,
                 'setlist_item_id' => 12772,
                 'user_id' => 1,
@@ -8728,9 +8055,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:47',
                 'updated_at' => '2016-12-13 03:53:47',
                 'order' => 1,
-            ),
-            170 => 
-            array (
+            ],
+            170 => [
                 'id' => 671,
                 'setlist_item_id' => 16364,
                 'user_id' => 1,
@@ -8741,9 +8067,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:47',
                 'updated_at' => '2016-12-13 03:53:47',
                 'order' => 1,
-            ),
-            171 => 
-            array (
+            ],
+            171 => [
                 'id' => 672,
                 'setlist_item_id' => 14738,
                 'user_id' => 1,
@@ -8754,9 +8079,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:47',
                 'updated_at' => '2016-12-13 03:53:47',
                 'order' => 1,
-            ),
-            172 => 
-            array (
+            ],
+            172 => [
                 'id' => 673,
                 'setlist_item_id' => 15423,
                 'user_id' => 1,
@@ -8767,9 +8091,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:47',
                 'updated_at' => '2016-12-13 03:53:47',
                 'order' => 1,
-            ),
-            173 => 
-            array (
+            ],
+            173 => [
                 'id' => 674,
                 'setlist_item_id' => 14494,
                 'user_id' => 1,
@@ -8780,9 +8103,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            174 => 
-            array (
+            ],
+            174 => [
                 'id' => 675,
                 'setlist_item_id' => 15417,
                 'user_id' => 1,
@@ -8793,9 +8115,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            175 => 
-            array (
+            ],
+            175 => [
                 'id' => 676,
                 'setlist_item_id' => 15399,
                 'user_id' => 1,
@@ -8806,9 +8127,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            176 => 
-            array (
+            ],
+            176 => [
                 'id' => 677,
                 'setlist_item_id' => 15414,
                 'user_id' => 1,
@@ -8819,9 +8139,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            177 => 
-            array (
+            ],
+            177 => [
                 'id' => 678,
                 'setlist_item_id' => 15454,
                 'user_id' => 1,
@@ -8832,9 +8151,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            178 => 
-            array (
+            ],
+            178 => [
                 'id' => 679,
                 'setlist_item_id' => 15424,
                 'user_id' => 1,
@@ -8845,9 +8163,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            179 => 
-            array (
+            ],
+            179 => [
                 'id' => 680,
                 'setlist_item_id' => 14486,
                 'user_id' => 1,
@@ -8858,9 +8175,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:48',
                 'updated_at' => '2016-12-13 03:53:48',
                 'order' => 1,
-            ),
-            180 => 
-            array (
+            ],
+            180 => [
                 'id' => 681,
                 'setlist_item_id' => 11967,
                 'user_id' => 1,
@@ -8871,9 +8187,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:53:49',
                 'updated_at' => '2016-12-13 03:53:49',
                 'order' => 1,
-            ),
-            181 => 
-            array (
+            ],
+            181 => [
                 'id' => 682,
                 'setlist_item_id' => 11907,
                 'user_id' => 1,
@@ -8884,9 +8199,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:32',
                 'updated_at' => '2016-12-13 03:54:32',
                 'order' => 1,
-            ),
-            182 => 
-            array (
+            ],
+            182 => [
                 'id' => 683,
                 'setlist_item_id' => 11941,
                 'user_id' => 1,
@@ -8897,9 +8211,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:32',
                 'updated_at' => '2016-12-13 03:54:32',
                 'order' => 1,
-            ),
-            183 => 
-            array (
+            ],
+            183 => [
                 'id' => 684,
                 'setlist_item_id' => 15917,
                 'user_id' => 1,
@@ -8910,9 +8223,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:33',
                 'updated_at' => '2016-12-13 03:54:33',
                 'order' => 1,
-            ),
-            184 => 
-            array (
+            ],
+            184 => [
                 'id' => 685,
                 'setlist_item_id' => 11746,
                 'user_id' => 1,
@@ -8923,9 +8235,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:34',
                 'updated_at' => '2016-12-13 03:54:34',
                 'order' => 1,
-            ),
-            185 => 
-            array (
+            ],
+            185 => [
                 'id' => 686,
                 'setlist_item_id' => 15225,
                 'user_id' => 1,
@@ -8936,9 +8247,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:35',
                 'updated_at' => '2016-12-13 03:54:35',
                 'order' => 1,
-            ),
-            186 => 
-            array (
+            ],
+            186 => [
                 'id' => 687,
                 'setlist_item_id' => 14740,
                 'user_id' => 1,
@@ -8949,9 +8259,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:39',
                 'updated_at' => '2016-12-13 03:54:39',
                 'order' => 1,
-            ),
-            187 => 
-            array (
+            ],
+            187 => [
                 'id' => 688,
                 'setlist_item_id' => 15472,
                 'user_id' => 1,
@@ -8962,9 +8271,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:39',
                 'updated_at' => '2016-12-13 03:54:39',
                 'order' => 1,
-            ),
-            188 => 
-            array (
+            ],
+            188 => [
                 'id' => 689,
                 'setlist_item_id' => 16613,
                 'user_id' => 1,
@@ -8975,9 +8283,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:42',
                 'updated_at' => '2016-12-13 03:54:42',
                 'order' => 1,
-            ),
-            189 => 
-            array (
+            ],
+            189 => [
                 'id' => 690,
                 'setlist_item_id' => 15925,
                 'user_id' => 1,
@@ -8988,9 +8295,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:44',
                 'updated_at' => '2016-12-13 03:54:44',
                 'order' => 1,
-            ),
-            190 => 
-            array (
+            ],
+            190 => [
                 'id' => 691,
                 'setlist_item_id' => 14167,
                 'user_id' => 1,
@@ -9001,9 +8307,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:54:47',
                 'updated_at' => '2016-12-13 03:54:47',
                 'order' => 1,
-            ),
-            191 => 
-            array (
+            ],
+            191 => [
                 'id' => 692,
                 'setlist_item_id' => 18619,
                 'user_id' => 1,
@@ -9014,9 +8319,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:11',
                 'updated_at' => '2016-12-13 03:56:11',
                 'order' => 1,
-            ),
-            192 => 
-            array (
+            ],
+            192 => [
                 'id' => 693,
                 'setlist_item_id' => 17172,
                 'user_id' => 1,
@@ -9027,9 +8331,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:15',
                 'updated_at' => '2016-12-13 03:56:15',
                 'order' => 1,
-            ),
-            193 => 
-            array (
+            ],
+            193 => [
                 'id' => 694,
                 'setlist_item_id' => 16818,
                 'user_id' => 1,
@@ -9040,9 +8343,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:15',
                 'updated_at' => '2016-12-13 03:56:15',
                 'order' => 1,
-            ),
-            194 => 
-            array (
+            ],
+            194 => [
                 'id' => 695,
                 'setlist_item_id' => 11923,
                 'user_id' => 1,
@@ -9053,9 +8355,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:16',
                 'updated_at' => '2016-12-13 03:56:16',
                 'order' => 1,
-            ),
-            195 => 
-            array (
+            ],
+            195 => [
                 'id' => 696,
                 'setlist_item_id' => 11914,
                 'user_id' => 1,
@@ -9066,9 +8367,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:16',
                 'updated_at' => '2016-12-13 03:56:16',
                 'order' => 1,
-            ),
-            196 => 
-            array (
+            ],
+            196 => [
                 'id' => 697,
                 'setlist_item_id' => 11924,
                 'user_id' => 1,
@@ -9079,9 +8379,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:16',
                 'updated_at' => '2016-12-13 03:56:16',
                 'order' => 1,
-            ),
-            197 => 
-            array (
+            ],
+            197 => [
                 'id' => 698,
                 'setlist_item_id' => 13729,
                 'user_id' => 1,
@@ -9092,9 +8391,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:17',
                 'updated_at' => '2016-12-13 03:56:17',
                 'order' => 1,
-            ),
-            198 => 
-            array (
+            ],
+            198 => [
                 'id' => 699,
                 'setlist_item_id' => 13703,
                 'user_id' => 1,
@@ -9105,9 +8403,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:17',
                 'updated_at' => '2016-12-13 03:56:17',
                 'order' => 1,
-            ),
-            199 => 
-            array (
+            ],
+            199 => [
                 'id' => 700,
                 'setlist_item_id' => 16599,
                 'user_id' => 1,
@@ -9118,9 +8415,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:25',
                 'updated_at' => '2016-12-13 03:56:25',
                 'order' => 1,
-            ),
-            200 => 
-            array (
+            ],
+            200 => [
                 'id' => 701,
                 'setlist_item_id' => 15430,
                 'user_id' => 1,
@@ -9131,9 +8427,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:26',
                 'updated_at' => '2016-12-13 03:56:26',
                 'order' => 1,
-            ),
-            201 => 
-            array (
+            ],
+            201 => [
                 'id' => 702,
                 'setlist_item_id' => 16408,
                 'user_id' => 1,
@@ -9144,9 +8439,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:27',
                 'updated_at' => '2016-12-13 03:56:27',
                 'order' => 1,
-            ),
-            202 => 
-            array (
+            ],
+            202 => [
                 'id' => 703,
                 'setlist_item_id' => 15913,
                 'user_id' => 1,
@@ -9157,9 +8451,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:28',
                 'updated_at' => '2016-12-13 03:56:28',
                 'order' => 1,
-            ),
-            203 => 
-            array (
+            ],
+            203 => [
                 'id' => 704,
                 'setlist_item_id' => 15915,
                 'user_id' => 1,
@@ -9170,9 +8463,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:31',
                 'updated_at' => '2016-12-13 03:56:31',
                 'order' => 1,
-            ),
-            204 => 
-            array (
+            ],
+            204 => [
                 'id' => 705,
                 'setlist_item_id' => 14721,
                 'user_id' => 1,
@@ -9183,9 +8475,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:32',
                 'updated_at' => '2016-12-13 03:56:32',
                 'order' => 1,
-            ),
-            205 => 
-            array (
+            ],
+            205 => [
                 'id' => 706,
                 'setlist_item_id' => 14002,
                 'user_id' => 1,
@@ -9196,9 +8487,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:32',
                 'updated_at' => '2016-12-13 03:56:32',
                 'order' => 1,
-            ),
-            206 => 
-            array (
+            ],
+            206 => [
                 'id' => 707,
                 'setlist_item_id' => 15498,
                 'user_id' => 1,
@@ -9209,9 +8499,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:56:33',
                 'updated_at' => '2016-12-13 03:56:33',
                 'order' => 1,
-            ),
-            207 => 
-            array (
+            ],
+            207 => [
                 'id' => 708,
                 'setlist_item_id' => 15747,
                 'user_id' => 1,
@@ -9222,9 +8511,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:57:58',
                 'updated_at' => '2016-12-13 03:57:58',
                 'order' => 1,
-            ),
-            208 => 
-            array (
+            ],
+            208 => [
                 'id' => 709,
                 'setlist_item_id' => 15940,
                 'user_id' => 1,
@@ -9235,9 +8523,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:57:58',
                 'updated_at' => '2016-12-13 03:57:58',
                 'order' => 1,
-            ),
-            209 => 
-            array (
+            ],
+            209 => [
                 'id' => 710,
                 'setlist_item_id' => 16621,
                 'user_id' => 1,
@@ -9248,9 +8535,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:57:59',
                 'updated_at' => '2016-12-13 03:57:59',
                 'order' => 1,
-            ),
-            210 => 
-            array (
+            ],
+            210 => [
                 'id' => 711,
                 'setlist_item_id' => 15734,
                 'user_id' => 1,
@@ -9261,9 +8547,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:00',
                 'updated_at' => '2016-12-13 03:58:00',
                 'order' => 1,
-            ),
-            211 => 
-            array (
+            ],
+            211 => [
                 'id' => 712,
                 'setlist_item_id' => 16511,
                 'user_id' => 1,
@@ -9274,9 +8559,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:00',
                 'updated_at' => '2016-12-13 03:58:00',
                 'order' => 1,
-            ),
-            212 => 
-            array (
+            ],
+            212 => [
                 'id' => 713,
                 'setlist_item_id' => 15936,
                 'user_id' => 1,
@@ -9287,9 +8571,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:01',
                 'updated_at' => '2016-12-13 03:58:01',
                 'order' => 1,
-            ),
-            213 => 
-            array (
+            ],
+            213 => [
                 'id' => 714,
                 'setlist_item_id' => 15740,
                 'user_id' => 1,
@@ -9300,9 +8583,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:01',
                 'updated_at' => '2016-12-13 03:58:01',
                 'order' => 1,
-            ),
-            214 => 
-            array (
+            ],
+            214 => [
                 'id' => 715,
                 'setlist_item_id' => 16543,
                 'user_id' => 1,
@@ -9313,9 +8595,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:01',
                 'updated_at' => '2016-12-13 03:58:01',
                 'order' => 1,
-            ),
-            215 => 
-            array (
+            ],
+            215 => [
                 'id' => 716,
                 'setlist_item_id' => 15696,
                 'user_id' => 1,
@@ -9326,9 +8607,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:02',
                 'updated_at' => '2016-12-13 03:58:02',
                 'order' => 1,
-            ),
-            216 => 
-            array (
+            ],
+            216 => [
                 'id' => 717,
                 'setlist_item_id' => 15679,
                 'user_id' => 1,
@@ -9339,9 +8619,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:02',
                 'updated_at' => '2016-12-13 03:58:02',
                 'order' => 1,
-            ),
-            217 => 
-            array (
+            ],
+            217 => [
                 'id' => 718,
                 'setlist_item_id' => 15844,
                 'user_id' => 1,
@@ -9352,9 +8631,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:02',
                 'updated_at' => '2016-12-13 03:58:02',
                 'order' => 1,
-            ),
-            218 => 
-            array (
+            ],
+            218 => [
                 'id' => 719,
                 'setlist_item_id' => 15908,
                 'user_id' => 1,
@@ -9365,9 +8643,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:02',
                 'updated_at' => '2016-12-13 03:58:02',
                 'order' => 1,
-            ),
-            219 => 
-            array (
+            ],
+            219 => [
                 'id' => 720,
                 'setlist_item_id' => 15808,
                 'user_id' => 1,
@@ -9378,9 +8655,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:02',
                 'updated_at' => '2016-12-13 03:58:02',
                 'order' => 1,
-            ),
-            220 => 
-            array (
+            ],
+            220 => [
                 'id' => 721,
                 'setlist_item_id' => 16161,
                 'user_id' => 1,
@@ -9391,9 +8667,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:02',
                 'updated_at' => '2016-12-13 03:58:02',
                 'order' => 1,
-            ),
-            221 => 
-            array (
+            ],
+            221 => [
                 'id' => 722,
                 'setlist_item_id' => 16403,
                 'user_id' => 1,
@@ -9404,9 +8679,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:03',
                 'updated_at' => '2016-12-13 03:58:03',
                 'order' => 1,
-            ),
-            222 => 
-            array (
+            ],
+            222 => [
                 'id' => 723,
                 'setlist_item_id' => 15703,
                 'user_id' => 1,
@@ -9417,9 +8691,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:03',
                 'updated_at' => '2016-12-13 03:58:03',
                 'order' => 1,
-            ),
-            223 => 
-            array (
+            ],
+            223 => [
                 'id' => 724,
                 'setlist_item_id' => 15904,
                 'user_id' => 1,
@@ -9430,9 +8703,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:03',
                 'updated_at' => '2016-12-13 03:58:03',
                 'order' => 1,
-            ),
-            224 => 
-            array (
+            ],
+            224 => [
                 'id' => 725,
                 'setlist_item_id' => 15919,
                 'user_id' => 1,
@@ -9443,9 +8715,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:03',
                 'updated_at' => '2016-12-13 03:58:03',
                 'order' => 1,
-            ),
-            225 => 
-            array (
+            ],
+            225 => [
                 'id' => 726,
                 'setlist_item_id' => 15668,
                 'user_id' => 1,
@@ -9456,9 +8727,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:04',
                 'updated_at' => '2016-12-13 03:58:04',
                 'order' => 1,
-            ),
-            226 => 
-            array (
+            ],
+            226 => [
                 'id' => 727,
                 'setlist_item_id' => 16154,
                 'user_id' => 1,
@@ -9469,9 +8739,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:04',
                 'updated_at' => '2016-12-13 03:58:04',
                 'order' => 1,
-            ),
-            227 => 
-            array (
+            ],
+            227 => [
                 'id' => 728,
                 'setlist_item_id' => 16356,
                 'user_id' => 1,
@@ -9482,9 +8751,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:04',
                 'updated_at' => '2016-12-13 03:58:04',
                 'order' => 1,
-            ),
-            228 => 
-            array (
+            ],
+            228 => [
                 'id' => 729,
                 'setlist_item_id' => 16507,
                 'user_id' => 1,
@@ -9495,9 +8763,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:05',
                 'updated_at' => '2016-12-13 03:58:05',
                 'order' => 1,
-            ),
-            229 => 
-            array (
+            ],
+            229 => [
                 'id' => 730,
                 'setlist_item_id' => 16351,
                 'user_id' => 1,
@@ -9508,9 +8775,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:05',
                 'updated_at' => '2016-12-13 03:58:05',
                 'order' => 1,
-            ),
-            230 => 
-            array (
+            ],
+            230 => [
                 'id' => 731,
                 'setlist_item_id' => 16410,
                 'user_id' => 1,
@@ -9521,9 +8787,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:05',
                 'updated_at' => '2016-12-13 03:58:05',
                 'order' => 1,
-            ),
-            231 => 
-            array (
+            ],
+            231 => [
                 'id' => 732,
                 'setlist_item_id' => 15701,
                 'user_id' => 1,
@@ -9534,9 +8799,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:06',
                 'updated_at' => '2016-12-13 03:58:06',
                 'order' => 1,
-            ),
-            232 => 
-            array (
+            ],
+            232 => [
                 'id' => 733,
                 'setlist_item_id' => 15702,
                 'user_id' => 1,
@@ -9547,9 +8811,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:07',
                 'updated_at' => '2016-12-13 03:58:07',
                 'order' => 1,
-            ),
-            233 => 
-            array (
+            ],
+            233 => [
                 'id' => 734,
                 'setlist_item_id' => 15652,
                 'user_id' => 1,
@@ -9560,9 +8823,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:12',
                 'updated_at' => '2016-12-13 03:58:12',
                 'order' => 1,
-            ),
-            234 => 
-            array (
+            ],
+            234 => [
                 'id' => 735,
                 'setlist_item_id' => 16607,
                 'user_id' => 1,
@@ -9573,9 +8835,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:12',
                 'updated_at' => '2016-12-13 03:58:12',
                 'order' => 1,
-            ),
-            235 => 
-            array (
+            ],
+            235 => [
                 'id' => 736,
                 'setlist_item_id' => 16380,
                 'user_id' => 1,
@@ -9586,9 +8847,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:58:15',
                 'updated_at' => '2016-12-13 03:58:15',
                 'order' => 1,
-            ),
-            236 => 
-            array (
+            ],
+            236 => [
                 'id' => 737,
                 'setlist_item_id' => 15229,
                 'user_id' => 1,
@@ -9599,9 +8859,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:04',
                 'updated_at' => '2016-12-13 03:59:04',
                 'order' => 1,
-            ),
-            237 => 
-            array (
+            ],
+            237 => [
                 'id' => 738,
                 'setlist_item_id' => 14752,
                 'user_id' => 1,
@@ -9612,9 +8871,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            238 => 
-            array (
+            ],
+            238 => [
                 'id' => 739,
                 'setlist_item_id' => 15234,
                 'user_id' => 1,
@@ -9625,9 +8883,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            239 => 
-            array (
+            ],
+            239 => [
                 'id' => 740,
                 'setlist_item_id' => 14737,
                 'user_id' => 1,
@@ -9638,9 +8895,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            240 => 
-            array (
+            ],
+            240 => [
                 'id' => 741,
                 'setlist_item_id' => 14714,
                 'user_id' => 1,
@@ -9651,9 +8907,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            241 => 
-            array (
+            ],
+            241 => [
                 'id' => 742,
                 'setlist_item_id' => 15093,
                 'user_id' => 1,
@@ -9664,9 +8919,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            242 => 
-            array (
+            ],
+            242 => [
                 'id' => 743,
                 'setlist_item_id' => 14419,
                 'user_id' => 1,
@@ -9677,9 +8931,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            243 => 
-            array (
+            ],
+            243 => [
                 'id' => 744,
                 'setlist_item_id' => 15252,
                 'user_id' => 1,
@@ -9690,9 +8943,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            244 => 
-            array (
+            ],
+            244 => [
                 'id' => 745,
                 'setlist_item_id' => 15101,
                 'user_id' => 1,
@@ -9703,9 +8955,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            245 => 
-            array (
+            ],
+            245 => [
                 'id' => 746,
                 'setlist_item_id' => 15500,
                 'user_id' => 1,
@@ -9716,9 +8967,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            246 => 
-            array (
+            ],
+            246 => [
                 'id' => 747,
                 'setlist_item_id' => 15263,
                 'user_id' => 1,
@@ -9729,9 +8979,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            247 => 
-            array (
+            ],
+            247 => [
                 'id' => 748,
                 'setlist_item_id' => 15470,
                 'user_id' => 1,
@@ -9742,9 +8991,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            248 => 
-            array (
+            ],
+            248 => [
                 'id' => 749,
                 'setlist_item_id' => 15483,
                 'user_id' => 1,
@@ -9755,9 +9003,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:05',
                 'updated_at' => '2016-12-13 03:59:05',
                 'order' => 1,
-            ),
-            249 => 
-            array (
+            ],
+            249 => [
                 'id' => 750,
                 'setlist_item_id' => 15258,
                 'user_id' => 1,
@@ -9768,9 +9015,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            250 => 
-            array (
+            ],
+            250 => [
                 'id' => 751,
                 'setlist_item_id' => 15268,
                 'user_id' => 1,
@@ -9781,9 +9027,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            251 => 
-            array (
+            ],
+            251 => [
                 'id' => 752,
                 'setlist_item_id' => 15462,
                 'user_id' => 1,
@@ -9794,9 +9039,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            252 => 
-            array (
+            ],
+            252 => [
                 'id' => 753,
                 'setlist_item_id' => 15496,
                 'user_id' => 1,
@@ -9807,9 +9051,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            253 => 
-            array (
+            ],
+            253 => [
                 'id' => 754,
                 'setlist_item_id' => 14155,
                 'user_id' => 1,
@@ -9820,9 +9063,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            254 => 
-            array (
+            ],
+            254 => [
                 'id' => 755,
                 'setlist_item_id' => 15261,
                 'user_id' => 1,
@@ -9833,9 +9075,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            255 => 
-            array (
+            ],
+            255 => [
                 'id' => 756,
                 'setlist_item_id' => 14194,
                 'user_id' => 1,
@@ -9846,9 +9087,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            256 => 
-            array (
+            ],
+            256 => [
                 'id' => 757,
                 'setlist_item_id' => 15043,
                 'user_id' => 1,
@@ -9859,9 +9099,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            257 => 
-            array (
+            ],
+            257 => [
                 'id' => 758,
                 'setlist_item_id' => 15269,
                 'user_id' => 1,
@@ -9872,9 +9111,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:06',
                 'updated_at' => '2016-12-13 03:59:06',
                 'order' => 1,
-            ),
-            258 => 
-            array (
+            ],
+            258 => [
                 'id' => 759,
                 'setlist_item_id' => 15272,
                 'user_id' => 1,
@@ -9885,9 +9123,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            259 => 
-            array (
+            ],
+            259 => [
                 'id' => 760,
                 'setlist_item_id' => 15045,
                 'user_id' => 1,
@@ -9898,9 +9135,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            260 => 
-            array (
+            ],
+            260 => [
                 'id' => 761,
                 'setlist_item_id' => 14502,
                 'user_id' => 1,
@@ -9911,9 +9147,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            261 => 
-            array (
+            ],
+            261 => [
                 'id' => 762,
                 'setlist_item_id' => 14177,
                 'user_id' => 1,
@@ -9924,9 +9159,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            262 => 
-            array (
+            ],
+            262 => [
                 'id' => 763,
                 'setlist_item_id' => 14004,
                 'user_id' => 1,
@@ -9937,9 +9171,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            263 => 
-            array (
+            ],
+            263 => [
                 'id' => 764,
                 'setlist_item_id' => 14018,
                 'user_id' => 1,
@@ -9950,9 +9183,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            264 => 
-            array (
+            ],
+            264 => [
                 'id' => 765,
                 'setlist_item_id' => 14168,
                 'user_id' => 1,
@@ -9963,9 +9195,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:07',
                 'updated_at' => '2016-12-13 03:59:07',
                 'order' => 1,
-            ),
-            265 => 
-            array (
+            ],
+            265 => [
                 'id' => 766,
                 'setlist_item_id' => 14192,
                 'user_id' => 1,
@@ -9976,9 +9207,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:08',
                 'updated_at' => '2016-12-13 03:59:08',
                 'order' => 1,
-            ),
-            266 => 
-            array (
+            ],
+            266 => [
                 'id' => 767,
                 'setlist_item_id' => 14183,
                 'user_id' => 1,
@@ -9989,9 +9219,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:09',
                 'updated_at' => '2016-12-13 03:59:09',
                 'order' => 1,
-            ),
-            267 => 
-            array (
+            ],
+            267 => [
                 'id' => 768,
                 'setlist_item_id' => 13730,
                 'user_id' => 1,
@@ -10002,9 +9231,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            268 => 
-            array (
+            ],
+            268 => [
                 'id' => 769,
                 'setlist_item_id' => 13709,
                 'user_id' => 1,
@@ -10015,9 +9243,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            269 => 
-            array (
+            ],
+            269 => [
                 'id' => 770,
                 'setlist_item_id' => 12776,
                 'user_id' => 1,
@@ -10028,9 +9255,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            270 => 
-            array (
+            ],
+            270 => [
                 'id' => 771,
                 'setlist_item_id' => 13724,
                 'user_id' => 1,
@@ -10041,9 +9267,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            271 => 
-            array (
+            ],
+            271 => [
                 'id' => 772,
                 'setlist_item_id' => 13700,
                 'user_id' => 1,
@@ -10054,9 +9279,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            272 => 
-            array (
+            ],
+            272 => [
                 'id' => 773,
                 'setlist_item_id' => 13415,
                 'user_id' => 1,
@@ -10067,9 +9291,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            273 => 
-            array (
+            ],
+            273 => [
                 'id' => 774,
                 'setlist_item_id' => 12058,
                 'user_id' => 1,
@@ -10080,9 +9303,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            274 => 
-            array (
+            ],
+            274 => [
                 'id' => 775,
                 'setlist_item_id' => 12036,
                 'user_id' => 1,
@@ -10093,9 +9315,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            275 => 
-            array (
+            ],
+            275 => [
                 'id' => 776,
                 'setlist_item_id' => 11998,
                 'user_id' => 1,
@@ -10106,9 +9327,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            276 => 
-            array (
+            ],
+            276 => [
                 'id' => 777,
                 'setlist_item_id' => 13427,
                 'user_id' => 1,
@@ -10119,9 +9339,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            277 => 
-            array (
+            ],
+            277 => [
                 'id' => 778,
                 'setlist_item_id' => 11960,
                 'user_id' => 1,
@@ -10132,9 +9351,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            278 => 
-            array (
+            ],
+            278 => [
                 'id' => 779,
                 'setlist_item_id' => 11966,
                 'user_id' => 1,
@@ -10145,9 +9363,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            279 => 
-            array (
+            ],
+            279 => [
                 'id' => 780,
                 'setlist_item_id' => 12144,
                 'user_id' => 1,
@@ -10158,9 +9375,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            280 => 
-            array (
+            ],
+            280 => [
                 'id' => 781,
                 'setlist_item_id' => 12504,
                 'user_id' => 1,
@@ -10171,9 +9387,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            281 => 
-            array (
+            ],
+            281 => [
                 'id' => 782,
                 'setlist_item_id' => 12783,
                 'user_id' => 1,
@@ -10184,9 +9399,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            282 => 
-            array (
+            ],
+            282 => [
                 'id' => 783,
                 'setlist_item_id' => 12757,
                 'user_id' => 1,
@@ -10197,9 +9411,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            283 => 
-            array (
+            ],
+            283 => [
                 'id' => 784,
                 'setlist_item_id' => 12743,
                 'user_id' => 1,
@@ -10210,9 +9423,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            284 => 
-            array (
+            ],
+            284 => [
                 'id' => 785,
                 'setlist_item_id' => 12181,
                 'user_id' => 1,
@@ -10223,9 +9435,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            285 => 
-            array (
+            ],
+            285 => [
                 'id' => 786,
                 'setlist_item_id' => 11945,
                 'user_id' => 1,
@@ -10236,9 +9447,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            286 => 
-            array (
+            ],
+            286 => [
                 'id' => 787,
                 'setlist_item_id' => 13314,
                 'user_id' => 1,
@@ -10249,9 +9459,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            287 => 
-            array (
+            ],
+            287 => [
                 'id' => 788,
                 'setlist_item_id' => 13779,
                 'user_id' => 1,
@@ -10262,9 +9471,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            288 => 
-            array (
+            ],
+            288 => [
                 'id' => 789,
                 'setlist_item_id' => 11925,
                 'user_id' => 1,
@@ -10275,9 +9483,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            289 => 
-            array (
+            ],
+            289 => [
                 'id' => 790,
                 'setlist_item_id' => 11954,
                 'user_id' => 1,
@@ -10288,9 +9495,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            290 => 
-            array (
+            ],
+            290 => [
                 'id' => 791,
                 'setlist_item_id' => 12246,
                 'user_id' => 1,
@@ -10301,9 +9507,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:22',
                 'updated_at' => '2016-12-13 03:59:22',
                 'order' => 1,
-            ),
-            291 => 
-            array (
+            ],
+            291 => [
                 'id' => 792,
                 'setlist_item_id' => 12125,
                 'user_id' => 1,
@@ -10314,9 +9519,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            292 => 
-            array (
+            ],
+            292 => [
                 'id' => 793,
                 'setlist_item_id' => 13435,
                 'user_id' => 1,
@@ -10327,9 +9531,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            293 => 
-            array (
+            ],
+            293 => [
                 'id' => 794,
                 'setlist_item_id' => 13718,
                 'user_id' => 1,
@@ -10340,9 +9543,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            294 => 
-            array (
+            ],
+            294 => [
                 'id' => 795,
                 'setlist_item_id' => 12077,
                 'user_id' => 1,
@@ -10353,9 +9555,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            295 => 
-            array (
+            ],
+            295 => [
                 'id' => 796,
                 'setlist_item_id' => 12239,
                 'user_id' => 1,
@@ -10366,9 +9567,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            296 => 
-            array (
+            ],
+            296 => [
                 'id' => 797,
                 'setlist_item_id' => 13772,
                 'user_id' => 1,
@@ -10379,9 +9579,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            297 => 
-            array (
+            ],
+            297 => [
                 'id' => 798,
                 'setlist_item_id' => 12069,
                 'user_id' => 1,
@@ -10392,9 +9591,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            298 => 
-            array (
+            ],
+            298 => [
                 'id' => 799,
                 'setlist_item_id' => 12072,
                 'user_id' => 1,
@@ -10405,9 +9603,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            299 => 
-            array (
+            ],
+            299 => [
                 'id' => 800,
                 'setlist_item_id' => 13782,
                 'user_id' => 1,
@@ -10418,9 +9615,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            300 => 
-            array (
+            ],
+            300 => [
                 'id' => 801,
                 'setlist_item_id' => 13771,
                 'user_id' => 1,
@@ -10431,9 +9627,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            301 => 
-            array (
+            ],
+            301 => [
                 'id' => 802,
                 'setlist_item_id' => 12126,
                 'user_id' => 1,
@@ -10444,9 +9639,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            302 => 
-            array (
+            ],
+            302 => [
                 'id' => 803,
                 'setlist_item_id' => 13783,
                 'user_id' => 1,
@@ -10457,9 +9651,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            303 => 
-            array (
+            ],
+            303 => [
                 'id' => 804,
                 'setlist_item_id' => 12078,
                 'user_id' => 1,
@@ -10470,9 +9663,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            304 => 
-            array (
+            ],
+            304 => [
                 'id' => 805,
                 'setlist_item_id' => 13662,
                 'user_id' => 1,
@@ -10483,9 +9675,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            305 => 
-            array (
+            ],
+            305 => [
                 'id' => 806,
                 'setlist_item_id' => 11936,
                 'user_id' => 1,
@@ -10496,9 +9687,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            306 => 
-            array (
+            ],
+            306 => [
                 'id' => 807,
                 'setlist_item_id' => 13692,
                 'user_id' => 1,
@@ -10509,9 +9699,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            307 => 
-            array (
+            ],
+            307 => [
                 'id' => 808,
                 'setlist_item_id' => 12238,
                 'user_id' => 1,
@@ -10522,9 +9711,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:23',
                 'updated_at' => '2016-12-13 03:59:23',
                 'order' => 1,
-            ),
-            308 => 
-            array (
+            ],
+            308 => [
                 'id' => 809,
                 'setlist_item_id' => 13688,
                 'user_id' => 1,
@@ -10535,9 +9723,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            309 => 
-            array (
+            ],
+            309 => [
                 'id' => 810,
                 'setlist_item_id' => 12245,
                 'user_id' => 1,
@@ -10548,9 +9735,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            310 => 
-            array (
+            ],
+            310 => [
                 'id' => 811,
                 'setlist_item_id' => 13726,
                 'user_id' => 1,
@@ -10561,9 +9747,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            311 => 
-            array (
+            ],
+            311 => [
                 'id' => 812,
                 'setlist_item_id' => 13778,
                 'user_id' => 1,
@@ -10574,9 +9759,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            312 => 
-            array (
+            ],
+            312 => [
                 'id' => 813,
                 'setlist_item_id' => 13835,
                 'user_id' => 1,
@@ -10587,9 +9771,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            313 => 
-            array (
+            ],
+            313 => [
                 'id' => 814,
                 'setlist_item_id' => 13780,
                 'user_id' => 1,
@@ -10600,9 +9783,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            314 => 
-            array (
+            ],
+            314 => [
                 'id' => 815,
                 'setlist_item_id' => 13645,
                 'user_id' => 1,
@@ -10613,9 +9795,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            315 => 
-            array (
+            ],
+            315 => [
                 'id' => 816,
                 'setlist_item_id' => 12128,
                 'user_id' => 1,
@@ -10626,9 +9807,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            316 => 
-            array (
+            ],
+            316 => [
                 'id' => 817,
                 'setlist_item_id' => 12744,
                 'user_id' => 1,
@@ -10639,9 +9819,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            317 => 
-            array (
+            ],
+            317 => [
                 'id' => 818,
                 'setlist_item_id' => 12775,
                 'user_id' => 1,
@@ -10652,9 +9831,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            318 => 
-            array (
+            ],
+            318 => [
                 'id' => 819,
                 'setlist_item_id' => 13786,
                 'user_id' => 1,
@@ -10665,9 +9843,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:24',
                 'updated_at' => '2016-12-13 03:59:24',
                 'order' => 1,
-            ),
-            319 => 
-            array (
+            ],
+            319 => [
                 'id' => 820,
                 'setlist_item_id' => 15530,
                 'user_id' => 1,
@@ -10678,9 +9855,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:26',
                 'updated_at' => '2016-12-13 03:59:26',
                 'order' => 1,
-            ),
-            320 => 
-            array (
+            ],
+            320 => [
                 'id' => 821,
                 'setlist_item_id' => 11786,
                 'user_id' => 1,
@@ -10691,9 +9867,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            321 => 
-            array (
+            ],
+            321 => [
                 'id' => 822,
                 'setlist_item_id' => 11785,
                 'user_id' => 1,
@@ -10704,9 +9879,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            322 => 
-            array (
+            ],
+            322 => [
                 'id' => 823,
                 'setlist_item_id' => 11797,
                 'user_id' => 1,
@@ -10717,9 +9891,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            323 => 
-            array (
+            ],
+            323 => [
                 'id' => 824,
                 'setlist_item_id' => 11748,
                 'user_id' => 1,
@@ -10730,9 +9903,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            324 => 
-            array (
+            ],
+            324 => [
                 'id' => 825,
                 'setlist_item_id' => 11791,
                 'user_id' => 1,
@@ -10743,9 +9915,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            325 => 
-            array (
+            ],
+            325 => [
                 'id' => 826,
                 'setlist_item_id' => 11795,
                 'user_id' => 1,
@@ -10756,9 +9927,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            326 => 
-            array (
+            ],
+            326 => [
                 'id' => 827,
                 'setlist_item_id' => 11737,
                 'user_id' => 1,
@@ -10769,9 +9939,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:39',
                 'updated_at' => '2016-12-13 03:59:39',
                 'order' => 1,
-            ),
-            327 => 
-            array (
+            ],
+            327 => [
                 'id' => 828,
                 'setlist_item_id' => 11750,
                 'user_id' => 1,
@@ -10782,9 +9951,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:40',
                 'updated_at' => '2016-12-13 03:59:40',
                 'order' => 1,
-            ),
-            328 => 
-            array (
+            ],
+            328 => [
                 'id' => 829,
                 'setlist_item_id' => 15262,
                 'user_id' => 1,
@@ -10795,9 +9963,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:44',
                 'updated_at' => '2016-12-13 03:59:44',
                 'order' => 1,
-            ),
-            329 => 
-            array (
+            ],
+            329 => [
                 'id' => 830,
                 'setlist_item_id' => 15944,
                 'user_id' => 1,
@@ -10808,9 +9975,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:57',
                 'updated_at' => '2016-12-13 03:59:57',
                 'order' => 1,
-            ),
-            330 => 
-            array (
+            ],
+            330 => [
                 'id' => 831,
                 'setlist_item_id' => 15932,
                 'user_id' => 1,
@@ -10821,9 +9987,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:57',
                 'updated_at' => '2016-12-13 03:59:57',
                 'order' => 1,
-            ),
-            331 => 
-            array (
+            ],
+            331 => [
                 'id' => 832,
                 'setlist_item_id' => 16514,
                 'user_id' => 1,
@@ -10834,9 +9999,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:57',
                 'updated_at' => '2016-12-13 03:59:57',
                 'order' => 1,
-            ),
-            332 => 
-            array (
+            ],
+            332 => [
                 'id' => 833,
                 'setlist_item_id' => 15933,
                 'user_id' => 1,
@@ -10847,9 +10011,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 03:59:57',
                 'updated_at' => '2016-12-13 03:59:57',
                 'order' => 1,
-            ),
-            333 => 
-            array (
+            ],
+            333 => [
                 'id' => 834,
                 'setlist_item_id' => 15805,
                 'user_id' => 1,
@@ -10860,9 +10023,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:00',
                 'updated_at' => '2016-12-13 04:00:00',
                 'order' => 1,
-            ),
-            334 => 
-            array (
+            ],
+            334 => [
                 'id' => 835,
                 'setlist_item_id' => 16407,
                 'user_id' => 1,
@@ -10873,9 +10035,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:00',
                 'updated_at' => '2016-12-13 04:00:00',
                 'order' => 1,
-            ),
-            335 => 
-            array (
+            ],
+            335 => [
                 'id' => 836,
                 'setlist_item_id' => 14713,
                 'user_id' => 1,
@@ -10886,9 +10047,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:02',
                 'updated_at' => '2016-12-13 04:00:02',
                 'order' => 1,
-            ),
-            336 => 
-            array (
+            ],
+            336 => [
                 'id' => 837,
                 'setlist_item_id' => 15246,
                 'user_id' => 1,
@@ -10899,9 +10059,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:02',
                 'updated_at' => '2016-12-13 04:00:02',
                 'order' => 1,
-            ),
-            337 => 
-            array (
+            ],
+            337 => [
                 'id' => 838,
                 'setlist_item_id' => 14011,
                 'user_id' => 1,
@@ -10912,9 +10071,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:03',
                 'updated_at' => '2016-12-13 04:00:03',
                 'order' => 1,
-            ),
-            338 => 
-            array (
+            ],
+            338 => [
                 'id' => 839,
                 'setlist_item_id' => 13438,
                 'user_id' => 1,
@@ -10925,9 +10083,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:28',
                 'updated_at' => '2016-12-13 04:00:28',
                 'order' => 1,
-            ),
-            339 => 
-            array (
+            ],
+            339 => [
                 'id' => 840,
                 'setlist_item_id' => 14009,
                 'user_id' => 1,
@@ -10938,9 +10095,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:34',
                 'updated_at' => '2016-12-13 04:00:34',
                 'order' => 1,
-            ),
-            340 => 
-            array (
+            ],
+            340 => [
                 'id' => 841,
                 'setlist_item_id' => 15499,
                 'user_id' => 1,
@@ -10951,9 +10107,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:00:59',
                 'updated_at' => '2016-12-13 04:00:59',
                 'order' => 1,
-            ),
-            341 => 
-            array (
+            ],
+            341 => [
                 'id' => 842,
                 'setlist_item_id' => 16379,
                 'user_id' => 1,
@@ -10964,9 +10119,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:01',
                 'updated_at' => '2016-12-13 04:01:01',
                 'order' => 1,
-            ),
-            342 => 
-            array (
+            ],
+            342 => [
                 'id' => 843,
                 'setlist_item_id' => 14195,
                 'user_id' => 1,
@@ -10977,9 +10131,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:01',
                 'updated_at' => '2016-12-13 04:01:01',
                 'order' => 1,
-            ),
-            343 => 
-            array (
+            ],
+            343 => [
                 'id' => 844,
                 'setlist_item_id' => 13777,
                 'user_id' => 1,
@@ -10990,9 +10143,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:01',
                 'updated_at' => '2016-12-13 04:01:01',
                 'order' => 1,
-            ),
-            344 => 
-            array (
+            ],
+            344 => [
                 'id' => 845,
                 'setlist_item_id' => 11754,
                 'user_id' => 1,
@@ -11003,9 +10155,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:01',
                 'updated_at' => '2016-12-13 04:01:01',
                 'order' => 1,
-            ),
-            345 => 
-            array (
+            ],
+            345 => [
                 'id' => 846,
                 'setlist_item_id' => 11755,
                 'user_id' => 1,
@@ -11016,9 +10167,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:01',
                 'updated_at' => '2016-12-13 04:01:01',
                 'order' => 1,
-            ),
-            346 => 
-            array (
+            ],
+            346 => [
                 'id' => 847,
                 'setlist_item_id' => 14182,
                 'user_id' => 1,
@@ -11029,9 +10179,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:01',
                 'updated_at' => '2016-12-13 04:01:01',
                 'order' => 1,
-            ),
-            347 => 
-            array (
+            ],
+            347 => [
                 'id' => 848,
                 'setlist_item_id' => 13995,
                 'user_id' => 1,
@@ -11042,9 +10191,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:11',
                 'updated_at' => '2016-12-13 04:01:11',
                 'order' => 1,
-            ),
-            348 => 
-            array (
+            ],
+            348 => [
                 'id' => 849,
                 'setlist_item_id' => 11745,
                 'user_id' => 1,
@@ -11055,9 +10203,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:12',
                 'updated_at' => '2016-12-13 04:01:12',
                 'order' => 1,
-            ),
-            349 => 
-            array (
+            ],
+            349 => [
                 'id' => 850,
                 'setlist_item_id' => 14484,
                 'user_id' => 1,
@@ -11068,9 +10215,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:01:12',
                 'updated_at' => '2016-12-13 04:01:12',
                 'order' => 1,
-            ),
-            350 => 
-            array (
+            ],
+            350 => [
                 'id' => 851,
                 'setlist_item_id' => 15726,
                 'user_id' => 1,
@@ -11081,9 +10227,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:02:35',
                 'updated_at' => '2016-12-13 04:02:35',
                 'order' => 1,
-            ),
-            351 => 
-            array (
+            ],
+            351 => [
                 'id' => 852,
                 'setlist_item_id' => 13924,
                 'user_id' => 1,
@@ -11094,9 +10239,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:02:35',
                 'updated_at' => '2016-12-13 04:02:35',
                 'order' => 1,
-            ),
-            352 => 
-            array (
+            ],
+            352 => [
                 'id' => 853,
                 'setlist_item_id' => 11749,
                 'user_id' => 1,
@@ -11107,9 +10251,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:02:36',
                 'updated_at' => '2016-12-13 04:02:36',
                 'order' => 1,
-            ),
-            353 => 
-            array (
+            ],
+            353 => [
                 'id' => 854,
                 'setlist_item_id' => 16365,
                 'user_id' => 1,
@@ -11120,9 +10263,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:03:03',
                 'updated_at' => '2016-12-13 04:03:03',
                 'order' => 1,
-            ),
-            354 => 
-            array (
+            ],
+            354 => [
                 'id' => 855,
                 'setlist_item_id' => 15240,
                 'user_id' => 1,
@@ -11133,9 +10275,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:03:04',
                 'updated_at' => '2016-12-13 04:03:04',
                 'order' => 1,
-            ),
-            355 => 
-            array (
+            ],
+            355 => [
                 'id' => 856,
                 'setlist_item_id' => 15692,
                 'user_id' => 1,
@@ -11146,9 +10287,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:04:05',
                 'updated_at' => '2016-12-13 04:04:05',
                 'order' => 1,
-            ),
-            356 => 
-            array (
+            ],
+            356 => [
                 'id' => 857,
                 'setlist_item_id' => 15694,
                 'user_id' => 1,
@@ -11159,9 +10299,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:04:05',
                 'updated_at' => '2016-12-13 04:04:05',
                 'order' => 1,
-            ),
-            357 => 
-            array (
+            ],
+            357 => [
                 'id' => 858,
                 'setlist_item_id' => 14159,
                 'user_id' => 1,
@@ -11172,9 +10311,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:04:39',
                 'updated_at' => '2016-12-13 04:04:39',
                 'order' => 1,
-            ),
-            358 => 
-            array (
+            ],
+            358 => [
                 'id' => 859,
                 'setlist_item_id' => 13997,
                 'user_id' => 1,
@@ -11185,9 +10323,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:04:39',
                 'updated_at' => '2016-12-13 04:04:39',
                 'order' => 1,
-            ),
-            359 => 
-            array (
+            ],
+            359 => [
                 'id' => 860,
                 'setlist_item_id' => 16571,
                 'user_id' => 1,
@@ -11198,9 +10335,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:07:47',
                 'updated_at' => '2016-12-13 04:07:47',
                 'order' => 1,
-            ),
-            360 => 
-            array (
+            ],
+            360 => [
                 'id' => 861,
                 'setlist_item_id' => 14145,
                 'user_id' => 1,
@@ -11211,9 +10347,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:07:49',
                 'updated_at' => '2016-12-13 04:07:49',
                 'order' => 1,
-            ),
-            361 => 
-            array (
+            ],
+            361 => [
                 'id' => 862,
                 'setlist_item_id' => 12006,
                 'user_id' => 1,
@@ -11224,9 +10359,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:07:51',
                 'updated_at' => '2016-12-13 04:07:51',
                 'order' => 1,
-            ),
-            362 => 
-            array (
+            ],
+            362 => [
                 'id' => 863,
                 'setlist_item_id' => 18083,
                 'user_id' => 1,
@@ -11237,9 +10371,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:08:39',
                 'updated_at' => '2016-12-13 04:08:39',
                 'order' => 1,
-            ),
-            363 => 
-            array (
+            ],
+            363 => [
                 'id' => 864,
                 'setlist_item_id' => 17220,
                 'user_id' => 1,
@@ -11250,9 +10383,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:08:39',
                 'updated_at' => '2016-12-13 04:08:39',
                 'order' => 1,
-            ),
-            364 => 
-            array (
+            ],
+            364 => [
                 'id' => 865,
                 'setlist_item_id' => 18062,
                 'user_id' => 1,
@@ -11263,9 +10395,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:08:40',
                 'updated_at' => '2016-12-13 04:08:40',
                 'order' => 1,
-            ),
-            365 => 
-            array (
+            ],
+            365 => [
                 'id' => 866,
                 'setlist_item_id' => 16506,
                 'user_id' => 1,
@@ -11276,9 +10407,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:08:40',
                 'updated_at' => '2016-12-13 04:08:40',
                 'order' => 1,
-            ),
-            366 => 
-            array (
+            ],
+            366 => [
                 'id' => 867,
                 'setlist_item_id' => 17166,
                 'user_id' => 1,
@@ -11289,9 +10419,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:08:42',
                 'updated_at' => '2016-12-13 04:08:42',
                 'order' => 1,
-            ),
-            367 => 
-            array (
+            ],
+            367 => [
                 'id' => 868,
                 'setlist_item_id' => 16349,
                 'user_id' => 1,
@@ -11302,9 +10431,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:09:02',
                 'updated_at' => '2016-12-13 04:09:02',
                 'order' => 1,
-            ),
-            368 => 
-            array (
+            ],
+            368 => [
                 'id' => 869,
                 'setlist_item_id' => 15407,
                 'user_id' => 1,
@@ -11315,9 +10443,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:09:04',
                 'updated_at' => '2016-12-13 04:09:04',
                 'order' => 1,
-            ),
-            369 => 
-            array (
+            ],
+            369 => [
                 'id' => 870,
                 'setlist_item_id' => 14420,
                 'user_id' => 1,
@@ -11328,9 +10455,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:09:31',
                 'updated_at' => '2016-12-13 04:09:31',
                 'order' => 1,
-            ),
-            370 => 
-            array (
+            ],
+            370 => [
                 'id' => 871,
                 'setlist_item_id' => 13934,
                 'user_id' => 1,
@@ -11341,9 +10467,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:09:32',
                 'updated_at' => '2016-12-13 04:09:32',
                 'order' => 1,
-            ),
-            371 => 
-            array (
+            ],
+            371 => [
                 'id' => 872,
                 'setlist_item_id' => 13873,
                 'user_id' => 1,
@@ -11354,9 +10479,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:09:32',
                 'updated_at' => '2016-12-13 04:09:32',
                 'order' => 1,
-            ),
-            372 => 
-            array (
+            ],
+            372 => [
                 'id' => 873,
                 'setlist_item_id' => 12066,
                 'user_id' => 1,
@@ -11367,9 +10491,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:10:17',
                 'updated_at' => '2016-12-13 04:10:17',
                 'order' => 1,
-            ),
-            373 => 
-            array (
+            ],
+            373 => [
                 'id' => 874,
                 'setlist_item_id' => 15090,
                 'user_id' => 1,
@@ -11380,9 +10503,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:10:18',
                 'updated_at' => '2016-12-13 04:10:18',
                 'order' => 1,
-            ),
-            374 => 
-            array (
+            ],
+            374 => [
                 'id' => 875,
                 'setlist_item_id' => 17229,
                 'user_id' => 1,
@@ -11393,9 +10515,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:12:42',
                 'updated_at' => '2016-12-13 04:12:42',
                 'order' => 1,
-            ),
-            375 => 
-            array (
+            ],
+            375 => [
                 'id' => 876,
                 'setlist_item_id' => 11917,
                 'user_id' => 1,
@@ -11406,9 +10527,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:12:43',
                 'updated_at' => '2016-12-13 04:12:43',
                 'order' => 1,
-            ),
-            376 => 
-            array (
+            ],
+            376 => [
                 'id' => 877,
                 'setlist_item_id' => 15448,
                 'user_id' => 1,
@@ -11419,9 +10539,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:13:29',
                 'updated_at' => '2016-12-13 04:13:29',
                 'order' => 1,
-            ),
-            377 => 
-            array (
+            ],
+            377 => [
                 'id' => 878,
                 'setlist_item_id' => 11779,
                 'user_id' => 1,
@@ -11432,9 +10551,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:13:30',
                 'updated_at' => '2016-12-13 04:13:30',
                 'order' => 1,
-            ),
-            378 => 
-            array (
+            ],
+            378 => [
                 'id' => 879,
                 'setlist_item_id' => 16749,
                 'user_id' => 1,
@@ -11445,9 +10563,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:13:33',
                 'updated_at' => '2016-12-13 04:13:33',
                 'order' => 1,
-            ),
-            379 => 
-            array (
+            ],
+            379 => [
                 'id' => 880,
                 'setlist_item_id' => 16378,
                 'user_id' => 1,
@@ -11458,9 +10575,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:13:34',
                 'updated_at' => '2016-12-13 04:13:34',
                 'order' => 1,
-            ),
-            380 => 
-            array (
+            ],
+            380 => [
                 'id' => 881,
                 'setlist_item_id' => 11781,
                 'user_id' => 1,
@@ -11471,9 +10587,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:13:37',
                 'updated_at' => '2016-12-13 04:13:37',
                 'order' => 1,
-            ),
-            381 => 
-            array (
+            ],
+            381 => [
                 'id' => 882,
                 'setlist_item_id' => 11790,
                 'user_id' => 1,
@@ -11484,9 +10599,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:13:52',
                 'updated_at' => '2016-12-13 04:13:52',
                 'order' => 1,
-            ),
-            382 => 
-            array (
+            ],
+            382 => [
                 'id' => 883,
                 'setlist_item_id' => 13784,
                 'user_id' => 1,
@@ -11497,9 +10611,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:14:46',
                 'updated_at' => '2016-12-13 04:14:46',
                 'order' => 1,
-            ),
-            383 => 
-            array (
+            ],
+            383 => [
                 'id' => 884,
                 'setlist_item_id' => 16347,
                 'user_id' => 1,
@@ -11510,9 +10623,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:15:48',
                 'updated_at' => '2016-12-13 04:15:48',
                 'order' => 1,
-            ),
-            384 => 
-            array (
+            ],
+            384 => [
                 'id' => 885,
                 'setlist_item_id' => 14175,
                 'user_id' => 1,
@@ -11523,9 +10635,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:15:50',
                 'updated_at' => '2016-12-13 04:15:50',
                 'order' => 1,
-            ),
-            385 => 
-            array (
+            ],
+            385 => [
                 'id' => 886,
                 'setlist_item_id' => 13936,
                 'user_id' => 1,
@@ -11536,9 +10647,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:16:07',
                 'updated_at' => '2016-12-13 04:16:07',
                 'order' => 1,
-            ),
-            386 => 
-            array (
+            ],
+            386 => [
                 'id' => 887,
                 'setlist_item_id' => 15432,
                 'user_id' => 1,
@@ -11549,9 +10659,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:16:07',
                 'updated_at' => '2016-12-13 04:16:07',
                 'order' => 1,
-            ),
-            387 => 
-            array (
+            ],
+            387 => [
                 'id' => 888,
                 'setlist_item_id' => 18704,
                 'user_id' => 1,
@@ -11562,9 +10671,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            388 => 
-            array (
+            ],
+            388 => [
                 'id' => 889,
                 'setlist_item_id' => 18373,
                 'user_id' => 1,
@@ -11575,9 +10683,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            389 => 
-            array (
+            ],
+            389 => [
                 'id' => 890,
                 'setlist_item_id' => 18356,
                 'user_id' => 1,
@@ -11588,9 +10695,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            390 => 
-            array (
+            ],
+            390 => [
                 'id' => 891,
                 'setlist_item_id' => 18066,
                 'user_id' => 1,
@@ -11601,9 +10707,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            391 => 
-            array (
+            ],
+            391 => [
                 'id' => 892,
                 'setlist_item_id' => 18045,
                 'user_id' => 1,
@@ -11614,9 +10719,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            392 => 
-            array (
+            ],
+            392 => [
                 'id' => 893,
                 'setlist_item_id' => 18035,
                 'user_id' => 1,
@@ -11627,9 +10731,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            393 => 
-            array (
+            ],
+            393 => [
                 'id' => 894,
                 'setlist_item_id' => 18009,
                 'user_id' => 1,
@@ -11640,9 +10743,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:25',
                 'updated_at' => '2016-12-13 04:31:25',
                 'order' => 1,
-            ),
-            394 => 
-            array (
+            ],
+            394 => [
                 'id' => 895,
                 'setlist_item_id' => 17798,
                 'user_id' => 1,
@@ -11653,9 +10755,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:26',
                 'updated_at' => '2016-12-13 04:31:26',
                 'order' => 1,
-            ),
-            395 => 
-            array (
+            ],
+            395 => [
                 'id' => 896,
                 'setlist_item_id' => 15988,
                 'user_id' => 1,
@@ -11666,9 +10767,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:27',
                 'updated_at' => '2016-12-13 04:31:27',
                 'order' => 1,
-            ),
-            396 => 
-            array (
+            ],
+            396 => [
                 'id' => 897,
                 'setlist_item_id' => 15548,
                 'user_id' => 1,
@@ -11679,9 +10779,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:27',
                 'updated_at' => '2016-12-13 04:31:27',
                 'order' => 1,
-            ),
-            397 => 
-            array (
+            ],
+            397 => [
                 'id' => 898,
                 'setlist_item_id' => 15552,
                 'user_id' => 1,
@@ -11692,9 +10791,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:27',
                 'updated_at' => '2016-12-13 04:31:27',
                 'order' => 1,
-            ),
-            398 => 
-            array (
+            ],
+            398 => [
                 'id' => 899,
                 'setlist_item_id' => 15444,
                 'user_id' => 1,
@@ -11705,9 +10803,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:28',
                 'updated_at' => '2016-12-13 04:31:28',
                 'order' => 1,
-            ),
-            399 => 
-            array (
+            ],
+            399 => [
                 'id' => 900,
                 'setlist_item_id' => 15292,
                 'user_id' => 1,
@@ -11718,9 +10815,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:28',
                 'updated_at' => '2016-12-13 04:31:28',
                 'order' => 1,
-            ),
-            400 => 
-            array (
+            ],
+            400 => [
                 'id' => 901,
                 'setlist_item_id' => 15120,
                 'user_id' => 1,
@@ -11731,9 +10827,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:28',
                 'updated_at' => '2016-12-13 04:31:28',
                 'order' => 1,
-            ),
-            401 => 
-            array (
+            ],
+            401 => [
                 'id' => 902,
                 'setlist_item_id' => 15092,
                 'user_id' => 1,
@@ -11744,9 +10839,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:28',
                 'updated_at' => '2016-12-13 04:31:28',
                 'order' => 1,
-            ),
-            402 => 
-            array (
+            ],
+            402 => [
                 'id' => 903,
                 'setlist_item_id' => 15065,
                 'user_id' => 1,
@@ -11757,9 +10851,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:28',
                 'updated_at' => '2016-12-13 04:31:28',
                 'order' => 1,
-            ),
-            403 => 
-            array (
+            ],
+            403 => [
                 'id' => 904,
                 'setlist_item_id' => 15058,
                 'user_id' => 1,
@@ -11770,9 +10863,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:28',
                 'updated_at' => '2016-12-13 04:31:28',
                 'order' => 1,
-            ),
-            404 => 
-            array (
+            ],
+            404 => [
                 'id' => 905,
                 'setlist_item_id' => 16393,
                 'user_id' => 1,
@@ -11783,9 +10875,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:29',
                 'updated_at' => '2016-12-13 04:31:29',
                 'order' => 1,
-            ),
-            405 => 
-            array (
+            ],
+            405 => [
                 'id' => 906,
                 'setlist_item_id' => 14427,
                 'user_id' => 1,
@@ -11796,9 +10887,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:29',
                 'updated_at' => '2016-12-13 04:31:29',
                 'order' => 1,
-            ),
-            406 => 
-            array (
+            ],
+            406 => [
                 'id' => 907,
                 'setlist_item_id' => 18657,
                 'user_id' => 1,
@@ -11809,9 +10899,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:31:46',
                 'updated_at' => '2016-12-13 04:31:46',
                 'order' => 1,
-            ),
-            407 => 
-            array (
+            ],
+            407 => [
                 'id' => 908,
                 'setlist_item_id' => 16719,
                 'user_id' => 1,
@@ -11822,9 +10911,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:32:00',
                 'updated_at' => '2016-12-13 04:32:00',
                 'order' => 1,
-            ),
-            408 => 
-            array (
+            ],
+            408 => [
                 'id' => 909,
                 'setlist_item_id' => 16534,
                 'user_id' => 1,
@@ -11835,9 +10923,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:32:01',
                 'updated_at' => '2016-12-13 04:32:01',
                 'order' => 1,
-            ),
-            409 => 
-            array (
+            ],
+            409 => [
                 'id' => 910,
                 'setlist_item_id' => 18026,
                 'user_id' => 1,
@@ -11848,9 +10935,8 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:32:10',
                 'updated_at' => '2016-12-13 04:32:10',
                 'order' => 1,
-            ),
-            410 => 
-            array (
+            ],
+            410 => [
                 'id' => 911,
                 'setlist_item_id' => 17970,
                 'user_id' => 1,
@@ -11861,9 +10947,7 @@ class SetlistItemNotesTableSeeder extends Seeder
                 'created_at' => '2016-12-13 04:41:06',
                 'updated_at' => '2016-12-13 04:41:06',
                 'order' => 1,
-            ),
-        ));
-        
-        
+            ],
+        ]);
     }
 }

@@ -60,19 +60,21 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-	if( preg_match('#/stats/(.*)$#', url()->current(), $matches) === 1 ) {
-	  if( strpos($request->header('User-Agent'), 'facebookexternalhit') !== false ) {
-	      $this->_trickFacebook( $matches[1] );
-	      exit(0);
-	  }
+        if (preg_match('#/stats/(.*)$#', url()->current(), $matches) === 1) {
+            if (strpos($request->header('User-Agent'), 'facebookexternalhit') !== false) {
+                $this->_trickFacebook($matches[1]);
+                exit(0);
+            }
         }
-	return redirect()->guest('login');
+
+        return redirect()->guest('login');
     }
 
-    private function _trickFacebook( $username ) {
-        $base  = url('/');
+    private function _trickFacebook($username)
+    {
+        $base = url('/');
         $stats = url('/stats');
-	$app_id = env('FACEBOOK_APP_ID');
+        $app_id = env('FACEBOOK_APP_ID');
         echo <<<EOF
 <html lang="en"
   <head>

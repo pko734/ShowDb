@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class SetlistItemNote extends Model
 {
-    public function setlistItem() {
+    public function setlistItem()
+    {
         return $this->belongsTo('ShowDb\SetlistItem');
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('ShowDb\User');
     }
 
-    public function creator() {
+    public function creator()
+    {
         return $this->belongsTo('ShowDb\User');
     }
 }

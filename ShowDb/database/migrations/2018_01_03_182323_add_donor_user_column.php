@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddDonorUserColumn extends Migration
 {
@@ -13,7 +13,7 @@ class AddDonorUserColumn extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table) {
+        Schema::table('users', function ($table) {
             $table->boolean('donor')->default(0);
         });
     }
@@ -25,7 +25,7 @@ class AddDonorUserColumn extends Migration
      */
     public function down()
     {
-        Schema::table('users', function($table) {
+        Schema::table('users', function ($table) {
             $table->dropColumn('donor');
         });
     }

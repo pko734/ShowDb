@@ -33,11 +33,11 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-	$date = \Carbon\Carbon::now()->format('YmdHs');
-	$environment = env('APP_ENV');
-	$schedule->command(
-	    "db:backup --database=mysql --destination=dropbox --destinationPath=/{$environment}/avett_setlist_db_{$environment}_{$date} --compression=gzip"
-	)->twiceDaily(13, 21);
+        $date = \Carbon\Carbon::now()->format('YmdHs');
+        $environment = env('APP_ENV');
+        $schedule->command(
+        "db:backup --database=mysql --destination=dropbox --destinationPath=/{$environment}/avett_setlist_db_{$environment}_{$date} --compression=gzip"
+    )->twiceDaily(13, 21);
     }
 
     /**

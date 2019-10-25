@@ -4,2829 +4,2473 @@ use Illuminate\Database\Seeder;
 
 class SongsTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
+     * Auto generated seed file.
      *
      * @return void
      */
     public function run()
     {
-        
-
         \DB::table('songs')->delete();
-        
-        \DB::table('songs')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('songs')->insert([
+            0 => [
                 'id' => 1,
                 'title' => 'My Lady and the Mountain',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            1 => 
-            array (
+            ],
+            1 => [
                 'id' => 2,
                 'title' => 'Those Green Eyes',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            2 => 
-            array (
+            ],
+            2 => [
                 'id' => 3,
                 'title' => 'Let Myself Live',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            3 => 
-            array (
+            ],
+            3 => [
                 'id' => 4,
                 'title' => 'I Love You Still',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            4 => 
-            array (
+            ],
+            4 => [
                 'id' => 5,
                 'title' => 'Pretty Girl from Matthews',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            5 => 
-            array (
+            ],
+            5 => [
                 'id' => 6,
                 'title' => 'Jenny and the Summer Day',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            6 => 
-            array (
+            ],
+            6 => [
                 'id' => 7,
                 'title' => 'A Lot of Moving',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            7 => 
-            array (
+            ],
+            7 => [
                 'id' => 8,
                 'title' => 'November Blue',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            8 => 
-            array (
+            ],
+            8 => [
                 'id' => 9,
                 'title' => 'My Losing Bet',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            9 => 
-            array (
+            ],
+            9 => [
                 'id' => 10,
                 'title' => 'Beside the Yellow Line',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            10 => 
-            array (
+            ],
+            10 => [
                 'id' => 11,
                 'title' => 'Old Wyom',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            11 => 
-            array (
+            ],
+            11 => [
                 'id' => 12,
                 'title' => 'Closing Night',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            12 => 
-            array (
+            ],
+            12 => [
                 'id' => 13,
                 'title' => 'Sorry Man',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            13 => 
-            array (
+            ],
+            13 => [
                 'id' => 14,
                 'title' => 'The Traveling Song',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            14 => 
-            array (
+            ],
+            14 => [
                 'id' => 15,
                 'title' => 'Love Like the Movies',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            15 => 
-            array (
+            ],
+            15 => [
                 'id' => 16,
                 'title' => 'Me and God',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            16 => 
-            array (
+            ],
+            16 => [
                 'id' => 17,
                 'title' => 'Pretty Girl from Raleigh',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            17 => 
-            array (
+            ],
+            17 => [
                 'id' => 18,
                 'title' => 'Do You Love Him',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            18 => 
-            array (
+            ],
+            18 => [
                 'id' => 19,
                 'title' => 'I Killed Sally\'s Lover',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            19 => 
-            array (
+            ],
+            19 => [
                 'id' => 20,
                 'title' => 'Pretty Girl from Locust',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            20 => 
-            array (
+            ],
+            20 => [
                 'id' => 21,
                 'title' => 'My Last Song to Jenny',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            21 => 
-            array (
+            ],
+            21 => [
                 'id' => 22,
                 'title' => 'Walking for You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            22 => 
-            array (
+            ],
+            22 => [
                 'id' => 23,
                 'title' => 'The D Bag Rag',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            23 => 
-            array (
+            ],
+            23 => [
                 'id' => 24,
                 'title' => 'Pretty Girl from Annapolis',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            24 => 
-            array (
+            ],
+            24 => [
                 'id' => 25,
                 'title' => 'Smoke in Our Lights',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            25 => 
-            array (
+            ],
+            25 => [
                 'id' => 26,
                 'title' => 'Offering',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            26 => 
-            array (
+            ],
+            26 => [
                 'id' => 27,
                 'title' => 'August 15, 1985',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            27 => 
-            array (
+            ],
+            27 => [
                 'id' => 28,
                 'title' => 'In the Curve',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            28 => 
-            array (
+            ],
+            28 => [
                 'id' => 29,
                 'title' => 'Tale of Coming News',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            29 => 
-            array (
+            ],
+            29 => [
                 'id' => 30,
                 'title' => 'Swept Away',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            30 => 
-            array (
+            ],
+            30 => [
                 'id' => 31,
                 'title' => 'Nothing Short of Thankful',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            31 => 
-            array (
+            ],
+            31 => [
                 'id' => 32,
                 'title' => 'The New Love Song',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            32 => 
-            array (
+            ],
+            32 => [
                 'id' => 33,
                 'title' => 'At the Beach',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            33 => 
-            array (
+            ],
+            33 => [
                 'id' => 34,
                 'title' => 'Signs',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            34 => 
-            array (
+            ],
+            34 => [
                 'id' => 35,
                 'title' => 'Hard Worker',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            35 => 
-            array (
+            ],
+            35 => [
                 'id' => 36,
                 'title' => 'Letter to a Pretty Girl',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            36 => 
-            array (
+            ],
+            36 => [
                 'id' => 37,
                 'title' => 'Please Pardon Yourself',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            37 => 
-            array (
+            ],
+            37 => [
                 'id' => 38,
                 'title' => 'Pretty Girl at the Airport',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            38 => 
-            array (
+            ],
+            38 => [
                 'id' => 39,
                 'title' => 'Kind of in Love',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            39 => 
-            array (
+            ],
+            39 => [
                 'id' => 40,
                 'title' => 'Pretty Girl from Cedar Lane',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            40 => 
-            array (
+            ],
+            40 => [
                 'id' => 41,
                 'title' => 'One Line Wonder',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            41 => 
-            array (
+            ],
+            41 => [
                 'id' => 42,
                 'title' => 'The Day That Marvin Gaye Died',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            42 => 
-            array (
+            ],
+            42 => [
                 'id' => 43,
                 'title' => 'SSS',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            43 => 
-            array (
+            ],
+            43 => [
                 'id' => 44,
                 'title' => 'Complainte D\'Un Matelot Mourant',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            44 => 
-            array (
+            ],
+            44 => [
                 'id' => 45,
                 'title' => 'Salvation Song',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            45 => 
-            array (
+            ],
+            45 => [
                 'id' => 46,
                 'title' => 'Talk on Indolence',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            46 => 
-            array (
+            ],
+            46 => [
                 'id' => 47,
                 'title' => 'Pretty Girl from Feltre',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            47 => 
-            array (
+            ],
+            47 => [
                 'id' => 48,
                 'title' => 'Colorshow',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            48 => 
-            array (
+            ],
+            48 => [
                 'id' => 49,
                 'title' => 'Distraction #74',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            49 => 
-            array (
+            ],
+            49 => [
                 'id' => 50,
                 'title' => 'Left on Laura, Left on Lisa',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            50 => 
-            array (
+            ],
+            50 => [
                 'id' => 51,
                 'title' => 'A Lover Like You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            51 => 
-            array (
+            ],
+            51 => [
                 'id' => 52,
                 'title' => 'Pretend Love',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            52 => 
-            array (
+            ],
+            52 => [
                 'id' => 53,
                 'title' => 'Matrimony',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            53 => 
-            array (
+            ],
+            53 => [
                 'id' => 54,
                 'title' => 'The Fall',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            54 => 
-            array (
+            ],
+            54 => [
                 'id' => 55,
                 'title' => 'Dancing Daze',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            55 => 
-            array (
+            ],
+            55 => [
                 'id' => 56,
                 'title' => 'Famous Flower of Manhattan',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            56 => 
-            array (
+            ],
+            56 => [
                 'id' => 57,
                 'title' => '40 East',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            57 => 
-            array (
+            ],
+            57 => [
                 'id' => 58,
                 'title' => 'Gimmeakiss',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            58 => 
-            array (
+            ],
+            58 => [
                 'id' => 59,
                 'title' => 'Denouncing November Blue',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            59 => 
-            array (
+            ],
+            59 => [
                 'id' => 60,
                 'title' => 'Four Thieves Gone',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            60 => 
-            array (
+            ],
+            60 => [
                 'id' => 61,
                 'title' => 'Sanguine',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            61 => 
-            array (
+            ],
+            61 => [
                 'id' => 62,
                 'title' => 'When I Drink',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            62 => 
-            array (
+            ],
+            62 => [
                 'id' => 63,
                 'title' => 'Yardsale',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            63 => 
-            array (
+            ],
+            63 => [
                 'id' => 64,
                 'title' => 'Backwards With Time',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            64 => 
-            array (
+            ],
+            64 => [
                 'id' => 65,
                 'title' => 'If It\'s the Beaches',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            65 => 
-            array (
+            ],
+            65 => [
                 'id' => 66,
                 'title' => 'Find My Love',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            66 => 
-            array (
+            ],
+            66 => [
                 'id' => 67,
                 'title' => 'Die Die Die',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            67 => 
-            array (
+            ],
+            67 => [
                 'id' => 68,
                 'title' => 'Shame',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            68 => 
-            array (
+            ],
+            68 => [
                 'id' => 69,
                 'title' => 'Paranoia in Bb Major',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            69 => 
-            array (
+            ],
+            69 => [
                 'id' => 70,
                 'title' => 'The Weight of Lies',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            70 => 
-            array (
+            ],
+            70 => [
                 'id' => 71,
                 'title' => 'Will You Return?',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            71 => 
-            array (
+            ],
+            71 => [
                 'id' => 72,
                 'title' => 'The Ballad of Love and Hate',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            72 => 
-            array (
+            ],
+            72 => [
                 'id' => 73,
                 'title' => 'Salina',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            73 => 
-            array (
+            ],
+            73 => [
                 'id' => 74,
                 'title' => 'Pretty Girl from Chile',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            74 => 
-            array (
+            ],
+            74 => [
                 'id' => 75,
                 'title' => 'All My Mistakes',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            75 => 
-            array (
+            ],
+            75 => [
                 'id' => 76,
                 'title' => 'Living of Love',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            76 => 
-            array (
+            ],
+            76 => [
                 'id' => 77,
                 'title' => 'I Would Be Sad',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            77 => 
-            array (
+            ],
+            77 => [
                 'id' => 78,
                 'title' => 'Pretty Girl from San Diego',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            78 => 
-            array (
+            ],
+            78 => [
                 'id' => 79,
                 'title' => 'Go To Sleep',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            79 => 
-            array (
+            ],
+            79 => [
                 'id' => 80,
                 'title' => 'Hand Me Down Tune',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            80 => 
-            array (
+            ],
+            80 => [
                 'id' => 81,
                 'title' => 'Tear Down the House',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            81 => 
-            array (
+            ],
+            81 => [
                 'id' => 82,
                 'title' => 'Murder in the City',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            82 => 
-            array (
+            ],
+            82 => [
                 'id' => 83,
                 'title' => 'Bella Donna',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            83 => 
-            array (
+            ],
+            83 => [
                 'id' => 84,
                 'title' => 'The Greatest Sum',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            84 => 
-            array (
+            ],
+            84 => [
                 'id' => 85,
                 'title' => 'Black, Blue',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            85 => 
-            array (
+            ],
+            85 => [
                 'id' => 86,
                 'title' => 'St. Joseph\'s',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            86 => 
-            array (
+            ],
+            86 => [
                 'id' => 87,
                 'title' => 'Souls Like the Wheels',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            87 => 
-            array (
+            ],
+            87 => [
                 'id' => 88,
                 'title' => 'I and Love and You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            88 => 
-            array (
+            ],
+            88 => [
                 'id' => 89,
                 'title' => 'January Wedding',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            89 => 
-            array (
+            ],
+            89 => [
                 'id' => 90,
                 'title' => 'Head Full of Doubt / Road Full of Promise',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            90 => 
-            array (
+            ],
+            90 => [
                 'id' => 91,
                 'title' => 'And It Spread',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            91 => 
-            array (
+            ],
+            91 => [
                 'id' => 92,
                 'title' => 'The Perfect Space',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            92 => 
-            array (
+            ],
+            92 => [
                 'id' => 93,
                 'title' => 'Ten Thousand Words',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            93 => 
-            array (
+            ],
+            93 => [
                 'id' => 94,
                 'title' => 'Kick Drum Heart',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            94 => 
-            array (
+            ],
+            94 => [
                 'id' => 95,
                 'title' => 'Laundry Room',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            95 => 
-            array (
+            ],
+            95 => [
                 'id' => 96,
                 'title' => 'Ill With Want',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            96 => 
-            array (
+            ],
+            96 => [
                 'id' => 97,
                 'title' => 'Tin Man',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            97 => 
-            array (
+            ],
+            97 => [
                 'id' => 98,
                 'title' => 'Slight Figure of Speech',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            98 => 
-            array (
+            ],
+            98 => [
                 'id' => 99,
                 'title' => 'It Goes On and On',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            99 => 
-            array (
+            ],
+            99 => [
                 'id' => 100,
                 'title' => 'Incomplete and Insecure',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            100 => 
-            array (
+            ],
+            100 => [
                 'id' => 101,
                 'title' => 'More of You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            101 => 
-            array (
+            ],
+            101 => [
                 'id' => 102,
                 'title' => 'The Once and Future Carpenter',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            102 => 
-            array (
+            ],
+            102 => [
                 'id' => 103,
                 'title' => 'Live and Die',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:58',
                 'updated_at' => '2016-12-12 21:03:58',
-            ),
-            103 => 
-            array (
+            ],
+            103 => [
                 'id' => 104,
                 'title' => 'Winter in My Heart',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            104 => 
-            array (
+            ],
+            104 => [
                 'id' => 105,
                 'title' => 'Pretty Girl from Michigan',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            105 => 
-            array (
+            ],
+            105 => [
                 'id' => 106,
                 'title' => 'I Never Knew You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            106 => 
-            array (
+            ],
+            106 => [
                 'id' => 107,
                 'title' => 'February Seven',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            107 => 
-            array (
+            ],
+            107 => [
                 'id' => 108,
                 'title' => 'Through My Prayers',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            108 => 
-            array (
+            ],
+            108 => [
                 'id' => 109,
                 'title' => 'Down with the Shine',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            109 => 
-            array (
+            ],
+            109 => [
                 'id' => 110,
                 'title' => 'Geraldine',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            110 => 
-            array (
+            ],
+            110 => [
                 'id' => 111,
                 'title' => 'Paul Newman vs. the Demons',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            111 => 
-            array (
+            ],
+            111 => [
                 'id' => 112,
                 'title' => 'Life',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            112 => 
-            array (
+            ],
+            112 => [
                 'id' => 113,
                 'title' => 'Die Then Grow',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            113 => 
-            array (
+            ],
+            113 => [
                 'id' => 114,
                 'title' => 'Standing With You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            114 => 
-            array (
+            ],
+            114 => [
                 'id' => 115,
                 'title' => 'The Clearness is Gone',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            115 => 
-            array (
+            ],
+            115 => [
                 'id' => 116,
             'title' => 'Paul Newman (vs. The Demons)',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            116 => 
-            array (
+            ],
+            116 => [
                 'id' => 117,
                 'title' => 'Pretty Girl from Rowan County',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            117 => 
-            array (
+            ],
+            117 => [
                 'id' => 118,
                 'title' => 'The Bloody Apology',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            118 => 
-            array (
+            ],
+            118 => [
                 'id' => 119,
                 'title' => 'The Strangest Thing',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            119 => 
-            array (
+            ],
+            119 => [
                 'id' => 120,
                 'title' => 'The Worst Thing',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            120 => 
-            array (
+            ],
+            120 => [
                 'id' => 121,
                 'title' => 'Honey Can I Count on You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            121 => 
-            array (
+            ],
+            121 => [
                 'id' => 122,
                 'title' => 'Open Ended Life',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            122 => 
-            array (
+            ],
+            122 => [
                 'id' => 123,
                 'title' => 'Morning Song',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            123 => 
-            array (
+            ],
+            123 => [
                 'id' => 124,
                 'title' => 'Never Been Alive',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            124 => 
-            array (
+            ],
+            124 => [
                 'id' => 125,
                 'title' => 'Another is Waiting',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            125 => 
-            array (
+            ],
+            125 => [
                 'id' => 126,
                 'title' => 'Good To You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            126 => 
-            array (
+            ],
+            126 => [
                 'id' => 127,
                 'title' => 'Part From Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            127 => 
-            array (
+            ],
+            127 => [
                 'id' => 128,
                 'title' => 'Skin and Bones',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            128 => 
-            array (
+            ],
+            128 => [
                 'id' => 129,
                 'title' => 'Vanity',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            129 => 
-            array (
+            ],
+            129 => [
                 'id' => 130,
                 'title' => 'Satan Pulls the Strings',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            130 => 
-            array (
+            ],
+            130 => [
                 'id' => 131,
                 'title' => 'Rejects in the Attic',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            131 => 
-            array (
+            ],
+            131 => [
                 'id' => 132,
                 'title' => 'Ain\'t No Man',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            132 => 
-            array (
+            ],
+            132 => [
                 'id' => 133,
                 'title' => 'No Hard Feelings',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            133 => 
-            array (
+            ],
+            133 => [
                 'id' => 134,
                 'title' => 'Smithsonian',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            134 => 
-            array (
+            ],
+            134 => [
                 'id' => 135,
                 'title' => 'You Are Mine',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            135 => 
-            array (
+            ],
+            135 => [
                 'id' => 136,
                 'title' => 'True Sadness',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            136 => 
-            array (
+            ],
+            136 => [
                 'id' => 137,
                 'title' => 'I Wish I Was',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            137 => 
-            array (
+            ],
+            137 => [
                 'id' => 138,
                 'title' => 'Fisher Road to Hollywood',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            138 => 
-            array (
+            ],
+            138 => [
                 'id' => 139,
                 'title' => 'Victims of Life',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            139 => 
-            array (
+            ],
+            139 => [
                 'id' => 140,
                 'title' => 'Divorce Separation Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            140 => 
-            array (
+            ],
+            140 => [
                 'id' => 141,
                 'title' => 'May It Last',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            141 => 
-            array (
+            ],
+            141 => [
                 'id' => 142,
                 'title' => 'Another Youngster',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            142 => 
-            array (
+            ],
+            142 => [
                 'id' => 143,
                 'title' => 'Late in Life',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            143 => 
-            array (
+            ],
+            143 => [
                 'id' => 144,
                 'title' => 'Love is a Stranger',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            144 => 
-            array (
+            ],
+            144 => [
                 'id' => 145,
                 'title' => 'The Method Actor',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            145 => 
-            array (
+            ],
+            145 => [
                 'id' => 146,
                 'title' => 'Pretty Girl From Here',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            146 => 
-            array (
+            ],
+            146 => [
                 'id' => 147,
                 'title' => 'Spell of Ambition',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            147 => 
-            array (
+            ],
+            147 => [
                 'id' => 148,
                 'title' => 'Solomon',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            148 => 
-            array (
+            ],
+            148 => [
                 'id' => 149,
                 'title' => 'Untitled One',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            149 => 
-            array (
+            ],
+            149 => [
                 'id' => 150,
                 'title' => 'Untitled Two',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            150 => 
-            array (
+            ],
+            150 => [
                 'id' => 151,
                 'title' => 'Untitled Three',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            151 => 
-            array (
+            ],
+            151 => [
                 'id' => 152,
                 'title' => 'Untitled Four',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            152 => 
-            array (
+            ],
+            152 => [
                 'id' => 153,
                 'title' => 'Diamond Joe',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            153 => 
-            array (
+            ],
+            153 => [
                 'id' => 154,
                 'title' => 'Will The Circle Be Unbroken',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            154 => 
-            array (
+            ],
+            154 => [
                 'id' => 155,
                 'title' => 'I\'ll Fly Away',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            155 => 
-            array (
+            ],
+            155 => [
                 'id' => 156,
                 'title' => 'Going Down The Road Feeling Bad',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            156 => 
-            array (
+            ],
+            156 => [
                 'id' => 157,
                 'title' => 'Walking Down The Line',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            157 => 
-            array (
+            ],
+            157 => [
                 'id' => 158,
                 'title' => 'Gamblin\' Man',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            158 => 
-            array (
+            ],
+            158 => [
                 'id' => 159,
                 'title' => 'Cripple Creek',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            159 => 
-            array (
+            ],
+            159 => [
                 'id' => 160,
                 'title' => 'Old Joe Clark',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            160 => 
-            array (
+            ],
+            160 => [
                 'id' => 161,
                 'title' => 'Wanted Man',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            161 => 
-            array (
+            ],
+            161 => [
                 'id' => 162,
                 'title' => 'A Gift for Melody Anne',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            162 => 
-            array (
+            ],
+            162 => [
                 'id' => 163,
             'title' => 'The Lowering (A Sad Day In Greenvilletown)',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            163 => 
-            array (
+            ],
+            163 => [
                 'id' => 164,
                 'title' => 'February 20 2000',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            164 => 
-            array (
+            ],
+            164 => [
                 'id' => 165,
                 'title' => 'Was Oblivious',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            165 => 
-            array (
+            ],
+            165 => [
                 'id' => 166,
                 'title' => 'More Pretty Girls Than One',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            166 => 
-            array (
+            ],
+            166 => [
                 'id' => 167,
                 'title' => 'Sometimes',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            167 => 
-            array (
+            ],
+            167 => [
                 'id' => 168,
                 'title' => 'Walking in Jerusalem',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            168 => 
-            array (
+            ],
+            168 => [
                 'id' => 169,
                 'title' => 'Never to Marry',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            169 => 
-            array (
+            ],
+            169 => [
                 'id' => 170,
                 'title' => 'Down in the Valley',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            170 => 
-            array (
+            ],
+            170 => [
                 'id' => 171,
                 'title' => 'Sixteen in July',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            171 => 
-            array (
+            ],
+            171 => [
                 'id' => 172,
                 'title' => 'Hesitation Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            172 => 
-            array (
+            ],
+            172 => [
                 'id' => 173,
                 'title' => 'Till the End of the World Rolls Round',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            173 => 
-            array (
+            ],
+            173 => [
                 'id' => 174,
                 'title' => 'Just Because',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            174 => 
-            array (
+            ],
+            174 => [
                 'id' => 175,
                 'title' => 'Telling Time',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            175 => 
-            array (
+            ],
+            175 => [
                 'id' => 176,
                 'title' => 'When They Lay Me Down',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            176 => 
-            array (
+            ],
+            176 => [
                 'id' => 177,
                 'title' => 'Car Car',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            177 => 
-            array (
+            ],
+            177 => [
                 'id' => 178,
                 'title' => 'Tender Ways',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            178 => 
-            array (
+            ],
+            178 => [
                 'id' => 179,
                 'title' => 'Girl from Mexico',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            179 => 
-            array (
+            ],
+            179 => [
                 'id' => 180,
                 'title' => 'Liar',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            180 => 
-            array (
+            ],
+            180 => [
                 'id' => 181,
                 'title' => 'Just About to Burn',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            181 => 
-            array (
+            ],
+            181 => [
                 'id' => 182,
                 'title' => 'I Never Will Marry',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            182 => 
-            array (
+            ],
+            182 => [
                 'id' => 183,
                 'title' => 'Talking Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            183 => 
-            array (
+            ],
+            183 => [
                 'id' => 184,
                 'title' => 'Oh What a Nightmare',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            184 => 
-            array (
+            ],
+            184 => [
                 'id' => 185,
                 'title' => 'Lord Build Me A Cabin',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            185 => 
-            array (
+            ],
+            185 => [
                 'id' => 186,
             'title' => 'Stay All Night (Stay A Little Longer)',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            186 => 
-            array (
+            ],
+            186 => [
                 'id' => 188,
                 'title' => 'Down in the Valley to Pray',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            187 => 
-            array (
+            ],
+            187 => [
                 'id' => 189,
                 'title' => 'Holocaust Girl',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            188 => 
-            array (
+            ],
+            188 => [
                 'id' => 190,
                 'title' => 'The Welcome Table',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            189 => 
-            array (
+            ],
+            189 => [
                 'id' => 191,
                 'title' => 'Hunger Strike',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            190 => 
-            array (
+            ],
+            190 => [
                 'id' => 192,
                 'title' => 'All I Have to Do is Dream',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            191 => 
-            array (
+            ],
+            191 => [
                 'id' => 193,
                 'title' => 'Happy Birthday',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            192 => 
-            array (
+            ],
+            192 => [
                 'id' => 194,
                 'title' => 'The Dying Song Writers Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            193 => 
-            array (
+            ],
+            193 => [
                 'id' => 195,
                 'title' => 'Rolling in my sweet baby\'s arms',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            194 => 
-            array (
+            ],
+            194 => [
                 'id' => 196,
                 'title' => 'Trouble in Mind',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            195 => 
-            array (
+            ],
+            195 => [
                 'id' => 197,
                 'title' => 'Down by the Riverside',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            196 => 
-            array (
+            ],
+            196 => [
                 'id' => 198,
                 'title' => 'Waiting for a Train',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            197 => 
-            array (
+            ],
+            197 => [
                 'id' => 199,
                 'title' => 'That\'s how I got to Memphis',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            198 => 
-            array (
+            ],
+            198 => [
                 'id' => 200,
                 'title' => 'Nubbins',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            199 => 
-            array (
+            ],
+            199 => [
                 'id' => 201,
                 'title' => 'Old Rugged Cross',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            200 => 
-            array (
+            ],
+            200 => [
                 'id' => 202,
                 'title' => 'Autumn Leaves',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            201 => 
-            array (
+            ],
+            201 => [
                 'id' => 203,
                 'title' => 'Greensboro Women',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            202 => 
-            array (
+            ],
+            202 => [
                 'id' => 204,
                 'title' => 'My own Kind of Hat',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            203 => 
-            array (
+            ],
+            203 => [
                 'id' => 205,
                 'title' => 'On the Road Again',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            204 => 
-            array (
+            ],
+            204 => [
                 'id' => 206,
                 'title' => 'For Today',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            205 => 
-            array (
+            ],
+            205 => [
                 'id' => 207,
                 'title' => 'Catch the Wind',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            206 => 
-            array (
+            ],
+            206 => [
                 'id' => 208,
                 'title' => 'Keep on the Sunny Side',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            207 => 
-            array (
+            ],
+            207 => [
                 'id' => 209,
                 'title' => 'Highway Kind',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            208 => 
-            array (
+            ],
+            208 => [
                 'id' => 210,
                 'title' => 'Natural Woman',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            209 => 
-            array (
+            ],
+            209 => [
                 'id' => 211,
                 'title' => 'Jamaica Farewell',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            210 => 
-            array (
+            ],
+            210 => [
                 'id' => 212,
                 'title' => 'The Dream Appointed',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            211 => 
-            array (
+            ],
+            211 => [
                 'id' => 213,
                 'title' => 'New York, NY',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            212 => 
-            array (
+            ],
+            212 => [
                 'id' => 214,
                 'title' => 'Three Amigos',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            213 => 
-            array (
+            ],
+            213 => [
                 'id' => 215,
                 'title' => 'This will be our year',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            214 => 
-            array (
+            ],
+            214 => [
                 'id' => 216,
                 'title' => 'Where Have All the Average People Gone',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            215 => 
-            array (
+            ],
+            215 => [
                 'id' => 217,
                 'title' => 'Way Downtown',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            216 => 
-            array (
+            ],
+            216 => [
                 'id' => 218,
                 'title' => 'Portland Town',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            217 => 
-            array (
+            ],
+            217 => [
                 'id' => 219,
                 'title' => 'Blue Ridge Mountain Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            218 => 
-            array (
+            ],
+            218 => [
                 'id' => 220,
                 'title' => 'Lord',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            219 => 
-            array (
+            ],
+            219 => [
                 'id' => 221,
                 'title' => 'The Way It Is',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            220 => 
-            array (
+            ],
+            220 => [
                 'id' => 222,
                 'title' => 'Say Yes',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            221 => 
-            array (
+            ],
+            221 => [
                 'id' => 223,
                 'title' => 'Sweet Olive Tree',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            222 => 
-            array (
+            ],
+            222 => [
                 'id' => 224,
                 'title' => 'Magazines',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            223 => 
-            array (
+            ],
+            223 => [
                 'id' => 225,
                 'title' => 'Rainbow Stew',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            224 => 
-            array (
+            ],
+            224 => [
                 'id' => 226,
                 'title' => 'Cupid',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            225 => 
-            array (
+            ],
+            225 => [
                 'id' => 227,
                 'title' => 'Spanish Pipedream',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            226 => 
-            array (
+            ],
+            226 => [
                 'id' => 228,
                 'title' => 'Back Home Again',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            227 => 
-            array (
+            ],
+            227 => [
                 'id' => 229,
                 'title' => 'Slip Slidin Away',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            228 => 
-            array (
+            ],
+            228 => [
                 'id' => 230,
                 'title' => 'The Prettiest Thing',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            229 => 
-            array (
+            ],
+            229 => [
                 'id' => 231,
                 'title' => 'It Aint\'s Me Babe',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            230 => 
-            array (
+            ],
+            230 => [
                 'id' => 232,
                 'title' => 'Just Like a Woman',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            231 => 
-            array (
+            ],
+            231 => [
                 'id' => 233,
                 'title' => 'I Can Get Off on You',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            232 => 
-            array (
+            ],
+            232 => [
                 'id' => 234,
                 'title' => 'Seven Drunken Nights',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            233 => 
-            array (
+            ],
+            233 => [
                 'id' => 235,
                 'title' => 'Alberta',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            234 => 
-            array (
+            ],
+            234 => [
                 'id' => 236,
                 'title' => 'Ramblin Fever',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            235 => 
-            array (
+            ],
+            235 => [
                 'id' => 237,
                 'title' => 'I\'m on Fire',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            236 => 
-            array (
+            ],
+            236 => [
                 'id' => 238,
                 'title' => 'I Miss a Lot of Trains',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            237 => 
-            array (
+            ],
+            237 => [
                 'id' => 239,
                 'title' => 'Thank God I\'m a Country Boy',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            238 => 
-            array (
+            ],
+            238 => [
                 'id' => 240,
                 'title' => 'Way Down',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            239 => 
-            array (
+            ],
+            239 => [
                 'id' => 241,
                 'title' => 'Just a Closer Walk with Thee',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            240 => 
-            array (
+            ],
+            240 => [
                 'id' => 242,
                 'title' => 'Angie',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            241 => 
-            array (
+            ],
+            241 => [
                 'id' => 243,
                 'title' => 'Hard Times Come Again No More',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            242 => 
-            array (
+            ],
+            242 => [
                 'id' => 244,
                 'title' => 'I Won\'t Give Up My Train',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            243 => 
-            array (
+            ],
+            243 => [
                 'id' => 245,
                 'title' => 'Single girl, Married Girl',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            244 => 
-            array (
+            ],
+            244 => [
                 'id' => 246,
                 'title' => 'Look up, Look down that lonesome road',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            245 => 
-            array (
+            ],
+            245 => [
                 'id' => 247,
                 'title' => 'Let me into Your Heart',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            246 => 
-            array (
+            ],
+            246 => [
                 'id' => 248,
                 'title' => 'Let Me In',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            247 => 
-            array (
+            ],
+            247 => [
                 'id' => 249,
                 'title' => 'The Man in Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            248 => 
-            array (
+            ],
+            248 => [
                 'id' => 250,
                 'title' => 'I wonder How the Old Folks are at Home',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            249 => 
-            array (
+            ],
+            249 => [
                 'id' => 251,
                 'title' => 'Shady Grove',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            250 => 
-            array (
+            ],
+            250 => [
                 'id' => 252,
                 'title' => 'Stormy Weather',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            251 => 
-            array (
+            ],
+            251 => [
                 'id' => 253,
                 'title' => 'A Father\'s First Spring',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            252 => 
-            array (
+            ],
+            252 => [
                 'id' => 254,
                 'title' => 'I\'ve Endured',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            253 => 
-            array (
+            ],
+            253 => [
                 'id' => 255,
                 'title' => 'Milk and Sugar',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            254 => 
-            array (
+            ],
+            254 => [
                 'id' => 256,
                 'title' => 'Alabama Gals',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            255 => 
-            array (
+            ],
+            255 => [
                 'id' => 257,
                 'title' => 'In the Aeroplane Over the Sea',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            256 => 
-            array (
+            ],
+            256 => [
                 'id' => 258,
                 'title' => 'Forever and Ever, Amen',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            257 => 
-            array (
+            ],
+            257 => [
                 'id' => 259,
                 'title' => 'It\'s Moving Day',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            258 => 
-            array (
+            ],
+            258 => [
                 'id' => 260,
                 'title' => 'I\'ll be home for Christmas',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            259 => 
-            array (
+            ],
+            259 => [
                 'id' => 261,
                 'title' => 'Operator',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            260 => 
-            array (
+            ],
+            260 => [
                 'id' => 262,
                 'title' => 'Reno Lament',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            261 => 
-            array (
+            ],
+            261 => [
                 'id' => 263,
                 'title' => 'The Coo Coo Song',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            262 => 
-            array (
+            ],
+            262 => [
                 'id' => 264,
                 'title' => 'Ol\' 55',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            263 => 
-            array (
+            ],
+            263 => [
                 'id' => 265,
                 'title' => 'No Place to Fall',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            264 => 
-            array (
+            ],
+            264 => [
                 'id' => 266,
                 'title' => 'Am I Born To Die',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            265 => 
-            array (
+            ],
+            265 => [
                 'id' => 267,
                 'title' => 'Hammer Down',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            266 => 
-            array (
+            ],
+            266 => [
                 'id' => 268,
                 'title' => 'Clay Pigeons',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            267 => 
-            array (
+            ],
+            267 => [
                 'id' => 269,
                 'title' => 'Stand By Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            268 => 
-            array (
+            ],
+            268 => [
                 'id' => 270,
                 'title' => 'The Girl I Left Behind Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            269 => 
-            array (
+            ],
+            269 => [
                 'id' => 271,
                 'title' => 'Yellow Rose of Texas',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            270 => 
-            array (
+            ],
+            270 => [
                 'id' => 272,
                 'title' => 'Make Me a pallet on the floor',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            271 => 
-            array (
+            ],
+            271 => [
                 'id' => 273,
                 'title' => 'Wild Horses',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:03:59',
                 'updated_at' => '2016-12-12 21:03:59',
-            ),
-            272 => 
-            array (
+            ],
+            272 => [
                 'id' => 274,
                 'title' => 'Fireball Mail',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            273 => 
-            array (
+            ],
+            273 => [
                 'id' => 275,
                 'title' => 'Ocean Front Property',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            274 => 
-            array (
+            ],
+            274 => [
                 'id' => 276,
                 'title' => 'Jordan is a Hard Road to Travel',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            275 => 
-            array (
+            ],
+            275 => [
                 'id' => 277,
                 'title' => 'California Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            276 => 
-            array (
+            ],
+            276 => [
                 'id' => 278,
                 'title' => 'Bring Your Love To Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            277 => 
-            array (
+            ],
+            277 => [
                 'id' => 279,
                 'title' => 'Your Man Loves You Honey',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            278 => 
-            array (
+            ],
+            278 => [
                 'id' => 280,
                 'title' => 'I\'ll come running back to you',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            279 => 
-            array (
+            ],
+            279 => [
                 'id' => 281,
                 'title' => 'Little Sadie',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            280 => 
-            array (
+            ],
+            280 => [
                 'id' => 282,
                 'title' => 'Arkansas Traveler',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            281 => 
-            array (
+            ],
+            281 => [
                 'id' => 283,
                 'title' => 'Auld Lang syne',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            282 => 
-            array (
+            ],
+            282 => [
                 'id' => 284,
                 'title' => 'Goodnight Sweetheart',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            283 => 
-            array (
+            ],
+            283 => [
                 'id' => 285,
                 'title' => 'Jesus Lifted Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            284 => 
-            array (
+            ],
+            284 => [
                 'id' => 286,
                 'title' => 'John Brown\'s Dream',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            285 => 
-            array (
+            ],
+            285 => [
                 'id' => 287,
                 'title' => 'Roving Gambler',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            286 => 
-            array (
+            ],
+            286 => [
                 'id' => 288,
                 'title' => 'Country Roads',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            287 => 
-            array (
+            ],
+            287 => [
                 'id' => 289,
                 'title' => 'Amazing Grace',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            288 => 
-            array (
+            ],
+            288 => [
                 'id' => 290,
                 'title' => 'The Spell of Ambition',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            289 => 
-            array (
+            ],
+            289 => [
                 'id' => 291,
                 'title' => 'If You Got the Money, I Got the Time',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            290 => 
-            array (
+            ],
+            290 => [
                 'id' => 292,
                 'title' => 'That\'s the Way the World Goes Round',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            291 => 
-            array (
+            ],
+            291 => [
                 'id' => 293,
                 'title' => 'Cluck Old Hen',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            292 => 
-            array (
+            ],
+            292 => [
                 'id' => 294,
                 'title' => 'Jump in the line',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            293 => 
-            array (
+            ],
+            293 => [
                 'id' => 295,
                 'title' => 'Be Kind to a man when he\'s down',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            294 => 
-            array (
+            ],
+            294 => [
                 'id' => 296,
                 'title' => 'The Race is on',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            295 => 
-            array (
+            ],
+            295 => [
                 'id' => 297,
                 'title' => 'Bye Bye Love',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            296 => 
-            array (
+            ],
+            296 => [
                 'id' => 298,
                 'title' => 'Kansas City Star',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            297 => 
-            array (
+            ],
+            297 => [
                 'id' => 299,
                 'title' => 'Le Reel Du Pendu',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            298 => 
-            array (
+            ],
+            298 => [
                 'id' => 300,
                 'title' => 'Uncle John\'s Band',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            299 => 
-            array (
+            ],
+            299 => [
                 'id' => 301,
                 'title' => 'Halo',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            300 => 
-            array (
+            ],
+            300 => [
                 'id' => 302,
                 'title' => 'Satan Pulls the String',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            301 => 
-            array (
+            ],
+            301 => [
                 'id' => 303,
                 'title' => 'In the Garden',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            302 => 
-            array (
+            ],
+            302 => [
                 'id' => 304,
                 'title' => 'Satan Pulls the Stings',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            303 => 
-            array (
+            ],
+            303 => [
                 'id' => 305,
                 'title' => 'Mama, I don\'t believe',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            304 => 
-            array (
+            ],
+            304 => [
                 'id' => 306,
                 'title' => 'Windy and Warm',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            305 => 
-            array (
+            ],
+            305 => [
                 'id' => 307,
                 'title' => 'Country Blues',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            306 => 
-            array (
+            ],
+            306 => [
                 'id' => 308,
                 'title' => 'Soldier\'s Joy',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            307 => 
-            array (
+            ],
+            307 => [
                 'id' => 309,
                 'title' => 'Bring Him Home',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            308 => 
-            array (
+            ],
+            308 => [
                 'id' => 310,
                 'title' => 'The Boys are Back in Town',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            309 => 
-            array (
+            ],
+            309 => [
                 'id' => 311,
                 'title' => 'Happy Trails',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            310 => 
-            array (
+            ],
+            310 => [
                 'id' => 312,
                 'title' => 'That\'s the way that the world goes round',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            311 => 
-            array (
+            ],
+            311 => [
                 'id' => 313,
                 'title' => 'Glory Days',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            312 => 
-            array (
+            ],
+            312 => [
                 'id' => 314,
                 'title' => 'Pick Up the Tempo',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            313 => 
-            array (
+            ],
+            313 => [
                 'id' => 315,
                 'title' => 'America the Beautiful',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            314 => 
-            array (
+            ],
+            314 => [
                 'id' => 316,
                 'title' => 'I\'m Getting Ready',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            315 => 
-            array (
+            ],
+            315 => [
                 'id' => 317,
                 'title' => 'All My Life',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            316 => 
-            array (
+            ],
+            316 => [
                 'id' => 318,
                 'title' => 'I\'m so in love with you',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            317 => 
-            array (
+            ],
+            317 => [
                 'id' => 319,
                 'title' => 'Forked Deer',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            318 => 
-            array (
+            ],
+            318 => [
                 'id' => 320,
                 'title' => 'Flop Eared Mule',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            319 => 
-            array (
+            ],
+            319 => [
                 'id' => 321,
                 'title' => 'Time is on My Side',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            320 => 
-            array (
+            ],
+            320 => [
                 'id' => 322,
                 'title' => 'Don\'t do me like that',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            321 => 
-            array (
+            ],
+            321 => [
                 'id' => 323,
                 'title' => 'My Favorite Memory',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            322 => 
-            array (
+            ],
+            322 => [
                 'id' => 324,
                 'title' => 'Mama Tried',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            323 => 
-            array (
+            ],
+            323 => [
                 'id' => 325,
                 'title' => 'Loretta',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            324 => 
-            array (
+            ],
+            324 => [
                 'id' => 326,
                 'title' => 'No one\'s gonna love you',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            325 => 
-            array (
+            ],
+            325 => [
                 'id' => 327,
                 'title' => 'It\'s Me, O Lord',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            326 => 
-            array (
+            ],
+            326 => [
                 'id' => 328,
                 'title' => 'Precious Lord',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            327 => 
-            array (
+            ],
+            327 => [
                 'id' => 329,
                 'title' => 'Peace in the Valley',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            328 => 
-            array (
+            ],
+            328 => [
                 'id' => 330,
                 'title' => 'Tangled Up in Blue',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            329 => 
-            array (
+            ],
+            329 => [
                 'id' => 331,
                 'title' => 'Forever Young',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            330 => 
-            array (
+            ],
+            330 => [
                 'id' => 332,
                 'title' => 'The Road',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            331 => 
-            array (
+            ],
+            331 => [
                 'id' => 333,
                 'title' => 'And it Stoned Me',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            332 => 
-            array (
+            ],
+            332 => [
                 'id' => 334,
             'title' => 'How sweet it is (To be Loved by You)',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            333 => 
-            array (
+            ],
+            333 => [
                 'id' => 335,
                 'title' => 'Think',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            334 => 
-            array (
+            ],
+            334 => [
                 'id' => 336,
                 'title' => 'Run for the Roses',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            335 => 
-            array (
+            ],
+            335 => [
                 'id' => 337,
                 'title' => 'Let it Rock',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            336 => 
-            array (
+            ],
+            336 => [
                 'id' => 338,
                 'title' => 'Deal',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            337 => 
-            array (
+            ],
+            337 => [
                 'id' => 339,
                 'title' => 'The Harder They Come',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            338 => 
-            array (
+            ],
+            338 => [
                 'id' => 340,
                 'title' => 'Knocking on Heaven\'s Door',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            339 => 
-            array (
+            ],
+            339 => [
                 'id' => 341,
                 'title' => 'Dear Prudence',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            340 => 
-            array (
+            ],
+            340 => [
                 'id' => 342,
                 'title' => 'Lucky Ol\' Sun',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            341 => 
-            array (
+            ],
+            341 => [
                 'id' => 343,
                 'title' => 'Gomorrah',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            342 => 
-            array (
+            ],
+            342 => [
                 'id' => 344,
                 'title' => 'Mission in the Rain',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            343 => 
-            array (
+            ],
+            343 => [
                 'id' => 345,
                 'title' => 'Reuben and Cherise',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            344 => 
-            array (
+            ],
+            344 => [
                 'id' => 346,
                 'title' => 'I Shall Be Released',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            345 => 
-            array (
+            ],
+            345 => [
                 'id' => 347,
                 'title' => 'Wrong Road Again',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            346 => 
-            array (
+            ],
+            346 => [
                 'id' => 348,
                 'title' => 'Crazy for you',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            347 => 
-            array (
+            ],
+            347 => [
                 'id' => 349,
                 'title' => 'Cigarettes, Whiskey, and Wild, Wild Women',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            348 => 
-            array (
+            ],
+            348 => [
                 'id' => 350,
                 'title' => 'How Sweet it is',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            349 => 
-            array (
+            ],
+            349 => [
                 'id' => 351,
                 'title' => 'Hallelujah',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-            350 => 
-            array (
+            ],
+            350 => [
                 'id' => 352,
                 'title' => 'The Ballad of God\'s Love',
                 'creator_id' => 1,
                 'created_at' => '2016-12-12 21:04:00',
                 'updated_at' => '2016-12-12 21:04:00',
-            ),
-        ));
-        
-        
+            ],
+        ]);
     }
 }

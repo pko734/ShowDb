@@ -81,7 +81,7 @@ return [
      | go over a certain limit.
      |
      */
-    'max_image_size' => 2000*2000,
+    'max_image_size' => 2000 * 2000,
 
      /*
      |--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ return [
      |--------------------------------------------------------------------------
      |
      | This is a string that will be visible in all generated URLs. Example:
-     | 
+     |
      | /imgcache/56a1472beca5d.jpg
      |
      */
@@ -140,18 +140,18 @@ return [
         'small' => [
             'w' => 400,
             'h' => 300,
-            'fit' => 'crop'
+            'fit' => 'crop',
         ],
         'medium' => [
             'w' => 800,
             'h' => 600,
-            'fit' => 'crop'
+            'fit' => 'crop',
         ],
         'large' => [
             'w' => 1600,
             'h' => 1200,
-            'fit' => 'crop'
-        ]
-    ]
+            'fit' => 'crop',
+        ],
+    ],
 
 ];

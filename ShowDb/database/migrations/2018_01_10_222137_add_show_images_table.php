@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddShowImagesTable extends Migration
 {
@@ -13,14 +13,14 @@ class AddShowImagesTable extends Migration
      */
     public function up()
     {
-       Schema::create('show_images', function (Blueprint $table) {
+        Schema::create('show_images', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-	    $table->integer('show_id')->unsigned();
-	    $table->string('caption')->nullable();
-	    $table->string('photo_credit')->nullable();
+            $table->integer('show_id')->unsigned();
+            $table->string('caption')->nullable();
+            $table->string('photo_credit')->nullable();
             $table->string('url');
-	    $table->string('path');
+            $table->string('path');
             $table->boolean('published')->default(0);
             $table->timestamps();
 
@@ -41,6 +41,6 @@ class AddShowImagesTable extends Migration
      */
     public function down()
     {
-      Schema::drop('show_images');
+        Schema::drop('show_images');
     }
 }

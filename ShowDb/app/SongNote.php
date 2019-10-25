@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class SongNote extends Model
 {
-
-    public function song() {
+    public function song()
+    {
         return $this->belongsTo('ShowDb\Song');
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('ShowDb\User');
     }
 
-    public function creator() {
+    public function creator()
+    {
         return $this->belongsTo('ShowDb\User');
     }
 }
