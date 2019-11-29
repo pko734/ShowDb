@@ -51,6 +51,7 @@ class ArchiveVideos extends Command
             mkdir($tmp_dir);
             chdir($tmp_dir);
             $cmd = "LC_ALL=en_US.UTF-8 youtube-dl '{$Note->note}'";
+            echo $cmd, "\n";
             exec($cmd, $result, $retval);
             if ($retval !== 0) {
                 echo "\n{$Note->note}\n{$Note->setlistItem->show->date}\n";
@@ -59,8 +60,14 @@ class ArchiveVideos extends Command
                 exec("rm -rf {$tmp_dir}");
                 continue;
             }
+            $ok = 0;
             foreach (glob("{$tmp_dir}/*.*") as $file) {
                 Storage::disk('s3')->putFileAs($remote_dir, new File("{$file}"), $Note->id.'@'.basename($file));
+                $ok = 1;
+            }
+            if($ok == 0) {
+                echo "download failed? {$tmp_dir}\n";
+                exit(1);
             }
             exec("rm -rf {$tmp_dir}");
             echo basename($file), "\n";

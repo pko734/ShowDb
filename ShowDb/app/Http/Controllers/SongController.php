@@ -226,9 +226,13 @@ class SongController extends Controller
             return redirect('/songs');
         }
 
+        $videos = [];
+        $videos = $song->setlistItemNotes()->get();
+
         return view('song.show')
             ->withSong($song)
             ->withUser($user)
+            ->withVideos($videos)
             ->withSongStats($this->_getSongPlaysByYear($id));
     }
 

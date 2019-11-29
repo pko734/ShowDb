@@ -16,7 +16,6 @@
         "orangehill/iseed": "*",
         "backup-manager/laravel": "^1.3",
         "thomaswelton/laravel-gravatar": "*",
-        "cornford/googlitics": "*",
         "laravelista/ekko": "*",
         "doctrine/dbal": "*",
         "masih/youtubedownloader": "*",
@@ -24,13 +23,13 @@
         "backup-manager/backup-manager": "^1.3",
         "league/flysystem-aws-s3-v3": "*",
         "antennaio/laravel-clyde": "*",
-        "illuminate/html": "*",
         "laravelcollective/html": "6.0.*",
         "intervention/image": "*",
         "adrianmejias/laravel-states": "*",
         "predis/predis": "^1.1",
         "fideloper/proxy": "^4.0",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "irazasyed/laravel-gamp": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",

@@ -12,8 +12,8 @@ Plays: {{ $song->title }}
 	<p>
 	  <em>
 	    A listing of shows where the selected song was played
-	    @if(isset($user_restriction))
-	    ({{ $user_restriction->username }})
+	    @if(isset($userRestriction))
+	    <strong>({{ $userRestriction->username }})</strong>
 	    @endif
 	  </em>
 	</p>
@@ -22,8 +22,8 @@ Plays: {{ $song->title }}
       <form action="/plays" method="GET" role="search">
 	<label>
 	  Find Shows Where A Song Was Played
-	  @if(isset($user_restriction))
-	  ({{ $user_restriction->username }})
+	  @if(isset($userRestriction))
+	  ({{ $userRestriction->username }})
 	  @endif
 	</label>
 	<div id="plays-input" class="input-group">
@@ -33,8 +33,8 @@ Plays: {{ $song->title }}
 		   class="form-control typeahead"
 		   type="text"
 		   placeholder="Song Title">
-	    @if(isset($user_restriction))
-	    <input type="hidden" name="username" value="{{ $user_restriction->username }}">
+	    @if(isset($userRestriction))
+	    <input type="hidden" name="username" value="{{ $userRestriction->username }}">
 	    @endif
 	  </span>
 	  <span class="input-group-btn">
