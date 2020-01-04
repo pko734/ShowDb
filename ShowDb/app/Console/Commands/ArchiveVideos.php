@@ -49,13 +49,13 @@ class ArchiveVideos extends Command
             $tmp_dir = tempnam('/tmp/', 'video-archive');
             unlink($tmp_dir);
             mkdir($tmp_dir);
-            chdir($tmp_dir);
-            $cmd = "LC_ALL=en_US.UTF-8 youtube-dl '{$Note->note}'";
+            chdir($tmp_dir);            
+            $cmd = env('YOUTUBE_DL_CMD');
+            $cmd .= " '{$Note->note}'";
             echo $cmd, "\n";
-            exec($cmd, $result, $retval);
+            passthru($cmd, $retval);
             if ($retval !== 0) {
                 echo "\n{$Note->note}\n{$Note->setlistItem->show->date}\n";
-                var_export($result);
                 echo "\n";
                 exec("rm -rf {$tmp_dir}");
                 continue;
