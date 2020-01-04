@@ -47,13 +47,18 @@ class AdminController extends Controller
                    $query->where('published', '=', '0');
                })->get();
 
+        $archived = SetListItemNote::where('archived', '=', 1)->count();
+        $pending_arch = SetListItemNote::where('archived', '=', 0)->count();
+
         return view('admin.index')
             ->withUser($request->user())
             ->withShowNotes($show_notes)
             ->withSongNotes($song_notes)
             ->withAlbumNotes($album_notes)
             ->withVideos($videos)
-            ->withPhotoShows($shows);
+            ->withPhotoShows($shows)
+            ->withArchivedVideos($archived)
+            ->withPendingArchivedVideos($pending_arch);
     }
 
     public function audit()

@@ -28,6 +28,23 @@ Admin
 	</div>
       </div>
       <div class="row">
+	<div class="col-md-12">
+	  <label>Videos Archived</label>
+	  <p>
+	    {{ $archivedVideos }}
+	  </p>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-md-12">
+	  <label>Videos Pending Archive</label>
+	  <p>
+	    {{ $pendingArchivedVideos }}
+	  </p>
+	</div>
+      </div>
+
+      <div class="row">
       <div id="show-note-column" class="col-md-3">
         <label>Show Notes</label>
         @include('admin.notes', ['notes' => $showNotes, 'type' => 'show'])

@@ -44,7 +44,7 @@ class VideoUpdateCommand extends Command
     {
         $channelId = env('YOUTUBE_CHANNEL_ID');
         $apikey = env('YOUTUBE_API_KEY');
-
+        echo "x: $channelId";
         $page = '';
         $search = 'q='.urlencode('').'&';
         while (true) {

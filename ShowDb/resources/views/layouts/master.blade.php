@@ -107,13 +107,6 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Left Side Of Navbar -->
           <ul class="nav navbar-nav">
-            <!--
-            @if(Auth::user())
-            <li class="{{ Ekko::isActiveURL('/stats/' . Auth::user()->username) }}"><a href="/stats/{{ Auth::user()->username }}">My Stats</a></li>
-	        @else
-            <li class="{{ Ekko::isActiveURL('/register') }}"><a href="/register">My Stats</a></li>
-            @endif
-            -->
             @if(Auth::user())
             <li class="{{ Ekko::isActiveURL('/new') }}"><a href="/new">What's New</a></li>
             @endif
@@ -154,15 +147,27 @@
             @else
             <li class="dropdown {{ Ekko::isActiveRoute('settings.*') }}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                @if(\Gravatar::exists(Auth::user()->email))
-                {!! \Gravatar::image(Auth::user()->email, 'test', ['width'=>25,'height'=>25]) !!}
-                @else
-                @if(Auth::user()->username)
-                {{ Auth::user()->username }}
-                @else
-                {{ Auth::user()->name }}
-                @endif
-                @endif
+	        @if(\Cache::get("gravatar-" . Auth::user()->email) !== null)
+		   {!! \Cache::get("gravatar-" . Auth::user()->email) !!}
+		@else
+                  @if(\Gravatar::exists(Auth::user()->email))
+		    @if(\Cache::get("gravatar-" . Auth::user()->email) !== null)
+		      {!! \Cache::get("gravatar-" . Auth::user()->email) !!}
+		    @else
+		      @php
+		        $gravatar = \Gravatar::image(Auth::user()->email, 'test', ['width'=>25,'height'=>25]);
+		        \Cache::put("gravatar-" . Auth::user()->email, $gravatar, 10000)
+		      @endphp
+                      {!! $gravatar !!}
+		    @endif
+                  @else
+                    @if(Auth::user()->username)
+                      {{ Auth::user()->username }}
+                    @else
+                      {{ Auth::user()->name }}
+                    @endif
+		  @endif
+	        @endif
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">

@@ -78,13 +78,15 @@ class SongController extends Controller
         $songs = \Cache::get("songs-index-$q-$o-$p");
         if ($songs === null) {
             $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
-            ->withCount('notes')
-            ->where('title', 'LIKE', '%'.$q.'%')
-            ->orWhereHas('notes', function ($query) use ($q) {
-                $query->where('note', 'LIKE', "%{$q}%")
-                    ->where('note', 'NOT LIKE', '%<img src="data:%');
-            })
-            ->orderBy($sort_order[0], $sort_order[1])
+                   ->withCount('notes');
+            if($q != "") {
+              $songs = $songs->where('title', 'LIKE', '%'.$q.'%')
+                     ->orWhereHas('notes', function ($query) use ($q) {
+                         $query->where('note', 'LIKE', "%{$q}%")
+                             ->where('note', 'NOT LIKE', '%<img src="data:%');
+                     });
+            }
+            $songs = $songs->orderBy($sort_order[0], $sort_order[1])
             ->orderBy('title')
             ->paginate(15)
             ->setPath('');
