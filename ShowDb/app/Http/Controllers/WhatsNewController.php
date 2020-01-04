@@ -112,7 +112,7 @@ class WhatsNewController extends Controller
         $itemCollection = collect($stuff);
 
         // Define how many items we want to be visible in each page
-        $perPage = 15;
+        $perPage = 5;
 
         // Slice the collection to get the items to display in current page
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();

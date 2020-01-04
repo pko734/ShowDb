@@ -164,7 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        Irazasyed\LaravelGAMP\LaravelGAMPServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -186,7 +186,6 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         BackupManager\Laravel\Laravel55ServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
-        Cornford\Googlitics\AnalyticsServiceProvider::class,
         //Laravelista\Ekko\EkkoServiceProvider::class,
         Laravelista\Ekko\Frameworks\Laravel\ServiceProvider::class,
     Intervention\Image\ImageServiceProvider::class,
@@ -244,8 +243,8 @@ return [
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
-        'Analytics' => Cornford\Googlitics\Facades\Analytics::class,
         'Ekko' => Laravelista\Ekko\Frameworks\Laravel\Facade::class,
+        'GAMP'  => Irazasyed\LaravelGAMP\Facades\GAMP::class,
     'Image' => Intervention\Image\Facades\Image::class,
     'States' => AdrianMejias\States\StatesFacade::class,
     ],

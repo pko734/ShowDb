@@ -15,17 +15,20 @@ Auth::routes();
 
 Route::view('offline', 'offline');
 
-Route::get('/', function (Request $request) {
-    if (Auth::user()) {
-        return view('redirect')->withTo('stats/'.Auth::user()->username);
+#Route::get('/', function (Request $request) {
+#    if (Auth::user()) {
+#        return view('redirect')->withTo('stats/'.Auth::user()->username);
+#
+#        return redirect('stats/'.Auth::user()->username);
+#    } else {
+#        return view('redirect')->withTo('login');
+#
+#        return redirect('register');
+#   }
+#});
 
-        return redirect('stats/'.Auth::user()->username);
-    } else {
-        return view('redirect')->withTo('login');
+Route::get('/', 'IndexController@index');
 
-        return redirect('register');
-    }
-});
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider')->name('fb.auth');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback')->name('fb.callback');
@@ -116,11 +119,7 @@ Route::get('settings', 'UserController@settings')->name('user.settings');
 Route::put('settings/update', 'UserController@update')->name('user.update.store');
 
 // privacy
-Route::get('privacy', function () {
-    return view('privacy');
-});
+Route::get('privacy', 'IndexController@privacy');
 
 // about
-Route::get('about', function () {
-    return view('about');
-});
+Route::get('about', 'IndexController@about');
