@@ -54,7 +54,7 @@
     <a href="javascript:window.history.back();" id="pwa-back" class="fa-stack fa-2x">
       <i class="fas fa-circle fa-stack-2x"></i>
       <i class="fas fa-arrow-left fa-stack-1x fa-inverse"></i>
-    </a>    
+    </a>
     <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
       <div class="slides"></div>
       <h3 class="title"></h3>
@@ -113,16 +113,26 @@
             <li class="{{ Ekko::isActiveRoute('shows.*')  }}"><a href="/shows">Shows</a></li>
             <li class="{{ Ekko::isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
             <li class="{{ Ekko::isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
+
+	    <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+		<span class="caret"></span>
+	      </a>
+	      <ul class="dropdown-menu">
+		<li class="{{ Ekko::isActiveURL('/merch/stickers')  }}"><a href="/merch/stickers">Stickers</a></li>
+		@if(Auth::user())
+		<li class="{{ Ekko::isActiveURL('/game')  }}"><a href="/game">Games</a></li>
+		<li class="{{ Ekko::isActiveURL('/users')  }}"><a href="/users">Users</a></li>
+		@endif
+	      </ul>
+	    </li>
+	    <li class="{{ Ekko::isActiveURL('/about') }}">
+	      <a href="/about">About</a>
+	    </li>
+
             @if(Auth::user() && Auth::user()->admin)
             <!-- <li class="{{ Ekko::isActiveURL('/timeline')  }}"><a href="/timeline">Timeline</a></li> -->
             @endif
-            @if(Auth::user())
-            <li class="{{ Ekko::isActiveURL('/game')  }}"><a href="/game">Games</a></li>
-            <li class="{{ Ekko::isActiveURL('/users')  }}"><a href="/users">Users</a></li>
-            @endif
-            <li class="{{ Ekko::isActiveURL('/about') }}">
-              <a href="/about">About</a>
-            </li>
             @if(Auth::user() && Auth::user()->admin)
             <li class="dropdown {{ Ekko::isActiveRoute('admin.*') }}">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
@@ -238,7 +248,7 @@
 -->
 <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
 -->

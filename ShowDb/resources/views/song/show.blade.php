@@ -105,7 +105,17 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-5">
+  @if($song->lyrics && $user && $user->admin)
+    <div class="panel panel-white post panel-shadow">
+      <div class="panel-body">
+	<h2>Lyrics</h2>
+	<p style="white-space: pre-wrap;"><em>{{ $song->lyrics }}</em></p>
+      </div>
+    </div>
+  @endif
+
     <div class="form-group">
       <form id="song-note-form" method="POST" action="/songs/{{ $song->id }}/notes">
 	{{ csrf_field() }}

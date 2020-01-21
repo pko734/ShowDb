@@ -75,6 +75,14 @@ Route::post('albumitems/{item}/note', 'AlbumController@storeItemNote')->name('al
 Route::delete('albumitems/{item}/note/{note}', 'AlbumController@destroyItemNote')->name('albums.itemnote.destroy');
 Route::put('albumitems/{item}/note/{note}', 'AlbumController@approveItemNote')->name('albums.itemnote.approve');
 
+// merch
+Route::get('merch/stickers', 'MerchController@stickers');
+Route::get('merch/patches', 'MerchController@patches');
+Route::get('merch/{merch}/edit', 'MerchController@edit');
+Route::put('merch/{merch}', 'MerchController@update');
+Route::delete('merch/{merch}', 'MerchController@destroy');
+Route::post('merch', 'MerchController@store');
+
 // stats
 Route::get('stats', 'UserController@allstats')->name('user.index');
 Route::get('stats/all/songs', 'UserController@songsAll')->name('songs.all');

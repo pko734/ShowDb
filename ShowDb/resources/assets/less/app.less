@@ -1038,8 +1038,8 @@ fieldset[disabled] {
       }
       &.open{
         a{
-          background:#FFF;
-          color:#000;
+          //background:#FFF;
+          //color:#000;
         }
       }
       &.active{
@@ -1057,6 +1057,11 @@ fieldset[disabled] {
     }
   }
 }
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  background-color: #333;
+}
+
 #notetable{
   td{
     padding:0px;
