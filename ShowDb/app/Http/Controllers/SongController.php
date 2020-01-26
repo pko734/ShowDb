@@ -81,10 +81,7 @@ class SongController extends Controller
                    ->withCount('notes');
             if($q != "") {
               $songs = $songs->where('title', 'LIKE', '%'.$q.'%')
-                     ->orWhereHas('notes', function ($query) use ($q) {
-                         $query->where('note', 'LIKE', "%{$q}%")
-                             ->where('note', 'NOT LIKE', '%<img src="data:%');
-                     });
+                             ->orWhere('lyrics', 'LIKE', '%'.$q.'%');
             }
             $songs = $songs->orderBy($sort_order[0], $sort_order[1])
             ->orderBy('title')

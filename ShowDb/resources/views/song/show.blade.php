@@ -67,7 +67,7 @@
                     <i>Don't Push Me Out</i>
                   </p>
                 </div>
-              </div>              
+              </div>
             </div>
           </div>
     <p>
@@ -91,7 +91,7 @@
 		 type="text/html"
 		 >
 		<i class="fab fa-youtube" aria-hidden="true"></i></a>
-	  @endif      
+	  @endif
       @endforeach
     </p>
 
@@ -107,36 +107,35 @@
   </div>
 
   <div class="col-md-5">
-  @if($song->lyrics && $user && $user->admin)
-    <div class="panel panel-white post panel-shadow">
-      <div class="panel-body">
-	<h2>Lyrics</h2>
-	<p style="white-space: pre-wrap;"><em>{{ $song->lyrics }}</em></p>
+  @if($song->lyrics)
+      <div class="panel panel-white post panel-shadow">
+          <div class="panel-body">
+    	      <h2>Lyrics</h2>
+	            <p style="white-space: pre-wrap;"><em>{{ $song->lyrics }}</em></p>
+          </div>
       </div>
-    </div>
   @endif
-
-    <div class="form-group">
-      <form id="song-note-form" method="POST" action="/songs/{{ $song->id }}/notes">
-	{{ csrf_field() }}
-	<table id="notetable" class="table">
-	  <tbody>
-	    @include('notes', ['notes' => $song->notes, 'type' => 'song', 'add_tooltip' => 'Why is this song special to you?'])
-	  </tbody>
-	</table>
+      <div class="form-group">
+        <form id="song-note-form" method="POST" action="/songs/{{ $song->id }}/notes">
+	        {{ csrf_field() }}
+	        <table id="notetable" class="table">
+            <tbody>
+              @include('notes', ['notes' => $song->notes, 'type' => 'song', 'add_tooltip' => 'Why is this song special to you?'])
+            </tbody>
+        	</table>
       </form>
       <form id="delete-song-form" method="POST" action="/songs/{{ $song->id }}">
-	{{ method_field('DELETE') }}
-	{{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        {{ csrf_field() }}
       </form>
       <form id="edit-song-note-form" method="POST" action="/songs/{{ $song->id }}/notes/">
-	{{ method_field('PUT') }}
-	{{ csrf_field() }}
-	<input type="hidden" name="note" value="">
+        {{ method_field('PUT') }}
+        {{ csrf_field() }}
+        <input type="hidden" name="note" value="">
       </form>
       <form id="delete-song-note-form" method="POST" action="/songs/{{ $song->id }}/notes/">
-	{{ method_field('DELETE') }}
-	{{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        {{ csrf_field() }}
       </form>
     </div>
   </div>
@@ -167,7 +166,7 @@
     vAxis: {
     title: 'Times Performed',
     titleTextStyle: {
-    fontName: 'Lato',           
+    fontName: 'Lato',
     },
     gridlines: {count: -1},
     viewWindow:{
@@ -184,11 +183,11 @@
     startup: true
     };
     }
-    
+
     var chart = new google.visualization.ColumnChart(
     document.getElementById('chart_div1')
     );
-    /* 
+    /*
     chart.setAction({
     id: 'shows',
     text: 'See Shows',
@@ -199,13 +198,13 @@
     location.href="{{ url()->current() }}/shows?q=" + year;
     }
     });
-    */   
+    */
     chart.draw(data, options);
     }
 
     function drawChartsLocal() {
     var data1 = <?php echo json_encode($songStats) ?>;
-    
+
     window.animateChart = true;
     drawCharts(data1);
     window.onresize = function() {

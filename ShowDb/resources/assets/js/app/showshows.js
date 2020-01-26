@@ -1,9 +1,8 @@
 $(document).ready(function() {
-    $('.video_link').attr('data-youtube', function() { return getVideoId(this.href).id }); 
+    $('.video_link').attr('data-youtube', function() { return getVideoId(this.href).id });
 
     $('#delete-show-btn').on('click', function() {
-//	$("#mi-modal").modal('show');
-	console.log('test');
+
 	bootbox.confirm('Are you sure you want to delete this show?', function(result) {
 	    if(result) {
 		    $('#delete-show-form').submit();
@@ -100,35 +99,35 @@ $(document).ready(function() {
     $('.photo-add-btn').on('click', function() {
 	var that = this;
 	var uploadHtml = "<div>" +
-	    "<p>When you contribute images to this site, you retain any copyright you have in the content, but you grant us permission to use it to provide our service, including reproducing and displaying your content to the public on our site.</p>" + 
+	    "<p>When you contribute images to this site, you retain any copyright you have in the content, but you grant us permission to use it to provide our service, including reproducing and displaying your content to the public on our site.</p>" +
 	    "<p>If the content you contribute is not owned by you, you represent and warrant that it is either in the public domain or available under a Creative Commons license, or that you are authorized to use it by the rights holder or by law.</p>" +
-	    "<p>Finally, we require that you grant permission for The Avett Brothers to use it in any way they see fit.</p>" + 
+	    "<p>Finally, we require that you grant permission for The Avett Brothers to use it in any way they see fit.</p>" +
             "<form data-focus='false' data-toggle='validator' id='photo-add-form' method='POST' action='" + window.Laravel.showId + "/upload' accept-charset='UTF-8' enctype='multipart/form-data'>" +
-	    "<div class='form-group'>" + 
-	    "<div class='checkbox'>" +	
-	    "<label><input name='tos' type='checkbox' checked value='1' required>I have read and agree the above terms.</label>" + 
-	    "</div>" + 
-	    "</div>" + 
-	    "<div class='form-group'>" + 
-	    "<div class='checkbox'>" +	
-	    "<label><input name='certify' type='checkbox' value='1' checked required>I certify that this photo is from following show:<br/>" + window.Laravel.showDetail + "</label>" + 
-	    "</div>" + 
-	    "</div>" + 
-	    "<div class='form-group'>" + 
-	    "<label for='name'>Photo Credit</label>" + 
-	    "<input type='text' class='form-control' id='name' name='photo_credit' value='" + window.Laravel.username + "'>" + 
-	    "</div>" + 
-	    "<div class='form-group'>" + 
-	    "<label for='name'>Photo Caption</label>" + 
-	    "<input type='text' class='form-control' id='name' name='photo_caption' placeholder='Optional'>" + 	    
-	    "</div>" + 
-	    "<div class='form-group'>" + 
-	    "<input name='_token' type='hidden' value='" + window.Laravel.csrfToken + "'>" + 
-            "<div class='row'>" + 
-            "<div class='col-md-6'>" + 
-	    "<input id='fupload' class='form-control' name='image[]' type='file' required multiple>" + 
+	    "<div class='form-group'>" +
+	    "<div class='checkbox'>" +
+	    "<label><input name='tos' type='checkbox' checked value='1' required>I have read and agree the above terms.</label>" +
+	    "</div>" +
+	    "</div>" +
+	    "<div class='form-group'>" +
+	    "<div class='checkbox'>" +
+	    "<label><input name='certify' type='checkbox' value='1' checked required>I certify that this photo is from following show:<br/>" + window.Laravel.showDetail + "</label>" +
+	    "</div>" +
+	    "</div>" +
+	    "<div class='form-group'>" +
+	    "<label for='name'>Photo Credit</label>" +
+	    "<input type='text' class='form-control' id='name' name='photo_credit' value='" + window.Laravel.username + "'>" +
+	    "</div>" +
+	    "<div class='form-group'>" +
+	    "<label for='name'>Photo Caption</label>" +
+	    "<input type='text' class='form-control' id='name' name='photo_caption' placeholder='Optional'>" +
+	    "</div>" +
+	    "<div class='form-group'>" +
+	    "<input name='_token' type='hidden' value='" + window.Laravel.csrfToken + "'>" +
+            "<div class='row'>" +
+            "<div class='col-md-6'>" +
+	    "<input id='fupload' class='form-control' name='image[]' type='file' required multiple>" +
             "</div>" +
-            "<div class='col-md-6'>" + 
+            "<div class='col-md-6'>" +
             "</div>" +
             "</div>" +
             "</div>" +
@@ -166,11 +165,11 @@ $(document).ready(function() {
 	    for (var i = 0; i < this.files.length; i++) {
 		list += "<div class='col-xs-12 file-list'>" + this.files[i].name + "</div>"
 	    }
-	    
+
 	    $("#fileList").html(list);
 	}, false);
     });
-    
+
 
     $('.delete-video-btn').on('click', function() {
 	var that = this;
@@ -221,7 +220,7 @@ $(document).ready(function() {
 	    });
 	}
 
-	$('.blueimp-gallery > .approve').hide();	
+	$('.blueimp-gallery > .approve').hide();
 	if($($('#blueimp-gallery').data('gallery').list[index]).data('approvable') == '1') {
 	    $('.blueimp-gallery > .approve').show();
 	    $('.blueimp-gallery > .approve').off('click');

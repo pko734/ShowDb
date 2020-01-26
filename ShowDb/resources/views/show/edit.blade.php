@@ -86,10 +86,10 @@ Show Editor
 	      <td>
                 <span class="ac-song-title">
                   <input name="songs[]"
-			 value=""
-			 class="form-control typeahead"
-			 type="text"
-			 placeholder="Song Title">
+                        value=""
+                        class="form-control typeahead"
+                        type="text"
+                        placeholder="Song Title">
                 </span>
               </td>
             </tr>

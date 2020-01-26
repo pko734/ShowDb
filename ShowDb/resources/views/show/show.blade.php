@@ -63,7 +63,7 @@
               @endif
               <span class="input-group-addon">
                 @if($prevShow)
-                <a title="Previous Show" 
+                <a title="Previous Show"
                    href="/shows/{{ $prevShow->id }}"
                    data-placement="bottom"
                    data-toggle="tooltip">
@@ -75,13 +75,13 @@
               </span>
               <span class="input-group-addon">
                 @if($nextShow)
-                <a title="Next Show" 
+                <a title="Next Show"
                    href="/shows/{{ $nextShow->id }}"
                    data-placement="bottom"
                    data-toggle="tooltip">
                   @endif
                   <span class="glyphicon glyphicon-step-forward"></span>
-                  @if($nextShow)              
+                  @if($nextShow)
                 </a>
                 @endif
               </span>
@@ -131,7 +131,7 @@
 	      @if($img->published ||
 	      ($user && $user->admin) ||
 	      ($user && ($user->id == $img->user_id)))
-	      <a href="{{ $img->url }}" 
+	      <a href="{{ $img->url }}"
 	         data-gallery
 	         data-photo-id="{{ $img->id }}"
 	         title="@if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
@@ -146,9 +146,9 @@
 	        <i class="far fa-image fa-lg
 			  @if($img->published)
 			  text-primary
-			  @else 
+			  @else
 			  text-danger
-			  @endif" 
+			  @endif"
 		   aria-hidden="true"></i>
 	      </a>
 	      @endif
@@ -228,7 +228,21 @@
 		  </span>
 		  @endif
 		</td>
-	      </tr>
+		  </tr>
+	      <tr>
+		<td colspan="3">
+	  	<span class="input-grp-btn">
+			<button id="add-poster-btn"
+				type="button"
+				onclick="javascript:window.location='/merch/create?category=posters&show_id={{ $show->id }}'"
+				class="pull-left btn btn-primary">
+				<span class="glyphicon glyphicon-plus"></span> Add A Poster
+			</button>
+			</span>
+			</td>
+		  </tr>
+
+
 	    </tbody>
 	  </table>
 	</form>
@@ -254,7 +268,39 @@
         </div>
       </div>
     </div>
-    @endif
+	@endif
+	@if($user && $user->admin && $show->posters()->first())
+			  @foreach($show->posters as $poster)
+			  <div class="panel panel-white post panel-shadow">
+			    <div class="post post-description">
+					@if($poster->artists()->first())
+						Poster by
+						<a href="/merch/posters?selector=artist&artist_id={{ $poster->artists()->first()->id }}">
+						{{ $poster->artists()->first()->name }}
+						</a>
+						@if($poster->dimensions)
+                           <span>- {{ $poster->dimensions }}</span>
+						@endif
+						@if($poster->notes)
+                           <span>- {{ $poster->notes }}</span>
+						@endif
+					@endif
+
+				<p><img src="{{ $poster->url }}"></p>
+				@if($user && $user->admin)
+                    <span class="input-group-btn" style="vertical-align:top;">
+                    <a href="/merch/{{ $poster->id }}/edit">
+                    <button type="button" class="edit-merch-btn btn btn-default">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                   </a>
+				   </span>
+				@endif
+				  </div>
+				</div>
+			  @endforeach
+	@endif
+
     <form id="show-note-form" method="POST" action="{{ url()->current() }}/notes">
       {{ csrf_field() }}
       <div class="form-group">
@@ -304,7 +350,7 @@
 <script language="javascript">
   function drawCharts(data1, max1, data2, max2, data3, max3, data4) {
   if(data1.length > 0) {
-  drawChart1( data1, max1 );	    
+  drawChart1( data1, max1 );
   }
   }
   function drawChart1(data, max) {
@@ -330,7 +376,7 @@
   chartArea: {'width': '90%', 'height': '85%'},
   tooltip: { trigger: 'selection', isHtml: true },
   };
-  
+
   if(document.getElementById('chart_div1')) {
   var chart = new google.visualization.PieChart(
   document.getElementById('chart_div1')
@@ -340,7 +386,7 @@
   }
 
   function drawChartsLocal() {
-  
+
   var data1 = <?php echo json_encode($albumChartData) ?>;
   drawCharts(data1);
   window.onresize = drawChartsLocal;

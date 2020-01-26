@@ -10,6 +10,7 @@ Merch Editor
         {{ method_field('PUT') }}
         {{ csrf_field() }}
 	    <input name="category" type="hidden" value="{{ $merch->category }}">
+	    <input name="referer" type="hidden" value="{{ $referer }}">
         <div class="form-group">
           <label for="merch_id">Merch ID</label>
           <input disabled value="{{ $merch->id }}"
@@ -17,7 +18,23 @@ Merch Editor
 		 class="form-control"
 		 id="merch_id"
 		 placeholder="">
+		</div>
+		@if($merch->shows()->first())
+        <div class="form-group">
+          <label for="show_id">Show</label>
+          <p><a href="/shows/{{ $merch->shows()->first()->id }}">{{ $merch->shows()->first()->getShowDisplay() }}</a></p>
+		</div>
+		@endif
+        <div class="form-group">
+		  	<label for="merch_artist">Merch Artist</label>
+		  	<select name="artist_id" class="form-control" id="artist_selector_edit">
+				<option value="">Select an artist</option>
+				@foreach($allArtist as $a)
+				<option value="{{ $a->id }}" @if($merch->artists()->first() && $a->name == $merch->artists()->first()->name) selected @endif>{{ $a->name }}</option>
+				@endforeach
+			</select>
         </div>
+
         <div class="form-group">
           <label for="merch_name">Merch Name</label>
           <input value="{{ $merch->name }}"
@@ -77,16 +94,6 @@ Merch Editor
 		 maxlength="255"
 		 id="merch_notes"
 		 placeholder="Any special notes about this merch">
-        </div>
-        <div class="form-group">
-          <label for="merch_artist">Merch Artist</label>
-          <input value="{{ $merch->artist }}"
-		 name="artist"
-		 type="text"
-		 maxlength="100"
-		 class="form-control"
-		 id="merch_artist"
-		 placeholder="Artist Name">
         </div>
         <button type="submit" class="pull-right btn btn-primary">Submit</button>
       </form>

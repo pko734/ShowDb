@@ -4,6 +4,8 @@ namespace ShowDb\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ShowDb\Merch;
+use ShowDb\Artist;
+use ShowDb\Show;
 use Image;
 use Session;
 use Illuminate\Http\UploadedFile;
@@ -52,14 +54,138 @@ class MerchController extends Controller
             ->withSubheader('')
             ->withUser(\Auth::user());
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function skateDecks()
+    {
+        $merch = Merch::orderBy('year')->where('category', '=', 'skatedecks')->paginate(200);
+        return view('merch.index')
+            ->withMerch($merch)
+            ->withCategory('skatedecks')
+            ->withHeading('Official Skate Decks')
+            ->withSubheader('')
+            ->withUser(\Auth::user());
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function hats()
+    {
+        $merch = Merch::orderBy('year')->where('category', '=', 'hats')->paginate(200);
+        return view('merch.index')
+            ->withMerch($merch)
+            ->withCategory('hats')
+            ->withHeading('Official Band Hats')
+            ->withSubheader('')
+            ->withUser(\Auth::user());
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function bandanas()
+    {
+        $merch = Merch::orderBy('year')->where('category', '=', 'bandanas')->paginate(200);
+        return view('merch.index')
+            ->withMerch($merch)
+            ->withCategory('bandanas')
+            ->withHeading('Official Band Bandanas')
+            ->withSubheader('')
+            ->withUser(\Auth::user());
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function beltBuckles()
+    {
+        $merch = Merch::orderBy('year')->where('category', '=', 'beltbuckles')->paginate(200);
+        return view('merch.index')
+            ->withMerch($merch)
+            ->withCategory('beltbuckles')
+            ->withHeading('Official Belt Buckles')
+            ->withSubheader('')
+            ->withUser(\Auth::user());
+    }
+
+    public function posters(Request $request)
+    {
+        $year = $request->year ?? '';
+        $artist_id = $request->artist_id ?? '';
+
+        $selector = $request->selector ?? 'year';
+
+        if($selector == 'year') {
+            $merch = Merch::join('merch_show', 'merches.id', '=', 'merch_show.merch_id')
+                ->join('shows', 'merch_show.show_id', '=', 'shows.id')
+                ->with('shows')
+                ->with('artists')
+                ->where('category', '=', 'posters')
+                ->where('year', '=', $year)
+                ->orderBy('shows.date')
+                ->select('merches.*')
+                ->paginate(200);
+        }
+        $artist = null;
+        if($selector == 'artist') {
+            $merch = Merch::orderBy('artist')
+                ->where('category', '=', 'posters')
+                ->whereHas('artists', function ($query) use ($artist_id) {
+                    $query->where('artist_id', '=', $artist_id);
+                })
+                ->orderBy('year')
+                ->paginate(200);
+            $artist = Artist::find($artist_id);
+        }
+
+        $all_years = Merch::distinct('year')
+            ->orderBy('year')
+            ->where('category', '=', 'posters')
+            ->pluck('year');
+
+        $all_artists = Artist::orderBy('name')->get();
+
+        return view('merch.poster.index')
+            ->withMerch($merch)
+            ->withSelector($selector)
+            ->withYear($year)
+            ->withArtist($artist)
+            ->withAllYears($all_years)
+            ->withAllArtist($all_artists)
+            ->withCategory('posters')
+            ->withHeading('Show Posters')
+            ->withSubheader('')
+            ->withUser(\Auth::user());
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $show = Show::find($request->show_id);
+        $category = $request->category;
+        $all_artists = Artist::orderBy('name')->get();
+        $referer = $_SERVER['HTTP_REFERER'];
+
+        return view('merch.create')
+            ->withShow($show)
+            ->withCategory($category)
+            ->withAllArtist($all_artists)
+            ->withReferer($referer);
     }
 
     /**
@@ -88,15 +214,15 @@ class MerchController extends Controller
         $merch = new Merch();
         $merch->year = (int)$request->year;
         $merch->description = $request->description;
-        $merch->dimensions = '';
-        $merch->notes = '';
+        $merch->dimensions = $request->dimensions ?? '';
+        $merch->notes = $request->notes ?? '';
         $merch->group = 'The Avett Brothers';
-        $merch->name = '';
-        $merch->artist = '';
+        $merch->name = $request->name ?? '';
+        $merch->artist = $request->artist ?? '';
         $merch->category = $request->category;
 
         $filenamewithextension = $request->file('image')->getClientOriginalName();
-        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+        $filename = urldecode(pathinfo($filenamewithextension, PATHINFO_FILENAME));
         $extension = $request->file('image')->getClientOriginalExtension();
         $filenametostore = $filename.'_'.time().'.'.$extension;
         $smallthumbnail = $filename.'_small_'.time().'.'.$extension;
@@ -124,7 +250,21 @@ class MerchController extends Controller
         $merch->url = '/storage/merch/' . $filenametostore;
         $merch->thumbnail_url = '/storage/merch/thumbnail/' . $smallthumbnail;
         $merch->save();
-        return redirect('merch/' . $merch->category)->with('success', "Merch uploaded successfully.");
+
+        if($request->artist_id) {
+            $merch->artists()->detach();
+            $merch->artists()->attach($request->artist_id);
+            $merch->artist = Artist::find($request->artist_id)->name;
+        }
+
+        if($request->show_id) {
+            $merch->shows()->attach($request->show_id);
+        }
+
+        $merch->save();
+
+        return redirect($request->referer ?? $_SERVER['HTTP_REFERER'])
+            ->with('success', "Merch uploaded successfully.");
     }
 
     /**
@@ -149,10 +289,14 @@ class MerchController extends Controller
         if (is_null($merch)) {
             Session::flash('flash_error', 'Merch not found');
 
-            return redirect('/stickers');
+            return redirect('/merch/stickers');
         }
+        $all_artists = Artist::orderBy('name')->get();
 
-        return view('merch.edit')->withMerch($merch);
+        return view('merch.edit')
+        ->withMerch($merch)
+        ->withReferer(@$_SERVER['HTTP_REFERER'])
+        ->withAllArtist($all_artists);
     }
 
     /**
@@ -168,12 +312,19 @@ class MerchController extends Controller
         $merch->dimensions = $request->dimensions;
         $merch->description = $request->description;
         $merch->notes = $request->notes;
-        $merch->artist = $request->artist;
+        if($merch->artist) {
+            $merch->artist = $request->artist;
+        }
+        if($request->artist_id) {
+            $merch->artists()->detach();
+            $merch->artists()->attach($request->artist_id);
+            $merch->artist = Artist::find($request->artist_id)->name;
+        }
         $merch->save();
 
         Session::flash('flash_message', 'Merch updated');
 
-        return redirect('/merch/' . $merch->category);
+        return redirect($request->referer);
     }
 
     /**
@@ -185,8 +336,9 @@ class MerchController extends Controller
     public function destroy(Merch $merch)
     {
         $category = $merch->category;
+        $merch->artists()->detach();
         $merch->delete();
         Session::flash('flash_message', 'Merch deleted');
-        return redirect('/merch/' . $category);
+        return redirect($_SERVER['HTTP_REFERER']);
     }
 }

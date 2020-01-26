@@ -8,7 +8,7 @@ var GameScene = new Phaser.Class({
     {
         Phaser.Scene.call(this, { key: 'gameScene'});
     },
-    
+
     init: function(data) {
         let key = 'blueSheet';
         let btn = 'blue_button00.png';
@@ -16,8 +16,9 @@ var GameScene = new Phaser.Class({
         this.numCorrect = data.numCorrect || 0;
         this.timeBonus = data.timeBonus || 0;
         this.numWrong = data.numWrong || 0;
+        this.maxWrong = 10;
         this.questions = this.cache.json.get('questions');
-        this.timeLimit = 10;
+        this.timeLimit = 15;
         this.uiBlocked = true;
         this.activeQ = ((data.round - 1) * data.roundLength) - 1;
         this.choiceContainers = [];
@@ -28,7 +29,7 @@ var GameScene = new Phaser.Class({
 
     create: function ()
     {
-        this.scale.on('leavefullscreen', function() { 
+        this.scale.on('leavefullscreen', function() {
             this.scale.refresh();
         }, this);
 
@@ -48,15 +49,15 @@ var GameScene = new Phaser.Class({
         this.creditbg.fillStyle(0x000000, 0.8);
         this.creditbg.fillRect(0, 0, this.sys.game.config.width, this.sys.game.config.height);
         let b = "Thank you for playing\n\n\n\n\n";
-        let c = "Developer                      Paul Oehler\n\n" + 
-                "Question Writers               Tim Mossberger\n" + 
+        let c = "Developer                      Paul Oehler\n\n" +
+                "Question Writers               Tim Mossberger\n" +
                 "                               Paul Oehler\n\n" +
                 "Testers                        Hazy Mossberger\n" +
                 "                               Tim Mossberger\n" +
                 "                               Alison Oehler\n" +
                 "                               Paul Oehler\n\n\n";
         let d = "Special Thanks To Our Patrons (April 2019)\n\n" +
-                "Jay Akers\n" + 
+                "Jay Akers\n" +
                 "Juli Anderson\n" +
                 "Leslie Baney\n" +
                 "Shaunda Belanger\n" +
@@ -178,7 +179,7 @@ var GameScene = new Phaser.Class({
 
         let credits = this.add.text(0, thx.height, c, {
             font: '25px monospace'
-        });        
+        });
         credits.setOrigin(0.5, 0);
         credits.setLineSpacing(20);
 
@@ -197,7 +198,7 @@ var GameScene = new Phaser.Class({
         credits3.setLineSpacing(20);
 
         this.creditCon = this.add.container(
-            375, 
+            375,
             this.sys.game.config.height,
             [thx, credits, credits2, credits3]
         );
@@ -230,9 +231,30 @@ var GameScene = new Phaser.Class({
     },
 
     nextQuestion: function() {
-        this.activeQ = (this.activeQ + 1);
-        if(this.activeQ >= this.round * this.roundLength || this.numWrong > 0 || this.activeQ == this.questions.length) {
-            if(this.numCorrect == this.roundLength * this.round && this.activeQ != this.questions.length) {
+        this.questionDisplay.setText('Correct: ' + this.numCorrect + ' / ' + (this.questions.length));
+
+        this.activeQ++;
+        if(this.numWrong >= this.maxWrong) {
+            this.gameOver();
+            return;
+        }
+
+        if(this.activeQ == this.questions.length - 1) {
+            this.gameOver();
+            return;
+        }
+
+        if(this.activeQ % this.roundLength == 4) {
+            this.nextRound();
+            return;
+        }
+        /*
+        if(this.activeQ >= this.round * this.roundLength ||
+           this.numWrong > 0 ||
+           this.activeQ == this.questions.length) {
+
+            if(this.numCorrect == (this.roundLength * this.round) &&
+               this.activeQ != this.questions.length) {
                 this.nextRound();
                 return;
             } else {
@@ -240,7 +262,7 @@ var GameScene = new Phaser.Class({
                 return;
             }
         }
-        this.questionDisplay.setText('Questions: ' + (this.activeQ + 1));
+        */
         this.createQuestion();
         this.createChoices();
         this.bringInQuestion();
@@ -258,7 +280,7 @@ var GameScene = new Phaser.Class({
     },
 
     createQuestionDisplay: function() {
-        this.questionDisplay = this.add.text(0, 0, 'Questions: ' + (this.activeQ + 2), {
+        this.questionDisplay = this.add.text(0, 0, 'Correct:   0 / ' + (this.questions.length), {
             fill: '#000',
             align: 'center',
             font: '25px Open Sans',
@@ -292,7 +314,7 @@ var GameScene = new Phaser.Class({
                     ease: easer,
                     delay: 100,
                     callbackScope: this,
-                    onStart: function(tween, sprites) {                    
+                    onStart: function(tween, sprites) {
                         let tween3 = this.tweens.add({
                             targets: this.choiceContainers[2],
                             duration: easeSpeed,
@@ -302,7 +324,7 @@ var GameScene = new Phaser.Class({
                             ease: easer,
                             callbackScope: this,
                             delay: 200,
-                            onStart: function(tween, sprites) {                    
+                            onStart: function(tween, sprites) {
                                 let tween4 = this.tweens.add({
                                     targets: this.choiceContainers[3],
                                     duration: easeSpeed,
@@ -312,7 +334,7 @@ var GameScene = new Phaser.Class({
                                     ease: easer,
                                     delay: 300,
                                     callbackScope: this,
-                                    onComplete: function(tween, sprites) {                    
+                                    onComplete: function(tween, sprites) {
                                         this.createCountdown();
                                         if(this.cache.audio.get('question' + this.activeQ + '_audio')) {
                                             this.playingAudio = this.sound.add(
@@ -321,7 +343,7 @@ var GameScene = new Phaser.Class({
                                             this.playingAudio.play();
                                         }
                                         this.uiBlocked = false;
-                                        this.timer.paused = false;                                        
+                                        this.timer.paused = false;
                                     }
                                 });
                             }
@@ -343,7 +365,7 @@ var GameScene = new Phaser.Class({
         let score = this.createScore();
         let easer = 'Quint.easeOut';
         let easeSpeed = 1000;
-        
+
         let yayTween = this.tweens.add({
             targets: [img, btn, score, logo],
             duration: easeSpeed,
@@ -352,10 +374,10 @@ var GameScene = new Phaser.Class({
             ease: easer,
             onComplete: function() {
                 this.uiBlocked = false;
-                if(this.score == this.questions.length * 100) {
+                if(this.numWrong < this.maxWrong) {
                     let that = this;
                     that.uiBlocked = true;
-                    setTimeout(function() {               
+                    setTimeout(function() {
                         that.showCredits();
                     },
                     2000);
@@ -380,9 +402,10 @@ var GameScene = new Phaser.Class({
 
     nextRound: function() {
         this.scene.start('homeScene', {
-            round: this.round + 1, 
+            round: this.round + 1,
             roundLength: this.roundLength,
             numCorrect: this.numCorrect,
+            numWrong: this.numWrong,
             score: this.score,
             timeBonus: this.timeBonus
         });
@@ -403,7 +426,7 @@ var GameScene = new Phaser.Class({
         this.creditForce = 0;
         pic.on('pointerup', function() {
             if(this.uiBlocked) return;
-            this.creditForce++;
+                this.creditForce++;
             if(this.creditForce == 20) {
                 this.uiBlocked = true;
                 this.showCredits();
@@ -411,14 +434,14 @@ var GameScene = new Phaser.Class({
             }
         }, this);
 
-        return pic;        
+        return pic;
     },
 
     createPlayAgain: function() {
         let gameWidth = this.sys.game.config.width;
         let startBtn = this.add.sprite(
-            0, 
-            0, 
+            0,
+            0,
             'greySheet',
             'grey_button00.png'
         );
@@ -429,7 +452,7 @@ var GameScene = new Phaser.Class({
             this.cache.json.remove('questions');
             for(let i = this.activeQ; i < this.roundLength * this.round; i++) {
                 if(this.cache.audio.exists('question' + i + '_audio')) {
-                    this.cache.audio.remove('question' + i + '_audio');                
+                    this.cache.audio.remove('question' + i + '_audio');
                 }
                 if(this.game.textures.exists('question' + this.activeQ + '_image')) {
                     this.game.textures.remove('question' + i + '_image');
@@ -444,8 +467,8 @@ var GameScene = new Phaser.Class({
         });
         startTxt.setOrigin(0.5);
         let startCon = this.add.container(
-            375 + gameWidth, 
-            900, 
+            375 + gameWidth,
+            900,
             [startBtn, startTxt]
         );
         return startCon;
@@ -471,8 +494,8 @@ var GameScene = new Phaser.Class({
         scoreBg.displayWidth = scoreTxt.displayWidth + 20;
 
         let scoreCon = this.add.container(
-            375 + gameWidth, 
-            100, 
+            375 + gameWidth,
+            100,
             [scoreBg, scoreTxt]
         );
         return scoreCon;
@@ -486,7 +509,7 @@ var GameScene = new Phaser.Class({
             fill: '#000',
             align: 'center',
             font: '64px Open Sans',
-            wordWrap: { width: questionRect.displayWidth, useAdvancedWrap: true}            
+            wordWrap: { width: questionRect.displayWidth, useAdvancedWrap: true}
         });
         let parts = [];
         let yOffset = 0;
@@ -512,8 +535,8 @@ var GameScene = new Phaser.Class({
         }, this);
 
         this.rectContainer = this.add.container(
-            375, 
-            400, 
+            375,
+            400,
             parts
         );
         question.setOrigin(0.5)
@@ -557,8 +580,8 @@ var GameScene = new Phaser.Class({
                 this.questions[this.activeQ].choices[i].pressed = false;
             }, this);
             let container = this.add.container(
-                375, //+ this.sys.game.config.width, 
-                800 + (i * 120), 
+                375, //+ this.sys.game.config.width,
+                800 + (i * 120),
                 [item, text]
             );
 
@@ -581,9 +604,9 @@ var GameScene = new Phaser.Class({
 
         let gameWidth = this.sys.game.config.width;
         this.clockText = this.add.text(
-            gameWidth / 2, 
-            100, 
-            this.timeLimit + '.00', 
+            gameWidth / 2,
+            100,
+            this.timeLimit + '.00',
             {
                 font: '50px Open Sans',
                 color: '#8B0000'
@@ -598,7 +621,7 @@ var GameScene = new Phaser.Class({
         this.timer = this.time.addEvent({
             delay: 1000,
             callback: this.countDown,
-            callbackScope: this, 
+            callbackScope: this,
             repeat: this.timeLimit - 1,
             paused: true
         });
@@ -693,7 +716,7 @@ var GameScene = new Phaser.Class({
                     ease: easer,
                     delay: 100,
                     callbackScope: this,
-                    onStart: function(tween, sprites) {                    
+                    onStart: function(tween, sprites) {
                         let tween3 = this.tweens.add({
                             targets: this.choiceContainers[2],
                             duration: easeSpeed,
@@ -702,7 +725,7 @@ var GameScene = new Phaser.Class({
                             ease: easer,
                             callbackScope: this,
                             delay: 200,
-                            onStart: function(tween, sprites) {                    
+                            onStart: function(tween, sprites) {
                                 let tween4 = this.tweens.add({
                                     targets: this.choiceContainers[3],
                                     duration: easeSpeed,
@@ -711,7 +734,7 @@ var GameScene = new Phaser.Class({
                                     ease: easer,
                                     delay: 300,
                                     callbackScope: this,
-                                    onComplete: function(tween, sprites) {   
+                                    onComplete: function(tween, sprites) {
                                         this.deleteQuestion();
                                         this.nextQuestion();
                                     }

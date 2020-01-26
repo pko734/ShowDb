@@ -14,6 +14,16 @@
   text-decoration: underline;
 }
 
+.row.display-flex {
+	display: flex;
+	flex-wrap: wrap;
+  }
+.row.display-flex > [class*='col-'] {
+	display: flex;
+	flex-direction: column;
+}
+
+
 // pwa-back
 #pwa-back {
   position: fixed;
@@ -118,7 +128,7 @@ body {
   height: @size;
   width: @size * 2;
   border-radius: @size;
-  
+
   &:focus,
   &.focus {
     &,
@@ -126,7 +136,7 @@ body {
       outline: none;
     }
   }
-  
+
   &:before,
   &:after {
     line-height: @size;
@@ -150,7 +160,7 @@ body {
     right: -@margin;
     opacity: .5;
   }
-  
+
   > .handle {
     position: absolute;
     top: (@size * .25) / 2;
@@ -174,7 +184,7 @@ body {
       opacity: 1;
     }
   }
-  
+
   &.btn-sm {
     &:before,
     &:after {
@@ -200,7 +210,7 @@ body {
       }
     }
   }
-  
+
   &.btn-xs {
     &:before,
     &:after {
@@ -213,22 +223,22 @@ body {
 
 // Apply Mixin to different sizes & colors
 .btn-toggle {
-  
+
   .toggle-mixin;
   .toggle-color;
-  
+
   &.btn-lg {
     .toggle-mixin(@size: 2.5rem; @font-size: 1rem; @margin: 5rem;);
   }
-  
+
   &.btn-sm {
     .toggle-mixin(@font-size: .55rem; @margin: .5rem;);
   }
-  
+
   &.btn-xs {
     .toggle-mixin(@size:1rem;@margin:0;)
   }
-  
+
   &.btn-secondary {
     .toggle-color(@active-bg:@brand-secondary);
   }
@@ -1172,7 +1182,7 @@ h1 {
 }
 
 h2 {
-	font-size: 15px;	
+	font-size: 15px;
 	letter-spacing: 1px;
 	margin-top: 0;
 	font-weight: bold;

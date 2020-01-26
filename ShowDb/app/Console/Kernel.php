@@ -21,6 +21,7 @@ class Kernel extends ConsoleKernel
         Commands\SpotifyPopulate::class,
         Commands\SetlistFm::class,
         Commands\MonthlyReport::class,
+        Commands\PosterExtracter::class,
     ];
 
     /**

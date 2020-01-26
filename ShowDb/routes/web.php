@@ -76,12 +76,25 @@ Route::delete('albumitems/{item}/note/{note}', 'AlbumController@destroyItemNote'
 Route::put('albumitems/{item}/note/{note}', 'AlbumController@approveItemNote')->name('albums.itemnote.approve');
 
 // merch
+Route::get('merch/create', 'MerchController@create');
 Route::get('merch/stickers', 'MerchController@stickers');
 Route::get('merch/patches', 'MerchController@patches');
+Route::get('merch/skatedecks', 'MerchController@skateDecks');
+Route::get('merch/hats', 'MerchController@hats');
+Route::get('merch/bandanas', 'MerchController@bandanas');
+Route::get('merch/beltbuckles', 'MerchController@beltBuckles');
+Route::get('merch/posters', 'MerchController@posters');
+Route::get('merch/{unknown}', function($x) {abort(404);});
+
 Route::get('merch/{merch}/edit', 'MerchController@edit');
 Route::put('merch/{merch}', 'MerchController@update');
 Route::delete('merch/{merch}', 'MerchController@destroy');
 Route::post('merch', 'MerchController@store');
+Route::get('merch', function() {return '';});
+
+Route::get('madness', function() {
+    return view('bracket/2020');
+});
 
 // stats
 Route::get('stats', 'UserController@allstats')->name('user.index');

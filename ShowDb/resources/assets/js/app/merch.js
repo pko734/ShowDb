@@ -20,4 +20,16 @@ $(document).ready(function() {
 	});
     });
 
+	$('#year_selector').on('change', function() {
+		var val = $(this).val();
+		if (val) {
+			window.location = '/merch/posters?selector=year&year=' + val;
+		}
+	});
+	$('#artist_selector').on('change', function() {
+		var val = $(this).val();
+		if (val) {
+			window.location = '/merch/posters?selector=artist&artist_id=' + val;
+		}
+	});
 });

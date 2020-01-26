@@ -120,6 +120,14 @@
 	      </a>
 	      <ul class="dropdown-menu">
 		<li class="{{ Ekko::isActiveURL('/merch/stickers')  }}"><a href="/merch/stickers">Stickers</a></li>
+		@if(Auth::user() && Auth::user()->admin)
+		<li class="{{ Ekko::isActiveURL('/merch/patches')  }}"><a href="/merch/patches">Patches</a></li>
+		<li class="{{ Ekko::isActiveURL('/merch/skatedecks')  }}"><a href="/merch/skatedecks">Skate Decks</a></li>
+		<li class="{{ Ekko::isActiveURL('/merch/hats')  }}"><a href="/merch/hats">Hats</a></li>
+		<li class="{{ Ekko::isActiveURL('/merch/bandanas')  }}"><a href="/merch/bandanas">Bandanas</a></li>
+    <li class="{{ Ekko::isActiveURL('/merch/beltBuckles')  }}"><a href="/merch/beltbuckles">Belt Buckles</a></li>
+    <li class="{{ Ekko::isActiveURL('/merch/posters')  }}"><a href="/merch/posters">Posters</a></li>
+		@endif
 		@if(Auth::user())
 		<li class="{{ Ekko::isActiveURL('/game')  }}"><a href="/game">Games</a></li>
 		<li class="{{ Ekko::isActiveURL('/users')  }}"><a href="/users">Users</a></li>
