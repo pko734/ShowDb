@@ -76,6 +76,7 @@ Route::delete('albumitems/{item}/note/{note}', 'AlbumController@destroyItemNote'
 Route::put('albumitems/{item}/note/{note}', 'AlbumController@approveItemNote')->name('albums.itemnote.approve');
 
 // merch
+Route::get('merch', 'MerchController@index');
 Route::get('merch/create', 'MerchController@create');
 Route::get('merch/stickers', 'MerchController@stickers');
 Route::get('merch/patches', 'MerchController@patches');
@@ -84,13 +85,21 @@ Route::get('merch/hats', 'MerchController@hats');
 Route::get('merch/bandanas', 'MerchController@bandanas');
 Route::get('merch/beltbuckles', 'MerchController@beltBuckles');
 Route::get('merch/posters', 'MerchController@posters');
+Route::get('merch/vinyl', 'MerchController@vinyl');
+Route::get('merch/misc', 'MerchController@misc');
+Route::get('merch/pinsandbuttons', 'MerchController@pinsAndButtons');
+Route::get('merch/tshirts', 'MerchController@tshirts');
+Route::get('merch/jacketsandsweatshirts', 'MerchController@jacketsAndSweatshirts');
+
 Route::get('merch/{unknown}', function($x) {abort(404);});
+
+Route::post('user/merch/{merch_id}', 'UserController@storeMerch')->name('user.merch.store');
+Route::delete('user/merch/{merch_id}', 'UserController@destroyMerch')->name('user.merch.destroy');
 
 Route::get('merch/{merch}/edit', 'MerchController@edit');
 Route::put('merch/{merch}', 'MerchController@update');
 Route::delete('merch/{merch}', 'MerchController@destroy');
 Route::post('merch', 'MerchController@store');
-Route::get('merch', function() {return '';});
 
 Route::get('madness', function() {
     return view('bracket/2020');

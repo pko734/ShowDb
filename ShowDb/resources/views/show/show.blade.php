@@ -12,249 +12,234 @@
   ]); ?>
 </script>
 
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="modal-btn-si">Si</button>
-        <button type="button" class="btn btn-primary" id="modal-btn-no">No</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="container">
+  	<div class="col-md-6">
+	  	<form method="GET" action="{{ url()->current() }}/edit">
+	  	<div class="panel panel-shadow">
+	    	<div class="panel-body">
+		  	@if($displayShowDate)
+			<div class="form-group">
+				<label for="show_date">Show Date</label>
+				<div class="input-group">
+				<input disabled value="{{ $show->date }}"
+				type="text"
+				class="form-control"
+				id="show_date"
+				placeholder="YYYY-MM-DD">
+				@if($user && $show->users->contains($user->id))
+				<span class="input-group-addon">
+					<a data-toggle="tooltip"
+						data-placement="bottom"
+						class="remove-show-link"
+						data-show-id="{{ $show->id }}"
+						title="Remove from my shows" href="">
+				<i style="color: green;" class="far fa-check-square" aria-hidden="true"></i></a>
+				</span>
+				@elseif($user)
+				<span class="input-group-addon">
+				<a data-toggle="tooltip"
+				data-placement="bottom"
+				class="add-show-link"
+				data-show-id="{{ $show->id }}"
+				title="Add to my shows" href="">
+				<i style="color: green;" class="far fa-square" aria-hidden="true"></i></a>
+				</span>
+				@endif
+				<span class="input-group-addon">
+					@if($prevShow)
+					<a title="Previous Show"
+						href="/shows/{{ $prevShow->id }}"
+						data-placement="bottom"
+						data-toggle="tooltip">
+					@endif
+					<span class="glyphicon glyphicon-step-backward"></span>
+					@if($prevShow)
+					</a>
+					@endif
+				</span>
 
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-	<form method="GET" action="{{ url()->current() }}/edit">
-	  @if($displayShowDate)
-	  <div class="form-group">
-	    <label for="show_date">Show Date</label>
-	    <div class="input-group">
-	      <input disabled value="{{ $show->date }}"
-		     type="text"
-		     class="form-control"
-		     id="show_date"
-		     placeholder="YYYY-MM-DD">
-	      @if($user && $show->users->contains($user->id))
-              <span class="input-group-addon">
-		<a data-toggle="tooltip"
-		   data-placement="bottom"
-		   class="remove-show-link"
-		   data-show-id="{{ $show->id }}"
-		   title="Remove from my shows" href="">
-		  <i style="color: green;" class="far fa-check-square" aria-hidden="true"></i></a>
-              </span>
-	      @elseif($user)
-              <span class="input-group-addon">
-		<a data-toggle="tooltip"
-		   data-placement="bottom"
-		   class="add-show-link"
-		   data-show-id="{{ $show->id }}"
-		   title="Add to my shows" href="">
-		  <i style="color: green;" class="far fa-square" aria-hidden="true"></i></a>
-              </span>
-              @endif
-              <span class="input-group-addon">
-                @if($prevShow)
-                <a title="Previous Show"
-                   href="/shows/{{ $prevShow->id }}"
-                   data-placement="bottom"
-                   data-toggle="tooltip">
-                  @endif
-                  <span class="glyphicon glyphicon-step-backward"></span>
-                  @if($prevShow)
-                </a>
-                @endif
-              </span>
-              <span class="input-group-addon">
-                @if($nextShow)
-                <a title="Next Show"
-                   href="/shows/{{ $nextShow->id }}"
-                   data-placement="bottom"
-                   data-toggle="tooltip">
-                  @endif
-                  <span class="glyphicon glyphicon-step-forward"></span>
-                  @if($nextShow)
-                </a>
-                @endif
-              </span>
-	    </div>
-          </div>
-	  @else
-	  <input disabled value="{{ $show->date }}"
-		 type="hidden"
-		 class="form-control"
-		 id="show_date"
-		 placeholder="YYYY-MM-DD">
-	  @endif
-	  <div class="form-group">
-	    <label for="show_venue">Show {{ $venueDisplay }}</label>
-	    <input disabled value="{{ $show->venue }}"
-		   type="text"
-		   class="form-control"
-		   id="show_venue"
-		   placeholder="Venue - City, State">
-	  </div>
-	  <div class="form-group">
-	    <label for="show_state">State / Provence / Country</label>
-	    <input disabled value="{{ $show->state()->first() == null ? '' : $show->state()->first()->name }}"
-		   type="text"
-		   class="form-control"
-		   id="show_state"
-		   placeholder="State Name">
-	  </div>
-	  @if($show->openers)
-	  <div class="form-group">
-	    <label for="show_openers">Opener(s)</label>
-	    <input disabled value="{{ $show->openers == null ? '' : $show->openers }}"
-		   type="text"
-		   class="form-control"
-		   id="show_openers"
-		   placeholder="Openers go here">
-	  </div>
-	  @endif
-	  <div class="form-group">
-	    <label>Photos</label>
-	    <div>
-	      @if($user)
-	      <i class="clickable photo-add-btn fa fa-plus" title="Add a photo"></i>&nbsp;
-	      @endif
-	      &nbsp;
-	      @foreach($images as $img)
-	      @if($img->published ||
-	      ($user && $user->admin) ||
-	      ($user && ($user->id == $img->user_id)))
-	      <a href="{{ $img->url }}"
-	         data-gallery
-	         data-photo-id="{{ $img->id }}"
-	         title="@if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
-	         @if($user && $user->admin)
-	        data-deletable="1"
-	        @if(!$img->published)
-	        data-approvable="1"
-	        @endif
-	        @endif
-	        '
-	        >
-	        <i class="far fa-image fa-lg
-			  @if($img->published)
-			  text-primary
-			  @else
-			  text-danger
-			  @endif"
-		   aria-hidden="true"></i>
-	      </a>
-	      @endif
-	      @endforeach
-	    </div>
-	  </div>
-	  <label>
-	    Set List
-	  </label>
-	  @if($displayComplete)
-	  @if($show->incomplete_setlist)
-	  <span class="incomplete-setlist">(incomplete)</span>
-	  @else
-	  <span class="complete-setlist">(complete)</span>
-	  @endif
-	  @endif
-	  <table class="table table">
-	    <tbody>
-              @php($encore_row_missing = true)
-	      @foreach($show->setlistItems->sortBy('order') as $item)
-              @if($item->encore && $encore_row_missing)
-	      <tr class="item-row">
-		<td colspan="3"><i>Encore</i></td>
-              </tr>
-              @php($encore_row_missing = false)
-              @endif
-	      <tr class="item-row">
-		<td>{{ $item->order }}.
-		  <a href="/songs/{{ $item->song->id }}">{{ $item->song->title }}</a>
-		  @if($item->interlude_song_id)
-		  <br/><em>Interlude: {{ $item->interludeSong->title }}</em>
-		  @endif
-		</td>
-		<td>
-		  @if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
-		  <a class="video_link"
-		     target="_vids"
-		     data-gallery
-		     title="{{ $show->date }} {{ $show->venue }} {{ $item->song->title }}"
-		     href="{{ $item->notes->get(0)->note }}"
-		     type="text/html"
-		     >
-		    <i class="fab fa-youtube" aria-hidden="true"></i>
-		  </a>
-		  @endif
-		</td>
-		<td>
-		  @if($user && $user->admin)
-		  @if( count($item->notes) === 0)
-		  <small class="edit-video-btn"
-			 data-item-id="{{ $item->id }}">
-		    <span class="glyphicon glyphicon-pencil"></span>
-		  </small>
-		  @else
-		  <small class="delete-video-btn"
-			 data-item-id="{{ $item->id }}"
-			 data-video-id="{{ $item->notes->get(0)->id }}">
-		    <span class="glyphicon glyphicon-remove"></span>
-		  </small>
-		  @endif
-		  @endif
-		</td>
-	      </tr>
-	      @endforeach
-	      <tr>
-		<td colspan="3">
-		  @if(($user && $user->admin) || ($user && ($show->user_id == $user->id)))
-		  <span class="input-grp-btn">
-		    <button type="submit" class="pull-left btn btn-primary">Edit Show</button>
-		  </span>
-		  <span class="input-grp-btn">
-		    <button id="delete-show-btn"
-			    type="button"
-			    class="pull-right btn btn-danger">
-		      <span class="glyphicon glyphicon-trash"></span>
-		    </button>
-		  </span>
-		  @endif
-		</td>
-		  </tr>
-	      <tr>
-		<td colspan="3">
-	  	<span class="input-grp-btn">
+				<span class="input-group-addon">
+					@if($nextShow)
+					<a title="Next Show"
+						href="/shows/{{ $nextShow->id }}"
+						data-placement="bottom"
+						data-toggle="tooltip">
+					@endif
+					<span class="glyphicon glyphicon-step-forward"></span>
+					@if($nextShow)
+					</a>
+					@endif
+				</span>
+			</div>
+		</div>
+		@else
+		<input disabled value="{{ $show->date }}"
+			type="hidden"
+			class="form-control"
+			id="show_date"
+			placeholder="YYYY-MM-DD">
+		@endif
+
+		<div class="form-group">
+			<label for="show_venue">Show {{ $venueDisplay }}</label>
+			<input disabled value="{{ $show->venue }}"
+				type="text"
+				class="form-control"
+				id="show_venue"
+				placeholder="Venue - City, State">
+		</div>
+
+		<div class="form-group">
+			<label for="show_state">State / Provence / Country</label>
+			<input disabled value="{{ $show->state()->first() == null ? '' : $show->state()->first()->name }}"
+				type="text"
+				class="form-control"
+				id="show_state"
+				placeholder="State Name">
+		</div>
+
+		@if($show->openers)
+		<div class="form-group">
+			<label for="show_openers">Opener(s)</label>
+			<input disabled value="{{ $show->openers == null ? '' : $show->openers }}"
+			type="text"
+			class="form-control"
+			id="show_openers"
+			placeholder="Openers go here">
+		</div>
+		@endif
+
+		<div class="form-group">
+			<label>Photos</label>
+			<div>
+				@if($user)
+					<i class="clickable photo-add-btn fa fa-plus" title="Add a photo"></i>&nbsp;
+				@endif
+				&nbsp;
+				@foreach($images as $img)
+					@if($img->published ||
+						($user && $user->admin) ||
+						($user && ($user->id == $img->user_id)))
+						<a href="{{ $img->url }}"
+							data-gallery
+							data-photo-id="{{ $img->id }}"
+							title="@if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
+							@if($user && $user->admin)
+							data-deletable="1"
+							@if(!$img->published)
+							data-approvable="1"
+							@endif
+							@endif
+							'
+							>
+							<i class="far fa-image fa-lg
+									@if($img->published)
+										text-primary
+									@else
+										text-danger
+									@endif"
+									aria-hidden="true"></i>
+						</a>
+					@endif
+				@endforeach
+			</div>
+		</div>
+		@if(($user && $user->admin) || ($user && ($show->user_id == $user->id)))
+		<span class="input-grp-btn">
+			<button type="submit" class="pull-left btn btn-primary" style="margin-right:5px;">Edit Show</button>
+		</span>
+		<span class="input-grp-btn">
+			<button id="delete-show-btn"
+					type="button"
+					class="pull-right btn btn-danger">
+			<span class="glyphicon glyphicon-trash"></span>
+			</button>
+		</span>
+		<span class="input-grp-btn">
 			<button id="add-poster-btn"
-				type="button"
-				onclick="javascript:window.location='/merch/create?category=posters&show_id={{ $show->id }}'"
-				class="pull-left btn btn-primary">
+					type="button"
+					onclick="javascript:window.location='/merch/create?category=posters&show_id={{ $show->id }}'"
+					class="pull-left btn btn-primary">
 				<span class="glyphicon glyphicon-plus"></span> Add A Poster
 			</button>
-			</span>
-			</td>
-		  </tr>
+		</span>
+		@endif
+  	</div>
+</div>
 
+<div class="panel panel-shadow">
+	<div class="panel-body">
 
-	    </tbody>
-	  </table>
-	</form>
-    </div></div>
-  </div>
+		<label>Set List</label>
+		@if($displayComplete)
+			@if($show->incomplete_setlist)
+				<span class="incomplete-setlist">(incomplete)</span>
+			@else
+				<span class="complete-setlist">(complete)</span>
+			@endif
+		@endif
+
+		<table class="table table">
+			<tbody>
+				@php($encore_row_missing = true)
+				@foreach($show->setlistItems->sortBy('order') as $item)
+					@if($item->encore && $encore_row_missing)
+						<tr class="item-row">
+							<td colspan="3"><i>Encore</i></td>
+						</tr>
+						@php($encore_row_missing = false)
+					@endif
+					<tr class="item-row">
+						<td>{{ $item->order }}.
+							<a href="/songs/{{ $item->song->id }}">{{ $item->song->title }}</a>
+							@if($item->interlude_song_id)
+								<br/><em>Interlude: {{ $item->interludeSong->title }}</em>
+							@endif
+						</td>
+						<td>
+							@if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
+								<a class="video_link"
+									target="_vids"
+									data-gallery
+									title="{{ $show->date }} {{ $show->venue }} {{ $item->song->title }}"
+									href="{{ $item->notes->get(0)->note }}"
+									type="text/html">
+									<i class="fab fa-youtube" aria-hidden="true"></i>
+								</a>
+							@endif
+						</td>
+						<td>
+							@if($user && $user->admin)
+								@if( count($item->notes) === 0)
+								<small class="edit-video-btn"
+									data-item-id="{{ $item->id }}">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</small>
+								@else
+								<small class="delete-video-btn"
+									data-item-id="{{ $item->id }}"
+									data-video-id="{{ $item->notes->get(0)->id }}">
+									<span class="glyphicon glyphicon-remove"></span>
+								</small>
+								@endif
+							@endif
+						</td>
+		  			</tr>
+				@endforeach
+
+			</tbody>
+		</table>
+		</div>
+		</form>
+	</div>
+</div>
   <form id="delete-show-form" method="POST" action="{{ url()->current() }}">
     {{ method_field('DELETE') }}
     {{ csrf_field() }}
   </form>
   <div class="col-md-6">
     @if(count($show->setlistItems) > 0)
-    <div class="panel panel-default">
+    <div class="panel panel-shadow">
       <div class="panel-body">
         <div id="chart_div1" style="height: 300px;">
           <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
@@ -269,7 +254,7 @@
       </div>
     </div>
 	@endif
-	@if($user && $user->admin && $show->posters()->first())
+	@if($show->posters()->first())
 			  @foreach($show->posters as $poster)
 			  <div class="panel panel-white post panel-shadow">
 			    <div class="post post-description">

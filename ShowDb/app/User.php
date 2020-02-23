@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(\ShowDb\Badge::class);
     }
+
+    public function merch()
+    {
+        return $this->belongsToMany(\ShowDb\Merch::class);
+    }
 }

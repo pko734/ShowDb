@@ -38,12 +38,12 @@ Merch Editor
         <div class="form-group">
           <label for="merch_name">Merch Name</label>
           <input value="{{ $merch->name }}"
-		 name="name"
-		 type="text"
-		 class="form-control"
-		 id="merch_name"
-		 maxlength="25"
-		 placeholder="A Short merch Name">
+				name="name"
+				type="text"
+				class="form-control"
+				id="merch_name"
+				maxlength="40"
+				placeholder="A Short merch Name">
         </div>
         <div class="form-group">
           <label for="merch_image">Merch Image</label>

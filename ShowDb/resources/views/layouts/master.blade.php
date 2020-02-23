@@ -15,18 +15,18 @@
     <meta property="og:image"         content="{{ url('/') }}/img/avett.jpg" />
     <meta property="fb:app_id"        content="{{ env('FACEBOOK_APP_ID') }}" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#e1ebf4">
-    <meta name="theme-color" content="#e1ebf4">
-    <meta name="apple-mobile-web-app-title" content="Avett Database">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
+    <meta name="msapplication-TileColor" content="#e1ebf4"/>
+    <meta name="theme-color" content="#e1ebf4"/>
+    <meta name="apple-mobile-web-app-title" content="Avett Database"/>
 
     <!-- Latest compiled and minified CSS -->
-    <link href='{{ elixir('css/app.css') }}?update5' type='text/css' rel='stylesheet'>
-    <link rel="dns-prefetch" href="//maps.googleapis.com">
+    <link href='{{ elixir('css/app.css') }}?update5' type='text/css' rel='stylesheet'/>
+    <link rel="dns-prefetch" href="//maps.googleapis.com"/>
     <style>
 
 .blueimp-gallery > .delete {
@@ -47,7 +47,7 @@
 
     </style>
     <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAGhoaAMjIyADc3NwASEhIACYmJgAzMzMA6OjoACwsLABoaGgAxcXFAHt7ewAxMTEAnJycAMvLywAwMDAAPT09ACIiIgBKSkoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQGBgMAAAAAAAAAAAAAAA0GBgYGDwAAAAAAAAAAAAAJBgYGBgYAAAAABgYGAAAAAAYGBgYGAAAABgYGBgYAAAAABQYGBgAAAAYGBgYGDAAAAAAAAAYAAAAKBgYGBgwAAAAAAAAGAAAAAAABCAsMAAAAAAAABgAAAAAAAAAODAAAAAAAAAYAAAAAAAAADgwAAAAAAAAGAAAAAAAAAA4MAAAAAAAABgYGBgAAAAAODAAAAAAAAAYGBgYGBhAAAgwAAAAAAAAGBgYGBgYGBgYMAAAAAAAAAAYGBgYGBgYGDAAAAAAAAAAAAAcMBgYGBgwAAAAAAAAAAAAAAAAAEQYSAIf/AAAD/wAAA8cAAIODAADDgQAA+4EAAPvhAAD7+QAA+/kAAPv5AAD4eQAA+AkAAPgBAAD8AQAA/wEAAP/xAAA=" rel="icon" type="image/x-icon" />
-    <meta name="_token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{{ csrf_token() }}"/>
     @yield('head')
   </head>
   <body>
@@ -114,30 +114,43 @@
             <li class="{{ Ekko::isActiveRoute('songs.*')  }}"><a href="/songs">Songs</a></li>
             <li class="{{ Ekko::isActiveRoute('albums.*')  }}"><a href="/albums">Albums</a></li>
 
-	    <li class="dropdown">
-	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
-		<span class="caret"></span>
+      <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Merch
+		      <span class="caret"></span>
 	      </a>
 	      <ul class="dropdown-menu">
-		<li class="{{ Ekko::isActiveURL('/merch/stickers')  }}"><a href="/merch/stickers">Stickers</a></li>
-		@if(Auth::user() && Auth::user()->admin)
-		<li class="{{ Ekko::isActiveURL('/merch/patches')  }}"><a href="/merch/patches">Patches</a></li>
-		<li class="{{ Ekko::isActiveURL('/merch/skatedecks')  }}"><a href="/merch/skatedecks">Skate Decks</a></li>
-		<li class="{{ Ekko::isActiveURL('/merch/hats')  }}"><a href="/merch/hats">Hats</a></li>
-		<li class="{{ Ekko::isActiveURL('/merch/bandanas')  }}"><a href="/merch/bandanas">Bandanas</a></li>
-    <li class="{{ Ekko::isActiveURL('/merch/beltBuckles')  }}"><a href="/merch/beltbuckles">Belt Buckles</a></li>
-    <li class="{{ Ekko::isActiveURL('/merch/posters')  }}"><a href="/merch/posters">Posters</a></li>
-		@endif
-		@if(Auth::user())
-		<li class="{{ Ekko::isActiveURL('/game')  }}"><a href="/game">Games</a></li>
-		<li class="{{ Ekko::isActiveURL('/users')  }}"><a href="/users">Users</a></li>
-		@endif
+        <li class="{{ Ekko::isActiveURL('/merch')  }}"><a href="/merch">My Merch</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/bandanas')  }}"><a href="/merch/bandanas">Bandanas</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/beltBuckles')  }}"><a href="/merch/beltbuckles">Belt Buckles</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/hats')  }}"><a href="/merch/hats">Hats</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/jacketsandsweatshirts')  }}"><a href="/merch/jacketsandsweatshirts">Jackets and Sweatshirts</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/misc')  }}"><a href="/merch/misc">Misc</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/patches')  }}"><a href="/merch/patches">Patches</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/pinsandbuttons')  }}"><a href="/merch/pinsandbuttons">Pins And Buttons</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/posters')  }}"><a href="/merch/posters">Posters</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/skatedecks')  }}"><a href="/merch/skatedecks">Skate Decks</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/stickers')  }}"><a href="/merch/stickers">Stickers</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/tshirts')  }}"><a href="/merch/tshirts">Tshirts</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/vinyl')  }}"><a href="/merch/vinyl">Vinyl</a></li>
+        @if(Auth::user() && Auth::user()->admin)
+          <li><hr/></li>
+        @endif
+        </ul>
+      </li>
+      @if(Auth::user())
+	    <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+		      <span class="caret"></span>
+	      </a>
+	      <ul class="dropdown-menu">
+          <li class="{{ Ekko::isActiveURL('/game')  }}"><a href="/game">Games</a></li>
+          <li class="{{ Ekko::isActiveURL('/users')  }}"><a href="/users">Users</a></li>
+          <li class="{{ Ekko::isActiveURL('/about') }}">
+  	        <a href="/about">About</a>
+	        </li>
 	      </ul>
-	    </li>
-	    <li class="{{ Ekko::isActiveURL('/about') }}">
-	      <a href="/about">About</a>
-	    </li>
-
+      </li>
+      @endif
             @if(Auth::user() && Auth::user()->admin)
             <!-- <li class="{{ Ekko::isActiveURL('/timeline')  }}"><a href="/timeline">Timeline</a></li> -->
             @endif

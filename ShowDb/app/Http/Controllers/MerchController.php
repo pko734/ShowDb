@@ -20,6 +20,10 @@ class MerchController extends Controller
             'edit',
             'update',
             'destroy',
+            'myMerch'
+        ]);
+        $this->middleware('auth')->only([
+            'index'
         ]);
     }
 
@@ -30,13 +34,27 @@ class MerchController extends Controller
      */
     public function stickers()
     {
-        $merch = Merch::orderBy('year')->where('category', '=', 'stickers')->paginate(200);
-        return view('merch.index')
-            ->withMerch($merch)
-            ->withCategory('stickers')
-            ->withHeading('Official Band Stickers')
-            ->withSubheader('Looking for fan-made stickers?  Check out <a href="https://www.avettmail.com">avettmail.com</a>')
-            ->withUser(\Auth::user());
+        return $this->_doCategory('stickers', 'Official Band Stickers', 'Looking for fan-made stickers?  Check out <a href="https://www.avettmail.com">avettmail.com</a>');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function tshirts()
+    {
+        return $this->_doCategory('tshirts', 'Official Band Tshirts');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function jacketsAndSweatshirts()
+    {
+        return $this->_doCategory('jacketsAndSweatshirts', 'Official Band Jackets and Sweatshirts');
     }
 
     /**
@@ -46,13 +64,27 @@ class MerchController extends Controller
      */
     public function patches()
     {
-        $merch = Merch::orderBy('year')->where('category', '=', 'patches')->paginate(200);
-        return view('merch.index')
-            ->withMerch($merch)
-            ->withCategory('patches')
-            ->withHeading('Official Band Patches')
-            ->withSubheader('')
-            ->withUser(\Auth::user());
+        return $this->_doCategory('patches', 'Official Band Patches');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function misc()
+    {
+        return $this->_doCategory('misc', 'Official Band Misc Items');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pinsAndButtons()
+    {
+        return $this->_doCategory('pinsAndButtons', 'Official Band Pins and Buttons');
     }
 
     /**
@@ -62,13 +94,7 @@ class MerchController extends Controller
      */
     public function skateDecks()
     {
-        $merch = Merch::orderBy('year')->where('category', '=', 'skatedecks')->paginate(200);
-        return view('merch.index')
-            ->withMerch($merch)
-            ->withCategory('skatedecks')
-            ->withHeading('Official Skate Decks')
-            ->withSubheader('')
-            ->withUser(\Auth::user());
+        return $this->_doCategory('skateDecks', 'Official Skate Decks');
     }
 
     /**
@@ -78,13 +104,7 @@ class MerchController extends Controller
      */
     public function hats()
     {
-        $merch = Merch::orderBy('year')->where('category', '=', 'hats')->paginate(200);
-        return view('merch.index')
-            ->withMerch($merch)
-            ->withCategory('hats')
-            ->withHeading('Official Band Hats')
-            ->withSubheader('')
-            ->withUser(\Auth::user());
+        return $this->_doCategory('hats', 'Official Band Hats');
     }
 
     /**
@@ -94,13 +114,7 @@ class MerchController extends Controller
      */
     public function bandanas()
     {
-        $merch = Merch::orderBy('year')->where('category', '=', 'bandanas')->paginate(200);
-        return view('merch.index')
-            ->withMerch($merch)
-            ->withCategory('bandanas')
-            ->withHeading('Official Band Bandanas')
-            ->withSubheader('')
-            ->withUser(\Auth::user());
+        return $this->_doCategory('bandanas', 'Official Band Bandanas');
     }
 
     /**
@@ -110,43 +124,185 @@ class MerchController extends Controller
      */
     public function beltBuckles()
     {
-        $merch = Merch::orderBy('year')->where('category', '=', 'beltbuckles')->paginate(200);
+        return $this->_doCategory('beltBuckles', 'Official Belt Buckles');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $merch = Merch::whereHas('users', function($q) {
+            $q->where('users.id', '=', \Auth::user()->id);
+        })
+            ->orderBy('category')
+            ->orderBy('year')
+            ->orderBy('merches.id')
+            ->paginate(200);
+
+        $all_cats = Merch::distinct('category')
+            ->orderBy('category')
+            ->pluck('category');
+
         return view('merch.index')
+            ->withAllCategories($all_cats)
             ->withMerch($merch)
-            ->withCategory('beltbuckles')
-            ->withHeading('Official Belt Buckles')
+            ->withCategory('')
+            ->withHeading('My Avett Merch')
             ->withSubheader('')
+            ->withUser(\Auth::user());
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function vinyl()
+    {
+        return $this->_doCategory('vinyl', 'Vinyl Albums');
+    }
+
+    private function _doCategory($cat, $heading, $subheader = '')
+    {
+        $merch = Merch::orderBy('year')->where('category', '=', $cat)->paginate(200);
+        $all_cats = Merch::distinct('category')
+            ->orderBy('category')
+            ->pluck('category');
+
+        return view('merch.index')
+            ->withAllCategories($all_cats)
+            ->withMerch($merch)
+            ->withCategory($cat)
+            ->withHeading($heading)
+            ->withSubheader($subheader)
             ->withUser(\Auth::user());
     }
 
     public function posters(Request $request)
     {
+        $this->validate($request, [
+            'q' => 'string|min:3',
+            ]);
+
+
         $year = $request->year ?? '';
         $artist_id = $request->artist_id ?? '';
+        $q = $request->q ?? '';
 
         $selector = $request->selector ?? 'year';
+        $subheader = '';
+
+        if($q == '' && $selector == 'search') {
+            $selector = 'year';
+        }
+
+        if(!$request->user() && $selector == 'myshows') {
+            $selector = 'year';
+        }
+
+        if(!$request->user() && $selector == 'myposters') {
+            $selector = 'year';
+        }
 
         if($selector == 'year') {
             $merch = Merch::join('merch_show', 'merches.id', '=', 'merch_show.merch_id')
                 ->join('shows', 'merch_show.show_id', '=', 'shows.id')
-                ->with('shows')
-                ->with('artists')
                 ->where('category', '=', 'posters')
                 ->where('year', '=', $year)
                 ->orderBy('shows.date')
                 ->select('merches.*')
-                ->paginate(200);
+                ->paginate(100)
+                ->setPath('')
+                ->appends([
+                        'selector' => $request->get('selector'),
+                        'year' => $request->get('year'),
+                        ]);
+            if($year) {
+                $subheader = 'From the year ' . $year;
+            }
         }
+
         $artist = null;
         if($selector == 'artist') {
-            $merch = Merch::orderBy('artist')
+            $merch = Merch::join('merch_show', 'merches.id', '=', 'merch_show.merch_id')
+                ->join('shows', 'merch_show.show_id', '=', 'shows.id')
                 ->where('category', '=', 'posters')
                 ->whereHas('artists', function ($query) use ($artist_id) {
                     $query->where('artist_id', '=', $artist_id);
                 })
-                ->orderBy('year')
-                ->paginate(200);
+                ->orderBy('shows.date')
+                ->select('merches.*')
+                ->paginate(100)
+                ->setPath('')
+                ->appends([
+                    'selector' => $request->get('selector'),
+                    'artist' => $request->get('artist'),
+                ]);
             $artist = Artist::find($artist_id);
+            if($artist) {
+                $subheader = 'Designed by ' . $artist->name;
+            }
+        }
+
+        if($selector == 'myshows') {
+            $merch = Merch::join('merch_show', 'merches.id', '=', 'merch_show.merch_id')
+                ->join('shows', 'merch_show.show_id', '=', 'shows.id')
+                ->join('show_user', 'show_user.show_id', '=', 'shows.id')
+                ->where('show_user.user_id', '=', \Auth::user()->id)
+                ->where('category', '=', 'posters')
+                ->orderBy('shows.date')
+                ->select('merches.*')
+                ->paginate(100)
+                ->setPath('')
+                ->appends([
+                    'selector' => $request->get('selector')
+                ]);
+
+            $subheader = 'From the shows I\'ve been to';
+        }
+
+        if($selector == 'myposters') {
+            $merch = Merch::join('merch_show', 'merches.id', '=', 'merch_show.merch_id')
+                ->join('shows', 'merch_show.show_id', '=', 'shows.id')
+                ->join('merch_user', 'merch_user.merch_id', '=', 'merches.id')
+                ->where('category', '=', 'posters')
+                ->where('merch_user.user_id', '=', \Auth::user()->id)
+                ->orderBy('shows.date')
+                ->orderBy('merches.id')
+                ->select('merches.*')
+                ->paginate(100)
+                ->setPath('')
+                ->appends([
+                    'selector' => $request->get('selector')
+                ]);
+
+            $subheader = 'From my collection';
+        }
+
+        if($selector == 'search') {
+            $merch = Merch::join('merch_show', 'merches.id', '=', 'merch_show.merch_id')
+                ->join('shows', 'merch_show.show_id', '=', 'shows.id')
+                ->where('category', '=', 'posters')
+                ->where(function($query) use ($q) {
+                    $query->whereHas('artists', function ($query) use ($q) {
+                        $query->where('name', 'like', "%{$q}%");
+                    })
+                    ->orWhere('shows.venue', 'like', "%{$q}%");
+                })
+                ->orWhere('shows.venue', 'like')
+                ->orderBy('shows.date')
+                ->select('merches.*')
+                ->paginate(100)
+                ->setPath('')
+                ->appends([
+                    'selector' => $request->get('selector'),
+                    'q' => $request->get('q'),
+                ]);
+
+            $subheader = '';
         }
 
         $all_years = Merch::distinct('year')
@@ -165,7 +321,8 @@ class MerchController extends Controller
             ->withAllArtist($all_artists)
             ->withCategory('posters')
             ->withHeading('Show Posters')
-            ->withSubheader('')
+            ->withSubheader($subheader)
+            ->withQuery($q)
             ->withUser(\Auth::user());
     }
 
@@ -320,6 +477,7 @@ class MerchController extends Controller
             $merch->artists()->attach($request->artist_id);
             $merch->artist = Artist::find($request->artist_id)->name;
         }
+
         $merch->save();
 
         Session::flash('flash_message', 'Merch updated');

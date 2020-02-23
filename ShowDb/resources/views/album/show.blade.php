@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
   <div class="col-md-6">
-    <div class="panel panel-default">
+    <div class="panel panel-shadow">
       <div class="panel-body">
 	    <form method="GET" action="/albums/{{ $album->id }}/edit">
 	      <div class="form-group">

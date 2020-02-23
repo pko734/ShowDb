@@ -31,7 +31,7 @@ Album Finder
       </form>
     </div>
   </div>
-  
+
   <div class="panel-body is-table">
     <div class="is-table-col col-xs-9">
       <form action="/albums" method="POST">

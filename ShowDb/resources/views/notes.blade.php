@@ -61,7 +61,7 @@
 @endforeach
 
 @if(!isset($at_least_one))
-<tr><td><div class="panel panel-default"><div class="panel-body">No notes</div></div></td></tr>
+<tr><td><div class="panel panel-shadow"><div class="panel-body">No notes</div></div></td></tr>
 @endif
 
 <tr>

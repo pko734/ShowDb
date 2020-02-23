@@ -11,7 +11,7 @@ Avett Brothers Stats: ({{ $user->username }})
 <div class="wrap">
 
   <div class="container-fluid">
-    
+
     <div class="col-lg-7 col-md-7">
       <div class="row">
 	<div class="stats">
@@ -61,7 +61,20 @@ Avett Brothers Stats: ({{ $user->username }})
 	      Shows with incomplete setlist data<br>
 	      <a href="{{ url()->current() }}/shows?i=1">{{ count($incompleteSetlistShows) }}</a>
 	    </p>
-	    @endif
+	    <hr>
+		@endif
+		@if(\Auth::user()->id == $user->id)
+	    <p>
+	      	Number of Merch Items<br>
+		  	<a href="/merch">
+				{{ $user->merch()->wherePivot('mode', '=', 'has')->count() }}
+				collection,
+				{{ $user->merch()->wherePivot('mode', '=', 'want')->count() }}
+				wishlist
+			</a>
+		</p>
+	    <hr>
+		@endif
 
 	  </div> <!-- past shows column -->
 	  <div class="col-lg-6 col-md-6 space-above">
@@ -80,7 +93,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	       @if($img->published ||
 	           ($user && $user->admin) ||
 	           ($user && ($user->id == $img->user_id)))
-	    <a href="{{ $img->url }}" 
+	    <a href="{{ $img->url }}"
 	       data-gallery
 	       data-photo-id="{{ $img->id }}"
 	       title="{{ $img->show->date }} {{ $img->show->venue }} @if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
@@ -95,9 +108,9 @@ Avett Brothers Stats: ({{ $user->username }})
 	       <i class="far fa-image fa-lg
 			 @if($img->published)
 			 text-primary
-			 @else 
+			 @else
 			 text-danger
-			 @endif" 
+			 @endif"
 		  aria-hidden="true"></i>
 	    </a>
 	    @endif
@@ -147,16 +160,14 @@ Avett Brothers Stats: ({{ $user->username }})
 	  </ul>
           <p><br/></p>
 	</div> <!-- albums -->
-	
-      </div> <!-- row -->
+
+	  </div> <!-- row -->
+
     </div> <!-- left column -->
     <div class="col-lg-5 col-md-5">
       <div class="row">
-<!--        <div class="fb-like" data-href="https://www.facebook.com/db.nov.blue/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-        <div class="fb-share-button" data-href="{{ url()->current() }}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}&amp;src=sdkpreparse">Share</a></div>
--->
 	<div>&nbsp;</div>
-	<div class="badges">
+	<div class="badges panel-shadow">
 	  <h2>My Badges</h2>
 	  <ul>
 	    @foreach($badges as $badge)
@@ -168,7 +179,8 @@ Avett Brothers Stats: ({{ $user->username }})
 	</div><!-- badges section -->
 
 	@if(count($badges) > 0)
-	<div class="badges">
+	<br/>
+	<div class="badges panel-shadow">
 	  <h2>And I Will Travel...</h2>
 	  <ul>
 	    @foreach($badges as $badge)
@@ -181,7 +193,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	@endif
 
       </div> <!-- row -->
-      
+
       <div class="row">
 	<div class="states">
 	  <h1>Location Breakdown</h1>
@@ -241,8 +253,8 @@ Avett Brothers Stats: ({{ $user->username }})
 	</div> <!-- yearly breakdown section -->
 
       </div> <!-- row -->
-      
-      
+
+
     </div> <!-- right column -->
 
   </div> <!-- container -->
@@ -280,13 +292,13 @@ Avett Brothers Stats: ({{ $user->username }})
 	    vAxis: {
 		title: 'Number of shows',
 		titleTextStyle: {
-		    fontName: 'Lato',           
+		    fontName: 'Lato',
 		},
 		gridlines: {count: -1},
 		viewWindow:{
 		    max: Math.ceil(max/5)*5,
 		    min:0
-		}          
+		}
 	    }
 	};
 
@@ -333,13 +345,13 @@ Avett Brothers Stats: ({{ $user->username }})
 	    vAxis: {
 		title: 'Number of Unique Songs',
 		titleTextStyle: {
-		    fontName: 'Lato',        
+		    fontName: 'Lato',
 		},
 		gridlines: {count: -1},
 		viewWindow:{
 		    max: Math.ceil(max/5)*5,
 		    min:0
-		}          
+		}
 	    }
 	};
 
@@ -386,13 +398,13 @@ Avett Brothers Stats: ({{ $user->username }})
 	    vAxis: {
 		title: 'Number of Song Performances',
 		titleTextStyle: {
-		    fontName: 'Lato',        
+		    fontName: 'Lato',
 		},
 		gridlines: {count: -1},
 		viewWindow:{
 		    max: Math.ceil(max/5)*5,
 		    min:0
-		}          
+		}
 	    }
 	};
 
@@ -416,7 +428,7 @@ Avett Brothers Stats: ({{ $user->username }})
             document.getElementById('chart_div4')
         );
         var options = {
-            region: "US", 
+            region: "US",
             resolution: "provinces",
             colorAxis: {colors: ['#ccffcc', '#008800']},
 	    height: '100%',
@@ -428,7 +440,7 @@ Avett Brothers Stats: ({{ $user->username }})
 
 
   function drawChartsLocal() {
-  
+
     var data1 = JSON.parse('<?php echo json_encode($yearlyGraphData['shows']) ?>');
     var data2 = JSON.parse('<?php echo json_encode($yearlyGraphData['unique_songs']) ?>');
     var data3 = JSON.parse('<?php echo json_encode($yearlyGraphData['songs']) ?>');

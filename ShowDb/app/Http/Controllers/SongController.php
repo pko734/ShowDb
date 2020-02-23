@@ -77,8 +77,8 @@ class SongController extends Controller
 
         $songs = \Cache::get("songs-index-$q-$o-$p");
         if ($songs === null) {
-            $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'))
-                   ->withCount('notes');
+            $songs = Song::select(\DB::raw('*, (select count(*) from setlist_items si, shows s where s.id = si.show_id and (si.song_id = songs.id OR si.interlude_song_id = songs.id) and s.user_id is null) as setlist_items_count'));
+                   //->withCount('notes');
             if($q != "") {
               $songs = $songs->where('title', 'LIKE', '%'.$q.'%')
                              ->orWhere('lyrics', 'LIKE', '%'.$q.'%');

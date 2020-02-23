@@ -61,14 +61,14 @@ What's New
     @if(isset($data['photos']))
     <p><b>{{ count($data['photos']) }} new {{ Str::plural('photo', count($data['photos'])) }}</b>
       <br>
-      @foreach($data['photos'] as $photo_id)    
+      @foreach($data['photos'] as $photo_id)
       @php
       $img = \ShowDb\ShowImage::find($photo_id);
       @endphp
 	  @if($img->published ||
 	  ($user && $user->admin) ||
 	  ($user && ($user->id == $img->user_id)))
-	  <a href="{{ $img->url }}" 
+	  <a href="{{ $img->url }}"
 	     data-gallery="{{ $date }}"
 	     data-photo-id="{{ $img->id }}"
 	     title="{{ $img->show->date }} {{ $img->show->venue }} @if($img->caption) {{ $img->caption }} - @endif @if($img->photo_credit) - Photo Credit: {{ $img->photo_credit }} @endif @if(!$img->published)  - Pending approval @endif"
@@ -83,15 +83,15 @@ What's New
 	    <i class="far fa-image fa-lg
 			      @if($img->published)
 			      text-primary
-			      @else 
+			      @else
 			      text-danger
-			      @endif" 
+			      @endif"
 		   aria-hidden="true"></i></a>
 	  @endif
       @endforeach
     </p>
     @endif
-     
+
     @if(isset($data['videos']))
     <p><b>{{ count($data['videos']) }} new {{ Str::plural('video', count($data['videos'])) }}</b>
       <br>
@@ -109,11 +109,24 @@ What's New
 		 type="text/html"
 		 >
 		<i class="fab fa-youtube" aria-hidden="true"></i></a>
-	  @endif      
+	  @endif
       @endforeach
     </p>
     @endif
     <hr>
+    @if(isset($data['merch']))
+    <p><b>{{ count($data['merch']) }} new merch</b>
+      <br>
+      @foreach($data['merch'] as $merch_id)
+      @php
+      $merch = \ShowDb\Merch::find($merch_id);
+      @endphp
+      <img width="50px" src="{{ $merch->thumbnail_url }}"/>
+      @endforeach
+    </p>
+    <hr>
+    @endif
+
   @endforeach
   </div>
 

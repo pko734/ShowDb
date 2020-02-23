@@ -13,6 +13,7 @@ use ShowDb\ShowImage;
 use ShowDb\ShowNote;
 use ShowDb\Song;
 use ShowDb\User;
+use ShowDb\Merch;
 
 class WhatsNewController extends Controller
 {
@@ -99,6 +100,18 @@ class WhatsNewController extends Controller
         foreach ($videos->toArray() as $data) {
             foreach (json_decode('['.$data['data'].']') as $d) {
                 $stuff[$data['create_date']]['videos'][] = $d->id;
+            }
+        }
+
+        $merch = Merch::select(DB::raw('GROUP_CONCAT(CONCAT(\'{"id":"\', id, \'"}\')) as data'),
+                            DB::raw('Date(created_at) as create_date'))
+            ->whereDate('created_at', '>=', '2020-01-30')
+            ->groupBy(DB::raw('Date(created_at)'))
+            ->orderBy('created_at', 'DESC')->get();
+
+        foreach ($merch->toArray() as $data) {
+            foreach (json_decode('['.$data['data'].']') as $d) {
+                $stuff[$data['create_date']]['merch'][] = $d->id;
             }
         }
 

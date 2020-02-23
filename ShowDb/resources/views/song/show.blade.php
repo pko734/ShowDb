@@ -3,140 +3,158 @@
 {{ $song->title }}
 @endsection
 @section('content')
+<form method="GET" action="/songs/{{ $song->id }}/edit">
 <div class="container">
   <div class="col-md-7">
-    <div class="panel panel-default">
+
+    <div class="panel panel-shadow">
       <div class="panel-body">
-	<form method="GET" action="/songs/{{ $song->id }}/edit">
-	  <div class="form-group">
-	    <label for="song_title">Song Title</label>
-	    <input disabled
-		   value="{{ $song->title }}"
-		   name="title"
-		   type="text"
-		   class="form-control"
-		   id="song_title"
-		   placeholder="Song Title">
-	  </div>
-          @if($song->getShowCount() > 0)
-	  <div class="form-group">
-            <label for="first_play">First Time Played</label>
-            <div>
-              <a href="/shows/{{ $song->shows()->orderBy('date', 'asc')->first()->show_id }}">{{ $song->shows()->orderBy('date', 'asc')->first()->getShowDisplay() }}</a>
-            </div>
-	  </div>
-	  <div class="form-group">
+
+        <div class="form-group">
+          <label for="song_title">Song Title</label>
+          <input disabled
+                value="{{ $song->title }}"
+                name="title"
+                type="text"
+                class="form-control"
+                id="song_title"
+                placeholder="Song Title">
+        </div>
+
+        @if($song->getShowCount() > 0)
+          <div class="form-group">
+              <label for="first_play">First Time Played</label>
+              <div>
+                <a href="/shows/{{ $song->shows()->orderBy('date', 'asc')->first()->show_id }}">{{ $song->shows()->orderBy('date', 'asc')->first()->getShowDisplay() }}</a>
+              </div>
+          </div>
+          <div class="form-group">
             <label for="recent_play">Most Recent Time Played</label>
             <div>
               <a href="/shows/{{ $song->shows()->orderBy('date', 'desc')->first()->show_id }}">{{ $song->shows()->orderBy('date', 'desc')->first()->getShowDisplay() }}</a>
             </div>
-	  </div>
-          @endif
-	  <div class="form-group">
-	    <label for="times_played">Total Times Played</label>
-            <div>
-              <a href="/songs/{{ $song->id }}/plays">
-	        {{ $song->getShowCount() }}
-	      </a>
-            </div>
-	  </div>
-	  @if($user && $user->id)
-	  <div class="form-group">
-	    <label for="times_played_user">Total Times You've Seen</label>
-            <div>
-              <a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">
-	        {{ $song->getShowCountForUser($user->id) }}
-	      </a>
-            </div>
-	  </div>
-	  @endif
-          @if($song->spotify_link)
-	  <div class="form-group">
-	    <label for="spotify_link">Listen</label>
+          </div>
+        @endif
+
+        <div class="form-group">
+          <label for="times_played">Total Times Played</label>
+          <div>
+            <a href="/songs/{{ $song->id }}/plays">
+              {{ $song->getShowCount() }}
+            </a>
+          </div>
+        </div>
+
+        @if($user && $user->id)
+        <div class="form-group">
+          <label for="times_played_user">Total Times You've Seen</label>
+          <div>
+            <a href="/stats/{{ $user->username }}/songs/{{ $song->id }}/plays">
+              {{ $song->getShowCountForUser($user->id) }}
+            </a>
+          </div>
+        </div>
+        @endif
+
+        @if($song->spotify_link)
+      	  <div class="form-group">
+	          <label for="spotify_link">Listen</label>
             <div>
               {!! $song->spotify_link !!}
             </div>
-	  </div>
-          @endif
-          <div>
-            <div id="chart_div1">
-              <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
-                <div style="height: 100%; opacity: 0.5; padding: 100px">
-                  <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
-                  <p>
-                    <i>Don't Push Me Out</i>
-                  </p>
-                </div>
+	        </div>
+        @endif
+        @if($user && $user->admin)
+          <button type="submit" class="pull-left btn btn-primary">Edit Song</button>&nbsp;
+          <button id="delete-song-btn" type="button" class="pull-right btn btn-danger">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        @endif
+      </div>
+    </div>
+
+    <div class="panel panel-shadow">
+      <div class="panel-body">
+        <div>
+          <div id="chart_div1">
+            <div style="height: 100%; width: 100%; text-align: center; text-align: center;">
+              <div style="height: 100%; opacity: 0.5; padding: 100px">
+                <p><i class="fas fa-spinner fa-4x faa-spin animated"></i></p>
+                <p>
+                  <i>Don't Push Me Out</i>
+                </p>
               </div>
             </div>
           </div>
-    <p>
-      @php
-      $year = '';
-      @endphp
-      @foreach($videos as $note)
-
-          @if(substr($note->setlistItem->show->date, 0, 4) != $year)
-          </p><p>{{substr($note->setlistItem->show->date, 0, 4)}}<br/>
-	    @php
-	    $year = substr($note->setlistItem->show->date, 0, 4);
-	    @endphp
-          @endif
-	  @if($note->published || ($user && $user->id == $note->creator->id))
-	  <a class="video_link"
-		 target="_vids"
-		 data-gallery="vid-song"
-		 title="{{ $note->setlistItem->show->date }} {{ $note->setlistItem->show->venue }} - {{ $note->setlistItem->song->title }}"
-		 href="{{ $note->note }}"
-		 type="text/html"
-		 >
-		<i class="fab fa-youtube" aria-hidden="true"></i></a>
-	  @endif
-      @endforeach
-    </p>
-
-	  @if($user && $user->admin)
-	  <button type="submit" class="pull-left btn btn-primary">Edit Song</button>&nbsp;
-	  <button id="delete-song-btn" type="button" class="pull-right btn btn-danger">
-	    <span class="glyphicon glyphicon-trash"></span>
-	  </button>
-	  @endif
-	</form>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-shadow">
+      <div class="panel-body">
+        <p>
+          @php
+          $year = '';
+          @endphp
+          @foreach($videos as $note)
+            @if(substr($note->setlistItem->show->date, 0, 4) != $year)
+              </p>
+              <p>{{substr($note->setlistItem->show->date, 0, 4)}}<br/>
+              @php
+              $year = substr($note->setlistItem->show->date, 0, 4);
+              @endphp
+            @endif
+            @if($note->published || ($user && $user->id == $note->creator->id))
+              <a class="video_link"
+                  target="_vids"
+                  data-gallery="vid-song"
+                  title="{{ $note->setlistItem->show->date }} {{ $note->setlistItem->show->venue }} - {{ $note->setlistItem->song->title }}"
+                  href="{{ $note->note }}"
+                  type="text/html">
+              <i class="fab fa-youtube" aria-hidden="true"></i></a>
+            @endif
+          @endforeach
+        </p>
       </div>
     </div>
   </div>
+  </form>
 
   <div class="col-md-5">
-  @if($song->lyrics)
+    @if($song->lyrics)
       <div class="panel panel-white post panel-shadow">
           <div class="panel-body">
-    	      <h2>Lyrics</h2>
-	            <p style="white-space: pre-wrap;"><em>{{ $song->lyrics }}</em></p>
+            <h2>Lyrics</h2>
+              <p style="white-space: pre-wrap;"><em>{{ $song->lyrics }}</em></p>
           </div>
       </div>
-  @endif
-      <div class="form-group">
-        <form id="song-note-form" method="POST" action="/songs/{{ $song->id }}/notes">
-	        {{ csrf_field() }}
-	        <table id="notetable" class="table">
-            <tbody>
-              @include('notes', ['notes' => $song->notes, 'type' => 'song', 'add_tooltip' => 'Why is this song special to you?'])
-            </tbody>
-        	</table>
+    @endif
+
+    <div class="form-group">
+      <form id="song-note-form" method="POST" action="/songs/{{ $song->id }}/notes">
+        {{ csrf_field() }}
+        <table id="notetable" class="table">
+          <tbody>
+            @include('notes', ['notes' => $song->notes, 'type' => 'song', 'add_tooltip' => 'Why is this song special to you?'])
+          </tbody>
+      	</table>
       </form>
+
       <form id="delete-song-form" method="POST" action="/songs/{{ $song->id }}">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
       </form>
+
       <form id="edit-song-note-form" method="POST" action="/songs/{{ $song->id }}/notes/">
         {{ method_field('PUT') }}
         {{ csrf_field() }}
         <input type="hidden" name="note" value="">
       </form>
+
       <form id="delete-song-note-form" method="POST" action="/songs/{{ $song->id }}/notes/">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
       </form>
+
     </div>
   </div>
 

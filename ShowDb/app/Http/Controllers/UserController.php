@@ -39,6 +39,28 @@ class UserController extends Controller
         return Redirect::back();
     }
 
+    public function storeMerch($merch_id, Request $request)
+    {
+        // only one mode per user/merch
+        if($request->user()->merch()->wherePivot('mode', '!=', $request->mode)->exists()) {
+            $request->user()->merch()->where('mode', '!=', $request->mode)->detach($merch_id);
+        }
+
+        // only attach if not already attached
+        if(!$request->user()->merch()->wherePivot('mode', '=', $request->mode)->where('merch_id', '=', $merch_id)->exists()) {
+            $request->user()->merch()->attach([$merch_id], ['mode' => $request->mode]);
+        }
+
+        return '1';
+    }
+
+    public function destroyMerch($merch_id, Request $request)
+    {
+        $request->user()->merch()->where('mode', '=', $request->mode)->detach($merch_id);
+
+        return '1';
+    }
+
     private function _getMySongs($user)
     {
         return DB::select(DB::raw(
@@ -480,7 +502,7 @@ class UserController extends Controller
                  WHERE sn.user_id = {$user->id}"
         ));
         $note_count2 = DB::select(DB::raw(
-            "SELECT COUNT(*) as cnt 
+            "SELECT COUNT(*) as cnt
                  FROM song_notes sn
                  WHERE sn.user_id = {$user->id}"
         ));
