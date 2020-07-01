@@ -43,7 +43,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	    <hr>
 	    <p>
 	      Unique Songs You've Seen<br>
-	      <a href="{{ url()->current() }}/songs">{{ count($songs) }}</a>
+	      <a href="{{ url()->current() }}/songs">{{ count($songs) }}</a> / {{ count($allSongs) }} ({{ round((count($songs) / count($allSongs)) * 100, 3) }}%)
 	    </p>
 	    <hr>
 	    <p>
@@ -51,8 +51,7 @@ Avett Brothers Stats: ({{ $user->username }})
 	      {{ $totalSongs }}
 	    </p>
 	    <hr>
-	    <p>
-	      Number of Covers You've Seen<br>
+	    <p>Total Number of Covers You've Seen<br>
 	      <a href="{{ url()->current() }}/songs?q=covers">{{ $covers }}</a>
 	    </p>
 	    <hr>

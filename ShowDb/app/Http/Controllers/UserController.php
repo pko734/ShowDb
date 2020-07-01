@@ -467,6 +467,7 @@ class UserController extends Controller
             ->withAlbumInfo($album_info)
             ->withAlbums($albums)
             ->withTotalSongs($total_songs)
+            ->withAllSongs($this->_getAllSongs())
             ->withFirstShow($first_show)
             ->withLastShow($last_show)
             ->withNextShow($next_show)
