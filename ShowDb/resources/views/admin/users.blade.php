@@ -27,4 +27,8 @@ Admin
 </div>
 </div>
 
+<form method="POST" id="user-toggle-donor-form" action="">
+  {{ csrf_field() }}
+</form>
+
 @endsection

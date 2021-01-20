@@ -86,6 +86,7 @@ Route::get('merch/bandanas', 'MerchController@bandanas');
 Route::get('merch/beltbuckles', 'MerchController@beltBuckles');
 Route::get('merch/posters', 'MerchController@posters');
 Route::get('merch/vinyl', 'MerchController@vinyl');
+Route::get('merch/cds', 'MerchController@cds');
 Route::get('merch/misc', 'MerchController@misc');
 Route::get('merch/pinsandbuttons', 'MerchController@pinsAndButtons');
 Route::get('merch/tshirts', 'MerchController@tshirts');
@@ -123,6 +124,7 @@ Route::get('users', 'UsersController@index')->name('users.index');
 Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/audit', 'AdminController@audit')->name('admin.audit');
 Route::get('admin/users', 'AdminController@users')->name('admin.users');
+Route::post('admin/users/{user_id}/toggle-donor', 'AdminController@toggleDonor')->name('admin.toggleDonor');
 
 // trivia admin
 Route::resource('admin/trivia', 'AdminTriviaController');

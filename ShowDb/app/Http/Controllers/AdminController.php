@@ -71,10 +71,25 @@ class AdminController extends Controller
             ->withAudits($audit);
     }
 
+    public function toggleDonor($user_id)
+    {
+        $user = User::find($user_id);
+        $user->donor = (string)(int)!$user->donor;
+        $user->save();
+        return 1;
+    }
+
     public function users(Request $request)
     {
-        $users = User::orderBy('id', 'desc')->paginate(100);
-
+        $q = $request->q;
+        $users = User::orderBy('id', 'desc');
+        if($q) {
+            $users = $users->where(function($search) use ($q) {
+                $search->where('name', 'LIKE', "%{$q}%")
+                       ->orWhere('email', 'LIKE', "%{$q}%");
+            });
+        }
+        $users = $users->paginate(100);
         if ($request->ajax()) {
             $view = view('admin/userdata')
                 ->withUsers($users)->render();

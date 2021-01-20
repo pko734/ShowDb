@@ -165,9 +165,14 @@ class MerchController extends Controller
         return $this->_doCategory('vinyl', 'Vinyl Albums');
     }
 
+    public function cds()
+    {
+        return $this->_doCategory('cds', 'CDs');
+    }
+
     private function _doCategory($cat, $heading, $subheader = '')
     {
-        $merch = Merch::orderBy('year')->where('category', '=', $cat)->paginate(200);
+        $merch = Merch::orderBy('year')->where('category', '=', $cat)->paginate(50);
         $all_cats = Merch::distinct('category')
             ->orderBy('category')
             ->pluck('category');
@@ -465,6 +470,7 @@ class MerchController extends Controller
      */
     public function update(Request $request, Merch $merch)
     {
+        $merch->year = (int)$request->year;
         $merch->name = $request->name;
         $merch->dimensions = $request->dimensions;
         $merch->description = $request->description;

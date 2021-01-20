@@ -29,13 +29,13 @@ class ShowController extends AbstractShowController
             'updateNote',
             'storeItemNote',
             'updateItemNote',
-        'deleteImagePost',
-        'approveImage',
+            'deleteImagePost',
+            'approveImage',
         ]);
         $this->middleware('auth')->only([
             'storeNote',
             'destroyNote',
-        'uploadImagePost',
+            'uploadImagePost',
         ]);
     }
 

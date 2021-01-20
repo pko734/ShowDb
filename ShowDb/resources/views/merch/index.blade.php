@@ -3,7 +3,6 @@
 {{ $heading }}
 @endsection
 @section('content')
-
 <div class="panel panel-default container">
 	<div class="panel-heading row">
     	<div class="col-lg-6 col-md-6">
@@ -124,27 +123,27 @@
 											On my wishlist
 										</i>
 									</a>
+									@if($user && $user->admin && $category != '')
+									<div class="caption">
+										<span class="input-group-btn" style="vertical-align:top;">
+											<a href="/merch/{{ $m->id }}/edit">
+												<button type="button" class="edit-merch-btn btn btn-default">
+													<span class="glyphicon glyphicon-edit"></span>
+												</button>
+											</a>
+											<button type="button"
+													class="delete-merch-btn btn pull-right btn-danger"
+													data-merch-id="{{ $m->id }}"
+													data-merch-category="{{ $m->category}}">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+										</span>
+									</div>
+									@endif
 								</div>
 							</span>
 							@endif
 						</div>
-						@if($user && $user->admin && $category != '')
-						<div class="caption">
-							<span class="input-group-btn" style="vertical-align:top;">
-								<a href="/merch/{{ $m->id }}/edit">
-									<button type="button" class="edit-merch-btn btn btn-default">
-										<span class="glyphicon glyphicon-edit"></span>
-									</button>
-								</a>
-								<button type="button"
-										class="delete-merch-btn btn pull-right btn-danger"
-										data-merch-id="{{ $m->id }}"
-										data-merch-category="{{ $m->category}}">
-									<span class="glyphicon glyphicon-trash"></span>
-								</button>
-							</span>
-						</div>
-						@endif
 					</div>
 				</div>
 				@empty

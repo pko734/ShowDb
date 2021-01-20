@@ -1,5 +1,6 @@
 	@foreach($users as $user)
-	<tr>
+	<tr class="donor-toggle @if( $user->donor) donor-row @endif"
+      data-user-id="{{ $user->id }}">
           <td>{{ $user->id }}</td>
           <td><img width="50px" src="{{ $user->avatar}}"></td>
           <td>

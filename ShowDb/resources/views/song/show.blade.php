@@ -106,7 +106,7 @@
             @if($note->published || ($user && $user->id == $note->creator->id))
               <a class="video_link"
                   target="_vids"
-                  data-gallery="vid-song"
+
                   title="{{ $note->setlistItem->show->date }} {{ $note->setlistItem->show->venue }} - {{ $note->setlistItem->song->title }}"
                   href="{{ $note->note }}"
                   type="text/html">

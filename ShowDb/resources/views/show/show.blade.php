@@ -200,7 +200,7 @@
 							@if( (count($item->notes) > 0) && ($item->notes->get(0)->published || ($user && $user->id == $item->notes->get(0)->creator->id)))
 								<a class="video_link"
 									target="_vids"
-									data-gallery
+
 									title="{{ $show->date }} {{ $show->venue }} {{ $item->song->title }}"
 									href="{{ $item->notes->get(0)->note }}"
 									type="text/html">

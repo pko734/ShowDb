@@ -23,7 +23,7 @@
 }
 
 .claim-mine, .claim-want, .merch-claimer {
-  font-size: large;
+  font-size: medium;
 }
 
 .claim-mine {
@@ -120,7 +120,13 @@ body {
   }
 }
 
+.table-striped>tbody>tr.donor-row:nth-of-type(odd) {
+  background-color: #acf9b4
+}
 
+.table-striped>tbody>tr.donor-row:nth-of-type(even) {
+  background-color: #d8ffdc
+}
 
 // Mixin for Switch Colors
 // Variables: @color, @bg, @active-bg

@@ -90,7 +90,7 @@ $(document).ready(function() {
 	if(!$(e.target).hasClass('noteeditbutton') && !$(e.target).hasClass('glyphicon-edit')) {
 	    return;
 	}
-	console.log('asdf');
+
 	var content = $($(this).children('.note-content')[0]);
 	content.addClass('hide');
 
@@ -203,6 +203,23 @@ $(document).ready(function() {
 
 	$('#video-note-approve-form').submit();
 
-    });
+	});
+
+	$('.donor-toggle').on('dblclick', function(e) {
+		e.preventDefault();
+		var that = this;
+		$.ajax({
+			url: '/admin/users/' + $(this).attr('data-user-id') + '/toggle-donor',
+			method: 'post',
+			data: $('#user-toggle-donor-form').serialize(),
+			success: function(r) {
+				if($(that).hasClass('donor-row')) {
+					$(that).removeClass('donor-row');
+				} else {
+					$(that).addClass('donor-row');
+				}
+			}
+		});
+	});
 
 });

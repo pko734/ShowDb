@@ -42,7 +42,7 @@ Merch Editor
 				type="text"
 				class="form-control"
 				id="merch_name"
-				maxlength="40"
+				maxlength="60"
 				placeholder="A Short merch Name">
         </div>
         <div class="form-group">

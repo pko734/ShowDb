@@ -122,6 +122,7 @@
         <li class="{{ Ekko::isActiveURL('/merch')  }}"><a href="/merch">My Merch</a></li>
         <li class="{{ Ekko::isActiveURL('/merch/bandanas')  }}"><a href="/merch/bandanas">Bandanas</a></li>
         <li class="{{ Ekko::isActiveURL('/merch/beltBuckles')  }}"><a href="/merch/beltbuckles">Belt Buckles</a></li>
+        <li class="{{ Ekko::isActiveURL('/merch/cds')  }}"><a href="/merch/cds">CDs</a></li>
         <li class="{{ Ekko::isActiveURL('/merch/hats')  }}"><a href="/merch/hats">Hats</a></li>
         <li class="{{ Ekko::isActiveURL('/merch/jacketsandsweatshirts')  }}"><a href="/merch/jacketsandsweatshirts">Jackets and Sweatshirts</a></li>
         <li class="{{ Ekko::isActiveURL('/merch/misc')  }}"><a href="/merch/misc">Misc</a></li>
